@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "semistandard | snazzy",
     "test": "mocha --recursive test",
-    "doc": "esdoc -c esdoc.json"
+    "docs": "esdoc -c esdoc.json"
   },
   "repository": {
     "type": "git",
@@ -35,6 +35,7 @@
   "semistandard": {
     "ignore": [
       "test",
+      "docs",
       "try_many_embeds.js"
     ]
   }
