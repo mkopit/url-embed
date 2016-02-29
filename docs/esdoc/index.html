@@ -54,7 +54,161 @@
 </nav>
 
 <div class="content" data-ice="content"><div data-ice="index" class="github-markdown"><h1 id="url-embed">url-embed</h1>
+<p>A flexible class-based system that supports converting URLs into embed code. The module provides support for many oembed providers, as well as support for creating your own custom providers.</p>
 <p><a href="http://mkopit.github.io/url-embed/docs/esdoc/index.html">API Documentation Lives Here</a></p>
+<h2 id="the-basics">The Basics</h2>
+<ul>
+<li><a href="http://mkopit.github.io/url-embed/docs/esdoc/class/lib/classes/Embed.js~Embed.html">EmbedEngine class</a>: given one or more urls will resolve them to corresponding markup.</li>
+<li><a href="http://mkopit.github.io/url-embed/docs/esdoc/class/lib/classes/URLEmbedProvider.js~URLEmbedProvider.html">URLEmbedProvider interface</a>: defines the basic methods that will get invoked by EmbedEngine</li>
+<li><a href="http://mkopit.github.io/url-embed/docs/esdoc/class/lib/classes/OEmbedProvider.js~OEmbedProvider.html">OEmbedProvider interface</a>: extends URLEmbedProvider and implements support for interacting with an oembed provider&apos;s API</li>
+<li><a href="http://mkopit.github.io/url-embed/docs/esdoc/class/lib/classes/Embed.js~Embed.html">Embed class</a>: the primary object passed through callbacks<ul>
+<li>error: contains a reference to an Error object if an error occurred</li>
+<li>embedOptions: options object the Embed was constructed from<ul>
+<li>embedURL: the URL we&apos;re embedding</li>
+</ul>
+</li>
+<li>data: the data object from the resolved embed<ul>
+<li>html: the resulting embed markup.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>&#xA0;</p>
+<p>Example: Resolving a single embed</p>
+<pre><code class="lang-javascript"><code class="source-code prettyprint">let urlEmbed = require(&apos;url-embed&apos;);
+let engine = new urlEmbed.EmbedEngine({
+  timeoutMs: 2000,
+  referrer: &apos;www.example.com&apos;
+});
+
+engine.registerDefaultProviders();
+
+// Get single embed
+engine.getEmbed({ embedURL: &apos;https://www.youtube.com/watch?v=dQw4w9WgXcQ&apos;}, function(embed) {
+  if (embed.error) {
+    console.log(&apos;Something went wrong.&apos;);
+    console.log(err.stack);
+  }
+
+  // Embed markup
+  console.log(embed.data.html);
+});</code>
+</code></pre>
+<p>&#xA0;</p>
+<p>Example: resolving muliple embeds in parallel</p>
+<pre><code class="lang-javascript"><code class="source-code prettyprint">let urlEmbed = require(&apos;url-embed&apos;);
+let engine = new urlEmbed.EmbedEngine({
+  timeoutMs: 2000,
+  referrer: &apos;www.example.com&apos;
+});
+
+engine.registerDefaultProviders();
+
+let embedOptionArray = [
+  {embedURL: &apos;https://www.instagram.com/p/BCA0qkon9B1/?taken-by=mtv&apos;},
+  {embedURL: &apos;https://soundcloud.com/newyorker/listen-to-craig-raine-read-bitch&apos;},
+  {embedURL: &apos;https://www.youtube.com/watch?v=2LO4QL_i8is&apos;},
+  {embedURL: &apos;https://vimeo.com/156045670&apos;},
+  {embedURL: &apos;http://soundcloud.com/forss/flickermood&apos;},
+  {embedURL: &apos;https://www.flickr.com/photos/sas999/25092061391/in/explore-2016-02-22/&apos;},
+  {embedURL: &apos;http://www.dailymotion.com/video/x3lwpy7_the-worst-car-in-the-history-of-the-world-top-gear-bbc_auto&apos;},
+  {embedURL: &apos;https://www.facebook.com/facebook/videos/10153231379946729/&apos;},
+  {embedURL: &apos;https://www.facebook.com/MTV/posts/10153553500401701&apos;},
+  {embedURL: &apos;https://twitter.com/simpscreens/status/702025133951680512&apos;},
+  {embedURL: &apos;http://imgur.com/gallery/KSMB2tI&apos;},
+  {embedURL: &apos;https://play.spotify.com/track/0ivpUENLpheuPoa6VuY1ax&apos;},
+  {embedURL: &apos;http://mtv.tumblr.com/post/139813756155/kanye-west-taking-a-kanye-rest-so-he-can-do-his&apos;},
+  {embedURL: &apos;https://videopress.com/v/kUJmAcSf&apos;},
+  {embedURL: &apos;http://www.example.com/foo&apos;}
+];
+
+// Get multiple embeds
+engine.getMultipleEmbeds(embedOptionArray, function (error, results) {
+  if (error) {
+    // dang it
+  } else {
+    for (let i = 0; i &lt; results.length; i++) {
+      embed = results[i];
+      if (embed.error) {
+        // something failed during resolving this embed
+      } else {
+        console.log(embed.data.html);
+      }
+    }
+  }
+}</code>
+</code></pre>
+<h2 id="creating-your-own-url-embed-providers">Creating Your Own URL Embed Providers</h2>
+<p>You can extend URLEmbedProvider and OEmbedProvider to make your own embed providers.</p>
+<p>Example: oembed provider</p>
+<pre><code class="lang-javascript"><code class="source-code prettyprint">&apos;use strict&apos;;
+
+let OEmbedProvider = (require(&apos;url-embed&apos;)).OEmbedProvider;
+
+class SoundCloud extends OEmbedProvider {}
+
+// Name of provider
+SoundCloud.prototype.name = &apos;soundcloud&apos;;
+
+// oembed API URL
+SoundCloud.prototype.providerURL = &apos;http://soundcloud.com/oembed&apos;;
+
+// List of RegExp patterns to match provider urls
+SoundCloud.prototype.urlPatterns = [&apos;^https?://(www\.)?soundcloud\.com/.*&apos;];
+
+// Format indicates the response type of the oembed API
+SoundCloud.prototype.format = &apos;json&apos;;
+
+module.exports = SoundCloud;</code>
+</code></pre>
+<p>&#xA0;</p>
+<p>Example: custom provider</p>
+<pre><code class="lang-javascript"><code class="source-code prettyprint">&apos;use strict&apos;;
+
+let URLEmbedProvider = (require(&apos;url-embed&apos;)).URLEmbedProvider;
+
+class CustomProvider extends URLEmbedProvider {
+
+  /**
+    @override
+  */
+  getEmbed (embed, callback) {
+    let embedURL = embed.options.embedURL;
+
+    try {
+      embed.data.html = &apos;&lt;iframe src=&quot;http://www.example.com/embed/video/12345&quot; width=&quot;512&quot; height=&quot;288&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;&apos;;
+      this.filterData(embed.data);
+      callback(embed);
+    } catch (error) {
+      embed.data = {
+        html: this.errorMarkup(embedURL)
+      };
+      embed.error = error;
+      callback(embed);
+    }
+  }
+}
+
+CustomProvider.prototype.name = &apos;custom&apos;;
+CustomProvider.prototype.urlPatterns = [&apos;^https?://www\.example\.com/video/.*&apos;];
+
+module.exports = CustomProvider;</code>
+</code></pre>
+<p>&#xA0;</p>
+<p>Example: registering a provider with the EmbedEngine</p>
+<pre><code class="lang-javascript"><code class="source-code prettyprint">&apos;use strict&apos;
+
+let urlEmbed = require(&apos;url-embed&apos;);
+let CustomProvider = require(&apos;./custom_provider&apos;);
+
+let engine = new urlEmbed.EmbedEngine({
+  timeoutMs: 2000,
+  referrer: &apos;www.example.com&apos;
+});
+
+engine.registerProvider(new CustomProvider());</code>
+</code></pre>
 </div>
 </div>
 

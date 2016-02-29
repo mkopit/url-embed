@@ -3,9 +3,6 @@
 /** @ignore */
 let URLEmbedProvider = require('../../../../lib/classes/URLEmbedProvider.js');
 
-/**
-  Custom embed provider for older MTV video page urls
-*/
 class CustomProvider extends URLEmbedProvider {
 
   /**
