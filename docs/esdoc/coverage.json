@@ -19,7 +19,7 @@
       "expectCount": 13,
       "actualCount": 12,
       "undocumentLines": [
-        168
+        171
       ]
     },
     "lib/classes/default_providers/facebook_posts.js": {

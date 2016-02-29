@@ -62,12 +62,12 @@
 <li><a href="http://mkopit.github.io/url-embed/docs/esdoc/class/lib/classes/URLEmbedProvider.js~URLEmbedProvider.html">URLEmbedProvider interface</a>: defines the basic methods that will get invoked by EmbedEngine</li>
 <li><a href="http://mkopit.github.io/url-embed/docs/esdoc/class/lib/classes/OEmbedProvider.js~OEmbedProvider.html">OEmbedProvider interface</a>: extends URLEmbedProvider and implements support for interacting with an oembed provider&apos;s API</li>
 <li><a href="http://mkopit.github.io/url-embed/docs/esdoc/class/lib/classes/Embed.js~Embed.html">Embed class</a>: the primary object passed through callbacks<ul>
-<li>error: contains a reference to an Error object if an error occurred</li>
-<li>embedOptions: options object the Embed was constructed from<ul>
+<li><a href="http://mkopit.github.io/url-embed/docs/esdoc/class/lib/classes/Embed.js~Embed.html#instance-member-error">error</a>: contains a reference to an Error object if an error occurred</li>
+<li><a href="http://mkopit.github.io/url-embed/docs/esdoc/class/lib/classes/Embed.js~Embed.html#instance-member-options">embedOptions</a>: options object the Embed was constructed from<ul>
 <li>embedURL: the URL we&apos;re embedding</li>
 </ul>
 </li>
-<li>data: the data object from the resolved embed<ul>
+<li><a href="http://mkopit.github.io/url-embed/docs/esdoc/class/lib/classes/Embed.js~Embed.html#instance-member-data">data</a>: the data object from the resolved embed<ul>
 <li>html: the resulting embed markup.</li>
 </ul>
 </li>
@@ -76,8 +76,9 @@
 </ul>
 <p>&#xA0;</p>
 <p>Example: Resolving a single embed</p>
-<pre><code class="lang-javascript"><code class="source-code prettyprint">let urlEmbed = require(&apos;url-embed&apos;);
-let engine = new urlEmbed.EmbedEngine({
+<pre><code class="lang-javascript"><code class="source-code prettyprint">&apos;use strict&apos;;
+
+let engine = new require(&apos;url-embed&apos;).EmbedEngine({
   timeoutMs: 2000,
   referrer: &apos;www.example.com&apos;
 });
@@ -85,7 +86,7 @@ let engine = new urlEmbed.EmbedEngine({
 engine.registerDefaultProviders();
 
 // Get single embed
-engine.getEmbed({ embedURL: &apos;https://www.youtube.com/watch?v=dQw4w9WgXcQ&apos;}, function(embed) {
+engine.getEmbed({embedURL: &apos;https://www.youtube.com/watch?v=dQw4w9WgXcQ&apos;}, function(embed) {
   if (embed.error) {
     console.log(&apos;Something went wrong.&apos;);
     console.log(err.stack);
@@ -97,8 +98,9 @@ engine.getEmbed({ embedURL: &apos;https://www.youtube.com/watch?v=dQw4w9WgXcQ&ap
 </code></pre>
 <p>&#xA0;</p>
 <p>Example: resolving muliple embeds in parallel</p>
-<pre><code class="lang-javascript"><code class="source-code prettyprint">let urlEmbed = require(&apos;url-embed&apos;);
-let engine = new urlEmbed.EmbedEngine({
+<pre><code class="lang-javascript"><code class="source-code prettyprint">&apos;use strict&apos;;
+
+let engine = new require(&apos;url-embed&apos;).EmbedEngine({
   timeoutMs: 2000,
   referrer: &apos;www.example.com&apos;
 });
@@ -170,8 +172,8 @@ let URLEmbedProvider = (require(&apos;url-embed&apos;)).URLEmbedProvider;
 
 class CustomProvider extends URLEmbedProvider {
 
-  /**
-    @override
+  /*
+  * @override
   */
   getEmbed (embed, callback) {
     let embedURL = embed.options.embedURL;
@@ -188,6 +190,14 @@ class CustomProvider extends URLEmbedProvider {
       callback(embed);
     }
   }
+
+  /*
+  * Optional custom override of function that generates error markup.
+  * @override
+  */
+  errorMarkup (embed, error, errorMessage) {
+    return &apos;Oops. Something went wrong for: &lt;a href=&quot;&apos; + embed.options.embedURL + &apos;&quot;&gt;&apos; + embed.options.embedURL + &apos;&lt;/a&gt;&apos;;
+  }
 }
 
 CustomProvider.prototype.name = &apos;custom&apos;;
@@ -199,10 +209,9 @@ module.exports = CustomProvider;</code>
 <p>Example: registering a provider with the EmbedEngine</p>
 <pre><code class="lang-javascript"><code class="source-code prettyprint">&apos;use strict&apos;
 
-let urlEmbed = require(&apos;url-embed&apos;);
 let CustomProvider = require(&apos;./custom_provider&apos;);
 
-let engine = new urlEmbed.EmbedEngine({
+let engine = new require(&apos;url-embed&apos;).EmbedEngine({
   timeoutMs: 2000,
   referrer: &apos;www.example.com&apos;
 });

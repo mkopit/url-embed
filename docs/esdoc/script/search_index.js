@@ -500,7 +500,7 @@ window.esdocSearchIndex = [
   [
     "",
     "test-file/test/lib/classes/EmbedEngine.js.html#lineNumber61",
-    "EmbedEngine EmbedEngine#getEmbed should call EmbedEngine.errorMarkup for an url without a provider",
+    "EmbedEngine EmbedEngine#getEmbed should call EmbedEngine.errorMarkupNoMatchingProvider for an url without a provider",
     "test"
   ],
   [
@@ -822,9 +822,9 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
-    "lib/classes/embedengine.js~embedengine#errormarkup",
-    "class/lib/classes/EmbedEngine.js~EmbedEngine.html#instance-method-errorMarkup",
-    "lib/classes/EmbedEngine.js~EmbedEngine#errorMarkup",
+    "lib/classes/embedengine.js~embedengine#errormarkupnomatchingprovider",
+    "class/lib/classes/EmbedEngine.js~EmbedEngine.html#instance-method-errorMarkupNoMatchingProvider",
+    "lib/classes/EmbedEngine.js~EmbedEngine#errorMarkupNoMatchingProvider",
     "method"
   ],
   [

@@ -117,6 +117,9 @@ class EmbedEngine {
 
   /**
   * Registers a provider instance.
+  *
+  * __Highlander Rule__: this provider will replace an already registered provider if they have the same name property.
+  *
   * @param {URLProvider} provider - instance of &lt;code&gt;URLProvider&lt;/code&gt; or &lt;code&gt;OEmbedProvider&lt;/code&gt;
   */
   registerProvider (provider) {
@@ -209,7 +212,7 @@ class EmbedEngine {
     if (!providerFound) {
       embed.error = new Error(&apos;Unknown embed provider for url: &apos; + embedURL);
       embed.data = {
-        html: this.errorMarkup(embed)
+        html: this.errorMarkupNoMatchingProvider(embed)
       };
       embed.markFinished();
       callback(embed);
@@ -235,13 +238,13 @@ class EmbedEngine {
   }
 
   /**
-  * Returns error markup if an error occurs during embed resolution
+  * Returns error markup if there was no provider that matched the embedURL
   * @param {Embed} embed - Embed object
   * @param {Error} error - &lt;code&gt;Error&lt;/code&gt; that was thrown
   * @param {String} [errorMessage] - Error message to display to the user.
   * @return {String} Markup
   */
-  errorMarkup (embed, error, errorMessage) {
+  errorMarkupNoMatchingProvider (embed, error, errorMessage) {
     let embedOptions = embed.options;
     let embedURL = embedOptions.embedURL;
 
