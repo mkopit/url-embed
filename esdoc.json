@@ -1,0 +1,14 @@
+{
+  "source": "./lib",
+  "includes": [".*\\.js$"],
+  "excludes": ["index.js"],
+  "destination": "./docs/esdoc",
+  "test": {
+    "type": "mocha",
+    "source": "./test",
+    "includes": [".*\\.js$"]
+  },
+  "plugins": [
+    {"name": "./esdoc_compatibility.js"}
+  ]
+}
