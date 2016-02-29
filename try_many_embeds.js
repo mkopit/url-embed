@@ -74,7 +74,6 @@ let embedURLs = [
   'http://imgur.com/gallery/KSMB2tI',
   'https://play.spotify.com/track/0ivpUENLpheuPoa6VuY1ax',
   'http://mtv.tumblr.com/post/139813756155/kanye-west-taking-a-kanye-rest-so-he-can-do-his',
-  'http://www.mtv.com/videos/misc/1246131/down2adopt-molly.jhtml',
   'https://videopress.com/v/kUJmAcSf',
   'http://www.example.com/foo'
 /*

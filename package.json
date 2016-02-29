@@ -34,7 +34,8 @@
   },
   "semistandard": {
     "ignore": [
-      "test"
+      "test",
+      "try_many_embeds.js"
     ]
   }
 }

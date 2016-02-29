@@ -3,6 +3,7 @@
 let assert = (require('chai')).assert;
 let OEmbedProvider = require('../../../lib/classes/OEmbedProvider.js');
 let Embed = require('../../../lib/classes/Embed.js');
+
 let matchingURL = 'http://www.example.com/';
 let nonMatchingURL = 'http://foo.com/';
 let urlPatterns = ['^' + matchingURL + '.*'];
