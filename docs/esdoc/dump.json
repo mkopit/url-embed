@@ -1928,87 +1928,6 @@
     "kind": "file",
     "static": true,
     "variation": null,
-    "name": "lib/classes/default_providers/old_mtv_video.js",
-    "memberof": null,
-    "longname": "lib/classes/default_providers/old_mtv_video.js",
-    "access": null,
-    "description": null,
-    "lineNumber": 1,
-    "content": "'use strict';\n\n/** @ignore */\nlet URLEmbedProvider = require('../URLEmbedProvider');\n\n/**\n  Custom embed provider for older MTV video page urls\n*/\nclass MTVVideoOld extends URLEmbedProvider {\n\n  /**\n    @override\n  */\n  getEmbed (embed, callback) {\n    let embedURL = embed.options.embedURL;\n\n    try {\n      let matches = embedURL.match('/videos/misc/([0-9]+)');\n      embed.data.html = '<iframe src=\"http://media.mtvnservices.com/embed/mgid:uma:video:mtv.com:' + matches[1] + '\" width=\"512\" height=\"288\" frameborder=\"0\"></iframe>';\n      this.filterData(embed.data);\n      callback(embed);\n    } catch (error) {\n      embed.data = {\n        html: this.errorMarkup(embedURL)\n      };\n      embed.error = error;\n      callback(embed);\n    }\n  }\n}\n\nMTVVideoOld.prototype.name = 'old_mtv_video';\nMTVVideoOld.prototype.urlPatterns = ['^http://www\\.mtv\\.com/videos/misc/.*'];\n\nmodule.exports = MTVVideoOld;\n"
-  },
-  {
-    "__docId__": 84,
-    "kind": "variable",
-    "static": true,
-    "variation": null,
-    "name": "URLEmbedProvider",
-    "memberof": "lib/classes/default_providers/old_mtv_video.js",
-    "longname": "lib/classes/default_providers/old_mtv_video.js~URLEmbedProvider",
-    "access": null,
-    "export": false,
-    "importPath": "url-embed/lib/classes/default_providers/old_mtv_video.js",
-    "importStyle": null,
-    "description": null,
-    "lineNumber": 4,
-    "ignore": true,
-    "type": {
-      "types": [
-        "*"
-      ]
-    }
-  },
-  {
-    "__docId__": 85,
-    "kind": "class",
-    "static": true,
-    "variation": null,
-    "name": "MTVVideoOld",
-    "memberof": "lib/classes/default_providers/old_mtv_video.js",
-    "longname": "lib/classes/default_providers/old_mtv_video.js~MTVVideoOld",
-    "access": null,
-    "export": true,
-    "importPath": "url-embed/lib/classes/default_providers/old_mtv_video.js",
-    "importStyle": "MTVVideoOld",
-    "description": "Custom embed provider for older MTV video page urls",
-    "lineNumber": 9,
-    "interface": false,
-    "extends": [
-      "URLEmbedProvider"
-    ]
-  },
-  {
-    "__docId__": 86,
-    "kind": "method",
-    "static": false,
-    "variation": null,
-    "name": "getEmbed",
-    "memberof": "lib/classes/default_providers/old_mtv_video.js~MTVVideoOld",
-    "longname": "lib/classes/default_providers/old_mtv_video.js~MTVVideoOld#getEmbed",
-    "access": null,
-    "description": "",
-    "lineNumber": 14,
-    "params": [
-      {
-        "name": "embed",
-        "types": [
-          "*"
-        ]
-      },
-      {
-        "name": "callback",
-        "types": [
-          "*"
-        ]
-      }
-    ],
-    "override": true,
-    "generator": false
-  },
-  {
-    "__docId__": 87,
-    "kind": "file",
-    "static": true,
-    "variation": null,
     "name": "lib/classes/default_providers/soundcloud.js",
     "memberof": null,
     "longname": "lib/classes/default_providers/soundcloud.js",
@@ -2018,7 +1937,7 @@
     "content": "'use strict';\n\n/** @ignore */\nlet OEmbedProvider = require('../OEmbedProvider');\n\n/**\n  SoundCloud embed provider\n  @see https://core.trac.wordpress.org/browser/tags/4.4.2/src/wp-includes/class-oembed.php\n*/\nclass SoundCloud extends OEmbedProvider {}\n\nSoundCloud.prototype.name = 'soundcloud';\nSoundCloud.prototype.providerURL = 'http://soundcloud.com/oembed';\nSoundCloud.prototype.urlPatterns = ['^https?://(www\\.)?soundcloud\\.com/.*'];\nSoundCloud.prototype.format = 'json';\nmodule.exports = SoundCloud;\n"
   },
   {
-    "__docId__": 88,
+    "__docId__": 84,
     "kind": "variable",
     "static": true,
     "variation": null,
@@ -2039,7 +1958,7 @@
     }
   },
   {
-    "__docId__": 89,
+    "__docId__": 85,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -2061,7 +1980,7 @@
     ]
   },
   {
-    "__docId__": 90,
+    "__docId__": 86,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -2074,7 +1993,7 @@
     "content": "'use strict';\n\n/** @ignore */\nlet OEmbedProvider = require('../OEmbedProvider');\n\n/**\n  Spotify embed provider\n  @see https://core.trac.wordpress.org/browser/tags/4.4.2/src/wp-includes/class-oembed.php\n*/\nclass Spotify extends OEmbedProvider {}\n\nSpotify.prototype.name = 'spotify';\nSpotify.prototype.providerURL = 'https://embed.spotify.com/oembed/';\nSpotify.prototype.urlPatterns = ['^https?://(open|play)\\.spotify\\.com/.*'];\nSpotify.prototype.format = 'json';\nmodule.exports = Spotify;\n"
   },
   {
-    "__docId__": 91,
+    "__docId__": 87,
     "kind": "variable",
     "static": true,
     "variation": null,
@@ -2095,7 +2014,7 @@
     }
   },
   {
-    "__docId__": 92,
+    "__docId__": 88,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -2117,7 +2036,7 @@
     ]
   },
   {
-    "__docId__": 93,
+    "__docId__": 89,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -2130,7 +2049,7 @@
     "content": "'use strict';\n\n/** @ignore */\nlet OEmbedProvider = require('../OEmbedProvider');\n\n/**\n  Tumblr embed provider\n  @see https://core.trac.wordpress.org/browser/tags/4.4.2/src/wp-includes/class-oembed.php\n*/\nclass Tumblr extends OEmbedProvider {}\n\nTumblr.prototype.name = 'tumblr';\nTumblr.prototype.providerURL = 'https://www.tumblr.com/oembed/1.0';\nTumblr.prototype.urlPatterns = ['^https?://(.+)\\.tumblr\\.com/post/.*'];\nTumblr.prototype.format = 'json';\nmodule.exports = Tumblr;\n"
   },
   {
-    "__docId__": 94,
+    "__docId__": 90,
     "kind": "variable",
     "static": true,
     "variation": null,
@@ -2151,7 +2070,7 @@
     }
   },
   {
-    "__docId__": 95,
+    "__docId__": 91,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -2173,7 +2092,7 @@
     ]
   },
   {
-    "__docId__": 96,
+    "__docId__": 92,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -2186,7 +2105,7 @@
     "content": "'use strict';\n\n/** @ignore */\nlet OEmbedProvider = require('../OEmbedProvider');\n\n/**\n  Twitter embed provider\n  @see https://core.trac.wordpress.org/browser/tags/4.4.2/src/wp-includes/class-oembed.php\n*/\nclass Twitter extends OEmbedProvider {}\n\nTwitter.prototype.name = 'twitter';\nTwitter.prototype.providerURL = 'https://api.twitter.com/1/statuses/oembed.json';\nTwitter.prototype.urlPatterns = ['^https?://(www\\.)?twitter\\.com/.+?/status(es)?/.*'];\nTwitter.prototype.format = 'json';\nmodule.exports = Twitter;\n"
   },
   {
-    "__docId__": 97,
+    "__docId__": 93,
     "kind": "variable",
     "static": true,
     "variation": null,
@@ -2207,7 +2126,7 @@
     }
   },
   {
-    "__docId__": 98,
+    "__docId__": 94,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -2229,7 +2148,7 @@
     ]
   },
   {
-    "__docId__": 99,
+    "__docId__": 95,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -2242,7 +2161,7 @@
     "content": "'use strict';\n\n/** @ignore */\nlet OEmbedProvider = require('../OEmbedProvider');\n\n/**\n  Videopress embed provider\n  @see https://core.trac.wordpress.org/browser/tags/4.4.2/src/wp-includes/class-oembed.php\n*/\nclass Videopress extends OEmbedProvider {\n  /**\n    Configures the provider.\n\n    Annoyingly Videopress requires a 'for' querystring parameter containing the name of the referring site.\n\n    @param {Object} engineOptions\n    @param {number} engineOptions.timeoutMs - Request timeout in milliseconds.\n    @override\n  */\n  configure (engineOptions) {\n    super.configure(engineOptions);\n\n    /**\n      @type {Object}\n      @override\n    */\n    this.defaultProviderQueryStringParameters = {\n      for: engineOptions.referrer ? engineOptions.referrer : 'www.example.com'\n    };\n  }\n}\n\nVideopress.prototype.name = 'videopress';\nVideopress.prototype.providerURL = 'https://public-api.wordpress.com/oembed/1.0/';\nVideopress.prototype.urlPatterns = ['^https?://videopress.com/v/.*'];\nVideopress.prototype.format = 'json';\n\nmodule.exports = Videopress;\n"
   },
   {
-    "__docId__": 100,
+    "__docId__": 96,
     "kind": "variable",
     "static": true,
     "variation": null,
@@ -2263,7 +2182,7 @@
     }
   },
   {
-    "__docId__": 101,
+    "__docId__": 97,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -2285,7 +2204,7 @@
     ]
   },
   {
-    "__docId__": 102,
+    "__docId__": 98,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -2321,7 +2240,7 @@
     "generator": false
   },
   {
-    "__docId__": 103,
+    "__docId__": 99,
     "kind": "member",
     "static": false,
     "variation": null,
@@ -2342,7 +2261,7 @@
     "override": true
   },
   {
-    "__docId__": 104,
+    "__docId__": 100,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -2355,7 +2274,7 @@
     "content": "'use strict';\n\n/** @ignore */\nlet OEmbedProvider = require('../OEmbedProvider');\n\n/**\n  Vimeo embed provider\n  @see https://core.trac.wordpress.org/browser/tags/4.4.2/src/wp-includes/class-oembed.php\n*/\nclass Vimeo extends OEmbedProvider {}\n\nVimeo.prototype.name = 'vimeo';\nVimeo.prototype.providerURL = 'https://vimeo.com/api/oembed.json';\nVimeo.prototype.urlPatterns = ['^https?://(.+\\.)?vimeo\\.com/.*'];\n\nmodule.exports = Vimeo;\n"
   },
   {
-    "__docId__": 105,
+    "__docId__": 101,
     "kind": "variable",
     "static": true,
     "variation": null,
@@ -2376,7 +2295,7 @@
     }
   },
   {
-    "__docId__": 106,
+    "__docId__": 102,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -2398,7 +2317,7 @@
     ]
   },
   {
-    "__docId__": 107,
+    "__docId__": 103,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -2411,7 +2330,7 @@
     "content": "'use strict';\n\n/** @ignore */\nlet OEmbedProvider = require('../OEmbedProvider');\n\n/**\n  Youtube embed provider\n  @see https://core.trac.wordpress.org/browser/tags/4.4.2/src/wp-includes/class-oembed.php\n*/\nclass Youtube extends OEmbedProvider {}\n\nYoutube.prototype.name = 'youtube';\nYoutube.prototype.providerURL = 'http://www.youtube.com/oembed';\nYoutube.prototype.urlPatterns = [\n  '^http(?:s)?://(?:[-\\\\w]+\\\\.)?youtube\\\\.com/watch.+$',\n  '^http(?:s)?://(?:[-\\\\w]+\\\\.)?youtube\\\\.com/v/.+$',\n  '^http(?:s)?://youtu\\\\.be/.+$',\n  '^http(?:s)?://(?:[-\\\\w]+\\\\.)?youtube\\\\.com/user/.+$',\n  '^http(?:s)?://(?:[-\\\\w]+\\\\.)?youtube\\\\.com/[^#?/]+#[^#?/]+/.+$',\n  '^http(?:s)?://m\\\\.youtube\\\\.com/index.+$',\n  '^http(?:s)?://(?:[-\\\\w]+\\\\.)?youtube\\\\.com/profile.+$',\n  '^http(?:s)?://(?:[-\\\\w]+\\\\.)?youtube\\\\.com/view_play_list.+$',\n  '^http(?:s)?://(?:[-\\\\w]+\\\\.)?youtube\\\\.com/playlist.+$'\n];\nYoutube.prototype.format = 'json';\nmodule.exports = Youtube;\n"
   },
   {
-    "__docId__": 108,
+    "__docId__": 104,
     "kind": "variable",
     "static": true,
     "variation": null,
@@ -2432,7 +2351,7 @@
     }
   },
   {
-    "__docId__": 109,
+    "__docId__": 105,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -2454,7 +2373,7 @@
     ]
   },
   {
-    "__docId__": 111,
+    "__docId__": 107,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2467,7 +2386,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 112,
+    "__docId__": 108,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2480,7 +2399,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 113,
+    "__docId__": 109,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2493,7 +2412,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 114,
+    "__docId__": 110,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2506,7 +2425,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 115,
+    "__docId__": 111,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2519,7 +2438,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 116,
+    "__docId__": 112,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2532,7 +2451,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 117,
+    "__docId__": 113,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2545,7 +2464,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 118,
+    "__docId__": 114,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2558,7 +2477,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 119,
+    "__docId__": 115,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2571,7 +2490,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 120,
+    "__docId__": 116,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2584,7 +2503,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 121,
+    "__docId__": 117,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2597,7 +2516,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 122,
+    "__docId__": 118,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2610,7 +2529,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 123,
+    "__docId__": 119,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2623,7 +2542,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 124,
+    "__docId__": 120,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2636,7 +2555,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 125,
+    "__docId__": 121,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2649,7 +2568,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 126,
+    "__docId__": 122,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2662,7 +2581,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 127,
+    "__docId__": 123,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2675,7 +2594,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 128,
+    "__docId__": 124,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2688,7 +2607,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 129,
+    "__docId__": 125,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2701,7 +2620,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 130,
+    "__docId__": 126,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2714,7 +2633,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 131,
+    "__docId__": 127,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2727,7 +2646,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 132,
+    "__docId__": 128,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2740,7 +2659,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 133,
+    "__docId__": 129,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2753,7 +2672,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 134,
+    "__docId__": 130,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2766,7 +2685,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 135,
+    "__docId__": 131,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2779,7 +2698,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 136,
+    "__docId__": 132,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2792,7 +2711,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 137,
+    "__docId__": 133,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2805,7 +2724,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 138,
+    "__docId__": 134,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2818,7 +2737,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 139,
+    "__docId__": 135,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2831,7 +2750,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 140,
+    "__docId__": 136,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2844,7 +2763,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 141,
+    "__docId__": 137,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2857,7 +2776,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 142,
+    "__docId__": 138,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2870,7 +2789,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 143,
+    "__docId__": 139,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2883,7 +2802,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 144,
+    "__docId__": 140,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2896,7 +2815,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 145,
+    "__docId__": 141,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2909,7 +2828,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 146,
+    "__docId__": 142,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2922,7 +2841,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 147,
+    "__docId__": 143,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2935,7 +2854,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 148,
+    "__docId__": 144,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2948,7 +2867,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 149,
+    "__docId__": 145,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2961,7 +2880,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 150,
+    "__docId__": 146,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2974,7 +2893,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 151,
+    "__docId__": 147,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2987,7 +2906,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 152,
+    "__docId__": 148,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3000,7 +2919,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 153,
+    "__docId__": 149,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3013,7 +2932,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 154,
+    "__docId__": 150,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3026,7 +2945,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 155,
+    "__docId__": 151,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3039,7 +2958,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 156,
+    "__docId__": 152,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3052,7 +2971,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 157,
+    "__docId__": 153,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3065,7 +2984,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 159,
+    "__docId__": 155,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3078,7 +2997,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 160,
+    "__docId__": 156,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3091,7 +3010,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 161,
+    "__docId__": 157,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3104,7 +3023,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 162,
+    "__docId__": 158,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3117,7 +3036,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 163,
+    "__docId__": 159,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3130,7 +3049,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 164,
+    "__docId__": 160,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3143,7 +3062,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 165,
+    "__docId__": 161,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3156,7 +3075,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 166,
+    "__docId__": 162,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3169,7 +3088,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 167,
+    "__docId__": 163,
     "kind": "testFile",
     "static": true,
     "variation": null,
@@ -3182,7 +3101,7 @@
     "content": "'use strict';\n\nlet assert = (require('chai')).assert;\nlet Embed = require('../../../lib/classes/Embed.js');\nlet embed;\n\ndescribe('Embed', function() {\n  beforeEach(function () {\n    embed = new Embed();\n  });\n  describe('Embed#markStarted', function() {\n    it('embed.startedDate should be a Date object ', function() {\n      embed.markStarted();\n      assert.instanceOf(embed.startedDate, Date);\n    });\n  });\n  describe('Embed#markFinished', function() {\n    it('embed.finishedDate should be a Date object', function() {\n      embed.markStarted();\n      embed.markFinished();\n      assert.instanceOf(embed.finishedDate, Date);\n    });\n    it('embed.elapsedMs should be a number', function() {\n      embed.markStarted();\n      embed.markFinished();\n      assert.isNumber(embed.elapsedMs);\n    });\n  });\n});"
   },
   {
-    "__docId__": 168,
+    "__docId__": 164,
     "kind": "testDescribe",
     "static": true,
     "variation": null,
@@ -3196,7 +3115,7 @@
     "lineNumber": 7
   },
   {
-    "__docId__": 169,
+    "__docId__": 165,
     "kind": "testDescribe",
     "static": true,
     "variation": null,
@@ -3210,7 +3129,7 @@
     "lineNumber": 11
   },
   {
-    "__docId__": 170,
+    "__docId__": 166,
     "kind": "testIt",
     "static": true,
     "variation": null,
@@ -3224,7 +3143,7 @@
     "lineNumber": 12
   },
   {
-    "__docId__": 171,
+    "__docId__": 167,
     "kind": "testDescribe",
     "static": true,
     "variation": null,
@@ -3238,7 +3157,7 @@
     "lineNumber": 17
   },
   {
-    "__docId__": 172,
+    "__docId__": 168,
     "kind": "testIt",
     "static": true,
     "variation": null,
@@ -3252,7 +3171,7 @@
     "lineNumber": 18
   },
   {
-    "__docId__": 173,
+    "__docId__": 169,
     "kind": "testIt",
     "static": true,
     "variation": null,
@@ -3266,7 +3185,7 @@
     "lineNumber": 23
   },
   {
-    "__docId__": 174,
+    "__docId__": 170,
     "kind": "testFile",
     "static": true,
     "variation": null,
@@ -3279,7 +3198,7 @@
     "content": "'use strict';\n\nlet assert = (require('chai')).assert;\nlet EmbedEngine = require('../../../lib/classes/EmbedEngine.js');\nlet URLEmbedProvider = require('../../../lib/classes/URLEmbedProvider.js');\nlet YoutubeProvider = require('../../../lib/classes/default_providers/youtube.js');\nlet CustomProvider = require('./support/custom_provider');\nlet engineOptions = {\n  timeoutMs: 3000,\n  referrer: 'www.example.com'\n};\nlet nonMatchingEmbedURL = 'http://www.thiswillfail.com/fail';\nlet matchingEmbedURL = 'https://www.example.com/video/12345';\nlet embedURLs = [\n  matchingEmbedURL,\n  nonMatchingEmbedURL\n];\nlet engine;\n\ndescribe('EmbedEngine', function() {\n  beforeEach(function () {\n    engine = new EmbedEngine(engineOptions);\n  });\n  describe('EmbedEngine#constructor', function() {\n    it('should have a valid engine.engineOptions object', function() {\n      assert.equal(engine.engineOptions, engineOptions);\n    });\n  });\n\n  describe('EmbedEngine#registerDefaultProviders', function() {\n    it('should contain a populated providerRegistry of URLEmbedProvider instances', function() {\n      engine.registerDefaultProviders();\n      assert.isAbove(engine.providerRegistry.length, 0);\n      for (let i = 0; i < engine.providerRegistry.length; i++) {\n        assert.isTrue(engine.providerRegistry[i] instanceof URLEmbedProvider);\n      }\n    });\n  });\n\n  describe('EmbedEngine#registerProvider', function() {\n    it('EmbedEngine.providerRegistry should contain the new provider', function() {\n      let provider = new YoutubeProvider();\n      engine.registerProvider(provider);\n      assert.equal(engine.providerRegistry.length, 1);\n      assert.equal(engine.providerRegistry[0], provider);\n    });\n  });\n\n  describe('EmbedEngine#getEmbed', function() {\n    it('should return markup for an embeddable url', function(done) {\n      let engine = new EmbedEngine(engineOptions);\n      engine.registerProvider(new CustomProvider());\n      engine.getEmbed({embedURL : matchingEmbedURL}, function(embed) {\n        assert.match(embed.data.html, /<iframe.*/);\n        done();\n      })\n    });\n  });\n\n  describe('EmbedEngine#getEmbed', function() {\n    it('should call EmbedEngine.errorMarkup for an url without a provider', function(done) {\n      let engine = new EmbedEngine(engineOptions);\n      engine.errorMarkup = function (embed, error, errorMessage) {\n        return 'foo';\n      }\n      engine.getEmbed({embedURL: nonMatchingEmbedURL}, function(embed) {\n        assert.equal(embed.data.html, 'foo');\n        done();\n      });\n    });\n  });\n\n  describe('EmbedEngine#getMultipleEmbeds', function() {\n    it('should return the same number of embeds as the original list', function(done) {\n      this.timeout(5000);\n\n      let engine = new EmbedEngine(engineOptions);\n      engine.registerProvider(new CustomProvider());\n\n      let optionArray = [];\n      for (let i = 0; i < embedURLs.length; i++) {\n        optionArray.push({embedURL : embedURLs[i]});\n      }\n\n      engine.getMultipleEmbeds(optionArray, function(error, results) {\n        assert.equal(embedURLs.length, results.length);\n        done();\n      });\n\n    });\n  });\n});"
   },
   {
-    "__docId__": 175,
+    "__docId__": 171,
     "kind": "testDescribe",
     "static": true,
     "variation": null,
@@ -3293,7 +3212,7 @@
     "lineNumber": 20
   },
   {
-    "__docId__": 176,
+    "__docId__": 172,
     "kind": "testDescribe",
     "static": true,
     "variation": null,
@@ -3307,7 +3226,7 @@
     "lineNumber": 24
   },
   {
-    "__docId__": 177,
+    "__docId__": 173,
     "kind": "testIt",
     "static": true,
     "variation": null,
@@ -3321,7 +3240,7 @@
     "lineNumber": 25
   },
   {
-    "__docId__": 178,
+    "__docId__": 174,
     "kind": "testDescribe",
     "static": true,
     "variation": null,
@@ -3335,7 +3254,7 @@
     "lineNumber": 30
   },
   {
-    "__docId__": 179,
+    "__docId__": 175,
     "kind": "testIt",
     "static": true,
     "variation": null,
@@ -3349,7 +3268,7 @@
     "lineNumber": 31
   },
   {
-    "__docId__": 180,
+    "__docId__": 176,
     "kind": "testDescribe",
     "static": true,
     "variation": null,
@@ -3363,7 +3282,7 @@
     "lineNumber": 40
   },
   {
-    "__docId__": 181,
+    "__docId__": 177,
     "kind": "testIt",
     "static": true,
     "variation": null,
@@ -3377,7 +3296,7 @@
     "lineNumber": 41
   },
   {
-    "__docId__": 182,
+    "__docId__": 178,
     "kind": "testDescribe",
     "static": true,
     "variation": null,
@@ -3391,7 +3310,7 @@
     "lineNumber": 49
   },
   {
-    "__docId__": 183,
+    "__docId__": 179,
     "kind": "testIt",
     "static": true,
     "variation": null,
@@ -3405,7 +3324,7 @@
     "lineNumber": 50
   },
   {
-    "__docId__": 184,
+    "__docId__": 180,
     "kind": "testDescribe",
     "static": true,
     "variation": null,
@@ -3419,7 +3338,7 @@
     "lineNumber": 60
   },
   {
-    "__docId__": 185,
+    "__docId__": 181,
     "kind": "testIt",
     "static": true,
     "variation": null,
@@ -3433,7 +3352,7 @@
     "lineNumber": 61
   },
   {
-    "__docId__": 186,
+    "__docId__": 182,
     "kind": "testDescribe",
     "static": true,
     "variation": null,
@@ -3447,7 +3366,7 @@
     "lineNumber": 73
   },
   {
-    "__docId__": 187,
+    "__docId__": 183,
     "kind": "testIt",
     "static": true,
     "variation": null,
@@ -3461,7 +3380,7 @@
     "lineNumber": 74
   },
   {
-    "__docId__": 188,
+    "__docId__": 184,
     "kind": "testFile",
     "static": true,
     "variation": null,
@@ -3474,7 +3393,7 @@
     "content": "'use strict';\n\nlet assert = (require('chai')).assert;\nlet OEmbedProvider = require('../../../lib/classes/OEmbedProvider.js');\nlet Embed = require('../../../lib/classes/Embed.js');\n\nlet matchingURL = 'http://www.example.com/';\nlet nonMatchingURL = 'http://foo.com/';\nlet urlPatterns = ['^' + matchingURL + '.*'];\nlet providerURL = 'http://api.example.com/oembed';\nlet html = '<iframe src=\"http://www.example.com/iframeedthing\"></iframe>';\nlet failMarkup = '<strong>FAIL</strong>';\nlet body = JSON.stringify({\n  html: html\n});\nlet provider;\nlet embed;\n\nlet mockRequestSuccess = function(requestOptions, callback) {\n  let response = {\n    statusCode : 200,\n    request: {\n      uri : {\n        href : providerURL\n      }\n    }\n  };\n  callback(null, response, body);\n}\n\nlet mockRequestFail = function(requestOptions, callback) {\n  let response = {\n    statusCode : 404,\n    request: {\n      uri : {\n        href : providerURL\n      }\n    }\n  };\n  callback(null, response, 'Thing not found');\n}\n\nclass Provider extends OEmbedProvider {}\n\nProvider.prototype.name = 'testProvider';\nProvider.prototype.providerURL = providerURL;\nProvider.prototype.urlPatterns = urlPatterns;\nProvider.prototype.format = 'json';\n\n/** @test {OEmbedProvider} */\ndescribe('OEmbedProvider', function() {\n  beforeEach(function () {\n    provider = new Provider();\n    embed = new Embed();\n    embed.options.embedURL = matchingURL;\n  });\n\n  /** @test {OEmbedProvider#constructor} */\n  describe('URLEmbedProvider#constructor', function() {\n    /** @test {OEmbedProvider#constructor} */\n    it('should contain a urlPatterns property', function() {\n      assert.equal(provider.urlPatterns, urlPatterns);\n    });\n    /** @test {OEmbedProvider#constructor} */\n    it('should contain a providerURL property', function() {\n      assert.equal(provider.providerURL, providerURL);\n    });\n  });\n\n  /** @test {URLEmbedProvider#isMatch} */\n  describe('OEmbedProvider#isMatch', function () {\n    /** @test {URLEmbedProvider#isMatch} */\n    it('should match the provider url', function() {\n      assert.isTrue(provider.isMatch(matchingURL + 'foo/bar'));\n    });\n    \n    /** @test {URLEmbedProvider#isMatch} */\n    it('should fail to match a different url', function() {\n      assert.isFalse(provider.isMatch(nonMatchingURL));\n    });\n  });\n\n  /** @test {OEmbedProvider#getEmbed} */\n  describe('OEmbedProvider#getEmbed', function() {\n\n    /** @test {OEmbedProvider#getEmbed} */\n    it('successful: should return the body markup', function(done) {\n      provider.request = mockRequestSuccess;\n\n      provider.getEmbed(embed, function(embed) {\n        assert.equal(embed.data.html, html);\n        done();\n      });\n    });\n\n    /** @test {URLEmbedProvider#filterData} */\n    it('filterData function should get called', function(done) {\n      let called = false;\n\n      provider.request = mockRequestSuccess;\n\n      provider.filterData = function(data) {\n        called = true;\n        return data;\n      }\n      provider.getEmbed(embed, function(embed) {\n        assert.isNull(embed.error);\n        assert.isTrue(called);\n        done();\n      });\n    });\n\n    /** @test {OEmbedProvider#getEmbed} */\n    it('should return an error object when it fails', function (done) {\n      provider.request = mockRequestSuccess;\n\n      provider.filterData = function(data) {\n        throw new Error('Intentional error');\n      }\n      provider.getEmbed(embed, function(embed) {\n        assert.isTrue((embed.error instanceof Error));\n        done();\n      });\n    });\n\n    /** @test {URLEmbedProvider#errorMarkup} */\n    it('should call errorMarkup when it fails', function(done) {\n      provider.request = mockRequestSuccess;\n\n      provider.filterData = function (data) {\n        throw new Error('Intentional error');\n      }\n\n      provider.errorMarkup = function(embed, error, errorMessage) {\n        assert.equal(embed.options.embedURL, matchingURL);\n        return failMarkup;\n      }\n      provider.getEmbed(embed, function(embed) {\n        assert.equal(embed.data.html, failMarkup);\n        done();\n      });\n    });\n\n    /** @test {URLEmbedProvider#errorMarkup} */\n    it('should call errorMarkup if the provider yields a non 200 response', function(done) {\n      provider.request = mockRequestFail;\n\n      let called = false;\n\n      provider.errorMarkup = function(embed, error, errorMessage) {\n        called = true;\n        assert.equal(embed.options.embedURL, matchingURL);\n        return failMarkup;\n      }\n\n      provider.getEmbed(embed, function(embed) {\n        assert.equal(embed.data.html, failMarkup);\n        done();\n      });\n    });\n\n    it('should call errorMarkup404 if the provider yields a 404 response and the provider supports the method', function(done) {\n      provider.request = mockRequestFail;\n\n      let called = false;\n\n      provider.errorMarkup404 = function(embed, error, errorMessage) {\n        called = true;\n        assert.equal(embed.options.embedURL, matchingURL);\n        return failMarkup;\n      }\n      provider.getEmbed(embed, function(embed) {\n        assert.equal(embed.data.html, failMarkup);\n        done();\n      });\n    });\n  });\n\n  /** @test {OEmbedProvider#buildAPIURL} */\n  describe('OEmbedProvider#buildAPIURL', function() {\n    it('should return a valid API url with all options accounted for', function() {\n      let options = {\n        embedURL: matchingURL,\n        maxWidth: 500,\n        maxHeight: 300\n      };\n\n      provider.defaultProviderQueryStringParameters = {\n        foo: 'bar'\n      }\n\n      let apiURL = provider.buildAPIURL(options);\n      assert.match(apiURL, new RegExp('^' + providerURL));\n      assert.match(apiURL, /\\?.*maxheight=300/);\n      assert.match(apiURL, /\\?.*maxwidth=500/);\n      assert.match(apiURL, /\\?.*foo=bar/);\n    })\n  });\n\n  /** @test {OEmbedProvider#convertHighBitUnicodeToSurrogates} */\n  describe('OEmbedProvider#convertHighBitUnicodeToSurrogates', function() {\n    it('should convert the escaped code point for \"🚀\" to the corresponding escaped surrogate pair', function() {\n      assert.equal(provider.convertHighBitUnicodeToSurrogates('\\\\U0001f680'), '\\\\ud83d\\\\ude80');\n    });\n  });\n  \n});"
   },
   {
-    "__docId__": 189,
+    "__docId__": 185,
     "kind": "testDescribe",
     "static": true,
     "variation": null,
@@ -3497,7 +3416,7 @@
     ]
   },
   {
-    "__docId__": 190,
+    "__docId__": 186,
     "kind": "testDescribe",
     "static": true,
     "variation": null,
@@ -3520,7 +3439,7 @@
     ]
   },
   {
-    "__docId__": 191,
+    "__docId__": 187,
     "kind": "testIt",
     "static": true,
     "variation": null,
@@ -3543,7 +3462,7 @@
     ]
   },
   {
-    "__docId__": 192,
+    "__docId__": 188,
     "kind": "testIt",
     "static": true,
     "variation": null,
@@ -3566,7 +3485,7 @@
     ]
   },
   {
-    "__docId__": 193,
+    "__docId__": 189,
     "kind": "testDescribe",
     "static": true,
     "variation": null,
@@ -3589,7 +3508,7 @@
     ]
   },
   {
-    "__docId__": 194,
+    "__docId__": 190,
     "kind": "testIt",
     "static": true,
     "variation": null,
@@ -3612,7 +3531,7 @@
     ]
   },
   {
-    "__docId__": 195,
+    "__docId__": 191,
     "kind": "testIt",
     "static": true,
     "variation": null,
@@ -3635,7 +3554,7 @@
     ]
   },
   {
-    "__docId__": 196,
+    "__docId__": 192,
     "kind": "testDescribe",
     "static": true,
     "variation": null,
@@ -3658,7 +3577,7 @@
     ]
   },
   {
-    "__docId__": 197,
+    "__docId__": 193,
     "kind": "testIt",
     "static": true,
     "variation": null,
@@ -3681,7 +3600,7 @@
     ]
   },
   {
-    "__docId__": 198,
+    "__docId__": 194,
     "kind": "testIt",
     "static": true,
     "variation": null,
@@ -3704,7 +3623,7 @@
     ]
   },
   {
-    "__docId__": 199,
+    "__docId__": 195,
     "kind": "testIt",
     "static": true,
     "variation": null,
@@ -3727,7 +3646,7 @@
     ]
   },
   {
-    "__docId__": 200,
+    "__docId__": 196,
     "kind": "testIt",
     "static": true,
     "variation": null,
@@ -3750,7 +3669,7 @@
     ]
   },
   {
-    "__docId__": 201,
+    "__docId__": 197,
     "kind": "testIt",
     "static": true,
     "variation": null,
@@ -3773,7 +3692,7 @@
     ]
   },
   {
-    "__docId__": 202,
+    "__docId__": 198,
     "kind": "testIt",
     "static": true,
     "variation": null,
@@ -3787,7 +3706,7 @@
     "lineNumber": 162
   },
   {
-    "__docId__": 203,
+    "__docId__": 199,
     "kind": "testDescribe",
     "static": true,
     "variation": null,
@@ -3810,7 +3729,7 @@
     ]
   },
   {
-    "__docId__": 204,
+    "__docId__": 200,
     "kind": "testIt",
     "static": true,
     "variation": null,
@@ -3824,7 +3743,7 @@
     "lineNumber": 181
   },
   {
-    "__docId__": 205,
+    "__docId__": 201,
     "kind": "testDescribe",
     "static": true,
     "variation": null,
@@ -3847,7 +3766,7 @@
     ]
   },
   {
-    "__docId__": 206,
+    "__docId__": 202,
     "kind": "testIt",
     "static": true,
     "variation": null,
@@ -3861,7 +3780,7 @@
     "lineNumber": 202
   },
   {
-    "__docId__": 207,
+    "__docId__": 203,
     "kind": "testFile",
     "static": true,
     "variation": null,
@@ -3874,7 +3793,7 @@
     "content": "'use strict';\n\nlet assert = (require('chai')).assert;\n\nlet URLEmbedProvider = require('../../../lib/classes/URLEmbedProvider.js');\nlet Embed = require('../../../lib/classes/Embed.js');\nlet matchingURL = 'http://www.example.com/';\nlet nonMatchingURL = 'http://foo.com/';\nlet urlPatterns = ['^' + matchingURL + '.*'];\nlet failMarkup = '<strong>FAIL</strong>';\nlet provider;\nlet embed;\n\n/** @test {URLEmbedProvider} */\ndescribe('URLEmbedProvider', function() {\n  beforeEach(function () {\n    provider = new URLEmbedProvider(urlPatterns);\n\n    embed = new Embed();\n    embed.options = {embedURL: matchingURL};\n  });\n\n  /** @test {URLEmbedProvider#constructor} */\n  describe('URLEmbedProvider#constructor', function() {\n    /** @test {URLEmbedProvider#constructor} */\n    it('should contain a urlPatterns property', function() {\n      assert(urlPatterns, provider.urlPatterns);\n    });\n  });\n\n  /** @test {URLEmbedProvider#isMatch} */\n  describe('URLEmbedProvider#isMatch', function () {\n    /** @test {URLEmbedProvider#isMatch} */\n    it('should match the provider url', function() {\n      assert.isTrue(provider.isMatch(matchingURL + 'foo/bar'));\n    });\n    \n    /** @test {URLEmbedProvider#isMatch} */\n    it('should fail to match a different url', function() {\n      assert.isFalse(provider.isMatch(nonMatchingURL));\n    });\n  });\n\n  /** @test {URLEmbedProvider#getEmbed} */\n  describe('URLEmbedProvider#getEmbed', function() {\n\n    /** @test {URLEmbedProvider#getEmbed} */\n    it('should return the stub markup', function(done) {\n      provider.getEmbed(embed, function(embed) {\n        assert.isNull(embed.error);\n        assert.equal(embed.data.html, embed.stubMarkup);\n        done();\n      });\n    });\n\n    /** @test {URLEmbedProvider#filterData} */\n    it('filterData function should get called', function(done) {\n      let called = false;\n\n      provider.filterData = function(data) {\n        called = true;\n        return data;\n      }\n\n      provider.getEmbed(embed, function(embed) {\n        assert.isNull(embed.error);\n        assert.isTrue(called);\n        done();\n      });\n    });\n\n    /** @test {URLEmbedProvider#getEmbed} */\n    it('should return an error object when it fails', function (done) {\n      provider.filterData = function(data) {\n        throw new Error('Intentional error');\n      }\n\n      provider.getEmbed(embed, function(embed) {\n        assert.isTrue((embed.error instanceof Error));\n        done();\n      });\n    });\n\n    /** @test {URLEmbedProvider#errorMarkup} */\n    it('should call errorMarkup when it fails', function(done) {\n\n      provider.filterData = function (data) {\n        throw new Error('Intentional error');\n      }\n\n      provider.errorMarkup = function(embed, error, errorMessage) {\n        assert.equal(embed.options.embedURL, matchingURL);\n        return failMarkup;\n      }\n      provider.getEmbed(embed, function(embed) {\n        assert.equal(embed.data.html, failMarkup);\n        done();\n      });\n    });\n  });\n});"
   },
   {
-    "__docId__": 208,
+    "__docId__": 204,
     "kind": "testDescribe",
     "static": true,
     "variation": null,
@@ -3897,7 +3816,7 @@
     ]
   },
   {
-    "__docId__": 209,
+    "__docId__": 205,
     "kind": "testDescribe",
     "static": true,
     "variation": null,
@@ -3920,7 +3839,7 @@
     ]
   },
   {
-    "__docId__": 210,
+    "__docId__": 206,
     "kind": "testIt",
     "static": true,
     "variation": null,
@@ -3943,7 +3862,7 @@
     ]
   },
   {
-    "__docId__": 211,
+    "__docId__": 207,
     "kind": "testDescribe",
     "static": true,
     "variation": null,
@@ -3966,7 +3885,7 @@
     ]
   },
   {
-    "__docId__": 212,
+    "__docId__": 208,
     "kind": "testIt",
     "static": true,
     "variation": null,
@@ -3989,7 +3908,7 @@
     ]
   },
   {
-    "__docId__": 213,
+    "__docId__": 209,
     "kind": "testIt",
     "static": true,
     "variation": null,
@@ -4012,7 +3931,7 @@
     ]
   },
   {
-    "__docId__": 214,
+    "__docId__": 210,
     "kind": "testDescribe",
     "static": true,
     "variation": null,
@@ -4035,7 +3954,7 @@
     ]
   },
   {
-    "__docId__": 215,
+    "__docId__": 211,
     "kind": "testIt",
     "static": true,
     "variation": null,
@@ -4058,7 +3977,7 @@
     ]
   },
   {
-    "__docId__": 216,
+    "__docId__": 212,
     "kind": "testIt",
     "static": true,
     "variation": null,
@@ -4081,7 +4000,7 @@
     ]
   },
   {
-    "__docId__": 217,
+    "__docId__": 213,
     "kind": "testIt",
     "static": true,
     "variation": null,
@@ -4104,7 +4023,7 @@
     ]
   },
   {
-    "__docId__": 218,
+    "__docId__": 214,
     "kind": "testIt",
     "static": true,
     "variation": null,
@@ -4127,7 +4046,7 @@
     ]
   },
   {
-    "__docId__": 219,
+    "__docId__": 215,
     "kind": "testFile",
     "static": true,
     "variation": null,

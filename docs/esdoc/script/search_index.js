@@ -48,12 +48,6 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
-    "url-embed/lib/classes/default_providers/old_mtv_video.js~mtvvideoold",
-    "class/lib/classes/default_providers/old_mtv_video.js~MTVVideoOld.html",
-    "<span>MTVVideoOld</span> <span class=\"search-result-import-path\">url-embed/lib/classes/default_providers/old_mtv_video.js</span>",
-    "class"
-  ],
-  [
     "url-embed/lib/classes/oembedprovider.js~oembedprovider",
     "class/lib/classes/OEmbedProvider.js~OEmbedProvider.html",
     "<span>OEmbedProvider</span> <span class=\"search-result-import-path\">url-embed/lib/classes/OEmbedProvider.js</span>",
@@ -1036,18 +1030,6 @@ window.esdocSearchIndex = [
     "file/lib/classes/default_providers/instagram.js.html",
     "lib/classes/default_providers/instagram.js",
     "file"
-  ],
-  [
-    "lib/classes/default_providers/old_mtv_video.js",
-    "file/lib/classes/default_providers/old_mtv_video.js.html",
-    "lib/classes/default_providers/old_mtv_video.js",
-    "file"
-  ],
-  [
-    "lib/classes/default_providers/old_mtv_video.js~mtvvideoold#getembed",
-    "class/lib/classes/default_providers/old_mtv_video.js~MTVVideoOld.html#instance-method-getEmbed",
-    "lib/classes/default_providers/old_mtv_video.js~MTVVideoOld#getEmbed",
-    "method"
   ],
   [
     "lib/classes/default_providers/soundcloud.js",

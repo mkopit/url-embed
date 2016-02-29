@@ -1,7 +1,7 @@
 {
-  "coverage": "90.47%",
-  "expectCount": 63,
-  "actualCount": 57,
+  "coverage": "90.16%",
+  "expectCount": 61,
+  "actualCount": 55,
   "files": {
     "lib/classes/default_providers/dailymotion.js": {
       "expectCount": 1,
@@ -45,11 +45,6 @@
     "lib/classes/default_providers/instagram.js": {
       "expectCount": 1,
       "actualCount": 1,
-      "undocumentLines": []
-    },
-    "lib/classes/default_providers/old_mtv_video.js": {
-      "expectCount": 2,
-      "actualCount": 2,
       "undocumentLines": []
     },
     "lib/classes/OEmbedProvider.js": {
