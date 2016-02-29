@@ -58,9 +58,9 @@ describe('EmbedEngine', function() {
   });
 
   describe('EmbedEngine#getEmbed', function() {
-    it('should call EmbedEngine.errorMarkup for an url without a provider', function(done) {
+    it('should call EmbedEngine.errorMarkupNoMatchingProvider for an url without a provider', function(done) {
       let engine = new EmbedEngine(engineOptions);
-      engine.errorMarkup = function (embed, error, errorMessage) {
+      engine.errorMarkupNoMatchingProvider = function (embed, error, errorMessage) {
         return 'foo';
       }
       engine.getEmbed({embedURL: nonMatchingEmbedURL}, function(embed) {

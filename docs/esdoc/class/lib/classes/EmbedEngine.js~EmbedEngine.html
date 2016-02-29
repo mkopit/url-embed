@@ -278,13 +278,13 @@
     <td>
       <div>
         <p>
-           <span data-ice="name"><span><a href="class/lib/classes/EmbedEngine.js~EmbedEngine.html#instance-method-errorMarkup">errorMarkup</a></span></span><span data-ice="signature">(embed: <span><a href="class/lib/classes/Embed.js~Embed.html">Embed</a></span>, error: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error">Error</a></span>, errorMessage: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span></span>
+           <span data-ice="name"><span><a href="class/lib/classes/EmbedEngine.js~EmbedEngine.html#instance-method-errorMarkupNoMatchingProvider">errorMarkupNoMatchingProvider</a></span></span><span data-ice="signature">(embed: <span><a href="class/lib/classes/Embed.js~Embed.html">Embed</a></span>, error: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error">Error</a></span>, errorMessage: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span></span>
         </p>
       </div>
       <div>
         
         
-        <div data-ice="description"><p>Returns error markup if an error occurs during embed resolution</p>
+        <div data-ice="description"><p>Returns error markup if there was no provider that matched the embedURL</p>
 </div>
       </div>
     </td>
@@ -726,24 +726,24 @@
 <div data-ice="methodDetails"><h2 data-ice="title">Public Methods</h2>
 
 <div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-method-errorMarkup">
+  <h3 data-ice="anchor" id="instance-method-errorMarkupNoMatchingProvider">
     <span class="access" data-ice="access">public</span>
     
     
     
     
-    <span data-ice="name">errorMarkup</span><span data-ice="signature">(embed: <span><a href="class/lib/classes/Embed.js~Embed.html">Embed</a></span>, error: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error">Error</a></span>, errorMessage: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span></span>
+    <span data-ice="name">errorMarkupNoMatchingProvider</span><span data-ice="signature">(embed: <span><a href="class/lib/classes/Embed.js~Embed.html">Embed</a></span>, error: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error">Error</a></span>, errorMessage: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/classes/EmbedEngine.js.html#lineNumber188">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/classes/EmbedEngine.js.html#lineNumber191">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  <div data-ice="description"><p>Returns error markup if an error occurs during embed resolution</p>
+  <div data-ice="description"><p>Returns error markup if there was no provider that matched the embedURL</p>
 </div>
 
   
@@ -819,7 +819,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/classes/EmbedEngine.js.html#lineNumber203">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/classes/EmbedEngine.js.html#lineNumber206">source</a></span></span>
     </span>
   </h3>
 
@@ -888,7 +888,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/classes/EmbedEngine.js.html#lineNumber123">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/classes/EmbedEngine.js.html#lineNumber126">source</a></span></span>
     </span>
   </h3>
 
@@ -960,7 +960,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/classes/EmbedEngine.js.html#lineNumber168">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/classes/EmbedEngine.js.html#lineNumber171">source</a></span></span>
     </span>
   </h3>
 
@@ -1022,7 +1022,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/classes/EmbedEngine.js.html#lineNumber91">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/classes/EmbedEngine.js.html#lineNumber94">source</a></span></span>
     </span>
   </h3>
 
@@ -1080,7 +1080,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/classes/EmbedEngine.js.html#lineNumber66">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/classes/EmbedEngine.js.html#lineNumber69">source</a></span></span>
     </span>
   </h3>
 
@@ -1088,6 +1088,7 @@
   
   
   <div data-ice="description"><p>Registers a provider instance.</p>
+<p><strong>Highlander Rule</strong>: this provider will replace an already registered provider if they have the same name property.</p>
 </div>
 
   

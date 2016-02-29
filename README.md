@@ -10,10 +10,10 @@ A flexible class-based system that supports converting URLs into embed code. The
 * [URLEmbedProvider interface](http://mkopit.github.io/url-embed/docs/esdoc/class/lib/classes/URLEmbedProvider.js~URLEmbedProvider.html): defines the basic methods that will get invoked by EmbedEngine
 * [OEmbedProvider interface](http://mkopit.github.io/url-embed/docs/esdoc/class/lib/classes/OEmbedProvider.js~OEmbedProvider.html): extends URLEmbedProvider and implements support for interacting with an oembed provider's API
 * [Embed class](http://mkopit.github.io/url-embed/docs/esdoc/class/lib/classes/Embed.js~Embed.html): the primary object passed through callbacks
-  * error: contains a reference to an Error object if an error occurred
-  * embedOptions: options object the Embed was constructed from
+  * [error](http://mkopit.github.io/url-embed/docs/esdoc/class/lib/classes/Embed.js~Embed.html#instance-member-error): contains a reference to an Error object if an error occurred
+  * [embedOptions](http://mkopit.github.io/url-embed/docs/esdoc/class/lib/classes/Embed.js~Embed.html#instance-member-options): options object the Embed was constructed from
     * embedURL: the URL we're embedding
-  * data: the data object from the resolved embed
+  * [data](http://mkopit.github.io/url-embed/docs/esdoc/class/lib/classes/Embed.js~Embed.html#instance-member-data): the data object from the resolved embed
     * html: the resulting embed markup.
 
 
@@ -22,8 +22,9 @@ A flexible class-based system that supports converting URLs into embed code. The
 Example: Resolving a single embed
 
 ```javascript
-let urlEmbed = require('url-embed');
-let engine = new urlEmbed.EmbedEngine({
+'use strict';
+
+let engine = new require('url-embed').EmbedEngine({
   timeoutMs: 2000,
   referrer: 'www.example.com'
 });
@@ -31,7 +32,7 @@ let engine = new urlEmbed.EmbedEngine({
 engine.registerDefaultProviders();
 
 // Get single embed
-engine.getEmbed({ embedURL: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'}, function(embed) {
+engine.getEmbed({embedURL: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'}, function(embed) {
   if (embed.error) {
     console.log('Something went wrong.');
     console.log(err.stack);
@@ -48,8 +49,9 @@ engine.getEmbed({ embedURL: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'}, func
 Example: resolving muliple embeds in parallel
 
 ```javascript
-let urlEmbed = require('url-embed');
-let engine = new urlEmbed.EmbedEngine({
+'use strict';
+
+let engine = new require('url-embed').EmbedEngine({
   timeoutMs: 2000,
   referrer: 'www.example.com'
 });
@@ -132,8 +134,8 @@ let URLEmbedProvider = (require('url-embed')).URLEmbedProvider;
 
 class CustomProvider extends URLEmbedProvider {
 
-  /**
-    @override
+  /*
+  * @override
   */
   getEmbed (embed, callback) {
     let embedURL = embed.options.embedURL;
@@ -150,6 +152,14 @@ class CustomProvider extends URLEmbedProvider {
       callback(embed);
     }
   }
+
+  /*
+  * Optional custom override of function that generates error markup.
+  * @override
+  */
+  errorMarkup (embed, error, errorMessage) {
+    return 'Oops. Something went wrong for: <a href="' + embed.options.embedURL + '">' + embed.options.embedURL + '</a>';
+  }
 }
 
 CustomProvider.prototype.name = 'custom';
@@ -165,10 +175,9 @@ Example: registering a provider with the EmbedEngine
 ```javascript
 'use strict'
 
-let urlEmbed = require('url-embed');
 let CustomProvider = require('./custom_provider');
 
-let engine = new urlEmbed.EmbedEngine({
+let engine = new require('url-embed').EmbedEngine({
   timeoutMs: 2000,
   referrer: 'www.example.com'
 });
