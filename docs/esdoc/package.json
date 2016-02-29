@@ -1,0 +1,41 @@
+{
+  "name": "url-embed",
+  "version": "1.0.0",
+  "description": "Flexible oembed module",
+  "main": "index.js",
+  "scripts": {
+    "lint": "semistandard | snazzy",
+    "test": "mocha --recursive test",
+    "doc": "esdoc -c esdoc.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mkopit/url-embed.git"
+  },
+  "author": "Matt Kopit",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mkopit/url-embed/issues"
+  },
+  "dependencies": {
+    "async": "^1.5.2",
+    "colors": "^1.1.2",
+    "install": "^0.4.4",
+    "npm": "^3.7.3",
+    "request": "^2.69.0",
+    "sprintf-js": "^1.0.3"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5",
+    "semistandard": "^7.0.5",
+    "snazzy": "^3.0.0",
+    "standard": "^6.0.7"
+  },
+  "semistandard": {
+    "ignore": [
+      "test",
+      "try_many_embeds.js"
+    ]
+  }
+}

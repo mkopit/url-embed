@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../../">
+  <title data-ice="title">test/lib/classes/OEmbedProvider.js | API Document</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  
+  
+  <script src="script/manual.js"></script>
+</head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  <a href="test.html" data-ice="testLink">Test</a>
+  <a data-ice="repoURL" href="https://github.com/mkopit/url-embed.git" class="repo-url-github">Repository</a>
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">classes</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/Embed.js~Embed.html">Embed</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/EmbedEngine.js~EmbedEngine.html">EmbedEngine</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-interface">I</span><span data-ice="name"><span><a href="class/lib/classes/OEmbedProvider.js~OEmbedProvider.html">OEmbedProvider</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-interface">I</span><span data-ice="name"><span><a href="class/lib/classes/URLEmbedProvider.js~URLEmbedProvider.html">URLEmbedProvider</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">classes/default_providers</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/default_providers/dailymotion.js~DailyMotion.html">DailyMotion</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/default_providers/facebook_posts.js~FacebookPosts.html">FacebookPosts</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/default_providers/facebook_video.js~FacebookVideo.html">FacebookVideo</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/default_providers/flickr.js~Flickr.html">Flickr</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/default_providers/imgur.js~Imgur.html">Imgur</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/default_providers/instagram.js~Instagram.html">Instagram</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/default_providers/soundcloud.js~SoundCloud.html">SoundCloud</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/default_providers/spotify.js~Spotify.html">Spotify</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/default_providers/tumblr.js~Tumblr.html">Tumblr</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/default_providers/twitter.js~Twitter.html">Twitter</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/default_providers/videopress.js~Videopress.html">Videopress</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/default_providers/vimeo.js~Vimeo.html">Vimeo</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/default_providers/youtube.js~Youtube.html">Youtube</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">test/lib/classes/OEmbedProvider.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;;
+
+let assert = (require(&apos;chai&apos;)).assert;
+let OEmbedProvider = require(&apos;../../../lib/classes/OEmbedProvider.js&apos;);
+let Embed = require(&apos;../../../lib/classes/Embed.js&apos;);
+
+let matchingURL = &apos;http://www.example.com/&apos;;
+let nonMatchingURL = &apos;http://foo.com/&apos;;
+let urlPatterns = [&apos;^&apos; + matchingURL + &apos;.*&apos;];
+let providerURL = &apos;http://api.example.com/oembed&apos;;
+let html = &apos;&lt;iframe src=&quot;http://www.example.com/iframeedthing&quot;&gt;&lt;/iframe&gt;&apos;;
+let failMarkup = &apos;&lt;strong&gt;FAIL&lt;/strong&gt;&apos;;
+let body = JSON.stringify({
+  html: html
+});
+let provider;
+let embed;
+
+let mockRequestSuccess = function(requestOptions, callback) {
+  let response = {
+    statusCode : 200,
+    request: {
+      uri : {
+        href : providerURL
+      }
+    }
+  };
+  callback(null, response, body);
+}
+
+let mockRequestFail = function(requestOptions, callback) {
+  let response = {
+    statusCode : 404,
+    request: {
+      uri : {
+        href : providerURL
+      }
+    }
+  };
+  callback(null, response, &apos;Thing not found&apos;);
+}
+
+class Provider extends OEmbedProvider {}
+
+Provider.prototype.name = &apos;testProvider&apos;;
+Provider.prototype.providerURL = providerURL;
+Provider.prototype.urlPatterns = urlPatterns;
+Provider.prototype.format = &apos;json&apos;;
+
+/** @test {OEmbedProvider} */
+describe(&apos;OEmbedProvider&apos;, function() {
+  beforeEach(function () {
+    provider = new Provider();
+    embed = new Embed();
+    embed.options.embedURL = matchingURL;
+  });
+
+  /** @test {OEmbedProvider#constructor} */
+  describe(&apos;URLEmbedProvider#constructor&apos;, function() {
+    /** @test {OEmbedProvider#constructor} */
+    it(&apos;should contain a urlPatterns property&apos;, function() {
+      assert.equal(provider.urlPatterns, urlPatterns);
+    });
+    /** @test {OEmbedProvider#constructor} */
+    it(&apos;should contain a providerURL property&apos;, function() {
+      assert.equal(provider.providerURL, providerURL);
+    });
+  });
+
+  /** @test {URLEmbedProvider#isMatch} */
+  describe(&apos;OEmbedProvider#isMatch&apos;, function () {
+    /** @test {URLEmbedProvider#isMatch} */
+    it(&apos;should match the provider url&apos;, function() {
+      assert.isTrue(provider.isMatch(matchingURL + &apos;foo/bar&apos;));
+    });
+    
+    /** @test {URLEmbedProvider#isMatch} */
+    it(&apos;should fail to match a different url&apos;, function() {
+      assert.isFalse(provider.isMatch(nonMatchingURL));
+    });
+  });
+
+  /** @test {OEmbedProvider#getEmbed} */
+  describe(&apos;OEmbedProvider#getEmbed&apos;, function() {
+
+    /** @test {OEmbedProvider#getEmbed} */
+    it(&apos;successful: should return the body markup&apos;, function(done) {
+      provider.request = mockRequestSuccess;
+
+      provider.getEmbed(embed, function(embed) {
+        assert.equal(embed.data.html, html);
+        done();
+      });
+    });
+
+    /** @test {URLEmbedProvider#filterData} */
+    it(&apos;filterData function should get called&apos;, function(done) {
+      let called = false;
+
+      provider.request = mockRequestSuccess;
+
+      provider.filterData = function(data) {
+        called = true;
+        return data;
+      }
+      provider.getEmbed(embed, function(embed) {
+        assert.isNull(embed.error);
+        assert.isTrue(called);
+        done();
+      });
+    });
+
+    /** @test {OEmbedProvider#getEmbed} */
+    it(&apos;should return an error object when it fails&apos;, function (done) {
+      provider.request = mockRequestSuccess;
+
+      provider.filterData = function(data) {
+        throw new Error(&apos;Intentional error&apos;);
+      }
+      provider.getEmbed(embed, function(embed) {
+        assert.isTrue((embed.error instanceof Error));
+        done();
+      });
+    });
+
+    /** @test {URLEmbedProvider#errorMarkup} */
+    it(&apos;should call errorMarkup when it fails&apos;, function(done) {
+      provider.request = mockRequestSuccess;
+
+      provider.filterData = function (data) {
+        throw new Error(&apos;Intentional error&apos;);
+      }
+
+      provider.errorMarkup = function(embed, error, errorMessage) {
+        assert.equal(embed.options.embedURL, matchingURL);
+        return failMarkup;
+      }
+      provider.getEmbed(embed, function(embed) {
+        assert.equal(embed.data.html, failMarkup);
+        done();
+      });
+    });
+
+    /** @test {URLEmbedProvider#errorMarkup} */
+    it(&apos;should call errorMarkup if the provider yields a non 200 response&apos;, function(done) {
+      provider.request = mockRequestFail;
+
+      let called = false;
+
+      provider.errorMarkup = function(embed, error, errorMessage) {
+        called = true;
+        assert.equal(embed.options.embedURL, matchingURL);
+        return failMarkup;
+      }
+
+      provider.getEmbed(embed, function(embed) {
+        assert.equal(embed.data.html, failMarkup);
+        done();
+      });
+    });
+
+    it(&apos;should call errorMarkup404 if the provider yields a 404 response and the provider supports the method&apos;, function(done) {
+      provider.request = mockRequestFail;
+
+      let called = false;
+
+      provider.errorMarkup404 = function(embed, error, errorMessage) {
+        called = true;
+        assert.equal(embed.options.embedURL, matchingURL);
+        return failMarkup;
+      }
+      provider.getEmbed(embed, function(embed) {
+        assert.equal(embed.data.html, failMarkup);
+        done();
+      });
+    });
+  });
+
+  /** @test {OEmbedProvider#buildAPIURL} */
+  describe(&apos;OEmbedProvider#buildAPIURL&apos;, function() {
+    it(&apos;should return a valid API url with all options accounted for&apos;, function() {
+      let options = {
+        embedURL: matchingURL,
+        maxWidth: 500,
+        maxHeight: 300
+      };
+
+      provider.defaultProviderQueryStringParameters = {
+        foo: &apos;bar&apos;
+      }
+
+      let apiURL = provider.buildAPIURL(options);
+      assert.match(apiURL, new RegExp(&apos;^&apos; + providerURL));
+      assert.match(apiURL, /\?.*maxheight=300/);
+      assert.match(apiURL, /\?.*maxwidth=500/);
+      assert.match(apiURL, /\?.*foo=bar/);
+    })
+  });
+
+  /** @test {OEmbedProvider#convertHighBitUnicodeToSurrogates} */
+  describe(&apos;OEmbedProvider#convertHighBitUnicodeToSurrogates&apos;, function() {
+    it(&apos;should convert the escaped code point for &quot;&#x1F680;&quot; to the corresponding escaped surrogate pair&apos;, function() {
+      assert.equal(provider.convertHighBitUnicodeToSurrogates(&apos;\\U0001f680&apos;), &apos;\\ud83d\\ude80&apos;);
+    });
+  });
+  
+});</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(0.4.5)</span></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

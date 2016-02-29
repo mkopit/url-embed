@@ -1,0 +1,1121 @@
+{
+  "type": "Program",
+  "body": [
+    {
+      "type": "ExpressionStatement",
+      "expression": {
+        "type": "Literal",
+        "value": "use strict",
+        "raw": "'use strict'",
+        "range": [
+          0,
+          12
+        ],
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 0
+          },
+          "end": {
+            "line": 1,
+            "column": 12
+          }
+        }
+      },
+      "range": [
+        0,
+        13
+      ],
+      "loc": {
+        "start": {
+          "line": 1,
+          "column": 0
+        },
+        "end": {
+          "line": 1,
+          "column": 13
+        }
+      },
+      "trailingComments": [
+        {
+          "type": "Block",
+          "value": "* @ignore ",
+          "range": [
+            15,
+            29
+          ],
+          "loc": {
+            "start": {
+              "line": 3,
+              "column": 0
+            },
+            "end": {
+              "line": 3,
+              "column": 14
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "VariableDeclaration",
+      "declarations": [
+        {
+          "type": "VariableDeclarator",
+          "id": {
+            "type": "Identifier",
+            "name": "OEmbedProvider",
+            "range": [
+              34,
+              48
+            ],
+            "loc": {
+              "start": {
+                "line": 4,
+                "column": 4
+              },
+              "end": {
+                "line": 4,
+                "column": 18
+              }
+            }
+          },
+          "init": {
+            "type": "CallExpression",
+            "callee": {
+              "type": "Identifier",
+              "name": "require",
+              "range": [
+                51,
+                58
+              ],
+              "loc": {
+                "start": {
+                  "line": 4,
+                  "column": 21
+                },
+                "end": {
+                  "line": 4,
+                  "column": 28
+                }
+              }
+            },
+            "arguments": [
+              {
+                "type": "Literal",
+                "value": "../OEmbedProvider",
+                "raw": "'../OEmbedProvider'",
+                "range": [
+                  59,
+                  78
+                ],
+                "loc": {
+                  "start": {
+                    "line": 4,
+                    "column": 29
+                  },
+                  "end": {
+                    "line": 4,
+                    "column": 48
+                  }
+                }
+              }
+            ],
+            "range": [
+              51,
+              79
+            ],
+            "loc": {
+              "start": {
+                "line": 4,
+                "column": 21
+              },
+              "end": {
+                "line": 4,
+                "column": 49
+              }
+            }
+          },
+          "range": [
+            34,
+            79
+          ],
+          "loc": {
+            "start": {
+              "line": 4,
+              "column": 4
+            },
+            "end": {
+              "line": 4,
+              "column": 49
+            }
+          }
+        }
+      ],
+      "kind": "let",
+      "range": [
+        30,
+        80
+      ],
+      "loc": {
+        "start": {
+          "line": 4,
+          "column": 0
+        },
+        "end": {
+          "line": 4,
+          "column": 50
+        }
+      },
+      "leadingComments": [
+        {
+          "type": "Block",
+          "value": "* @ignore ",
+          "range": [
+            15,
+            29
+          ],
+          "loc": {
+            "start": {
+              "line": 3,
+              "column": 0
+            },
+            "end": {
+              "line": 3,
+              "column": 14
+            }
+          }
+        }
+      ],
+      "trailingComments": [
+        {
+          "type": "Block",
+          "value": "*\n  FacebookVideo embed provider\n  @see https://developers.facebook.com/docs/plugins/oembed-endpoints\n",
+          "range": [
+            82,
+            188
+          ],
+          "loc": {
+            "start": {
+              "line": 6,
+              "column": 0
+            },
+            "end": {
+              "line": 9,
+              "column": 2
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "id": {
+        "type": "Identifier",
+        "name": "FacebookVideo",
+        "range": [
+          195,
+          208
+        ],
+        "loc": {
+          "start": {
+            "line": 10,
+            "column": 6
+          },
+          "end": {
+            "line": 10,
+            "column": 19
+          }
+        }
+      },
+      "superClass": {
+        "type": "Identifier",
+        "name": "OEmbedProvider",
+        "range": [
+          217,
+          231
+        ],
+        "loc": {
+          "start": {
+            "line": 10,
+            "column": 28
+          },
+          "end": {
+            "line": 10,
+            "column": 42
+          }
+        }
+      },
+      "body": {
+        "type": "ClassBody",
+        "body": [],
+        "range": [
+          232,
+          234
+        ],
+        "loc": {
+          "start": {
+            "line": 10,
+            "column": 43
+          },
+          "end": {
+            "line": 10,
+            "column": 45
+          }
+        }
+      },
+      "range": [
+        189,
+        234
+      ],
+      "loc": {
+        "start": {
+          "line": 10,
+          "column": 0
+        },
+        "end": {
+          "line": 10,
+          "column": 45
+        }
+      },
+      "leadingComments": [],
+      "name": "_",
+      "trailingComments": []
+    },
+    {
+      "type": "ExpressionStatement",
+      "expression": {
+        "type": "AssignmentExpression",
+        "operator": "=",
+        "left": {
+          "type": "MemberExpression",
+          "computed": false,
+          "object": {
+            "type": "MemberExpression",
+            "computed": false,
+            "object": {
+              "type": "Identifier",
+              "name": "FacebookVideo",
+              "range": [
+                236,
+                249
+              ],
+              "loc": {
+                "start": {
+                  "line": 12,
+                  "column": 0
+                },
+                "end": {
+                  "line": 12,
+                  "column": 13
+                }
+              }
+            },
+            "property": {
+              "type": "Identifier",
+              "name": "prototype",
+              "range": [
+                250,
+                259
+              ],
+              "loc": {
+                "start": {
+                  "line": 12,
+                  "column": 14
+                },
+                "end": {
+                  "line": 12,
+                  "column": 23
+                }
+              }
+            },
+            "range": [
+              236,
+              259
+            ],
+            "loc": {
+              "start": {
+                "line": 12,
+                "column": 0
+              },
+              "end": {
+                "line": 12,
+                "column": 23
+              }
+            }
+          },
+          "property": {
+            "type": "Identifier",
+            "name": "name",
+            "range": [
+              260,
+              264
+            ],
+            "loc": {
+              "start": {
+                "line": 12,
+                "column": 24
+              },
+              "end": {
+                "line": 12,
+                "column": 28
+              }
+            }
+          },
+          "range": [
+            236,
+            264
+          ],
+          "loc": {
+            "start": {
+              "line": 12,
+              "column": 0
+            },
+            "end": {
+              "line": 12,
+              "column": 28
+            }
+          }
+        },
+        "right": {
+          "type": "Literal",
+          "value": "facebook_video",
+          "raw": "'facebook_video'",
+          "range": [
+            267,
+            283
+          ],
+          "loc": {
+            "start": {
+              "line": 12,
+              "column": 31
+            },
+            "end": {
+              "line": 12,
+              "column": 47
+            }
+          }
+        },
+        "range": [
+          236,
+          283
+        ],
+        "loc": {
+          "start": {
+            "line": 12,
+            "column": 0
+          },
+          "end": {
+            "line": 12,
+            "column": 47
+          }
+        }
+      },
+      "range": [
+        236,
+        284
+      ],
+      "loc": {
+        "start": {
+          "line": 12,
+          "column": 0
+        },
+        "end": {
+          "line": 12,
+          "column": 48
+        }
+      }
+    },
+    {
+      "type": "ExpressionStatement",
+      "expression": {
+        "type": "AssignmentExpression",
+        "operator": "=",
+        "left": {
+          "type": "MemberExpression",
+          "computed": false,
+          "object": {
+            "type": "MemberExpression",
+            "computed": false,
+            "object": {
+              "type": "Identifier",
+              "name": "FacebookVideo",
+              "range": [
+                285,
+                298
+              ],
+              "loc": {
+                "start": {
+                  "line": 13,
+                  "column": 0
+                },
+                "end": {
+                  "line": 13,
+                  "column": 13
+                }
+              }
+            },
+            "property": {
+              "type": "Identifier",
+              "name": "prototype",
+              "range": [
+                299,
+                308
+              ],
+              "loc": {
+                "start": {
+                  "line": 13,
+                  "column": 14
+                },
+                "end": {
+                  "line": 13,
+                  "column": 23
+                }
+              }
+            },
+            "range": [
+              285,
+              308
+            ],
+            "loc": {
+              "start": {
+                "line": 13,
+                "column": 0
+              },
+              "end": {
+                "line": 13,
+                "column": 23
+              }
+            }
+          },
+          "property": {
+            "type": "Identifier",
+            "name": "providerURL",
+            "range": [
+              309,
+              320
+            ],
+            "loc": {
+              "start": {
+                "line": 13,
+                "column": 24
+              },
+              "end": {
+                "line": 13,
+                "column": 35
+              }
+            }
+          },
+          "range": [
+            285,
+            320
+          ],
+          "loc": {
+            "start": {
+              "line": 13,
+              "column": 0
+            },
+            "end": {
+              "line": 13,
+              "column": 35
+            }
+          }
+        },
+        "right": {
+          "type": "Literal",
+          "value": "https://www.facebook.com/plugins/video/oembed.json/",
+          "raw": "'https://www.facebook.com/plugins/video/oembed.json/'",
+          "range": [
+            323,
+            376
+          ],
+          "loc": {
+            "start": {
+              "line": 13,
+              "column": 38
+            },
+            "end": {
+              "line": 13,
+              "column": 91
+            }
+          }
+        },
+        "range": [
+          285,
+          376
+        ],
+        "loc": {
+          "start": {
+            "line": 13,
+            "column": 0
+          },
+          "end": {
+            "line": 13,
+            "column": 91
+          }
+        }
+      },
+      "range": [
+        285,
+        377
+      ],
+      "loc": {
+        "start": {
+          "line": 13,
+          "column": 0
+        },
+        "end": {
+          "line": 13,
+          "column": 92
+        }
+      }
+    },
+    {
+      "type": "ExpressionStatement",
+      "expression": {
+        "type": "AssignmentExpression",
+        "operator": "=",
+        "left": {
+          "type": "MemberExpression",
+          "computed": false,
+          "object": {
+            "type": "MemberExpression",
+            "computed": false,
+            "object": {
+              "type": "Identifier",
+              "name": "FacebookVideo",
+              "range": [
+                378,
+                391
+              ],
+              "loc": {
+                "start": {
+                  "line": 14,
+                  "column": 0
+                },
+                "end": {
+                  "line": 14,
+                  "column": 13
+                }
+              }
+            },
+            "property": {
+              "type": "Identifier",
+              "name": "prototype",
+              "range": [
+                392,
+                401
+              ],
+              "loc": {
+                "start": {
+                  "line": 14,
+                  "column": 14
+                },
+                "end": {
+                  "line": 14,
+                  "column": 23
+                }
+              }
+            },
+            "range": [
+              378,
+              401
+            ],
+            "loc": {
+              "start": {
+                "line": 14,
+                "column": 0
+              },
+              "end": {
+                "line": 14,
+                "column": 23
+              }
+            }
+          },
+          "property": {
+            "type": "Identifier",
+            "name": "urlPatterns",
+            "range": [
+              402,
+              413
+            ],
+            "loc": {
+              "start": {
+                "line": 14,
+                "column": 24
+              },
+              "end": {
+                "line": 14,
+                "column": 35
+              }
+            }
+          },
+          "range": [
+            378,
+            413
+          ],
+          "loc": {
+            "start": {
+              "line": 14,
+              "column": 0
+            },
+            "end": {
+              "line": 14,
+              "column": 35
+            }
+          }
+        },
+        "right": {
+          "type": "ArrayExpression",
+          "elements": [
+            {
+              "type": "Literal",
+              "value": "^https://www.facebook.com/[^/]+/videos/.*",
+              "raw": "'^https://www.facebook.com/[^/]+/videos/.*'",
+              "range": [
+                420,
+                463
+              ],
+              "loc": {
+                "start": {
+                  "line": 15,
+                  "column": 2
+                },
+                "end": {
+                  "line": 15,
+                  "column": 45
+                }
+              }
+            },
+            {
+              "type": "Literal",
+              "value": "^https://www.facebook.com/video.php?id=.*",
+              "raw": "'^https://www.facebook.com/video.php?id=.*'",
+              "range": [
+                467,
+                510
+              ],
+              "loc": {
+                "start": {
+                  "line": 16,
+                  "column": 2
+                },
+                "end": {
+                  "line": 16,
+                  "column": 45
+                }
+              }
+            },
+            {
+              "type": "Literal",
+              "value": "^https://www.facebook.com/video.php?v=.*",
+              "raw": "'^https://www.facebook.com/video.php?v=.*'",
+              "range": [
+                514,
+                556
+              ],
+              "loc": {
+                "start": {
+                  "line": 17,
+                  "column": 2
+                },
+                "end": {
+                  "line": 17,
+                  "column": 44
+                }
+              }
+            }
+          ],
+          "range": [
+            416,
+            558
+          ],
+          "loc": {
+            "start": {
+              "line": 14,
+              "column": 38
+            },
+            "end": {
+              "line": 18,
+              "column": 1
+            }
+          }
+        },
+        "range": [
+          378,
+          558
+        ],
+        "loc": {
+          "start": {
+            "line": 14,
+            "column": 0
+          },
+          "end": {
+            "line": 18,
+            "column": 1
+          }
+        }
+      },
+      "range": [
+        378,
+        559
+      ],
+      "loc": {
+        "start": {
+          "line": 14,
+          "column": 0
+        },
+        "end": {
+          "line": 18,
+          "column": 2
+        }
+      }
+    },
+    {
+      "type": "ExpressionStatement",
+      "expression": {
+        "type": "AssignmentExpression",
+        "operator": "=",
+        "left": {
+          "type": "MemberExpression",
+          "computed": false,
+          "object": {
+            "type": "MemberExpression",
+            "computed": false,
+            "object": {
+              "type": "Identifier",
+              "name": "FacebookVideo",
+              "range": [
+                560,
+                573
+              ],
+              "loc": {
+                "start": {
+                  "line": 19,
+                  "column": 0
+                },
+                "end": {
+                  "line": 19,
+                  "column": 13
+                }
+              }
+            },
+            "property": {
+              "type": "Identifier",
+              "name": "prototype",
+              "range": [
+                574,
+                583
+              ],
+              "loc": {
+                "start": {
+                  "line": 19,
+                  "column": 14
+                },
+                "end": {
+                  "line": 19,
+                  "column": 23
+                }
+              }
+            },
+            "range": [
+              560,
+              583
+            ],
+            "loc": {
+              "start": {
+                "line": 19,
+                "column": 0
+              },
+              "end": {
+                "line": 19,
+                "column": 23
+              }
+            }
+          },
+          "property": {
+            "type": "Identifier",
+            "name": "format",
+            "range": [
+              584,
+              590
+            ],
+            "loc": {
+              "start": {
+                "line": 19,
+                "column": 24
+              },
+              "end": {
+                "line": 19,
+                "column": 30
+              }
+            }
+          },
+          "range": [
+            560,
+            590
+          ],
+          "loc": {
+            "start": {
+              "line": 19,
+              "column": 0
+            },
+            "end": {
+              "line": 19,
+              "column": 30
+            }
+          }
+        },
+        "right": {
+          "type": "Literal",
+          "value": "json",
+          "raw": "'json'",
+          "range": [
+            593,
+            599
+          ],
+          "loc": {
+            "start": {
+              "line": 19,
+              "column": 33
+            },
+            "end": {
+              "line": 19,
+              "column": 39
+            }
+          }
+        },
+        "range": [
+          560,
+          599
+        ],
+        "loc": {
+          "start": {
+            "line": 19,
+            "column": 0
+          },
+          "end": {
+            "line": 19,
+            "column": 39
+          }
+        }
+      },
+      "range": [
+        560,
+        600
+      ],
+      "loc": {
+        "start": {
+          "line": 19,
+          "column": 0
+        },
+        "end": {
+          "line": 19,
+          "column": 40
+        }
+      }
+    },
+    {
+      "type": "Identifier",
+      "declaration": {
+        "type": "Identifier",
+        "name": "FacebookVideo",
+        "range": [
+          616,
+          629
+        ],
+        "loc": {
+          "start": {
+            "line": 20,
+            "column": 15
+          },
+          "end": {
+            "line": 20,
+            "column": 28
+          }
+        }
+      },
+      "range": [
+        601,
+        630
+      ],
+      "loc": {
+        "start": {
+          "line": 20,
+          "column": 0
+        },
+        "end": {
+          "line": 20,
+          "column": 29
+        }
+      },
+      "name": "_",
+      "leadingComments": [],
+      "trailingComments": []
+    },
+    {
+      "type": "ExportDefaultDeclaration",
+      "declaration": {
+        "type": "ClassDeclaration",
+        "id": {
+          "type": "Identifier",
+          "name": "FacebookVideo",
+          "range": [
+            195,
+            208
+          ],
+          "loc": {
+            "start": {
+              "line": 10,
+              "column": 6
+            },
+            "end": {
+              "line": 10,
+              "column": 19
+            }
+          }
+        },
+        "superClass": {
+          "type": "Identifier",
+          "name": "OEmbedProvider",
+          "range": [
+            217,
+            231
+          ],
+          "loc": {
+            "start": {
+              "line": 10,
+              "column": 28
+            },
+            "end": {
+              "line": 10,
+              "column": 42
+            }
+          }
+        },
+        "body": {
+          "type": "ClassBody",
+          "body": [],
+          "range": [
+            232,
+            234
+          ],
+          "loc": {
+            "start": {
+              "line": 10,
+              "column": 43
+            },
+            "end": {
+              "line": 10,
+              "column": 45
+            }
+          }
+        },
+        "range": [
+          189,
+          234
+        ],
+        "loc": {
+          "start": {
+            "line": 10,
+            "column": 0
+          },
+          "end": {
+            "line": 10,
+            "column": 45
+          }
+        },
+        "leadingComments": [
+          {
+            "type": "Block",
+            "value": "*\n  FacebookVideo embed provider\n  @see https://developers.facebook.com/docs/plugins/oembed-endpoints\n",
+            "range": [
+              82,
+              188
+            ],
+            "loc": {
+              "start": {
+                "line": 6,
+                "column": 0
+              },
+              "end": {
+                "line": 9,
+                "column": 2
+              }
+            }
+          }
+        ],
+        "__esdoc__pseudo_export": false,
+        "trailingComments": []
+      },
+      "range": [
+        601,
+        630
+      ],
+      "loc": {
+        "start": {
+          "line": 20,
+          "column": 0
+        },
+        "end": {
+          "line": 20,
+          "column": 29
+        }
+      },
+      "leadingComments": null
+    }
+  ],
+  "sourceType": "module",
+  "range": [
+    0,
+    630
+  ],
+  "loc": {
+    "start": {
+      "line": 1,
+      "column": 0
+    },
+    "end": {
+      "line": 20,
+      "column": 29
+    }
+  },
+  "comments": [
+    {
+      "type": "Block",
+      "value": "* @ignore ",
+      "range": [
+        15,
+        29
+      ],
+      "loc": {
+        "start": {
+          "line": 3,
+          "column": 0
+        },
+        "end": {
+          "line": 3,
+          "column": 14
+        }
+      }
+    },
+    {
+      "type": "Block",
+      "value": "*\n  FacebookVideo embed provider\n  @see https://developers.facebook.com/docs/plugins/oembed-endpoints\n",
+      "range": [
+        82,
+        188
+      ],
+      "loc": {
+        "start": {
+          "line": 6,
+          "column": 0
+        },
+        "end": {
+          "line": 9,
+          "column": 2
+        }
+      }
+    }
+  ]
+}

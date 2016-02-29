@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">lib/classes/EmbedEngine.js | API Document</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  
+  
+  <script src="script/manual.js"></script>
+</head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  <a href="test.html" data-ice="testLink">Test</a>
+  <a data-ice="repoURL" href="https://github.com/mkopit/url-embed.git" class="repo-url-github">Repository</a>
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">classes</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/Embed.js~Embed.html">Embed</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/EmbedEngine.js~EmbedEngine.html">EmbedEngine</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-interface">I</span><span data-ice="name"><span><a href="class/lib/classes/OEmbedProvider.js~OEmbedProvider.html">OEmbedProvider</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-interface">I</span><span data-ice="name"><span><a href="class/lib/classes/URLEmbedProvider.js~URLEmbedProvider.html">URLEmbedProvider</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">classes/default_providers</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/default_providers/dailymotion.js~DailyMotion.html">DailyMotion</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/default_providers/facebook_posts.js~FacebookPosts.html">FacebookPosts</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/default_providers/facebook_video.js~FacebookVideo.html">FacebookVideo</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/default_providers/flickr.js~Flickr.html">Flickr</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/default_providers/imgur.js~Imgur.html">Imgur</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/default_providers/instagram.js~Instagram.html">Instagram</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/default_providers/soundcloud.js~SoundCloud.html">SoundCloud</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/default_providers/spotify.js~Spotify.html">Spotify</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/default_providers/tumblr.js~Tumblr.html">Tumblr</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/default_providers/twitter.js~Twitter.html">Twitter</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/default_providers/videopress.js~Videopress.html">Videopress</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/default_providers/vimeo.js~Vimeo.html">Vimeo</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/default_providers/youtube.js~Youtube.html">Youtube</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">lib/classes/EmbedEngine.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;;
+
+/** @ignore */
+let fs = require(&apos;fs&apos;);
+
+/** @ignore */
+let async = require(&apos;async&apos;);
+
+/** @ignore */
+let URLEmbedProvider = require(&apos;./URLEmbedProvider&apos;);
+
+/** @ignore */
+let OEmbedProvider = require(&apos;./OEmbedProvider&apos;);
+
+/** @ignore */
+let Embed = require(&apos;./Embed&apos;);
+
+/**
+ * Resolves urls to embeds from a registered list of embed providers
+ */
+class EmbedEngine {
+  /**
+  * @param {Object} [engineOptions] - configuration options
+  * @param {number} [engineOptions.timeoutMs] - request timeout in milliseconds
+  */
+  constructor (engineOptions) {
+    /**
+    * Utility references to provider superclasses
+    * @type {{URLEmbedProvider: URLEmbedProvider, OEmbedProvider: OEmbedProvider}}
+    */
+    this.providerSuperClasses = {
+      URLEmbedProvider: URLEmbedProvider,
+      OEmbedProvider: OEmbedProvider
+    };
+
+    /**
+    * The directory containing the default provider classes
+    * @type {String}
+    */
+    this.defaultProviderDirectory = __dirname + &apos;/default_providers&apos;;
+
+    /**
+    * The registry of provider instances
+    * @type {Array&lt;URLEmbedProvider&gt;}
+    */
+    this.providerRegistry = [];
+
+    /**
+     * Array of provider classes included in this library
+     * @type {Array&lt;URLEmbedProvider&gt;} defaultProviderClasses - array of provider classes included in this library
+     */
+    this.defaultProviderClasses = this._loadProvidersFromDirectory(this.defaultProviderDirectory);
+
+    /**
+    * Configuration options. These will also be passed to the configure method of each provider instance
+    * @type {Object} engineOptions - configuration options
+    * @property {number} engineOptions.timeoutMs - request timeout in milliseconds
+    */
+    this.engineOptions = engineOptions;
+  }
+
+  /**
+  * Registers a provider instance.
+  * @param {URLProvider} provider - instance of &lt;code&gt;URLProvider&lt;/code&gt; or &lt;code&gt;OEmbedProvider&lt;/code&gt;
+  */
+  registerProvider (provider) {
+    let providerExists = false;
+
+    this._configureProvider(provider);
+
+    for (let idx = 0; idx &lt; this.providerRegistry.length; idx++) {
+      if (this.providerRegistry[idx].name === provider.name) {
+        this.providerRegistry[idx] = provider;
+        providerExists = true;
+      }
+    }
+
+    if (!providerExists) {
+      this.providerRegistry.push(provider);
+    }
+  }
+
+  _configureProvider (provider) {
+    provider.configure(this.engineOptions);
+  }
+
+  /**
+  * Registers all the default providers in this library
+  * @param {String} [path] - directory of provider classes (if not specified it will default to the ones in this library)
+  */
+  registerDefaultProviders (path) {
+    for (let i = 0; i &lt; this.defaultProviderClasses.length; i++) {
+      let ProviderClass = this.defaultProviderClasses[i];
+      let provider = new ProviderClass();
+      this._configureProvider(provider);
+      this.registerProvider(provider);
+    }
+  }
+
+  /**
+  * Requires in all default providers in this library
+  * @param {String} [path] - directory of provider classes (if not specified it will default to the ones in this library)
+  */
+  _loadProvidersFromDirectory (path) {
+    if (!path) path = this.defaultProviderDirectory;
+    let providerClasses = [];
+
+    let files = fs.readdirSync(path);
+    for (let i = 0; i &lt; files.length; i++) {
+      let providerClass = require(path + &apos;/&apos; + files[i]);
+      providerClasses.push(providerClass);
+    }
+
+    return providerClasses;
+  }
+
+  /**
+  * Resolves embedOptions.embedURL to an embed and passes it to callback.
+  * @param {Object} embedOptions - options object
+  * @param {String} embedOptions.embedURL - URL to be embedded
+  * @param {function(embed: Embed)} callback - callback to invoke after resolving embed
+  */
+  getEmbed (embedOptions, callback) {
+    if (!embedOptions || !embedOptions.embedURL) {
+      throw new Error(&apos;embedOptions object missing required property: embedURL&apos;);
+    }
+
+    let embed = new Embed();
+    embed.options = embedOptions;
+    let embedURL = embedOptions.embedURL;
+    embed.markStarted();
+
+    let providerFound = false;
+
+    for (let idx = 0; idx &lt; this.providerRegistry.length; idx++) {
+      let provider = this.providerRegistry[idx];
+      let self = this;
+
+      if (provider.isMatch(embedURL)) {
+        providerFound = true;
+
+        provider.getEmbed(embed, function (embed) {
+          self.filterData(embed.data);
+          embed.markFinished();
+          callback(embed);
+          return;
+        });
+
+        idx = this.providerRegistry.length;
+      }
+    }
+
+    if (!providerFound) {
+      embed.error = new Error(&apos;Unknown embed provider for url: &apos; + embedURL);
+      embed.data = {
+        html: this.errorMarkup(embed)
+      };
+      embed.markFinished();
+      callback(embed);
+    }
+  }
+
+  /*
+  * Resolves an array of embedOptions.embedURL&apos;s in parallel
+  * @param {Array} optArray - Array of embed options objects
+  * @param {function(error: Error, results: Array)} callback - callback to invoke after batch is complete
+  */
+  getMultipleEmbeds (optArray, callback) {
+    let self = this;
+
+    async.map(optArray, function (options, callbackIterator) {
+      self.getEmbed(options, function (embed) {
+        callbackIterator(null, embed);
+      });
+    },
+    function (error, results) {
+      callback(error, results);
+    });
+  }
+
+  /**
+  * Returns error markup if an error occurs during embed resolution
+  * @param {Embed} embed - Embed object
+  * @param {Error} error - &lt;code&gt;Error&lt;/code&gt; that was thrown
+  * @param {String} [errorMessage] - Error message to display to the user.
+  * @return {String} Markup
+  */
+  errorMarkup (embed, error, errorMessage) {
+    let embedOptions = embed.options;
+    let embedURL = embedOptions.embedURL;
+
+    if (!errorMessage) {
+      errorMessage = embedOptions.embedURL;
+    }
+    return &apos;&lt;a href=&quot;&apos; + embedURL + &apos;&quot;&gt;&apos; + embedURL + &apos;&lt;/a&gt;&apos;;
+  }
+
+  /**
+  * Can be overridden/replaced to modify any provider&apos;s data before it is passed to the client callback.&lt;br /&gt;
+  * *Note:* if you only need to modify a specific provider&apos;s data then there&apos;s a similar &lt;code&gt;filterData&lt;/code&gt; method on each provider object, too.
+  * @param {{html: string}} data - Data object containing embed html
+  */
+  filterData (data) {
+    return data;
+  }
+}
+
+module.exports = EmbedEngine;
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(0.4.5)</span></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>
