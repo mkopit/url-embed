@@ -230,6 +230,9 @@ engine.registerProvider(new CustomProvider());</code>
 <pre><code class="lang-javascript"><code class="source-code prettyprint">&apos;use strict&apos;;
 
 let urlEmbed = require(&apos;url-embed&apos;);
+let EmbedEngine = urlEmbed.EmbedEngine;
+let engine = new EmbedEngine();
+
 let defaultProviderClasses = urlEmbed.defaultProviderClasses;
 let Youtube = defaultProviderClasses.Youtube;
 
@@ -241,8 +244,6 @@ class BetterYoutubeProvider extends Youtube {
 }
 
 // Test it out
-let EmbedEngine = urlEmbed.EmbedEngine;
-let engine = new EmbedEngine();
 engine.registerProvider(new BetterYoutubeProvider());
 
 engine.getEmbed({embedURL: &apos;https://www.youtube.com/watch?v=dQw4w9WgXcQ&apos;}, function(embed) {
