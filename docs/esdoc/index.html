@@ -54,7 +54,8 @@
 </nav>
 
 <div class="content" data-ice="content"><div data-ice="index" class="github-markdown"><h1 id="url-embed">url-embed</h1>
-<p>A flexible class-based system that supports converting URLs into embed code. The module provides support for many oembed providers, as well as support for creating your own custom providers.</p>
+<p>A flexible <strong>ES6</strong> class-based system that supports converting URLs into embed code. </p>
+<p>The module provides support for many common oembed providers, as well as support for creating your own custom providers.</p>
 <p><a href="http://mkopit.github.io/url-embed/docs/esdoc/index.html">API Documentation Lives Here</a></p>
 <h2 id="the-basics">The Basics</h2>
 <ul>
@@ -78,15 +79,20 @@
 <p>Example: Resolving a single embed</p>
 <pre><code class="lang-javascript"><code class="source-code prettyprint">&apos;use strict&apos;;
 
-let engine = new require(&apos;url-embed&apos;).EmbedEngine({
+let EmbedEngine = require(&apos;url-embed&apos;).EmbedEngine;
+let engine = new EmbedEngine({
   timeoutMs: 2000,
   referrer: &apos;www.example.com&apos;
 });
-
 engine.registerDefaultProviders();
 
+let embedOptions = {
+  embedURL: &apos;https://www.youtube.com/watch?v=dQw4w9WgXcQ&apos;,
+  maxHeight: 300
+}
+
 // Get single embed
-engine.getEmbed({embedURL: &apos;https://www.youtube.com/watch?v=dQw4w9WgXcQ&apos;}, function(embed) {
+engine.getEmbed(embedOptions, function(embed) {
   if (embed.error) {
     console.log(&apos;Something went wrong.&apos;);
     console.log(err.stack);
@@ -97,10 +103,10 @@ engine.getEmbed({embedURL: &apos;https://www.youtube.com/watch?v=dQw4w9WgXcQ&apo
 });</code>
 </code></pre>
 <p>&#xA0;</p>
-<p>Example: resolving muliple embeds in parallel</p>
+<p>Example: Resolving muliple embeds in parallel</p>
 <pre><code class="lang-javascript"><code class="source-code prettyprint">&apos;use strict&apos;;
 
-let engine = new require(&apos;url-embed&apos;).EmbedEngine({
+let engine = new (require(&apos;url-embed&apos;).EmbedEngine)({
   timeoutMs: 2000,
   referrer: &apos;www.example.com&apos;
 });
@@ -128,22 +134,23 @@ let embedOptionArray = [
 // Get multiple embeds
 engine.getMultipleEmbeds(embedOptionArray, function (error, results) {
   if (error) {
-    // dang it
+    // Something horrible killed the whole process. Spooky.
   } else {
     for (let i = 0; i &lt; results.length; i++) {
-      embed = results[i];
+      let embed = results[i];
+
+      console.log(&apos;\nEmbed for &apos; + embed.options.embedURL);
       if (embed.error) {
-        // something failed during resolving this embed
-      } else {
-        console.log(embed.data.html);
+        console.log(&apos;A tragedy occurred: &apos; + embed.error);
       }
+      console.log(embed.data.html);
     }
   }
-}</code>
+});</code>
 </code></pre>
 <h2 id="creating-your-own-url-embed-providers">Creating Your Own URL Embed Providers</h2>
 <p>You can extend URLEmbedProvider and OEmbedProvider to make your own embed providers.</p>
-<p>Example: oembed provider</p>
+<p>Example: Creating a new oembed provider</p>
 <pre><code class="lang-javascript"><code class="source-code prettyprint">&apos;use strict&apos;;
 
 let OEmbedProvider = (require(&apos;url-embed&apos;)).OEmbedProvider;
@@ -165,7 +172,7 @@ SoundCloud.prototype.format = &apos;json&apos;;
 module.exports = SoundCloud;</code>
 </code></pre>
 <p>&#xA0;</p>
-<p>Example: custom provider</p>
+<p>Example: Creating a custom provider</p>
 <pre><code class="lang-javascript"><code class="source-code prettyprint">&apos;use strict&apos;;
 
 let URLEmbedProvider = (require(&apos;url-embed&apos;)).URLEmbedProvider;
@@ -217,6 +224,78 @@ let engine = new require(&apos;url-embed&apos;).EmbedEngine({
 });
 
 engine.registerProvider(new CustomProvider());</code>
+</code></pre>
+<h2 id="other-tips-tricks-and-feats-of-strength">Other tips, tricks and feats of strength</h2>
+<p>Example: Modifying an existing provider by extending its class</p>
+<pre><code class="lang-javascript"><code class="source-code prettyprint">&apos;use strict&apos;;
+
+let urlEmbed = require(&apos;url-embed&apos;);
+let defaultProviderClasses = urlEmbed.defaultProviderClasses;
+let Youtube = defaultProviderClasses.Youtube;
+
+// Class level override of filterData
+class BetterYoutubeProvider extends Youtube {
+  filterData(data) {
+    data.html = &apos;YOLO!!!! &apos; + data.html
+  }
+}
+
+// Test it out
+let EmbedEngine = urlEmbed.EmbedEngine;
+let engine = new EmbedEngine();
+engine.registerProvider(new BetterYoutubeProvider());
+
+engine.getEmbed({embedURL: &apos;https://www.youtube.com/watch?v=dQw4w9WgXcQ&apos;}, function(embed) {
+  console.log(embed.data.html);
+});
+
+/**
+* Outputs:
+* YOLO!!!! &lt;iframe width=&quot;459&quot; height=&quot;344&quot; src=&quot;https://www.youtube.com/embed/dQw4w9WgXcQ?feature=oembed&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
+*/</code>
+</code></pre>
+<p>Example:</p>
+<ul>
+<li>Modifying the embed code for an <strong>instance</strong> of an existing provider</li>
+<li>Modifying the embed code for <strong>all</strong> providers</li>
+</ul>
+<pre><code class="lang-javascript"><code class="source-code prettyprint">&apos;use strict&apos;;
+
+let urlEmbed = require(&apos;url-embed&apos;);
+let defaultProviderClasses = urlEmbed.defaultProviderClasses;
+let Youtube = defaultProviderClasses.Youtube;
+
+let provider = new Youtube();
+
+// Instance-level override of Youtube.filterData.
+provider.filterData = function (data) {
+  data.html = &apos;YOLO!!!! &apos; + data.html
+}
+
+let EmbedEngine = urlEmbed.EmbedEngine;
+let engine = new EmbedEngine();
+engine.registerDefaultProviders();
+
+// Instance level override of EmbedEngine.filterData
+engine.filterData = function(data) {
+  data.html = &apos;&lt;hug&gt;&apos; + data.html + &apos;&lt;/hug&gt;&apos;;
+}
+
+engine.registerProvider(provider);
+
+engine.getEmbed({embedURL: &apos;https://www.youtube.com/watch?v=dQw4w9WgXcQ&apos;}, function(embed) {
+  console.log(embed.data.html);
+});
+
+engine.getEmbed({embedURL: &apos;https://play.spotify.com/track/0ivpUENLpheuPoa6VuY1ax&apos;}, function(embed) {
+  console.log(embed.data.html);
+});
+
+/*
+* Outputs:
+* &lt;hug&gt;YOLO!!!! &lt;iframe width=&quot;459&quot; height=&quot;344&quot; src=&quot;https://www.youtube.com/embed/dQw4w9WgXcQ?feature=oembed&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;&lt;/hug&gt;
+* &lt;hug&gt;&lt;iframe src=&quot;https://embed.spotify.com/?uri=spotify:track:0ivpUENLpheuPoa6VuY1ax&quot; width=&quot;300&quot; height=&quot;380&quot; frameborder=&quot;0&quot; allowtransparency=&quot;true&quot;&gt;&lt;/iframe&gt;&lt;/hug&gt;
+*/</code>
 </code></pre>
 </div>
 </div>

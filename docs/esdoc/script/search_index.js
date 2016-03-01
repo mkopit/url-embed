@@ -1086,6 +1086,12 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "lib/utils.js",
+    "file/lib/utils.js.html",
+    "lib/utils.js",
+    "file"
+  ],
+  [
     "test/lib/classes/embed.js",
     "test-file/test/lib/classes/Embed.js.html",
     "test/lib/classes/Embed.js",

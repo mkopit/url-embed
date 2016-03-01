@@ -247,7 +247,7 @@ class OEmbedProvider extends URLEmbedProvider {
   * @override
   */
   configure (configOptions) {
-    if (configOptions.timeoutMs) {
+    if (configOptions &amp;&amp; configOptions.timeoutMs) {
       this.timeoutMs = configOptions.timeoutMs;
     }
   }

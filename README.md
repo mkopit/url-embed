@@ -1,6 +1,8 @@
 # url-embed
 
-A flexible class-based system that supports converting URLs into embed code. The module provides support for many oembed providers, as well as support for creating your own custom providers.
+A flexible **ES6** class-based system that supports converting URLs into embed code. 
+
+The module provides support for many common oembed providers, as well as support for creating your own custom providers.
 
 [API Documentation Lives Here](http://mkopit.github.io/url-embed/docs/esdoc/index.html)
 
@@ -24,15 +26,20 @@ Example: Resolving a single embed
 ```javascript
 'use strict';
 
-let engine = new require('url-embed').EmbedEngine({
+let EmbedEngine = require('url-embed').EmbedEngine;
+let engine = new EmbedEngine({
   timeoutMs: 2000,
   referrer: 'www.example.com'
 });
-
 engine.registerDefaultProviders();
 
+let embedOptions = {
+  embedURL: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+  maxHeight: 300
+}
+
 // Get single embed
-engine.getEmbed({embedURL: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'}, function(embed) {
+engine.getEmbed(embedOptions, function(embed) {
   if (embed.error) {
     console.log('Something went wrong.');
     console.log(err.stack);
@@ -46,12 +53,12 @@ engine.getEmbed({embedURL: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'}, funct
 
 &nbsp;
 
-Example: resolving muliple embeds in parallel
+Example: Resolving muliple embeds in parallel
 
 ```javascript
 'use strict';
 
-let engine = new require('url-embed').EmbedEngine({
+let engine = new (require('url-embed').EmbedEngine)({
   timeoutMs: 2000,
   referrer: 'www.example.com'
 });
@@ -79,18 +86,19 @@ let embedOptionArray = [
 // Get multiple embeds
 engine.getMultipleEmbeds(embedOptionArray, function (error, results) {
   if (error) {
-    // dang it
+    // Something horrible killed the whole process. Spooky.
   } else {
     for (let i = 0; i < results.length; i++) {
-      embed = results[i];
+      let embed = results[i];
+
+      console.log('\nEmbed for ' + embed.options.embedURL);
       if (embed.error) {
-        // something failed during resolving this embed
-      } else {
-        console.log(embed.data.html);
+        console.log('A tragedy occurred: ' + embed.error);
       }
+      console.log(embed.data.html);
     }
   }
-}
+});
 
 ```
 
@@ -98,7 +106,7 @@ engine.getMultipleEmbeds(embedOptionArray, function (error, results) {
 
 You can extend URLEmbedProvider and OEmbedProvider to make your own embed providers.
 
-Example: oembed provider
+Example: Creating a new oembed provider
 
 ```javascript
 'use strict';
@@ -125,7 +133,7 @@ module.exports = SoundCloud;
 
 &nbsp;
 
-Example: custom provider
+Example: Creating a custom provider
 
 ```javascript
 'use strict';
@@ -183,4 +191,83 @@ let engine = new require('url-embed').EmbedEngine({
 });
 
 engine.registerProvider(new CustomProvider());
+```
+
+## Other tips, tricks and feats of strength
+
+Example: Modifying an existing provider by extending its class
+
+```javascript
+'use strict';
+
+let urlEmbed = require('url-embed');
+let defaultProviderClasses = urlEmbed.defaultProviderClasses;
+let Youtube = defaultProviderClasses.Youtube;
+
+// Class level override of filterData
+class BetterYoutubeProvider extends Youtube {
+  filterData(data) {
+    data.html = 'YOLO!!!! ' + data.html
+  }
+}
+
+// Test it out
+let EmbedEngine = urlEmbed.EmbedEngine;
+let engine = new EmbedEngine();
+engine.registerProvider(new BetterYoutubeProvider());
+
+engine.getEmbed({embedURL: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'}, function(embed) {
+  console.log(embed.data.html);
+});
+
+/**
+* Outputs:
+* YOLO!!!! <iframe width="459" height="344" src="https://www.youtube.com/embed/dQw4w9WgXcQ?feature=oembed" frameborder="0" allowfullscreen></iframe>
+*/
+```
+
+
+Example:
+* Modifying the embed code for an **instance** of an existing provider
+* Modifying the embed code for **all** providers
+
+```javascript
+'use strict';
+
+let urlEmbed = require('url-embed');
+let defaultProviderClasses = urlEmbed.defaultProviderClasses;
+let Youtube = defaultProviderClasses.Youtube;
+
+let provider = new Youtube();
+
+// Instance-level override of Youtube.filterData.
+provider.filterData = function (data) {
+  data.html = 'YOLO!!!! ' + data.html
+}
+
+let EmbedEngine = urlEmbed.EmbedEngine;
+let engine = new EmbedEngine();
+engine.registerDefaultProviders();
+
+// Instance level override of EmbedEngine.filterData
+engine.filterData = function(data) {
+  data.html = '<hug>' + data.html + '</hug>';
+}
+
+engine.registerProvider(provider);
+
+engine.getEmbed({embedURL: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'}, function(embed) {
+  console.log(embed.data.html);
+});
+
+engine.getEmbed({embedURL: 'https://play.spotify.com/track/0ivpUENLpheuPoa6VuY1ax'}, function(embed) {
+  console.log(embed.data.html);
+});
+
+/*
+* Outputs:
+* <hug>YOLO!!!! <iframe width="459" height="344" src="https://www.youtube.com/embed/dQw4w9WgXcQ?feature=oembed" frameborder="0" allowfullscreen></iframe></hug>
+* <hug><iframe src="https://embed.spotify.com/?uri=spotify:track:0ivpUENLpheuPoa6VuY1ax" width="300" height="380" frameborder="0" allowtransparency="true"></iframe></hug>
+*/
+
 ```

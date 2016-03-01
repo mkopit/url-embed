@@ -237,10 +237,10 @@
                     "trailingComments": [
                       {
                         "type": "Block",
-                        "value": "*\n    * Options for this embed.\n    *\n    * __MUST__ contain an embedURL property: the URL we are embedding\n    * \n    * @type {{embedURL:String}}\n    ",
+                        "value": "*\n    * Options for this embed.\n    *\n    * __MUST__ contain an embedURL property: the URL we are embedding\n    *\n    * @type {{embedURL:String}}\n    ",
                         "range": [
                           276,
-                          431
+                          430
                         ],
                         "loc": {
                           "start": {
@@ -266,8 +266,8 @@
                         "object": {
                           "type": "ThisExpression",
                           "range": [
-                            436,
-                            440
+                            435,
+                            439
                           ],
                           "loc": {
                             "start": {
@@ -284,8 +284,8 @@
                           "type": "Identifier",
                           "name": "options",
                           "range": [
-                            441,
-                            448
+                            440,
+                            447
                           ],
                           "loc": {
                             "start": {
@@ -299,8 +299,8 @@
                           }
                         },
                         "range": [
-                          436,
-                          448
+                          435,
+                          447
                         ],
                         "loc": {
                           "start": {
@@ -317,8 +317,8 @@
                         "type": "ObjectExpression",
                         "properties": [],
                         "range": [
-                          451,
-                          453
+                          450,
+                          452
                         ],
                         "loc": {
                           "start": {
@@ -332,8 +332,8 @@
                         }
                       },
                       "range": [
-                        436,
-                        453
+                        435,
+                        452
                       ],
                       "loc": {
                         "start": {
@@ -347,8 +347,8 @@
                       }
                     },
                     "range": [
-                      436,
-                      454
+                      435,
+                      453
                     ],
                     "loc": {
                       "start": {
@@ -363,10 +363,10 @@
                     "leadingComments": [
                       {
                         "type": "Block",
-                        "value": "*\n    * Options for this embed.\n    *\n    * __MUST__ contain an embedURL property: the URL we are embedding\n    * \n    * @type {{embedURL:String}}\n    ",
+                        "value": "*\n    * Options for this embed.\n    *\n    * __MUST__ contain an embedURL property: the URL we are embedding\n    *\n    * @type {{embedURL:String}}\n    ",
                         "range": [
                           276,
-                          431
+                          430
                         ],
                         "loc": {
                           "start": {
@@ -385,8 +385,8 @@
                         "type": "Block",
                         "value": "*\n    * Default markup for unprocessed embed.data.html\n    * @type {String}\n    ",
                         "range": [
-                          460,
-                          544
+                          459,
+                          543
                         ],
                         "loc": {
                           "start": {
@@ -412,8 +412,8 @@
                         "object": {
                           "type": "ThisExpression",
                           "range": [
-                            549,
-                            553
+                            548,
+                            552
                           ],
                           "loc": {
                             "start": {
@@ -430,8 +430,8 @@
                           "type": "Identifier",
                           "name": "stubMarkup",
                           "range": [
-                            554,
-                            564
+                            553,
+                            563
                           ],
                           "loc": {
                             "start": {
@@ -445,8 +445,8 @@
                           }
                         },
                         "range": [
-                          549,
-                          564
+                          548,
+                          563
                         ],
                         "loc": {
                           "start": {
@@ -464,8 +464,8 @@
                         "value": "<!-- default embed markup -->",
                         "raw": "'<!-- default embed markup -->'",
                         "range": [
-                          567,
-                          598
+                          566,
+                          597
                         ],
                         "loc": {
                           "start": {
@@ -479,8 +479,8 @@
                         }
                       },
                       "range": [
-                        549,
-                        598
+                        548,
+                        597
                       ],
                       "loc": {
                         "start": {
@@ -494,8 +494,8 @@
                       }
                     },
                     "range": [
-                      549,
-                      599
+                      548,
+                      598
                     ],
                     "loc": {
                       "start": {
@@ -512,8 +512,8 @@
                         "type": "Block",
                         "value": "*\n    * Default markup for unprocessed embed.data.html\n    * @type {String}\n    ",
                         "range": [
-                          460,
-                          544
+                          459,
+                          543
                         ],
                         "loc": {
                           "start": {
@@ -532,8 +532,8 @@
                         "type": "Block",
                         "value": "*\n    * Data object for the resolved embed\n    *\n    * __Note:__ there should always be a populated data.html property, even if the embed encounters an error while resolving.\n    * @type {{html: String}}\n    ",
                         "range": [
-                          605,
-                          817
+                          604,
+                          816
                         ],
                         "loc": {
                           "start": {
@@ -559,8 +559,8 @@
                         "object": {
                           "type": "ThisExpression",
                           "range": [
-                            822,
-                            826
+                            821,
+                            825
                           ],
                           "loc": {
                             "start": {
@@ -577,8 +577,8 @@
                           "type": "Identifier",
                           "name": "data",
                           "range": [
-                            827,
-                            831
+                            826,
+                            830
                           ],
                           "loc": {
                             "start": {
@@ -592,8 +592,8 @@
                           }
                         },
                         "range": [
-                          822,
-                          831
+                          821,
+                          830
                         ],
                         "loc": {
                           "start": {
@@ -615,8 +615,8 @@
                               "type": "Identifier",
                               "name": "html",
                               "range": [
-                                842,
-                                846
+                                841,
+                                845
                               ],
                               "loc": {
                                 "start": {
@@ -635,8 +635,8 @@
                               "object": {
                                 "type": "ThisExpression",
                                 "range": [
-                                  848,
-                                  852
+                                  847,
+                                  851
                                 ],
                                 "loc": {
                                   "start": {
@@ -653,8 +653,8 @@
                                 "type": "Identifier",
                                 "name": "stubMarkup",
                                 "range": [
-                                  853,
-                                  863
+                                  852,
+                                  862
                                 ],
                                 "loc": {
                                   "start": {
@@ -668,8 +668,8 @@
                                 }
                               },
                               "range": [
-                                848,
-                                863
+                                847,
+                                862
                               ],
                               "loc": {
                                 "start": {
@@ -687,8 +687,8 @@
                             "shorthand": false,
                             "computed": false,
                             "range": [
-                              842,
-                              863
+                              841,
+                              862
                             ],
                             "loc": {
                               "start": {
@@ -703,8 +703,8 @@
                           }
                         ],
                         "range": [
-                          834,
-                          869
+                          833,
+                          868
                         ],
                         "loc": {
                           "start": {
@@ -718,8 +718,8 @@
                         }
                       },
                       "range": [
-                        822,
-                        869
+                        821,
+                        868
                       ],
                       "loc": {
                         "start": {
@@ -733,8 +733,8 @@
                       }
                     },
                     "range": [
-                      822,
-                      870
+                      821,
+                      869
                     ],
                     "loc": {
                       "start": {
@@ -751,8 +751,8 @@
                         "type": "Block",
                         "value": "*\n    * Data object for the resolved embed\n    *\n    * __Note:__ there should always be a populated data.html property, even if the embed encounters an error while resolving.\n    * @type {{html: String}}\n    ",
                         "range": [
-                          605,
-                          817
+                          604,
+                          816
                         ],
                         "loc": {
                           "start": {
@@ -771,8 +771,8 @@
                         "type": "Block",
                         "value": "*\n    * Time the embed began resolving\n    * @type {Date}\n    ",
                         "range": [
-                          876,
-                          942
+                          875,
+                          941
                         ],
                         "loc": {
                           "start": {
@@ -798,8 +798,8 @@
                         "object": {
                           "type": "ThisExpression",
                           "range": [
-                            947,
-                            951
+                            946,
+                            950
                           ],
                           "loc": {
                             "start": {
@@ -816,8 +816,8 @@
                           "type": "Identifier",
                           "name": "startedDate",
                           "range": [
-                            952,
-                            963
+                            951,
+                            962
                           ],
                           "loc": {
                             "start": {
@@ -831,8 +831,8 @@
                           }
                         },
                         "range": [
-                          947,
-                          963
+                          946,
+                          962
                         ],
                         "loc": {
                           "start": {
@@ -850,8 +850,8 @@
                         "value": null,
                         "raw": "null",
                         "range": [
-                          966,
-                          970
+                          965,
+                          969
                         ],
                         "loc": {
                           "start": {
@@ -865,8 +865,8 @@
                         }
                       },
                       "range": [
-                        947,
-                        970
+                        946,
+                        969
                       ],
                       "loc": {
                         "start": {
@@ -880,8 +880,8 @@
                       }
                     },
                     "range": [
-                      947,
-                      971
+                      946,
+                      970
                     ],
                     "loc": {
                       "start": {
@@ -898,8 +898,8 @@
                         "type": "Block",
                         "value": "*\n    * Time the embed began resolving\n    * @type {Date}\n    ",
                         "range": [
-                          876,
-                          942
+                          875,
+                          941
                         ],
                         "loc": {
                           "start": {
@@ -918,8 +918,8 @@
                         "type": "Block",
                         "value": "*\n    * Time the embed finished resolving\n    * @type {Date}\n    ",
                         "range": [
-                          977,
-                          1046
+                          976,
+                          1045
                         ],
                         "loc": {
                           "start": {
@@ -945,8 +945,8 @@
                         "object": {
                           "type": "ThisExpression",
                           "range": [
-                            1051,
-                            1055
+                            1050,
+                            1054
                           ],
                           "loc": {
                             "start": {
@@ -963,8 +963,8 @@
                           "type": "Identifier",
                           "name": "finishedDate",
                           "range": [
-                            1056,
-                            1068
+                            1055,
+                            1067
                           ],
                           "loc": {
                             "start": {
@@ -978,8 +978,8 @@
                           }
                         },
                         "range": [
-                          1051,
-                          1068
+                          1050,
+                          1067
                         ],
                         "loc": {
                           "start": {
@@ -997,8 +997,8 @@
                         "value": null,
                         "raw": "null",
                         "range": [
-                          1071,
-                          1075
+                          1070,
+                          1074
                         ],
                         "loc": {
                           "start": {
@@ -1012,8 +1012,8 @@
                         }
                       },
                       "range": [
-                        1051,
-                        1075
+                        1050,
+                        1074
                       ],
                       "loc": {
                         "start": {
@@ -1027,8 +1027,8 @@
                       }
                     },
                     "range": [
-                      1051,
-                      1076
+                      1050,
+                      1075
                     ],
                     "loc": {
                       "start": {
@@ -1045,8 +1045,8 @@
                         "type": "Block",
                         "value": "*\n    * Time the embed finished resolving\n    * @type {Date}\n    ",
                         "range": [
-                          977,
-                          1046
+                          976,
+                          1045
                         ],
                         "loc": {
                           "start": {
@@ -1065,8 +1065,8 @@
                         "type": "Block",
                         "value": "*\n    * Milliseconds elapsed during resolving embed\n    * @type {number}\n    ",
                         "range": [
-                          1082,
-                          1163
+                          1081,
+                          1162
                         ],
                         "loc": {
                           "start": {
@@ -1092,8 +1092,8 @@
                         "object": {
                           "type": "ThisExpression",
                           "range": [
-                            1168,
-                            1172
+                            1167,
+                            1171
                           ],
                           "loc": {
                             "start": {
@@ -1110,8 +1110,8 @@
                           "type": "Identifier",
                           "name": "elapsedMs",
                           "range": [
-                            1173,
-                            1182
+                            1172,
+                            1181
                           ],
                           "loc": {
                             "start": {
@@ -1125,8 +1125,8 @@
                           }
                         },
                         "range": [
-                          1168,
-                          1182
+                          1167,
+                          1181
                         ],
                         "loc": {
                           "start": {
@@ -1144,8 +1144,8 @@
                         "value": null,
                         "raw": "null",
                         "range": [
-                          1185,
-                          1189
+                          1184,
+                          1188
                         ],
                         "loc": {
                           "start": {
@@ -1159,8 +1159,8 @@
                         }
                       },
                       "range": [
-                        1168,
-                        1189
+                        1167,
+                        1188
                       ],
                       "loc": {
                         "start": {
@@ -1174,8 +1174,8 @@
                       }
                     },
                     "range": [
-                      1168,
-                      1190
+                      1167,
+                      1189
                     ],
                     "loc": {
                       "start": {
@@ -1192,8 +1192,8 @@
                         "type": "Block",
                         "value": "*\n    * Milliseconds elapsed during resolving embed\n    * @type {number}\n    ",
                         "range": [
-                          1082,
-                          1163
+                          1081,
+                          1162
                         ],
                         "loc": {
                           "start": {
@@ -1212,8 +1212,8 @@
                         "type": "Block",
                         "value": "*\n    * The provider API URL that was used to resolve the embed\n    * @type {String}\n    ",
                         "range": [
-                          1196,
-                          1289
+                          1195,
+                          1288
                         ],
                         "loc": {
                           "start": {
@@ -1239,8 +1239,8 @@
                         "object": {
                           "type": "ThisExpression",
                           "range": [
-                            1294,
-                            1298
+                            1293,
+                            1297
                           ],
                           "loc": {
                             "start": {
@@ -1257,8 +1257,8 @@
                           "type": "Identifier",
                           "name": "oembedAPIURL",
                           "range": [
-                            1299,
-                            1311
+                            1298,
+                            1310
                           ],
                           "loc": {
                             "start": {
@@ -1272,8 +1272,8 @@
                           }
                         },
                         "range": [
-                          1294,
-                          1311
+                          1293,
+                          1310
                         ],
                         "loc": {
                           "start": {
@@ -1291,8 +1291,8 @@
                         "value": null,
                         "raw": "null",
                         "range": [
-                          1314,
-                          1318
+                          1313,
+                          1317
                         ],
                         "loc": {
                           "start": {
@@ -1306,8 +1306,8 @@
                         }
                       },
                       "range": [
-                        1294,
-                        1318
+                        1293,
+                        1317
                       ],
                       "loc": {
                         "start": {
@@ -1321,8 +1321,8 @@
                       }
                     },
                     "range": [
-                      1294,
-                      1319
+                      1293,
+                      1318
                     ],
                     "loc": {
                       "start": {
@@ -1339,8 +1339,8 @@
                         "type": "Block",
                         "value": "*\n    * The provider API URL that was used to resolve the embed\n    * @type {String}\n    ",
                         "range": [
-                          1196,
-                          1289
+                          1195,
+                          1288
                         ],
                         "loc": {
                           "start": {
@@ -1358,7 +1358,7 @@
                 ],
                 "range": [
                   119,
-                  1323
+                  1322
                 ],
                 "loc": {
                   "start": {
@@ -1375,7 +1375,7 @@
               "expression": false,
               "range": [
                 116,
-                1323
+                1322
               ],
               "loc": {
                 "start": {
@@ -1392,7 +1392,7 @@
             "computed": false,
             "range": [
               104,
-              1323
+              1322
             ],
             "loc": {
               "start": {
@@ -1409,8 +1409,8 @@
                 "type": "Block",
                 "value": "*\n  * Timestamps the beginning of the embed resolve process.\n  ",
                 "range": [
-                  1327,
-                  1394
+                  1326,
+                  1393
                 ],
                 "loc": {
                   "start": {
@@ -1432,8 +1432,8 @@
               "type": "Identifier",
               "name": "markStarted",
               "range": [
-                1397,
-                1408
+                1396,
+                1407
               ],
               "loc": {
                 "start": {
@@ -1464,8 +1464,8 @@
                         "object": {
                           "type": "ThisExpression",
                           "range": [
-                            1418,
-                            1422
+                            1417,
+                            1421
                           ],
                           "loc": {
                             "start": {
@@ -1482,8 +1482,8 @@
                           "type": "Identifier",
                           "name": "startedDate",
                           "range": [
-                            1423,
-                            1434
+                            1422,
+                            1433
                           ],
                           "loc": {
                             "start": {
@@ -1497,8 +1497,8 @@
                           }
                         },
                         "range": [
-                          1418,
-                          1434
+                          1417,
+                          1433
                         ],
                         "loc": {
                           "start": {
@@ -1517,8 +1517,8 @@
                           "type": "Identifier",
                           "name": "Date",
                           "range": [
-                            1441,
-                            1445
+                            1440,
+                            1444
                           ],
                           "loc": {
                             "start": {
@@ -1533,8 +1533,8 @@
                         },
                         "arguments": [],
                         "range": [
-                          1437,
-                          1447
+                          1436,
+                          1446
                         ],
                         "loc": {
                           "start": {
@@ -1548,8 +1548,8 @@
                         }
                       },
                       "range": [
-                        1418,
-                        1447
+                        1417,
+                        1446
                       ],
                       "loc": {
                         "start": {
@@ -1563,8 +1563,8 @@
                       }
                     },
                     "range": [
-                      1418,
-                      1448
+                      1417,
+                      1447
                     ],
                     "loc": {
                       "start": {
@@ -1579,8 +1579,8 @@
                   }
                 ],
                 "range": [
-                  1412,
-                  1452
+                  1411,
+                  1451
                 ],
                 "loc": {
                   "start": {
@@ -1596,8 +1596,8 @@
               "generator": false,
               "expression": false,
               "range": [
-                1409,
-                1452
+                1408,
+                1451
               ],
               "loc": {
                 "start": {
@@ -1613,8 +1613,8 @@
             "kind": "method",
             "computed": false,
             "range": [
-              1397,
-              1452
+              1396,
+              1451
             ],
             "loc": {
               "start": {
@@ -1631,8 +1631,8 @@
                 "type": "Block",
                 "value": "*\n  * Timestamps the beginning of the embed resolve process.\n  ",
                 "range": [
-                  1327,
-                  1394
+                  1326,
+                  1393
                 ],
                 "loc": {
                   "start": {
@@ -1651,8 +1651,8 @@
                 "type": "Block",
                 "value": "*\n  * Timestamps the end of the embed resolve process and calculates elapsedMs\n  ",
                 "range": [
-                  1456,
-                  1541
+                  1455,
+                  1540
                 ],
                 "loc": {
                   "start": {
@@ -1674,8 +1674,8 @@
               "type": "Identifier",
               "name": "markFinished",
               "range": [
-                1544,
-                1556
+                1543,
+                1555
               ],
               "loc": {
                 "start": {
@@ -1706,8 +1706,8 @@
                         "object": {
                           "type": "ThisExpression",
                           "range": [
-                            1566,
-                            1570
+                            1565,
+                            1569
                           ],
                           "loc": {
                             "start": {
@@ -1724,8 +1724,8 @@
                           "type": "Identifier",
                           "name": "finishedDate",
                           "range": [
-                            1571,
-                            1583
+                            1570,
+                            1582
                           ],
                           "loc": {
                             "start": {
@@ -1739,8 +1739,8 @@
                           }
                         },
                         "range": [
-                          1566,
-                          1583
+                          1565,
+                          1582
                         ],
                         "loc": {
                           "start": {
@@ -1759,8 +1759,8 @@
                           "type": "Identifier",
                           "name": "Date",
                           "range": [
-                            1590,
-                            1594
+                            1589,
+                            1593
                           ],
                           "loc": {
                             "start": {
@@ -1775,8 +1775,8 @@
                         },
                         "arguments": [],
                         "range": [
-                          1586,
-                          1596
+                          1585,
+                          1595
                         ],
                         "loc": {
                           "start": {
@@ -1790,8 +1790,8 @@
                         }
                       },
                       "range": [
-                        1566,
-                        1596
+                        1565,
+                        1595
                       ],
                       "loc": {
                         "start": {
@@ -1805,8 +1805,8 @@
                       }
                     },
                     "range": [
-                      1566,
-                      1597
+                      1565,
+                      1596
                     ],
                     "loc": {
                       "start": {
@@ -1830,8 +1830,8 @@
                         "object": {
                           "type": "ThisExpression",
                           "range": [
-                            1602,
-                            1606
+                            1601,
+                            1605
                           ],
                           "loc": {
                             "start": {
@@ -1848,8 +1848,8 @@
                           "type": "Identifier",
                           "name": "elapsedMs",
                           "range": [
-                            1607,
-                            1616
+                            1606,
+                            1615
                           ],
                           "loc": {
                             "start": {
@@ -1863,8 +1863,8 @@
                           }
                         },
                         "range": [
-                          1602,
-                          1616
+                          1601,
+                          1615
                         ],
                         "loc": {
                           "start": {
@@ -1891,8 +1891,8 @@
                               "object": {
                                 "type": "ThisExpression",
                                 "range": [
-                                  1619,
-                                  1623
+                                  1618,
+                                  1622
                                 ],
                                 "loc": {
                                   "start": {
@@ -1909,8 +1909,8 @@
                                 "type": "Identifier",
                                 "name": "finishedDate",
                                 "range": [
-                                  1624,
-                                  1636
+                                  1623,
+                                  1635
                                 ],
                                 "loc": {
                                   "start": {
@@ -1924,8 +1924,8 @@
                                 }
                               },
                               "range": [
-                                1619,
-                                1636
+                                1618,
+                                1635
                               ],
                               "loc": {
                                 "start": {
@@ -1942,8 +1942,8 @@
                               "type": "Identifier",
                               "name": "getTime",
                               "range": [
-                                1637,
-                                1644
+                                1636,
+                                1643
                               ],
                               "loc": {
                                 "start": {
@@ -1957,8 +1957,8 @@
                               }
                             },
                             "range": [
-                              1619,
-                              1644
+                              1618,
+                              1643
                             ],
                             "loc": {
                               "start": {
@@ -1973,8 +1973,8 @@
                           },
                           "arguments": [],
                           "range": [
-                            1619,
-                            1646
+                            1618,
+                            1645
                           ],
                           "loc": {
                             "start": {
@@ -1998,8 +1998,8 @@
                               "object": {
                                 "type": "ThisExpression",
                                 "range": [
-                                  1649,
-                                  1653
+                                  1648,
+                                  1652
                                 ],
                                 "loc": {
                                   "start": {
@@ -2016,8 +2016,8 @@
                                 "type": "Identifier",
                                 "name": "startedDate",
                                 "range": [
-                                  1654,
-                                  1665
+                                  1653,
+                                  1664
                                 ],
                                 "loc": {
                                   "start": {
@@ -2031,8 +2031,8 @@
                                 }
                               },
                               "range": [
-                                1649,
-                                1665
+                                1648,
+                                1664
                               ],
                               "loc": {
                                 "start": {
@@ -2049,8 +2049,8 @@
                               "type": "Identifier",
                               "name": "getTime",
                               "range": [
-                                1666,
-                                1673
+                                1665,
+                                1672
                               ],
                               "loc": {
                                 "start": {
@@ -2064,8 +2064,8 @@
                               }
                             },
                             "range": [
-                              1649,
-                              1673
+                              1648,
+                              1672
                             ],
                             "loc": {
                               "start": {
@@ -2080,8 +2080,8 @@
                           },
                           "arguments": [],
                           "range": [
-                            1649,
-                            1675
+                            1648,
+                            1674
                           ],
                           "loc": {
                             "start": {
@@ -2095,8 +2095,8 @@
                           }
                         },
                         "range": [
-                          1619,
-                          1675
+                          1618,
+                          1674
                         ],
                         "loc": {
                           "start": {
@@ -2110,8 +2110,8 @@
                         }
                       },
                       "range": [
-                        1602,
-                        1675
+                        1601,
+                        1674
                       ],
                       "loc": {
                         "start": {
@@ -2125,8 +2125,8 @@
                       }
                     },
                     "range": [
-                      1602,
-                      1676
+                      1601,
+                      1675
                     ],
                     "loc": {
                       "start": {
@@ -2141,8 +2141,8 @@
                   }
                 ],
                 "range": [
-                  1560,
-                  1680
+                  1559,
+                  1679
                 ],
                 "loc": {
                   "start": {
@@ -2158,8 +2158,8 @@
               "generator": false,
               "expression": false,
               "range": [
-                1557,
-                1680
+                1556,
+                1679
               ],
               "loc": {
                 "start": {
@@ -2175,8 +2175,8 @@
             "kind": "method",
             "computed": false,
             "range": [
-              1544,
-              1680
+              1543,
+              1679
             ],
             "loc": {
               "start": {
@@ -2193,8 +2193,8 @@
                 "type": "Block",
                 "value": "*\n  * Timestamps the end of the embed resolve process and calculates elapsedMs\n  ",
                 "range": [
-                  1456,
-                  1541
+                  1455,
+                  1540
                 ],
                 "loc": {
                   "start": {
@@ -2213,7 +2213,7 @@
         ],
         "range": [
           100,
-          1682
+          1681
         ],
         "loc": {
           "start": {
@@ -2228,7 +2228,7 @@
       },
       "range": [
         88,
-        1682
+        1681
       ],
       "loc": {
         "start": {
@@ -2250,8 +2250,8 @@
         "type": "Identifier",
         "name": "Embed",
         "range": [
-          1699,
-          1704
+          1698,
+          1703
         ],
         "loc": {
           "start": {
@@ -2265,8 +2265,8 @@
         }
       },
       "range": [
-        1684,
-        1705
+        1683,
+        1704
       ],
       "loc": {
         "start": {
@@ -2464,10 +2464,10 @@
                       "trailingComments": [
                         {
                           "type": "Block",
-                          "value": "*\n    * Options for this embed.\n    *\n    * __MUST__ contain an embedURL property: the URL we are embedding\n    * \n    * @type {{embedURL:String}}\n    ",
+                          "value": "*\n    * Options for this embed.\n    *\n    * __MUST__ contain an embedURL property: the URL we are embedding\n    *\n    * @type {{embedURL:String}}\n    ",
                           "range": [
                             276,
-                            431
+                            430
                           ],
                           "loc": {
                             "start": {
@@ -2493,8 +2493,8 @@
                           "object": {
                             "type": "ThisExpression",
                             "range": [
-                              436,
-                              440
+                              435,
+                              439
                             ],
                             "loc": {
                               "start": {
@@ -2511,8 +2511,8 @@
                             "type": "Identifier",
                             "name": "options",
                             "range": [
-                              441,
-                              448
+                              440,
+                              447
                             ],
                             "loc": {
                               "start": {
@@ -2526,8 +2526,8 @@
                             }
                           },
                           "range": [
-                            436,
-                            448
+                            435,
+                            447
                           ],
                           "loc": {
                             "start": {
@@ -2544,8 +2544,8 @@
                           "type": "ObjectExpression",
                           "properties": [],
                           "range": [
-                            451,
-                            453
+                            450,
+                            452
                           ],
                           "loc": {
                             "start": {
@@ -2559,8 +2559,8 @@
                           }
                         },
                         "range": [
-                          436,
-                          453
+                          435,
+                          452
                         ],
                         "loc": {
                           "start": {
@@ -2574,8 +2574,8 @@
                         }
                       },
                       "range": [
-                        436,
-                        454
+                        435,
+                        453
                       ],
                       "loc": {
                         "start": {
@@ -2590,10 +2590,10 @@
                       "leadingComments": [
                         {
                           "type": "Block",
-                          "value": "*\n    * Options for this embed.\n    *\n    * __MUST__ contain an embedURL property: the URL we are embedding\n    * \n    * @type {{embedURL:String}}\n    ",
+                          "value": "*\n    * Options for this embed.\n    *\n    * __MUST__ contain an embedURL property: the URL we are embedding\n    *\n    * @type {{embedURL:String}}\n    ",
                           "range": [
                             276,
-                            431
+                            430
                           ],
                           "loc": {
                             "start": {
@@ -2612,8 +2612,8 @@
                           "type": "Block",
                           "value": "*\n    * Default markup for unprocessed embed.data.html\n    * @type {String}\n    ",
                           "range": [
-                            460,
-                            544
+                            459,
+                            543
                           ],
                           "loc": {
                             "start": {
@@ -2639,8 +2639,8 @@
                           "object": {
                             "type": "ThisExpression",
                             "range": [
-                              549,
-                              553
+                              548,
+                              552
                             ],
                             "loc": {
                               "start": {
@@ -2657,8 +2657,8 @@
                             "type": "Identifier",
                             "name": "stubMarkup",
                             "range": [
-                              554,
-                              564
+                              553,
+                              563
                             ],
                             "loc": {
                               "start": {
@@ -2672,8 +2672,8 @@
                             }
                           },
                           "range": [
-                            549,
-                            564
+                            548,
+                            563
                           ],
                           "loc": {
                             "start": {
@@ -2691,8 +2691,8 @@
                           "value": "<!-- default embed markup -->",
                           "raw": "'<!-- default embed markup -->'",
                           "range": [
-                            567,
-                            598
+                            566,
+                            597
                           ],
                           "loc": {
                             "start": {
@@ -2706,8 +2706,8 @@
                           }
                         },
                         "range": [
-                          549,
-                          598
+                          548,
+                          597
                         ],
                         "loc": {
                           "start": {
@@ -2721,8 +2721,8 @@
                         }
                       },
                       "range": [
-                        549,
-                        599
+                        548,
+                        598
                       ],
                       "loc": {
                         "start": {
@@ -2739,8 +2739,8 @@
                           "type": "Block",
                           "value": "*\n    * Default markup for unprocessed embed.data.html\n    * @type {String}\n    ",
                           "range": [
-                            460,
-                            544
+                            459,
+                            543
                           ],
                           "loc": {
                             "start": {
@@ -2759,8 +2759,8 @@
                           "type": "Block",
                           "value": "*\n    * Data object for the resolved embed\n    *\n    * __Note:__ there should always be a populated data.html property, even if the embed encounters an error while resolving.\n    * @type {{html: String}}\n    ",
                           "range": [
-                            605,
-                            817
+                            604,
+                            816
                           ],
                           "loc": {
                             "start": {
@@ -2786,8 +2786,8 @@
                           "object": {
                             "type": "ThisExpression",
                             "range": [
-                              822,
-                              826
+                              821,
+                              825
                             ],
                             "loc": {
                               "start": {
@@ -2804,8 +2804,8 @@
                             "type": "Identifier",
                             "name": "data",
                             "range": [
-                              827,
-                              831
+                              826,
+                              830
                             ],
                             "loc": {
                               "start": {
@@ -2819,8 +2819,8 @@
                             }
                           },
                           "range": [
-                            822,
-                            831
+                            821,
+                            830
                           ],
                           "loc": {
                             "start": {
@@ -2842,8 +2842,8 @@
                                 "type": "Identifier",
                                 "name": "html",
                                 "range": [
-                                  842,
-                                  846
+                                  841,
+                                  845
                                 ],
                                 "loc": {
                                   "start": {
@@ -2862,8 +2862,8 @@
                                 "object": {
                                   "type": "ThisExpression",
                                   "range": [
-                                    848,
-                                    852
+                                    847,
+                                    851
                                   ],
                                   "loc": {
                                     "start": {
@@ -2880,8 +2880,8 @@
                                   "type": "Identifier",
                                   "name": "stubMarkup",
                                   "range": [
-                                    853,
-                                    863
+                                    852,
+                                    862
                                   ],
                                   "loc": {
                                     "start": {
@@ -2895,8 +2895,8 @@
                                   }
                                 },
                                 "range": [
-                                  848,
-                                  863
+                                  847,
+                                  862
                                 ],
                                 "loc": {
                                   "start": {
@@ -2914,8 +2914,8 @@
                               "shorthand": false,
                               "computed": false,
                               "range": [
-                                842,
-                                863
+                                841,
+                                862
                               ],
                               "loc": {
                                 "start": {
@@ -2930,8 +2930,8 @@
                             }
                           ],
                           "range": [
-                            834,
-                            869
+                            833,
+                            868
                           ],
                           "loc": {
                             "start": {
@@ -2945,8 +2945,8 @@
                           }
                         },
                         "range": [
-                          822,
-                          869
+                          821,
+                          868
                         ],
                         "loc": {
                           "start": {
@@ -2960,8 +2960,8 @@
                         }
                       },
                       "range": [
-                        822,
-                        870
+                        821,
+                        869
                       ],
                       "loc": {
                         "start": {
@@ -2978,8 +2978,8 @@
                           "type": "Block",
                           "value": "*\n    * Data object for the resolved embed\n    *\n    * __Note:__ there should always be a populated data.html property, even if the embed encounters an error while resolving.\n    * @type {{html: String}}\n    ",
                           "range": [
-                            605,
-                            817
+                            604,
+                            816
                           ],
                           "loc": {
                             "start": {
@@ -2998,8 +2998,8 @@
                           "type": "Block",
                           "value": "*\n    * Time the embed began resolving\n    * @type {Date}\n    ",
                           "range": [
-                            876,
-                            942
+                            875,
+                            941
                           ],
                           "loc": {
                             "start": {
@@ -3025,8 +3025,8 @@
                           "object": {
                             "type": "ThisExpression",
                             "range": [
-                              947,
-                              951
+                              946,
+                              950
                             ],
                             "loc": {
                               "start": {
@@ -3043,8 +3043,8 @@
                             "type": "Identifier",
                             "name": "startedDate",
                             "range": [
-                              952,
-                              963
+                              951,
+                              962
                             ],
                             "loc": {
                               "start": {
@@ -3058,8 +3058,8 @@
                             }
                           },
                           "range": [
-                            947,
-                            963
+                            946,
+                            962
                           ],
                           "loc": {
                             "start": {
@@ -3077,8 +3077,8 @@
                           "value": null,
                           "raw": "null",
                           "range": [
-                            966,
-                            970
+                            965,
+                            969
                           ],
                           "loc": {
                             "start": {
@@ -3092,8 +3092,8 @@
                           }
                         },
                         "range": [
-                          947,
-                          970
+                          946,
+                          969
                         ],
                         "loc": {
                           "start": {
@@ -3107,8 +3107,8 @@
                         }
                       },
                       "range": [
-                        947,
-                        971
+                        946,
+                        970
                       ],
                       "loc": {
                         "start": {
@@ -3125,8 +3125,8 @@
                           "type": "Block",
                           "value": "*\n    * Time the embed began resolving\n    * @type {Date}\n    ",
                           "range": [
-                            876,
-                            942
+                            875,
+                            941
                           ],
                           "loc": {
                             "start": {
@@ -3145,8 +3145,8 @@
                           "type": "Block",
                           "value": "*\n    * Time the embed finished resolving\n    * @type {Date}\n    ",
                           "range": [
-                            977,
-                            1046
+                            976,
+                            1045
                           ],
                           "loc": {
                             "start": {
@@ -3172,8 +3172,8 @@
                           "object": {
                             "type": "ThisExpression",
                             "range": [
-                              1051,
-                              1055
+                              1050,
+                              1054
                             ],
                             "loc": {
                               "start": {
@@ -3190,8 +3190,8 @@
                             "type": "Identifier",
                             "name": "finishedDate",
                             "range": [
-                              1056,
-                              1068
+                              1055,
+                              1067
                             ],
                             "loc": {
                               "start": {
@@ -3205,8 +3205,8 @@
                             }
                           },
                           "range": [
-                            1051,
-                            1068
+                            1050,
+                            1067
                           ],
                           "loc": {
                             "start": {
@@ -3224,8 +3224,8 @@
                           "value": null,
                           "raw": "null",
                           "range": [
-                            1071,
-                            1075
+                            1070,
+                            1074
                           ],
                           "loc": {
                             "start": {
@@ -3239,8 +3239,8 @@
                           }
                         },
                         "range": [
-                          1051,
-                          1075
+                          1050,
+                          1074
                         ],
                         "loc": {
                           "start": {
@@ -3254,8 +3254,8 @@
                         }
                       },
                       "range": [
-                        1051,
-                        1076
+                        1050,
+                        1075
                       ],
                       "loc": {
                         "start": {
@@ -3272,8 +3272,8 @@
                           "type": "Block",
                           "value": "*\n    * Time the embed finished resolving\n    * @type {Date}\n    ",
                           "range": [
-                            977,
-                            1046
+                            976,
+                            1045
                           ],
                           "loc": {
                             "start": {
@@ -3292,8 +3292,8 @@
                           "type": "Block",
                           "value": "*\n    * Milliseconds elapsed during resolving embed\n    * @type {number}\n    ",
                           "range": [
-                            1082,
-                            1163
+                            1081,
+                            1162
                           ],
                           "loc": {
                             "start": {
@@ -3319,8 +3319,8 @@
                           "object": {
                             "type": "ThisExpression",
                             "range": [
-                              1168,
-                              1172
+                              1167,
+                              1171
                             ],
                             "loc": {
                               "start": {
@@ -3337,8 +3337,8 @@
                             "type": "Identifier",
                             "name": "elapsedMs",
                             "range": [
-                              1173,
-                              1182
+                              1172,
+                              1181
                             ],
                             "loc": {
                               "start": {
@@ -3352,8 +3352,8 @@
                             }
                           },
                           "range": [
-                            1168,
-                            1182
+                            1167,
+                            1181
                           ],
                           "loc": {
                             "start": {
@@ -3371,8 +3371,8 @@
                           "value": null,
                           "raw": "null",
                           "range": [
-                            1185,
-                            1189
+                            1184,
+                            1188
                           ],
                           "loc": {
                             "start": {
@@ -3386,8 +3386,8 @@
                           }
                         },
                         "range": [
-                          1168,
-                          1189
+                          1167,
+                          1188
                         ],
                         "loc": {
                           "start": {
@@ -3401,8 +3401,8 @@
                         }
                       },
                       "range": [
-                        1168,
-                        1190
+                        1167,
+                        1189
                       ],
                       "loc": {
                         "start": {
@@ -3419,8 +3419,8 @@
                           "type": "Block",
                           "value": "*\n    * Milliseconds elapsed during resolving embed\n    * @type {number}\n    ",
                           "range": [
-                            1082,
-                            1163
+                            1081,
+                            1162
                           ],
                           "loc": {
                             "start": {
@@ -3439,8 +3439,8 @@
                           "type": "Block",
                           "value": "*\n    * The provider API URL that was used to resolve the embed\n    * @type {String}\n    ",
                           "range": [
-                            1196,
-                            1289
+                            1195,
+                            1288
                           ],
                           "loc": {
                             "start": {
@@ -3466,8 +3466,8 @@
                           "object": {
                             "type": "ThisExpression",
                             "range": [
-                              1294,
-                              1298
+                              1293,
+                              1297
                             ],
                             "loc": {
                               "start": {
@@ -3484,8 +3484,8 @@
                             "type": "Identifier",
                             "name": "oembedAPIURL",
                             "range": [
-                              1299,
-                              1311
+                              1298,
+                              1310
                             ],
                             "loc": {
                               "start": {
@@ -3499,8 +3499,8 @@
                             }
                           },
                           "range": [
-                            1294,
-                            1311
+                            1293,
+                            1310
                           ],
                           "loc": {
                             "start": {
@@ -3518,8 +3518,8 @@
                           "value": null,
                           "raw": "null",
                           "range": [
-                            1314,
-                            1318
+                            1313,
+                            1317
                           ],
                           "loc": {
                             "start": {
@@ -3533,8 +3533,8 @@
                           }
                         },
                         "range": [
-                          1294,
-                          1318
+                          1293,
+                          1317
                         ],
                         "loc": {
                           "start": {
@@ -3548,8 +3548,8 @@
                         }
                       },
                       "range": [
-                        1294,
-                        1319
+                        1293,
+                        1318
                       ],
                       "loc": {
                         "start": {
@@ -3566,8 +3566,8 @@
                           "type": "Block",
                           "value": "*\n    * The provider API URL that was used to resolve the embed\n    * @type {String}\n    ",
                           "range": [
-                            1196,
-                            1289
+                            1195,
+                            1288
                           ],
                           "loc": {
                             "start": {
@@ -3585,7 +3585,7 @@
                   ],
                   "range": [
                     119,
-                    1323
+                    1322
                   ],
                   "loc": {
                     "start": {
@@ -3602,7 +3602,7 @@
                 "expression": false,
                 "range": [
                   116,
-                  1323
+                  1322
                 ],
                 "loc": {
                   "start": {
@@ -3619,7 +3619,7 @@
               "computed": false,
               "range": [
                 104,
-                1323
+                1322
               ],
               "loc": {
                 "start": {
@@ -3636,8 +3636,8 @@
                   "type": "Block",
                   "value": "*\n  * Timestamps the beginning of the embed resolve process.\n  ",
                   "range": [
-                    1327,
-                    1394
+                    1326,
+                    1393
                   ],
                   "loc": {
                     "start": {
@@ -3659,8 +3659,8 @@
                 "type": "Identifier",
                 "name": "markStarted",
                 "range": [
-                  1397,
-                  1408
+                  1396,
+                  1407
                 ],
                 "loc": {
                   "start": {
@@ -3691,8 +3691,8 @@
                           "object": {
                             "type": "ThisExpression",
                             "range": [
-                              1418,
-                              1422
+                              1417,
+                              1421
                             ],
                             "loc": {
                               "start": {
@@ -3709,8 +3709,8 @@
                             "type": "Identifier",
                             "name": "startedDate",
                             "range": [
-                              1423,
-                              1434
+                              1422,
+                              1433
                             ],
                             "loc": {
                               "start": {
@@ -3724,8 +3724,8 @@
                             }
                           },
                           "range": [
-                            1418,
-                            1434
+                            1417,
+                            1433
                           ],
                           "loc": {
                             "start": {
@@ -3744,8 +3744,8 @@
                             "type": "Identifier",
                             "name": "Date",
                             "range": [
-                              1441,
-                              1445
+                              1440,
+                              1444
                             ],
                             "loc": {
                               "start": {
@@ -3760,8 +3760,8 @@
                           },
                           "arguments": [],
                           "range": [
-                            1437,
-                            1447
+                            1436,
+                            1446
                           ],
                           "loc": {
                             "start": {
@@ -3775,8 +3775,8 @@
                           }
                         },
                         "range": [
-                          1418,
-                          1447
+                          1417,
+                          1446
                         ],
                         "loc": {
                           "start": {
@@ -3790,8 +3790,8 @@
                         }
                       },
                       "range": [
-                        1418,
-                        1448
+                        1417,
+                        1447
                       ],
                       "loc": {
                         "start": {
@@ -3806,8 +3806,8 @@
                     }
                   ],
                   "range": [
-                    1412,
-                    1452
+                    1411,
+                    1451
                   ],
                   "loc": {
                     "start": {
@@ -3823,8 +3823,8 @@
                 "generator": false,
                 "expression": false,
                 "range": [
-                  1409,
-                  1452
+                  1408,
+                  1451
                 ],
                 "loc": {
                   "start": {
@@ -3840,8 +3840,8 @@
               "kind": "method",
               "computed": false,
               "range": [
-                1397,
-                1452
+                1396,
+                1451
               ],
               "loc": {
                 "start": {
@@ -3858,8 +3858,8 @@
                   "type": "Block",
                   "value": "*\n  * Timestamps the beginning of the embed resolve process.\n  ",
                   "range": [
-                    1327,
-                    1394
+                    1326,
+                    1393
                   ],
                   "loc": {
                     "start": {
@@ -3878,8 +3878,8 @@
                   "type": "Block",
                   "value": "*\n  * Timestamps the end of the embed resolve process and calculates elapsedMs\n  ",
                   "range": [
-                    1456,
-                    1541
+                    1455,
+                    1540
                   ],
                   "loc": {
                     "start": {
@@ -3901,8 +3901,8 @@
                 "type": "Identifier",
                 "name": "markFinished",
                 "range": [
-                  1544,
-                  1556
+                  1543,
+                  1555
                 ],
                 "loc": {
                   "start": {
@@ -3933,8 +3933,8 @@
                           "object": {
                             "type": "ThisExpression",
                             "range": [
-                              1566,
-                              1570
+                              1565,
+                              1569
                             ],
                             "loc": {
                               "start": {
@@ -3951,8 +3951,8 @@
                             "type": "Identifier",
                             "name": "finishedDate",
                             "range": [
-                              1571,
-                              1583
+                              1570,
+                              1582
                             ],
                             "loc": {
                               "start": {
@@ -3966,8 +3966,8 @@
                             }
                           },
                           "range": [
-                            1566,
-                            1583
+                            1565,
+                            1582
                           ],
                           "loc": {
                             "start": {
@@ -3986,8 +3986,8 @@
                             "type": "Identifier",
                             "name": "Date",
                             "range": [
-                              1590,
-                              1594
+                              1589,
+                              1593
                             ],
                             "loc": {
                               "start": {
@@ -4002,8 +4002,8 @@
                           },
                           "arguments": [],
                           "range": [
-                            1586,
-                            1596
+                            1585,
+                            1595
                           ],
                           "loc": {
                             "start": {
@@ -4017,8 +4017,8 @@
                           }
                         },
                         "range": [
-                          1566,
-                          1596
+                          1565,
+                          1595
                         ],
                         "loc": {
                           "start": {
@@ -4032,8 +4032,8 @@
                         }
                       },
                       "range": [
-                        1566,
-                        1597
+                        1565,
+                        1596
                       ],
                       "loc": {
                         "start": {
@@ -4057,8 +4057,8 @@
                           "object": {
                             "type": "ThisExpression",
                             "range": [
-                              1602,
-                              1606
+                              1601,
+                              1605
                             ],
                             "loc": {
                               "start": {
@@ -4075,8 +4075,8 @@
                             "type": "Identifier",
                             "name": "elapsedMs",
                             "range": [
-                              1607,
-                              1616
+                              1606,
+                              1615
                             ],
                             "loc": {
                               "start": {
@@ -4090,8 +4090,8 @@
                             }
                           },
                           "range": [
-                            1602,
-                            1616
+                            1601,
+                            1615
                           ],
                           "loc": {
                             "start": {
@@ -4118,8 +4118,8 @@
                                 "object": {
                                   "type": "ThisExpression",
                                   "range": [
-                                    1619,
-                                    1623
+                                    1618,
+                                    1622
                                   ],
                                   "loc": {
                                     "start": {
@@ -4136,8 +4136,8 @@
                                   "type": "Identifier",
                                   "name": "finishedDate",
                                   "range": [
-                                    1624,
-                                    1636
+                                    1623,
+                                    1635
                                   ],
                                   "loc": {
                                     "start": {
@@ -4151,8 +4151,8 @@
                                   }
                                 },
                                 "range": [
-                                  1619,
-                                  1636
+                                  1618,
+                                  1635
                                 ],
                                 "loc": {
                                   "start": {
@@ -4169,8 +4169,8 @@
                                 "type": "Identifier",
                                 "name": "getTime",
                                 "range": [
-                                  1637,
-                                  1644
+                                  1636,
+                                  1643
                                 ],
                                 "loc": {
                                   "start": {
@@ -4184,8 +4184,8 @@
                                 }
                               },
                               "range": [
-                                1619,
-                                1644
+                                1618,
+                                1643
                               ],
                               "loc": {
                                 "start": {
@@ -4200,8 +4200,8 @@
                             },
                             "arguments": [],
                             "range": [
-                              1619,
-                              1646
+                              1618,
+                              1645
                             ],
                             "loc": {
                               "start": {
@@ -4225,8 +4225,8 @@
                                 "object": {
                                   "type": "ThisExpression",
                                   "range": [
-                                    1649,
-                                    1653
+                                    1648,
+                                    1652
                                   ],
                                   "loc": {
                                     "start": {
@@ -4243,8 +4243,8 @@
                                   "type": "Identifier",
                                   "name": "startedDate",
                                   "range": [
-                                    1654,
-                                    1665
+                                    1653,
+                                    1664
                                   ],
                                   "loc": {
                                     "start": {
@@ -4258,8 +4258,8 @@
                                   }
                                 },
                                 "range": [
-                                  1649,
-                                  1665
+                                  1648,
+                                  1664
                                 ],
                                 "loc": {
                                   "start": {
@@ -4276,8 +4276,8 @@
                                 "type": "Identifier",
                                 "name": "getTime",
                                 "range": [
-                                  1666,
-                                  1673
+                                  1665,
+                                  1672
                                 ],
                                 "loc": {
                                   "start": {
@@ -4291,8 +4291,8 @@
                                 }
                               },
                               "range": [
-                                1649,
-                                1673
+                                1648,
+                                1672
                               ],
                               "loc": {
                                 "start": {
@@ -4307,8 +4307,8 @@
                             },
                             "arguments": [],
                             "range": [
-                              1649,
-                              1675
+                              1648,
+                              1674
                             ],
                             "loc": {
                               "start": {
@@ -4322,8 +4322,8 @@
                             }
                           },
                           "range": [
-                            1619,
-                            1675
+                            1618,
+                            1674
                           ],
                           "loc": {
                             "start": {
@@ -4337,8 +4337,8 @@
                           }
                         },
                         "range": [
-                          1602,
-                          1675
+                          1601,
+                          1674
                         ],
                         "loc": {
                           "start": {
@@ -4352,8 +4352,8 @@
                         }
                       },
                       "range": [
-                        1602,
-                        1676
+                        1601,
+                        1675
                       ],
                       "loc": {
                         "start": {
@@ -4368,8 +4368,8 @@
                     }
                   ],
                   "range": [
-                    1560,
-                    1680
+                    1559,
+                    1679
                   ],
                   "loc": {
                     "start": {
@@ -4385,8 +4385,8 @@
                 "generator": false,
                 "expression": false,
                 "range": [
-                  1557,
-                  1680
+                  1556,
+                  1679
                 ],
                 "loc": {
                   "start": {
@@ -4402,8 +4402,8 @@
               "kind": "method",
               "computed": false,
               "range": [
-                1544,
-                1680
+                1543,
+                1679
               ],
               "loc": {
                 "start": {
@@ -4420,8 +4420,8 @@
                   "type": "Block",
                   "value": "*\n  * Timestamps the end of the embed resolve process and calculates elapsedMs\n  ",
                   "range": [
-                    1456,
-                    1541
+                    1455,
+                    1540
                   ],
                   "loc": {
                     "start": {
@@ -4440,7 +4440,7 @@
           ],
           "range": [
             100,
-            1682
+            1681
           ],
           "loc": {
             "start": {
@@ -4455,7 +4455,7 @@
         },
         "range": [
           88,
-          1682
+          1681
         ],
         "loc": {
           "start": {
@@ -4491,8 +4491,8 @@
         "trailingComments": []
       },
       "range": [
-        1684,
-        1705
+        1683,
+        1704
       ],
       "loc": {
         "start": {
@@ -4510,7 +4510,7 @@
   "sourceType": "module",
   "range": [
     0,
-    1705
+    1704
   ],
   "loc": {
     "start": {
@@ -4561,10 +4561,10 @@
     },
     {
       "type": "Block",
-      "value": "*\n    * Options for this embed.\n    *\n    * __MUST__ contain an embedURL property: the URL we are embedding\n    * \n    * @type {{embedURL:String}}\n    ",
+      "value": "*\n    * Options for this embed.\n    *\n    * __MUST__ contain an embedURL property: the URL we are embedding\n    *\n    * @type {{embedURL:String}}\n    ",
       "range": [
         276,
-        431
+        430
       ],
       "loc": {
         "start": {
@@ -4581,8 +4581,8 @@
       "type": "Block",
       "value": "*\n    * Default markup for unprocessed embed.data.html\n    * @type {String}\n    ",
       "range": [
-        460,
-        544
+        459,
+        543
       ],
       "loc": {
         "start": {
@@ -4599,8 +4599,8 @@
       "type": "Block",
       "value": "*\n    * Data object for the resolved embed\n    *\n    * __Note:__ there should always be a populated data.html property, even if the embed encounters an error while resolving.\n    * @type {{html: String}}\n    ",
       "range": [
-        605,
-        817
+        604,
+        816
       ],
       "loc": {
         "start": {
@@ -4617,8 +4617,8 @@
       "type": "Block",
       "value": "*\n    * Time the embed began resolving\n    * @type {Date}\n    ",
       "range": [
-        876,
-        942
+        875,
+        941
       ],
       "loc": {
         "start": {
@@ -4635,8 +4635,8 @@
       "type": "Block",
       "value": "*\n    * Time the embed finished resolving\n    * @type {Date}\n    ",
       "range": [
-        977,
-        1046
+        976,
+        1045
       ],
       "loc": {
         "start": {
@@ -4653,8 +4653,8 @@
       "type": "Block",
       "value": "*\n    * Milliseconds elapsed during resolving embed\n    * @type {number}\n    ",
       "range": [
-        1082,
-        1163
+        1081,
+        1162
       ],
       "loc": {
         "start": {
@@ -4671,8 +4671,8 @@
       "type": "Block",
       "value": "*\n    * The provider API URL that was used to resolve the embed\n    * @type {String}\n    ",
       "range": [
-        1196,
-        1289
+        1195,
+        1288
       ],
       "loc": {
         "start": {
@@ -4689,8 +4689,8 @@
       "type": "Block",
       "value": "*\n  * Timestamps the beginning of the embed resolve process.\n  ",
       "range": [
-        1327,
-        1394
+        1326,
+        1393
       ],
       "loc": {
         "start": {
@@ -4707,8 +4707,8 @@
       "type": "Block",
       "value": "*\n  * Timestamps the end of the embed resolve process and calculates elapsedMs\n  ",
       "range": [
-        1456,
-        1541
+        1455,
+        1540
       ],
       "loc": {
         "start": {
