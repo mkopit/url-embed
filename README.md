@@ -201,6 +201,9 @@ Example: Modifying an existing provider by extending its class
 'use strict';
 
 let urlEmbed = require('url-embed');
+let EmbedEngine = urlEmbed.EmbedEngine;
+let engine = new EmbedEngine();
+
 let defaultProviderClasses = urlEmbed.defaultProviderClasses;
 let Youtube = defaultProviderClasses.Youtube;
 
@@ -212,8 +215,6 @@ class BetterYoutubeProvider extends Youtube {
 }
 
 // Test it out
-let EmbedEngine = urlEmbed.EmbedEngine;
-let engine = new EmbedEngine();
 engine.registerProvider(new BetterYoutubeProvider());
 
 engine.getEmbed({embedURL: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'}, function(embed) {
