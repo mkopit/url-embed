@@ -114,9 +114,7 @@ class URLEmbedProvider {
   * Can be overridden/replaced to modify a specific provider&apos;s data before it is passed to the client callback.&lt;br /&gt;
   * @param {{html: String}} data - Data object containing embed html
   */
-  filterData (data) {
-    return data.html;
-  }
+  filterData (data) {}
 
   /**
   * Returns markup if an error occurs resolving the embed

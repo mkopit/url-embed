@@ -10474,9 +10474,9 @@
                   {
                     "type": "IfStatement",
                     "test": {
-                      "type": "MemberExpression",
-                      "computed": false,
-                      "object": {
+                      "type": "LogicalExpression",
+                      "operator": "&&",
+                      "left": {
                         "type": "Identifier",
                         "name": "configOptions",
                         "range": [
@@ -10494,27 +10494,63 @@
                           }
                         }
                       },
-                      "property": {
-                        "type": "Identifier",
-                        "name": "timeoutMs",
+                      "right": {
+                        "type": "MemberExpression",
+                        "computed": false,
+                        "object": {
+                          "type": "Identifier",
+                          "name": "configOptions",
+                          "range": [
+                            6226,
+                            6239
+                          ],
+                          "loc": {
+                            "start": {
+                              "line": 194,
+                              "column": 25
+                            },
+                            "end": {
+                              "line": 194,
+                              "column": 38
+                            }
+                          }
+                        },
+                        "property": {
+                          "type": "Identifier",
+                          "name": "timeoutMs",
+                          "range": [
+                            6240,
+                            6249
+                          ],
+                          "loc": {
+                            "start": {
+                              "line": 194,
+                              "column": 39
+                            },
+                            "end": {
+                              "line": 194,
+                              "column": 48
+                            }
+                          }
+                        },
                         "range": [
-                          6223,
-                          6232
+                          6226,
+                          6249
                         ],
                         "loc": {
                           "start": {
                             "line": 194,
-                            "column": 22
+                            "column": 25
                           },
                           "end": {
                             "line": 194,
-                            "column": 31
+                            "column": 48
                           }
                         }
                       },
                       "range": [
                         6209,
-                        6232
+                        6249
                       ],
                       "loc": {
                         "start": {
@@ -10523,7 +10559,7 @@
                         },
                         "end": {
                           "line": 194,
-                          "column": 31
+                          "column": 48
                         }
                       }
                     },
@@ -10541,8 +10577,8 @@
                               "object": {
                                 "type": "ThisExpression",
                                 "range": [
-                                  6242,
-                                  6246
+                                  6259,
+                                  6263
                                 ],
                                 "loc": {
                                   "start": {
@@ -10559,8 +10595,8 @@
                                 "type": "Identifier",
                                 "name": "timeoutMs",
                                 "range": [
-                                  6247,
-                                  6256
+                                  6264,
+                                  6273
                                 ],
                                 "loc": {
                                   "start": {
@@ -10574,8 +10610,8 @@
                                 }
                               },
                               "range": [
-                                6242,
-                                6256
+                                6259,
+                                6273
                               ],
                               "loc": {
                                 "start": {
@@ -10595,8 +10631,8 @@
                                 "type": "Identifier",
                                 "name": "configOptions",
                                 "range": [
-                                  6259,
-                                  6272
+                                  6276,
+                                  6289
                                 ],
                                 "loc": {
                                   "start": {
@@ -10613,8 +10649,8 @@
                                 "type": "Identifier",
                                 "name": "timeoutMs",
                                 "range": [
-                                  6273,
-                                  6282
+                                  6290,
+                                  6299
                                 ],
                                 "loc": {
                                   "start": {
@@ -10628,8 +10664,8 @@
                                 }
                               },
                               "range": [
-                                6259,
-                                6282
+                                6276,
+                                6299
                               ],
                               "loc": {
                                 "start": {
@@ -10643,8 +10679,8 @@
                               }
                             },
                             "range": [
-                              6242,
-                              6282
+                              6259,
+                              6299
                             ],
                             "loc": {
                               "start": {
@@ -10658,8 +10694,8 @@
                             }
                           },
                           "range": [
-                            6242,
-                            6283
+                            6259,
+                            6300
                           ],
                           "loc": {
                             "start": {
@@ -10674,13 +10710,13 @@
                         }
                       ],
                       "range": [
-                        6234,
-                        6289
+                        6251,
+                        6306
                       ],
                       "loc": {
                         "start": {
                           "line": 194,
-                          "column": 33
+                          "column": 50
                         },
                         "end": {
                           "line": 196,
@@ -10691,7 +10727,7 @@
                     "alternate": null,
                     "range": [
                       6205,
-                      6289
+                      6306
                     ],
                     "loc": {
                       "start": {
@@ -10707,7 +10743,7 @@
                 ],
                 "range": [
                   6199,
-                  6293
+                  6310
                 ],
                 "loc": {
                   "start": {
@@ -10724,7 +10760,7 @@
               "expression": false,
               "range": [
                 6183,
-                6293
+                6310
               ],
               "loc": {
                 "start": {
@@ -10741,7 +10777,7 @@
             "computed": false,
             "range": [
               6173,
-              6293
+              6310
             ],
             "loc": {
               "start": {
@@ -10778,7 +10814,7 @@
         ],
         "range": [
           415,
-          6295
+          6312
         ],
         "loc": {
           "start": {
@@ -10793,7 +10829,7 @@
       },
       "range": [
         369,
-        6295
+        6312
       ],
       "loc": {
         "start": {
@@ -10824,8 +10860,8 @@
               "type": "Identifier",
               "name": "OEmbedProvider",
               "range": [
-                6413,
-                6427
+                6430,
+                6444
               ],
               "loc": {
                 "start": {
@@ -10842,8 +10878,8 @@
               "type": "Identifier",
               "name": "prototype",
               "range": [
-                6428,
-                6437
+                6445,
+                6454
               ],
               "loc": {
                 "start": {
@@ -10857,8 +10893,8 @@
               }
             },
             "range": [
-              6413,
-              6437
+              6430,
+              6454
             ],
             "loc": {
               "start": {
@@ -10875,8 +10911,8 @@
             "type": "Identifier",
             "name": "format",
             "range": [
-              6438,
-              6444
+              6455,
+              6461
             ],
             "loc": {
               "start": {
@@ -10890,8 +10926,8 @@
             }
           },
           "range": [
-            6413,
-            6444
+            6430,
+            6461
           ],
           "loc": {
             "start": {
@@ -10909,8 +10945,8 @@
           "value": "json",
           "raw": "'json'",
           "range": [
-            6447,
-            6453
+            6464,
+            6470
           ],
           "loc": {
             "start": {
@@ -10924,8 +10960,8 @@
           }
         },
         "range": [
-          6413,
-          6453
+          6430,
+          6470
         ],
         "loc": {
           "start": {
@@ -10939,8 +10975,8 @@
         }
       },
       "range": [
-        6413,
-        6454
+        6430,
+        6471
       ],
       "loc": {
         "start": {
@@ -10957,8 +10993,8 @@
           "type": "Block",
           "value": "*\n* The data format of the provider's oembed service. Defaults to 'json'\n* @identifier format\n* @type {String}\n",
           "range": [
-            6297,
-            6412
+            6314,
+            6429
           ],
           "loc": {
             "start": {
@@ -10977,8 +11013,8 @@
           "type": "Block",
           "value": "*\n* Default request timeout in milliseconds. Defaults to 2000.\n* @type {number}\n* @identifier timeoutMs\n",
           "range": [
-            6456,
-            6564
+            6473,
+            6581
           ],
           "loc": {
             "start": {
@@ -11008,8 +11044,8 @@
               "type": "Identifier",
               "name": "OEmbedProvider",
               "range": [
-                6565,
-                6579
+                6582,
+                6596
               ],
               "loc": {
                 "start": {
@@ -11026,8 +11062,8 @@
               "type": "Identifier",
               "name": "prototype",
               "range": [
-                6580,
-                6589
+                6597,
+                6606
               ],
               "loc": {
                 "start": {
@@ -11041,8 +11077,8 @@
               }
             },
             "range": [
-              6565,
-              6589
+              6582,
+              6606
             ],
             "loc": {
               "start": {
@@ -11059,8 +11095,8 @@
             "type": "Identifier",
             "name": "timeoutMs",
             "range": [
-              6590,
-              6599
+              6607,
+              6616
             ],
             "loc": {
               "start": {
@@ -11074,8 +11110,8 @@
             }
           },
           "range": [
-            6565,
-            6599
+            6582,
+            6616
           ],
           "loc": {
             "start": {
@@ -11093,8 +11129,8 @@
           "value": 2000,
           "raw": "2000",
           "range": [
-            6602,
-            6606
+            6619,
+            6623
           ],
           "loc": {
             "start": {
@@ -11108,8 +11144,8 @@
           }
         },
         "range": [
-          6565,
-          6606
+          6582,
+          6623
         ],
         "loc": {
           "start": {
@@ -11123,8 +11159,8 @@
         }
       },
       "range": [
-        6565,
-        6607
+        6582,
+        6624
       ],
       "loc": {
         "start": {
@@ -11141,8 +11177,8 @@
           "type": "Block",
           "value": "*\n* Default request timeout in milliseconds. Defaults to 2000.\n* @type {number}\n* @identifier timeoutMs\n",
           "range": [
-            6456,
-            6564
+            6473,
+            6581
           ],
           "loc": {
             "start": {
@@ -11161,8 +11197,8 @@
           "type": "Block",
           "value": "*\n* Reference to the request module.\n* @type {Object}\n* @see https://www.npmjs.com/package/request\n",
           "range": [
-            6609,
-            6712
+            6626,
+            6729
           ],
           "loc": {
             "start": {
@@ -11192,8 +11228,8 @@
               "type": "Identifier",
               "name": "OEmbedProvider",
               "range": [
-                6713,
-                6727
+                6730,
+                6744
               ],
               "loc": {
                 "start": {
@@ -11210,8 +11246,8 @@
               "type": "Identifier",
               "name": "prototype",
               "range": [
-                6728,
-                6737
+                6745,
+                6754
               ],
               "loc": {
                 "start": {
@@ -11225,8 +11261,8 @@
               }
             },
             "range": [
-              6713,
-              6737
+              6730,
+              6754
             ],
             "loc": {
               "start": {
@@ -11243,8 +11279,8 @@
             "type": "Identifier",
             "name": "request",
             "range": [
-              6738,
-              6745
+              6755,
+              6762
             ],
             "loc": {
               "start": {
@@ -11258,8 +11294,8 @@
             }
           },
           "range": [
-            6713,
-            6745
+            6730,
+            6762
           ],
           "loc": {
             "start": {
@@ -11276,8 +11312,8 @@
           "type": "Identifier",
           "name": "request",
           "range": [
-            6748,
-            6755
+            6765,
+            6772
           ],
           "loc": {
             "start": {
@@ -11291,8 +11327,8 @@
           }
         },
         "range": [
-          6713,
-          6755
+          6730,
+          6772
         ],
         "loc": {
           "start": {
@@ -11306,8 +11342,8 @@
         }
       },
       "range": [
-        6713,
-        6756
+        6730,
+        6773
       ],
       "loc": {
         "start": {
@@ -11324,8 +11360,8 @@
           "type": "Block",
           "value": "*\n* Reference to the request module.\n* @type {Object}\n* @see https://www.npmjs.com/package/request\n",
           "range": [
-            6609,
-            6712
+            6626,
+            6729
           ],
           "loc": {
             "start": {
@@ -11344,8 +11380,8 @@
           "type": "Block",
           "value": "*\n* Object containing any any odd querystring parameters that the provider's oembed service requires.\n* @type {Object}\n",
           "range": [
-            6758,
-            6881
+            6775,
+            6898
           ],
           "loc": {
             "start": {
@@ -11375,8 +11411,8 @@
               "type": "Identifier",
               "name": "OEmbedProvider",
               "range": [
-                6882,
-                6896
+                6899,
+                6913
               ],
               "loc": {
                 "start": {
@@ -11393,8 +11429,8 @@
               "type": "Identifier",
               "name": "prototype",
               "range": [
-                6897,
-                6906
+                6914,
+                6923
               ],
               "loc": {
                 "start": {
@@ -11408,8 +11444,8 @@
               }
             },
             "range": [
-              6882,
-              6906
+              6899,
+              6923
             ],
             "loc": {
               "start": {
@@ -11426,8 +11462,8 @@
             "type": "Identifier",
             "name": "defaultProviderQueryStringParameters",
             "range": [
-              6907,
-              6943
+              6924,
+              6960
             ],
             "loc": {
               "start": {
@@ -11441,8 +11477,8 @@
             }
           },
           "range": [
-            6882,
-            6943
+            6899,
+            6960
           ],
           "loc": {
             "start": {
@@ -11460,8 +11496,8 @@
           "value": null,
           "raw": "null",
           "range": [
-            6946,
-            6950
+            6963,
+            6967
           ],
           "loc": {
             "start": {
@@ -11475,8 +11511,8 @@
           }
         },
         "range": [
-          6882,
-          6950
+          6899,
+          6967
         ],
         "loc": {
           "start": {
@@ -11490,8 +11526,8 @@
         }
       },
       "range": [
-        6882,
-        6951
+        6899,
+        6968
       ],
       "loc": {
         "start": {
@@ -11508,8 +11544,8 @@
           "type": "Block",
           "value": "*\n* Object containing any any odd querystring parameters that the provider's oembed service requires.\n* @type {Object}\n",
           "range": [
-            6758,
-            6881
+            6775,
+            6898
           ],
           "loc": {
             "start": {
@@ -11530,8 +11566,8 @@
         "type": "Identifier",
         "name": "OEmbedProvider",
         "range": [
-          6968,
-          6982
+          6985,
+          6999
         ],
         "loc": {
           "start": {
@@ -11545,8 +11581,8 @@
         }
       },
       "range": [
-        6953,
-        6983
+        6970,
+        7000
       ],
       "loc": {
         "start": {
@@ -21377,9 +21413,9 @@
                     {
                       "type": "IfStatement",
                       "test": {
-                        "type": "MemberExpression",
-                        "computed": false,
-                        "object": {
+                        "type": "LogicalExpression",
+                        "operator": "&&",
+                        "left": {
                           "type": "Identifier",
                           "name": "configOptions",
                           "range": [
@@ -21397,27 +21433,63 @@
                             }
                           }
                         },
-                        "property": {
-                          "type": "Identifier",
-                          "name": "timeoutMs",
+                        "right": {
+                          "type": "MemberExpression",
+                          "computed": false,
+                          "object": {
+                            "type": "Identifier",
+                            "name": "configOptions",
+                            "range": [
+                              6226,
+                              6239
+                            ],
+                            "loc": {
+                              "start": {
+                                "line": 194,
+                                "column": 25
+                              },
+                              "end": {
+                                "line": 194,
+                                "column": 38
+                              }
+                            }
+                          },
+                          "property": {
+                            "type": "Identifier",
+                            "name": "timeoutMs",
+                            "range": [
+                              6240,
+                              6249
+                            ],
+                            "loc": {
+                              "start": {
+                                "line": 194,
+                                "column": 39
+                              },
+                              "end": {
+                                "line": 194,
+                                "column": 48
+                              }
+                            }
+                          },
                           "range": [
-                            6223,
-                            6232
+                            6226,
+                            6249
                           ],
                           "loc": {
                             "start": {
                               "line": 194,
-                              "column": 22
+                              "column": 25
                             },
                             "end": {
                               "line": 194,
-                              "column": 31
+                              "column": 48
                             }
                           }
                         },
                         "range": [
                           6209,
-                          6232
+                          6249
                         ],
                         "loc": {
                           "start": {
@@ -21426,7 +21498,7 @@
                           },
                           "end": {
                             "line": 194,
-                            "column": 31
+                            "column": 48
                           }
                         }
                       },
@@ -21444,8 +21516,8 @@
                                 "object": {
                                   "type": "ThisExpression",
                                   "range": [
-                                    6242,
-                                    6246
+                                    6259,
+                                    6263
                                   ],
                                   "loc": {
                                     "start": {
@@ -21462,8 +21534,8 @@
                                   "type": "Identifier",
                                   "name": "timeoutMs",
                                   "range": [
-                                    6247,
-                                    6256
+                                    6264,
+                                    6273
                                   ],
                                   "loc": {
                                     "start": {
@@ -21477,8 +21549,8 @@
                                   }
                                 },
                                 "range": [
-                                  6242,
-                                  6256
+                                  6259,
+                                  6273
                                 ],
                                 "loc": {
                                   "start": {
@@ -21498,8 +21570,8 @@
                                   "type": "Identifier",
                                   "name": "configOptions",
                                   "range": [
-                                    6259,
-                                    6272
+                                    6276,
+                                    6289
                                   ],
                                   "loc": {
                                     "start": {
@@ -21516,8 +21588,8 @@
                                   "type": "Identifier",
                                   "name": "timeoutMs",
                                   "range": [
-                                    6273,
-                                    6282
+                                    6290,
+                                    6299
                                   ],
                                   "loc": {
                                     "start": {
@@ -21531,8 +21603,8 @@
                                   }
                                 },
                                 "range": [
-                                  6259,
-                                  6282
+                                  6276,
+                                  6299
                                 ],
                                 "loc": {
                                   "start": {
@@ -21546,8 +21618,8 @@
                                 }
                               },
                               "range": [
-                                6242,
-                                6282
+                                6259,
+                                6299
                               ],
                               "loc": {
                                 "start": {
@@ -21561,8 +21633,8 @@
                               }
                             },
                             "range": [
-                              6242,
-                              6283
+                              6259,
+                              6300
                             ],
                             "loc": {
                               "start": {
@@ -21577,13 +21649,13 @@
                           }
                         ],
                         "range": [
-                          6234,
-                          6289
+                          6251,
+                          6306
                         ],
                         "loc": {
                           "start": {
                             "line": 194,
-                            "column": 33
+                            "column": 50
                           },
                           "end": {
                             "line": 196,
@@ -21594,7 +21666,7 @@
                       "alternate": null,
                       "range": [
                         6205,
-                        6289
+                        6306
                       ],
                       "loc": {
                         "start": {
@@ -21610,7 +21682,7 @@
                   ],
                   "range": [
                     6199,
-                    6293
+                    6310
                   ],
                   "loc": {
                     "start": {
@@ -21627,7 +21699,7 @@
                 "expression": false,
                 "range": [
                   6183,
-                  6293
+                  6310
                 ],
                 "loc": {
                   "start": {
@@ -21644,7 +21716,7 @@
               "computed": false,
               "range": [
                 6173,
-                6293
+                6310
               ],
               "loc": {
                 "start": {
@@ -21681,7 +21753,7 @@
           ],
           "range": [
             415,
-            6295
+            6312
           ],
           "loc": {
             "start": {
@@ -21696,7 +21768,7 @@
         },
         "range": [
           369,
-          6295
+          6312
         ],
         "loc": {
           "start": {
@@ -21733,8 +21805,8 @@
             "type": "Block",
             "value": "*\n* The data format of the provider's oembed service. Defaults to 'json'\n* @identifier format\n* @type {String}\n",
             "range": [
-              6297,
-              6412
+              6314,
+              6429
             ],
             "loc": {
               "start": {
@@ -21751,8 +21823,8 @@
         "__esdoc__pseudo_export": false
       },
       "range": [
-        6953,
-        6983
+        6970,
+        7000
       ],
       "loc": {
         "start": {
@@ -21770,7 +21842,7 @@
   "sourceType": "module",
   "range": [
     0,
-    6983
+    7000
   ],
   "loc": {
     "start": {
@@ -22075,8 +22147,8 @@
       "type": "Block",
       "value": "*\n* The data format of the provider's oembed service. Defaults to 'json'\n* @identifier format\n* @type {String}\n",
       "range": [
-        6297,
-        6412
+        6314,
+        6429
       ],
       "loc": {
         "start": {
@@ -22093,8 +22165,8 @@
       "type": "Block",
       "value": "*\n* Default request timeout in milliseconds. Defaults to 2000.\n* @type {number}\n* @identifier timeoutMs\n",
       "range": [
-        6456,
-        6564
+        6473,
+        6581
       ],
       "loc": {
         "start": {
@@ -22111,8 +22183,8 @@
       "type": "Block",
       "value": "*\n* Reference to the request module.\n* @type {Object}\n* @see https://www.npmjs.com/package/request\n",
       "range": [
-        6609,
-        6712
+        6626,
+        6729
       ],
       "loc": {
         "start": {
@@ -22129,8 +22201,8 @@
       "type": "Block",
       "value": "*\n* Object containing any any odd querystring parameters that the provider's oembed service requires.\n* @type {Object}\n",
       "range": [
-        6758,
-        6881
+        6775,
+        6898
       ],
       "loc": {
         "start": {

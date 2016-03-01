@@ -57,9 +57,6 @@
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;;
 
 /** @ignore */
-let fs = require(&apos;fs&apos;);
-
-/** @ignore */
 let async = require(&apos;async&apos;);
 
 /** @ignore */
@@ -70,6 +67,9 @@ let OEmbedProvider = require(&apos;./OEmbedProvider&apos;);
 
 /** @ignore */
 let Embed = require(&apos;./Embed&apos;);
+
+/** @ignore */
+let utils = require(&apos;../utils&apos;);
 
 /**
  * Resolves urls to embeds from a registered list of embed providers
@@ -105,7 +105,7 @@ class EmbedEngine {
      * Array of provider classes included in this library
      * @type {Array&lt;URLEmbedProvider&gt;} defaultProviderClasses - array of provider classes included in this library
      */
-    this.defaultProviderClasses = this._loadProvidersFromDirectory(this.defaultProviderDirectory);
+    this.defaultProviderClasses = utils.loadClassesFromDirectory(this.defaultProviderDirectory);
 
     /**
     * Configuration options. These will also be passed to the configure method of each provider instance
@@ -154,23 +154,6 @@ class EmbedEngine {
       this._configureProvider(provider);
       this.registerProvider(provider);
     }
-  }
-
-  /**
-  * Requires in all default providers in this library
-  * @param {String} [path] - directory of provider classes (if not specified it will default to the ones in this library)
-  */
-  _loadProvidersFromDirectory (path) {
-    if (!path) path = this.defaultProviderDirectory;
-    let providerClasses = [];
-
-    let files = fs.readdirSync(path);
-    for (let i = 0; i &lt; files.length; i++) {
-      let providerClass = require(path + &apos;/&apos; + files[i]);
-      providerClasses.push(providerClass);
-    }
-
-    return providerClasses;
   }
 
   /**
@@ -259,9 +242,7 @@ class EmbedEngine {
   * *Note:* if you only need to modify a specific provider&apos;s data then there&apos;s a similar &lt;code&gt;filterData&lt;/code&gt; method on each provider object, too.
   * @param {{html: string}} data - Data object containing embed html
   */
-  filterData (data) {
-    return data;
-  }
+  filterData (data) {}
 }
 
 module.exports = EmbedEngine;
