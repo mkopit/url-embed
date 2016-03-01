@@ -235,9 +235,11 @@ Example:
 'use strict';
 
 let urlEmbed = require('url-embed');
+let EmbedEngine = urlEmbed.EmbedEngine;
+let engine = new EmbedEngine();
+
 let defaultProviderClasses = urlEmbed.defaultProviderClasses;
 let Youtube = defaultProviderClasses.Youtube;
-
 let provider = new Youtube();
 
 // Instance-level override of Youtube.filterData.
@@ -245,8 +247,6 @@ provider.filterData = function (data) {
   data.html = 'YOLO!!!! ' + data.html
 }
 
-let EmbedEngine = urlEmbed.EmbedEngine;
-let engine = new EmbedEngine();
 engine.registerDefaultProviders();
 
 // Instance level override of EmbedEngine.filterData
