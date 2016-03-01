@@ -2343,7 +2343,7 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "'use strict';\n\n/** @ignore */\nlet fs = require('fs');\n\n/**\n* Utility Library\n*/\nmodule.exports = {\n  /**\n  * Requires in all class files in a directory\n  * @param {String} [path] - path containing classes\n  */\n  loadClassesFromDirectory: function (path) {\n\n    let classes = [];\n\n    let files = fs.readdirSync(path);\n    for (let i = 0; i < files.length; i++) {\n      let clazz = require(path + '/' + files[i]);\n      classes.push(clazz);\n    }\n\n    return classes;\n  }\n}\n"
+    "content": "'use strict';\n\n/** @ignore */\nlet fs = require('fs');\n\n/**\n* Utility Library\n*/\nmodule.exports = {\n  /**\n  * Requires in all class files in a directory\n  * @param {String} [path] - path containing classes\n  */\n  loadClassesFromDirectory: function (path) {\n    let classes = [];\n\n    let files = fs.readdirSync(path);\n    for (let i = 0; i < files.length; i++) {\n      let clazz = require(path + '/' + files[i]);\n      classes.push(clazz);\n    }\n\n    return classes;\n  }\n};\n"
   },
   {
     "__docId__": 106,
