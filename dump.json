@@ -2448,7 +2448,7 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "'use strict';\n\n/**\n* Error validating Embed\n*/\nclass EmbedValidationError extends Error {}\n\nmodule.exports = EmbedValidationError;"
+    "content": "'use strict';\n\n/**\n* Error occurs when an Embed object fails validation.\n*/\nclass EmbedValidationError extends Error {}\n\nmodule.exports = EmbedValidationError;"
   },
   {
     "__docId__": 111,
@@ -2462,7 +2462,7 @@
     "export": true,
     "importPath": "url-embed/lib/classes/errors/EmbedValidationError.js",
     "importStyle": "EmbedValidationError",
-    "description": "Error validating Embed",
+    "description": "Error occurs when an Embed object fails validation.",
     "lineNumber": 6,
     "interface": false,
     "extends": [
@@ -2480,7 +2480,7 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "'use strict';\n\n/**\n* HTTP request resulted in a non 200 response\n*/\nclass UnexpectedStatusError extends Error {}\n\nmodule.exports = UnexpectedStatusError;"
+    "content": "'use strict';\n\n/**\n* Error occurs when an HTTP request resulted in a non 200 response.\n*/\nclass UnexpectedStatusError extends Error {}\n\nmodule.exports = UnexpectedStatusError;"
   },
   {
     "__docId__": 113,
@@ -2494,7 +2494,7 @@
     "export": true,
     "importPath": "url-embed/lib/classes/errors/UnexpectedStatusError.js",
     "importStyle": "UnexpectedStatusError",
-    "description": "HTTP request resulted in a non 200 response",
+    "description": "Error occurs when an HTTP request resulted in a non 200 response.",
     "lineNumber": 6,
     "interface": false,
     "extends": [
@@ -2512,7 +2512,7 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "'use strict';\n\n/**\n* Error validating Embed\n*/\nclass UnknownProviderError extends Error {}\n\nmodule.exports = UnknownProviderError;"
+    "content": "'use strict';\n\n/**\n* Error occurs when a provider cannot not be found for the given URL.\n*/\nclass UnknownProviderError extends Error {}\n\nmodule.exports = UnknownProviderError;"
   },
   {
     "__docId__": 115,
@@ -2526,7 +2526,7 @@
     "export": true,
     "importPath": "url-embed/lib/classes/errors/UnknownProviderError.js",
     "importStyle": "UnknownProviderError",
-    "description": "Error validating Embed",
+    "description": "Error occurs when a provider cannot not be found for the given URL.",
     "lineNumber": 6,
     "interface": false,
     "extends": [

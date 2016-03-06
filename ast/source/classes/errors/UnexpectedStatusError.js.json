@@ -39,10 +39,10 @@
       "trailingComments": [
         {
           "type": "Block",
-          "value": "*\n* HTTP request resulted in a non 200 response\n",
+          "value": "*\n* Error occurs when an HTTP request resulted in a non 200 response.\n",
           "range": [
             15,
-            67
+            89
           ],
           "loc": {
             "start": {
@@ -63,8 +63,8 @@
         "type": "Identifier",
         "name": "UnexpectedStatusError",
         "range": [
-          74,
-          95
+          96,
+          117
         ],
         "loc": {
           "start": {
@@ -81,8 +81,8 @@
         "type": "Identifier",
         "name": "Error",
         "range": [
-          104,
-          109
+          126,
+          131
         ],
         "loc": {
           "start": {
@@ -99,8 +99,8 @@
         "type": "ClassBody",
         "body": [],
         "range": [
-          110,
-          112
+          132,
+          134
         ],
         "loc": {
           "start": {
@@ -114,8 +114,8 @@
         }
       },
       "range": [
-        68,
-        112
+        90,
+        134
       ],
       "loc": {
         "start": {
@@ -137,8 +137,8 @@
         "type": "Identifier",
         "name": "UnexpectedStatusError",
         "range": [
-          129,
-          150
+          151,
+          172
         ],
         "loc": {
           "start": {
@@ -152,8 +152,8 @@
         }
       },
       "range": [
-        114,
-        151
+        136,
+        173
       ],
       "loc": {
         "start": {
@@ -177,8 +177,8 @@
           "type": "Identifier",
           "name": "UnexpectedStatusError",
           "range": [
-            74,
-            95
+            96,
+            117
           ],
           "loc": {
             "start": {
@@ -195,8 +195,8 @@
           "type": "Identifier",
           "name": "Error",
           "range": [
-            104,
-            109
+            126,
+            131
           ],
           "loc": {
             "start": {
@@ -213,8 +213,8 @@
           "type": "ClassBody",
           "body": [],
           "range": [
-            110,
-            112
+            132,
+            134
           ],
           "loc": {
             "start": {
@@ -228,8 +228,8 @@
           }
         },
         "range": [
-          68,
-          112
+          90,
+          134
         ],
         "loc": {
           "start": {
@@ -244,10 +244,10 @@
         "leadingComments": [
           {
             "type": "Block",
-            "value": "*\n* HTTP request resulted in a non 200 response\n",
+            "value": "*\n* Error occurs when an HTTP request resulted in a non 200 response.\n",
             "range": [
               15,
-              67
+              89
             ],
             "loc": {
               "start": {
@@ -265,8 +265,8 @@
         "trailingComments": []
       },
       "range": [
-        114,
-        151
+        136,
+        173
       ],
       "loc": {
         "start": {
@@ -284,7 +284,7 @@
   "sourceType": "module",
   "range": [
     0,
-    151
+    173
   ],
   "loc": {
     "start": {
@@ -299,10 +299,10 @@
   "comments": [
     {
       "type": "Block",
-      "value": "*\n* HTTP request resulted in a non 200 response\n",
+      "value": "*\n* Error occurs when an HTTP request resulted in a non 200 response.\n",
       "range": [
         15,
-        67
+        89
       ],
       "loc": {
         "start": {

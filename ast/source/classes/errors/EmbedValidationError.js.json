@@ -39,10 +39,10 @@
       "trailingComments": [
         {
           "type": "Block",
-          "value": "*\n* Error validating Embed\n",
+          "value": "*\n* Error occurs when an Embed object fails validation.\n",
           "range": [
             15,
-            46
+            75
           ],
           "loc": {
             "start": {
@@ -63,8 +63,8 @@
         "type": "Identifier",
         "name": "EmbedValidationError",
         "range": [
-          53,
-          73
+          82,
+          102
         ],
         "loc": {
           "start": {
@@ -81,8 +81,8 @@
         "type": "Identifier",
         "name": "Error",
         "range": [
-          82,
-          87
+          111,
+          116
         ],
         "loc": {
           "start": {
@@ -99,8 +99,8 @@
         "type": "ClassBody",
         "body": [],
         "range": [
-          88,
-          90
+          117,
+          119
         ],
         "loc": {
           "start": {
@@ -114,8 +114,8 @@
         }
       },
       "range": [
-        47,
-        90
+        76,
+        119
       ],
       "loc": {
         "start": {
@@ -137,8 +137,8 @@
         "type": "Identifier",
         "name": "EmbedValidationError",
         "range": [
-          107,
-          127
+          136,
+          156
         ],
         "loc": {
           "start": {
@@ -152,8 +152,8 @@
         }
       },
       "range": [
-        92,
-        128
+        121,
+        157
       ],
       "loc": {
         "start": {
@@ -177,8 +177,8 @@
           "type": "Identifier",
           "name": "EmbedValidationError",
           "range": [
-            53,
-            73
+            82,
+            102
           ],
           "loc": {
             "start": {
@@ -195,8 +195,8 @@
           "type": "Identifier",
           "name": "Error",
           "range": [
-            82,
-            87
+            111,
+            116
           ],
           "loc": {
             "start": {
@@ -213,8 +213,8 @@
           "type": "ClassBody",
           "body": [],
           "range": [
-            88,
-            90
+            117,
+            119
           ],
           "loc": {
             "start": {
@@ -228,8 +228,8 @@
           }
         },
         "range": [
-          47,
-          90
+          76,
+          119
         ],
         "loc": {
           "start": {
@@ -244,10 +244,10 @@
         "leadingComments": [
           {
             "type": "Block",
-            "value": "*\n* Error validating Embed\n",
+            "value": "*\n* Error occurs when an Embed object fails validation.\n",
             "range": [
               15,
-              46
+              75
             ],
             "loc": {
               "start": {
@@ -265,8 +265,8 @@
         "trailingComments": []
       },
       "range": [
-        92,
-        128
+        121,
+        157
       ],
       "loc": {
         "start": {
@@ -284,7 +284,7 @@
   "sourceType": "module",
   "range": [
     0,
-    128
+    157
   ],
   "loc": {
     "start": {
@@ -299,10 +299,10 @@
   "comments": [
     {
       "type": "Block",
-      "value": "*\n* Error validating Embed\n",
+      "value": "*\n* Error occurs when an Embed object fails validation.\n",
       "range": [
         15,
-        46
+        75
       ],
       "loc": {
         "start": {
