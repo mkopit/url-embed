@@ -9,14 +9,14 @@ The module provides support for many common oembed providers, as well as support
 ## The Basics
 
 #### This module exports the following properties:
-* [EmbedEngine](http://mkopit.github.io/url-embed/docs/esdoc/class/lib/classes/Embed.js~Embed.html) class: given one or more urls will resolve them to corresponding markup.
-* [URLEmbedProvider](http://mkopit.github.io/url-embed/docs/esdoc/class/lib/classes/URLEmbedProvider.js~URLEmbedProvider.html) interface: defines the basic methods that will get invoked by EmbedEngine
-* [OEmbedProvider](http://mkopit.github.io/url-embed/docs/esdoc/class/lib/classes/OEmbedProvider.js~OEmbedProvider.html) interface: extends URLEmbedProvider and implements support for interacting with an oembed provider's API
-* [Embed](http://mkopit.github.io/url-embed/docs/esdoc/class/lib/classes/Embed.js~Embed.html) class: the primary object passed through callbacks
-  * [error](http://mkopit.github.io/url-embed/docs/esdoc/class/lib/classes/Embed.js~Embed.html#instance-member-error): contains a reference to an Error object if an error occurred
-  * [embedOptions](http://mkopit.github.io/url-embed/docs/esdoc/class/lib/classes/Embed.js~Embed.html#instance-member-options): options object the Embed was constructed from
+* [EmbedEngine](http://mkopit.github.io/url-embed/class/lib/classes/EmbedEngine.js~EmbedEngine.html) class: given one or more urls will resolve them to corresponding markup.
+* [URLEmbedProvider](http://mkopit.github.io/url-embed/class/lib/classes/URLEmbedProvider.js~URLEmbedProvider.html) interface: defines the basic methods that will get invoked by EmbedEngine
+* [OEmbedProvider](http://mkopit.github.io/url-embed/class/lib/classes/OEmbedProvider.js~OEmbedProvider.html) interface: extends URLEmbedProvider and implements support for interacting with an oembed provider's API
+* [Embed](http://mkopit.github.io/url-embed/class/lib/classes/Embed.js~Embed.html) class: the primary object passed through callbacks
+  * [error](http://mkopit.github.io/url-embed/class/lib/classes/Embed.js~Embed.html#instance-member-error): contains a reference to an Error object if an error occurred
+  * [options](http://mkopit.github.io/url-embed/class/lib/classes/Embed.js~Embed.html#instance-member-options): options object the Embed was constructed from
     * embedURL: the URL to embed
-  * [data](http://mkopit.github.io/url-embed/docs/esdoc/class/lib/classes/Embed.js~Embed.html#instance-member-data): the data object from the resolved embed
+  * [data](http://mkopit.github.io/url-embed/class/lib/classes/Embed.js~Embed.html#instance-member-data): the data object from the resolved embed
     * html: the resulting embed markup.
 * defaultProviderClasses: map of all default providers indexed by provider name:
   * [DailyMotion](http://mkopit.github.io/url-embed/class/lib/classes/default_providers/DailyMotion.js~DailyMotion.html)
