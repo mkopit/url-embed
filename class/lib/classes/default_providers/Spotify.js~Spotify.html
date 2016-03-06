@@ -2,8 +2,8 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <base data-ice="baseUrl" href="../../../">
-  <title data-ice="title">lib/classes/Embed.js | API Document</title>
+  <base data-ice="baseUrl" href="../../../../">
+  <title data-ice="title">Spotify | API Document</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -56,88 +56,57 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">lib/classes/Embed.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;;
+<div class="content" data-ice="content"><div class="header-notice">
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import Spotify from &apos;<span><a href="file/lib/classes/default_providers/Spotify.js.html#lineNumber10">url-embed/lib/classes/default_providers/Spotify.js</a></span>&apos;</code></pre></div>
+  <span data-ice="access">public</span>
+  <span data-ice="kind">class</span>
+  
+  
+  
+  <span data-ice="source">| <span><a href="file/lib/classes/default_providers/Spotify.js.html#lineNumber10">source</a></span></span>
+</div>
 
-/**
- * Embed data object that holds embedOptions and resulting data.
- */
-class Embed {
-  constructor () {
-    /**
-    * Will be populated with an Error object if an error occurs while processing this embed
-    * @type {Error}
-    */
-    this.error = null;
+<div class="self-detail detail">
+  <h1 data-ice="name">Spotify</h1>
 
-    /**
-    * Options for this embed.
-    *
-    * __MUST__ contain an embedURL property: the URL we are embedding
-    *
-    * @type {{embedURL:String}}
-    */
-    this.options = {};
+  
 
-    /**
-    * Default markup for unprocessed embed.data.html
-    * @type {String}
-    */
-    this.stubMarkup = &apos;&lt;!-- default embed markup --&gt;&apos;;
+  
+  
+  <div class="flat-list" data-ice="extendsChain"><h4>Extends:</h4><div><span>lib/classes/default_providers/Instagram.js~OEmbedProvider</span> &#x2192; Spotify</div></div>
+  
+  
+  
+  
+  
+  
 
-    /**
-    * Data object for the resolved embed
-    *
-    * __Note:__ there should always be a populated data.html property, even if the embed encounters an error while resolving.
-    * @type {{html: String}}
-    */
-    this.data = {
-      html: this.stubMarkup
-    };
+  
+  
+  <div class="description" data-ice="description"><p>Spotify embed provider</p>
+</div>
 
-    /**
-    * Time the embed began resolving
-    * @type {Date}
-    */
-    this.startedDate = null;
+  <div data-ice="see"><h4>See:</h4><ul><li><span><a href="https://core.trac.wordpress.org/browser/tags/4.4.2/src/wp-includes/class-oembed.php">https://core.trac.wordpress.org/browser/tags/4.4.2/src/wp-includes/class-oembed.php</a></span></li></ul></div>
 
-    /**
-    * Time the embed finished resolving
-    * @type {Date}
-    */
-    this.finishedDate = null;
+  
 
-    /**
-    * Milliseconds elapsed during resolving embed
-    * @type {number}
-    */
-    this.elapsedMs = null;
+  
 
-    /**
-    * The provider API URL that was used to resolve the embed
-    * @type {String}
-    */
-    this.oembedAPIURL = null;
-  }
+  
+</div>
 
-  /**
-  * Timestamps the beginning of the embed resolve process.
-  */
-  markStarted () {
-    this.startedDate = new Date();
-  }
 
-  /**
-  * Timestamps the end of the embed resolve process and calculates elapsedMs
-  */
-  markFinished () {
-    this.finishedDate = new Date();
-    this.elapsedMs = this.finishedDate.getTime() - this.startedDate.getTime();
-  }
-}
 
-module.exports = Embed;
-</code></pre>
+
+
+
+
+
+
+
+
+
+
 
 </div>
 

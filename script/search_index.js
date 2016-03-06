@@ -1,8 +1,8 @@
 window.esdocSearchIndex = [
   [
     "url-embed/lib/classes/default_providers/dailymotion.js~dailymotion",
-    "class/lib/classes/default_providers/dailymotion.js~DailyMotion.html",
-    "<span>DailyMotion</span> <span class=\"search-result-import-path\">url-embed/lib/classes/default_providers/dailymotion.js</span>",
+    "class/lib/classes/default_providers/DailyMotion.js~DailyMotion.html",
+    "<span>DailyMotion</span> <span class=\"search-result-import-path\">url-embed/lib/classes/default_providers/DailyMotion.js</span>",
     "class"
   ],
   [
@@ -18,33 +18,39 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
-    "url-embed/lib/classes/default_providers/facebook_posts.js~facebookposts",
-    "class/lib/classes/default_providers/facebook_posts.js~FacebookPosts.html",
-    "<span>FacebookPosts</span> <span class=\"search-result-import-path\">url-embed/lib/classes/default_providers/facebook_posts.js</span>",
+    "url-embed/lib/classes/errors/embedvalidationerror.js~embedvalidationerror",
+    "class/lib/classes/errors/EmbedValidationError.js~EmbedValidationError.html",
+    "<span>EmbedValidationError</span> <span class=\"search-result-import-path\">url-embed/lib/classes/errors/EmbedValidationError.js</span>",
     "class"
   ],
   [
-    "url-embed/lib/classes/default_providers/facebook_video.js~facebookvideo",
-    "class/lib/classes/default_providers/facebook_video.js~FacebookVideo.html",
-    "<span>FacebookVideo</span> <span class=\"search-result-import-path\">url-embed/lib/classes/default_providers/facebook_video.js</span>",
+    "url-embed/lib/classes/default_providers/facebookposts.js~facebookposts",
+    "class/lib/classes/default_providers/FacebookPosts.js~FacebookPosts.html",
+    "<span>FacebookPosts</span> <span class=\"search-result-import-path\">url-embed/lib/classes/default_providers/FacebookPosts.js</span>",
+    "class"
+  ],
+  [
+    "url-embed/lib/classes/default_providers/facebookvideo.js~facebookvideo",
+    "class/lib/classes/default_providers/FacebookVideo.js~FacebookVideo.html",
+    "<span>FacebookVideo</span> <span class=\"search-result-import-path\">url-embed/lib/classes/default_providers/FacebookVideo.js</span>",
     "class"
   ],
   [
     "url-embed/lib/classes/default_providers/flickr.js~flickr",
-    "class/lib/classes/default_providers/flickr.js~Flickr.html",
-    "<span>Flickr</span> <span class=\"search-result-import-path\">url-embed/lib/classes/default_providers/flickr.js</span>",
+    "class/lib/classes/default_providers/Flickr.js~Flickr.html",
+    "<span>Flickr</span> <span class=\"search-result-import-path\">url-embed/lib/classes/default_providers/Flickr.js</span>",
     "class"
   ],
   [
     "url-embed/lib/classes/default_providers/imgur.js~imgur",
-    "class/lib/classes/default_providers/imgur.js~Imgur.html",
-    "<span>Imgur</span> <span class=\"search-result-import-path\">url-embed/lib/classes/default_providers/imgur.js</span>",
+    "class/lib/classes/default_providers/Imgur.js~Imgur.html",
+    "<span>Imgur</span> <span class=\"search-result-import-path\">url-embed/lib/classes/default_providers/Imgur.js</span>",
     "class"
   ],
   [
     "url-embed/lib/classes/default_providers/instagram.js~instagram",
-    "class/lib/classes/default_providers/instagram.js~Instagram.html",
-    "<span>Instagram</span> <span class=\"search-result-import-path\">url-embed/lib/classes/default_providers/instagram.js</span>",
+    "class/lib/classes/default_providers/Instagram.js~Instagram.html",
+    "<span>Instagram</span> <span class=\"search-result-import-path\">url-embed/lib/classes/default_providers/Instagram.js</span>",
     "class"
   ],
   [
@@ -55,26 +61,26 @@ window.esdocSearchIndex = [
   ],
   [
     "url-embed/lib/classes/default_providers/soundcloud.js~soundcloud",
-    "class/lib/classes/default_providers/soundcloud.js~SoundCloud.html",
-    "<span>SoundCloud</span> <span class=\"search-result-import-path\">url-embed/lib/classes/default_providers/soundcloud.js</span>",
+    "class/lib/classes/default_providers/Soundcloud.js~SoundCloud.html",
+    "<span>SoundCloud</span> <span class=\"search-result-import-path\">url-embed/lib/classes/default_providers/Soundcloud.js</span>",
     "class"
   ],
   [
     "url-embed/lib/classes/default_providers/spotify.js~spotify",
-    "class/lib/classes/default_providers/spotify.js~Spotify.html",
-    "<span>Spotify</span> <span class=\"search-result-import-path\">url-embed/lib/classes/default_providers/spotify.js</span>",
+    "class/lib/classes/default_providers/Spotify.js~Spotify.html",
+    "<span>Spotify</span> <span class=\"search-result-import-path\">url-embed/lib/classes/default_providers/Spotify.js</span>",
     "class"
   ],
   [
     "url-embed/lib/classes/default_providers/tumblr.js~tumblr",
-    "class/lib/classes/default_providers/tumblr.js~Tumblr.html",
-    "<span>Tumblr</span> <span class=\"search-result-import-path\">url-embed/lib/classes/default_providers/tumblr.js</span>",
+    "class/lib/classes/default_providers/Tumblr.js~Tumblr.html",
+    "<span>Tumblr</span> <span class=\"search-result-import-path\">url-embed/lib/classes/default_providers/Tumblr.js</span>",
     "class"
   ],
   [
     "url-embed/lib/classes/default_providers/twitter.js~twitter",
-    "class/lib/classes/default_providers/twitter.js~Twitter.html",
-    "<span>Twitter</span> <span class=\"search-result-import-path\">url-embed/lib/classes/default_providers/twitter.js</span>",
+    "class/lib/classes/default_providers/Twitter.js~Twitter.html",
+    "<span>Twitter</span> <span class=\"search-result-import-path\">url-embed/lib/classes/default_providers/Twitter.js</span>",
     "class"
   ],
   [
@@ -84,21 +90,33 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
+    "url-embed/lib/classes/errors/unexpectedstatuserror.js~unexpectedstatuserror",
+    "class/lib/classes/errors/UnexpectedStatusError.js~UnexpectedStatusError.html",
+    "<span>UnexpectedStatusError</span> <span class=\"search-result-import-path\">url-embed/lib/classes/errors/UnexpectedStatusError.js</span>",
+    "class"
+  ],
+  [
+    "url-embed/lib/classes/errors/unknownprovidererror.js~unknownprovidererror",
+    "class/lib/classes/errors/UnknownProviderError.js~UnknownProviderError.html",
+    "<span>UnknownProviderError</span> <span class=\"search-result-import-path\">url-embed/lib/classes/errors/UnknownProviderError.js</span>",
+    "class"
+  ],
+  [
     "url-embed/lib/classes/default_providers/videopress.js~videopress",
-    "class/lib/classes/default_providers/videopress.js~Videopress.html",
-    "<span>Videopress</span> <span class=\"search-result-import-path\">url-embed/lib/classes/default_providers/videopress.js</span>",
+    "class/lib/classes/default_providers/Videopress.js~Videopress.html",
+    "<span>Videopress</span> <span class=\"search-result-import-path\">url-embed/lib/classes/default_providers/Videopress.js</span>",
     "class"
   ],
   [
     "url-embed/lib/classes/default_providers/vimeo.js~vimeo",
-    "class/lib/classes/default_providers/vimeo.js~Vimeo.html",
-    "<span>Vimeo</span> <span class=\"search-result-import-path\">url-embed/lib/classes/default_providers/vimeo.js</span>",
+    "class/lib/classes/default_providers/Vimeo.js~Vimeo.html",
+    "<span>Vimeo</span> <span class=\"search-result-import-path\">url-embed/lib/classes/default_providers/Vimeo.js</span>",
     "class"
   ],
   [
     "url-embed/lib/classes/default_providers/youtube.js~youtube",
-    "class/lib/classes/default_providers/youtube.js~Youtube.html",
-    "<span>Youtube</span> <span class=\"search-result-import-path\">url-embed/lib/classes/default_providers/youtube.js</span>",
+    "class/lib/classes/default_providers/Youtube.js~Youtube.html",
+    "<span>Youtube</span> <span class=\"search-result-import-path\">url-embed/lib/classes/default_providers/Youtube.js</span>",
     "class"
   ],
   [
@@ -997,92 +1015,110 @@ window.esdocSearchIndex = [
   ],
   [
     "lib/classes/default_providers/dailymotion.js",
-    "file/lib/classes/default_providers/dailymotion.js.html",
-    "lib/classes/default_providers/dailymotion.js",
+    "file/lib/classes/default_providers/DailyMotion.js.html",
+    "lib/classes/default_providers/DailyMotion.js",
     "file"
   ],
   [
-    "lib/classes/default_providers/facebook_posts.js",
-    "file/lib/classes/default_providers/facebook_posts.js.html",
-    "lib/classes/default_providers/facebook_posts.js",
+    "lib/classes/default_providers/facebookposts.js",
+    "file/lib/classes/default_providers/FacebookPosts.js.html",
+    "lib/classes/default_providers/FacebookPosts.js",
     "file"
   ],
   [
-    "lib/classes/default_providers/facebook_video.js",
-    "file/lib/classes/default_providers/facebook_video.js.html",
-    "lib/classes/default_providers/facebook_video.js",
+    "lib/classes/default_providers/facebookvideo.js",
+    "file/lib/classes/default_providers/FacebookVideo.js.html",
+    "lib/classes/default_providers/FacebookVideo.js",
     "file"
   ],
   [
     "lib/classes/default_providers/flickr.js",
-    "file/lib/classes/default_providers/flickr.js.html",
-    "lib/classes/default_providers/flickr.js",
+    "file/lib/classes/default_providers/Flickr.js.html",
+    "lib/classes/default_providers/Flickr.js",
     "file"
   ],
   [
     "lib/classes/default_providers/imgur.js",
-    "file/lib/classes/default_providers/imgur.js.html",
-    "lib/classes/default_providers/imgur.js",
+    "file/lib/classes/default_providers/Imgur.js.html",
+    "lib/classes/default_providers/Imgur.js",
     "file"
   ],
   [
     "lib/classes/default_providers/instagram.js",
-    "file/lib/classes/default_providers/instagram.js.html",
-    "lib/classes/default_providers/instagram.js",
+    "file/lib/classes/default_providers/Instagram.js.html",
+    "lib/classes/default_providers/Instagram.js",
     "file"
   ],
   [
     "lib/classes/default_providers/soundcloud.js",
-    "file/lib/classes/default_providers/soundcloud.js.html",
-    "lib/classes/default_providers/soundcloud.js",
+    "file/lib/classes/default_providers/Soundcloud.js.html",
+    "lib/classes/default_providers/Soundcloud.js",
     "file"
   ],
   [
     "lib/classes/default_providers/spotify.js",
-    "file/lib/classes/default_providers/spotify.js.html",
-    "lib/classes/default_providers/spotify.js",
+    "file/lib/classes/default_providers/Spotify.js.html",
+    "lib/classes/default_providers/Spotify.js",
     "file"
   ],
   [
     "lib/classes/default_providers/tumblr.js",
-    "file/lib/classes/default_providers/tumblr.js.html",
-    "lib/classes/default_providers/tumblr.js",
+    "file/lib/classes/default_providers/Tumblr.js.html",
+    "lib/classes/default_providers/Tumblr.js",
     "file"
   ],
   [
     "lib/classes/default_providers/twitter.js",
-    "file/lib/classes/default_providers/twitter.js.html",
-    "lib/classes/default_providers/twitter.js",
+    "file/lib/classes/default_providers/Twitter.js.html",
+    "lib/classes/default_providers/Twitter.js",
     "file"
   ],
   [
     "lib/classes/default_providers/videopress.js",
-    "file/lib/classes/default_providers/videopress.js.html",
-    "lib/classes/default_providers/videopress.js",
+    "file/lib/classes/default_providers/Videopress.js.html",
+    "lib/classes/default_providers/Videopress.js",
     "file"
   ],
   [
     "lib/classes/default_providers/videopress.js~videopress#configure",
-    "class/lib/classes/default_providers/videopress.js~Videopress.html#instance-method-configure",
-    "lib/classes/default_providers/videopress.js~Videopress#configure",
+    "class/lib/classes/default_providers/Videopress.js~Videopress.html#instance-method-configure",
+    "lib/classes/default_providers/Videopress.js~Videopress#configure",
     "method"
   ],
   [
     "lib/classes/default_providers/videopress.js~videopress#defaultproviderquerystringparameters",
-    "class/lib/classes/default_providers/videopress.js~Videopress.html#instance-member-defaultProviderQueryStringParameters",
-    "lib/classes/default_providers/videopress.js~Videopress#defaultProviderQueryStringParameters",
+    "class/lib/classes/default_providers/Videopress.js~Videopress.html#instance-member-defaultProviderQueryStringParameters",
+    "lib/classes/default_providers/Videopress.js~Videopress#defaultProviderQueryStringParameters",
     "member"
   ],
   [
     "lib/classes/default_providers/vimeo.js",
-    "file/lib/classes/default_providers/vimeo.js.html",
-    "lib/classes/default_providers/vimeo.js",
+    "file/lib/classes/default_providers/Vimeo.js.html",
+    "lib/classes/default_providers/Vimeo.js",
     "file"
   ],
   [
     "lib/classes/default_providers/youtube.js",
-    "file/lib/classes/default_providers/youtube.js.html",
-    "lib/classes/default_providers/youtube.js",
+    "file/lib/classes/default_providers/Youtube.js.html",
+    "lib/classes/default_providers/Youtube.js",
+    "file"
+  ],
+  [
+    "lib/classes/errors/embedvalidationerror.js",
+    "file/lib/classes/errors/EmbedValidationError.js.html",
+    "lib/classes/errors/EmbedValidationError.js",
+    "file"
+  ],
+  [
+    "lib/classes/errors/unexpectedstatuserror.js",
+    "file/lib/classes/errors/UnexpectedStatusError.js.html",
+    "lib/classes/errors/UnexpectedStatusError.js",
+    "file"
+  ],
+  [
+    "lib/classes/errors/unknownprovidererror.js",
+    "file/lib/classes/errors/UnknownProviderError.js.html",
+    "lib/classes/errors/UnknownProviderError.js",
     "file"
   ],
   [
@@ -1113,6 +1149,12 @@ window.esdocSearchIndex = [
     "test/lib/classes/urlembedprovider.js",
     "test-file/test/lib/classes/URLEmbedProvider.js.html",
     "test/lib/classes/URLEmbedProvider.js",
+    "testFile"
+  ],
+  [
+    "test/lib/classes/default_providers/dailymotion.js",
+    "test-file/test/lib/classes/default_providers/Dailymotion.js.html",
+    "test/lib/classes/default_providers/Dailymotion.js",
     "testFile"
   ],
   [

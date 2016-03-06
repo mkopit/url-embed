@@ -1,9 +1,9 @@
 {
-  "coverage": "90.16%",
-  "expectCount": 61,
-  "actualCount": 55,
+  "coverage": "90.62%",
+  "expectCount": 64,
+  "actualCount": 58,
   "files": {
-    "lib/classes/default_providers/dailymotion.js": {
+    "lib/classes/default_providers/DailyMotion.js": {
       "expectCount": 1,
       "actualCount": 1,
       "undocumentLines": []
@@ -19,30 +19,35 @@
       "expectCount": 13,
       "actualCount": 12,
       "undocumentLines": [
-        154
+        160
       ]
     },
-    "lib/classes/default_providers/facebook_posts.js": {
+    "lib/classes/errors/EmbedValidationError.js": {
       "expectCount": 1,
       "actualCount": 1,
       "undocumentLines": []
     },
-    "lib/classes/default_providers/facebook_video.js": {
+    "lib/classes/default_providers/FacebookPosts.js": {
       "expectCount": 1,
       "actualCount": 1,
       "undocumentLines": []
     },
-    "lib/classes/default_providers/flickr.js": {
+    "lib/classes/default_providers/FacebookVideo.js": {
       "expectCount": 1,
       "actualCount": 1,
       "undocumentLines": []
     },
-    "lib/classes/default_providers/imgur.js": {
+    "lib/classes/default_providers/Flickr.js": {
       "expectCount": 1,
       "actualCount": 1,
       "undocumentLines": []
     },
-    "lib/classes/default_providers/instagram.js": {
+    "lib/classes/default_providers/Imgur.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
+    },
+    "lib/classes/default_providers/Instagram.js": {
       "expectCount": 1,
       "actualCount": 1,
       "undocumentLines": []
@@ -51,27 +56,27 @@
       "expectCount": 13,
       "actualCount": 10,
       "undocumentLines": [
-        38,
-        32,
-        195
+        42,
+        36,
+        199
       ]
     },
-    "lib/classes/default_providers/soundcloud.js": {
+    "lib/classes/default_providers/Soundcloud.js": {
       "expectCount": 1,
       "actualCount": 1,
       "undocumentLines": []
     },
-    "lib/classes/default_providers/spotify.js": {
+    "lib/classes/default_providers/Spotify.js": {
       "expectCount": 1,
       "actualCount": 1,
       "undocumentLines": []
     },
-    "lib/classes/default_providers/tumblr.js": {
+    "lib/classes/default_providers/Tumblr.js": {
       "expectCount": 1,
       "actualCount": 1,
       "undocumentLines": []
     },
-    "lib/classes/default_providers/twitter.js": {
+    "lib/classes/default_providers/Twitter.js": {
       "expectCount": 1,
       "actualCount": 1,
       "undocumentLines": []
@@ -80,20 +85,30 @@
       "expectCount": 8,
       "actualCount": 7,
       "undocumentLines": [
-        16
+        19
       ]
     },
-    "lib/classes/default_providers/videopress.js": {
-      "expectCount": 3,
-      "actualCount": 3,
-      "undocumentLines": []
-    },
-    "lib/classes/default_providers/vimeo.js": {
+    "lib/classes/errors/UnexpectedStatusError.js": {
       "expectCount": 1,
       "actualCount": 1,
       "undocumentLines": []
     },
-    "lib/classes/default_providers/youtube.js": {
+    "lib/classes/errors/UnknownProviderError.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
+    },
+    "lib/classes/default_providers/Videopress.js": {
+      "expectCount": 3,
+      "actualCount": 3,
+      "undocumentLines": []
+    },
+    "lib/classes/default_providers/Vimeo.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
+    },
+    "lib/classes/default_providers/Youtube.js": {
       "expectCount": 1,
       "actualCount": 1,
       "undocumentLines": []
