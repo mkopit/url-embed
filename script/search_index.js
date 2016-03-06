@@ -1116,6 +1116,18 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "lib/classes/errors/unexpectedstatuserror.js~unexpectedstatuserror#constructor",
+    "class/lib/classes/errors/UnexpectedStatusError.js~UnexpectedStatusError.html#instance-constructor-constructor",
+    "lib/classes/errors/UnexpectedStatusError.js~UnexpectedStatusError#constructor",
+    "method"
+  ],
+  [
+    "lib/classes/errors/unexpectedstatuserror.js~unexpectedstatuserror#status",
+    "class/lib/classes/errors/UnexpectedStatusError.js~UnexpectedStatusError.html#instance-member-status",
+    "lib/classes/errors/UnexpectedStatusError.js~UnexpectedStatusError#status",
+    "member"
+  ],
+  [
     "lib/classes/errors/unknownprovidererror.js",
     "file/lib/classes/errors/UnknownProviderError.js.html",
     "lib/classes/errors/UnknownProviderError.js",

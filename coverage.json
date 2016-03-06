@@ -1,7 +1,7 @@
 {
-  "coverage": "90.62%",
-  "expectCount": 64,
-  "actualCount": 58,
+  "coverage": "90.9%",
+  "expectCount": 66,
+  "actualCount": 60,
   "files": {
     "lib/classes/default_providers/DailyMotion.js": {
       "expectCount": 1,
@@ -58,7 +58,7 @@
       "undocumentLines": [
         42,
         36,
-        199
+        202
       ]
     },
     "lib/classes/default_providers/Soundcloud.js": {
@@ -89,8 +89,8 @@
       ]
     },
     "lib/classes/errors/UnexpectedStatusError.js": {
-      "expectCount": 1,
-      "actualCount": 1,
+      "expectCount": 3,
+      "actualCount": 3,
       "undocumentLines": []
     },
     "lib/classes/errors/UnknownProviderError.js": {
