@@ -8,15 +8,34 @@ The module provides support for many common oembed providers, as well as support
 
 ## The Basics
 
-* [EmbedEngine class](http://mkopit.github.io/url-embed/docs/esdoc/class/lib/classes/Embed.js~Embed.html): given one or more urls will resolve them to corresponding markup.
-* [URLEmbedProvider interface](http://mkopit.github.io/url-embed/docs/esdoc/class/lib/classes/URLEmbedProvider.js~URLEmbedProvider.html): defines the basic methods that will get invoked by EmbedEngine
-* [OEmbedProvider interface](http://mkopit.github.io/url-embed/docs/esdoc/class/lib/classes/OEmbedProvider.js~OEmbedProvider.html): extends URLEmbedProvider and implements support for interacting with an oembed provider's API
-* [Embed class](http://mkopit.github.io/url-embed/docs/esdoc/class/lib/classes/Embed.js~Embed.html): the primary object passed through callbacks
+#### This module exports the following properties:
+* [EmbedEngine](http://mkopit.github.io/url-embed/docs/esdoc/class/lib/classes/Embed.js~Embed.html) class: given one or more urls will resolve them to corresponding markup.
+* [URLEmbedProvider](http://mkopit.github.io/url-embed/docs/esdoc/class/lib/classes/URLEmbedProvider.js~URLEmbedProvider.html) interface: defines the basic methods that will get invoked by EmbedEngine
+* [OEmbedProvider](http://mkopit.github.io/url-embed/docs/esdoc/class/lib/classes/OEmbedProvider.js~OEmbedProvider.html) interface: extends URLEmbedProvider and implements support for interacting with an oembed provider's API
+* [Embed](http://mkopit.github.io/url-embed/docs/esdoc/class/lib/classes/Embed.js~Embed.html) class: the primary object passed through callbacks
   * [error](http://mkopit.github.io/url-embed/docs/esdoc/class/lib/classes/Embed.js~Embed.html#instance-member-error): contains a reference to an Error object if an error occurred
   * [embedOptions](http://mkopit.github.io/url-embed/docs/esdoc/class/lib/classes/Embed.js~Embed.html#instance-member-options): options object the Embed was constructed from
-    * embedURL: the URL we're embedding
+    * embedURL: the URL to embed
   * [data](http://mkopit.github.io/url-embed/docs/esdoc/class/lib/classes/Embed.js~Embed.html#instance-member-data): the data object from the resolved embed
     * html: the resulting embed markup.
+* defaultProviderClasses: map of all default providers indexed by provider name:
+  * [DailyMotion](http://mkopit.github.io/url-embed/class/lib/classes/default_providers/DailyMotion.js~DailyMotion.html)
+  * [FacebookPosts](http://mkopit.github.io/url-embed/class/lib/classes/default_providers/FacebookPosts.js~FacebookPosts.html)
+  * [FacebookVideo](http://mkopit.github.io/url-embed/class/lib/classes/default_providers/FacebookVideo.js~FacebookVideo.html)
+  * [Flickr](http://mkopit.github.io/url-embed/class/lib/classes/default_providers/Flickr.js~Flickr.html)
+  * [Imgur](http://mkopit.github.io/url-embed/class/lib/classes/default_providers/Imgur.js~Imgur.html)
+  * [Instagram](http://mkopit.github.io/url-embed/class/lib/classes/default_providers/Instagram.js~Instagram.html)
+  * [Soundcloud](http://mkopit.github.io/url-embed/class/lib/classes/default_providers/Soundcloud.js~SoundCloud.html)
+  * [Spotify](http://mkopit.github.io/url-embed/class/lib/classes/default_providers/Spotify.js~Spotify.html)
+  * [Tumblr](http://mkopit.github.io/url-embed/class/lib/classes/default_providers/Tumblr.js~Tumblr.html)
+  * [Twitter](http://mkopit.github.io/url-embed/class/lib/classes/default_providers/Twitter.js~Twitter.html)
+  * [Videopress](http://mkopit.github.io/url-embed/class/lib/classes/default_providers/Videopress.js~Videopress.html)
+  * [Vimeo](http://mkopit.github.io/url-embed/class/lib/classes/default_providers/Vimeo.js~Vimeo.html)
+  * [Youtube](http://mkopit.github.io/url-embed/class/lib/classes/default_providers/Youtube.js~Youtube.html)
+* errorClasses: map of all error classes:
+  * [EmebedValidationError](http://mkopit.github.io/url-embed/class/lib/classes/errors/EmbedValidationError.js~EmbedValidationError.html)
+  * [UnexpectedStatusError](http://mkopit.github.io/url-embed/class/lib/classes/errors/UnexpectedStatusError.js~UnexpectedStatusError.html)
+  * [UnknownProviderError](http://mkopit.github.io/url-embed/class/lib/classes/errors/UnknownProviderError.js~UnknownProviderError.html)
 
 
 &nbsp;
