@@ -1,0 +1,319 @@
+{
+  "type": "Program",
+  "body": [
+    {
+      "type": "ExpressionStatement",
+      "expression": {
+        "type": "Literal",
+        "value": "use strict",
+        "raw": "'use strict'",
+        "range": [
+          0,
+          12
+        ],
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 0
+          },
+          "end": {
+            "line": 1,
+            "column": 12
+          }
+        }
+      },
+      "range": [
+        0,
+        13
+      ],
+      "loc": {
+        "start": {
+          "line": 1,
+          "column": 0
+        },
+        "end": {
+          "line": 1,
+          "column": 13
+        }
+      },
+      "trailingComments": [
+        {
+          "type": "Block",
+          "value": "*\n* HTTP request resulted in a non 200 response\n",
+          "range": [
+            15,
+            67
+          ],
+          "loc": {
+            "start": {
+              "line": 3,
+              "column": 0
+            },
+            "end": {
+              "line": 5,
+              "column": 2
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "Identifier",
+      "id": {
+        "type": "Identifier",
+        "name": "UnexpectedStatusError",
+        "range": [
+          74,
+          95
+        ],
+        "loc": {
+          "start": {
+            "line": 6,
+            "column": 6
+          },
+          "end": {
+            "line": 6,
+            "column": 27
+          }
+        }
+      },
+      "superClass": {
+        "type": "Identifier",
+        "name": "Error",
+        "range": [
+          104,
+          109
+        ],
+        "loc": {
+          "start": {
+            "line": 6,
+            "column": 36
+          },
+          "end": {
+            "line": 6,
+            "column": 41
+          }
+        }
+      },
+      "body": {
+        "type": "ClassBody",
+        "body": [],
+        "range": [
+          110,
+          112
+        ],
+        "loc": {
+          "start": {
+            "line": 6,
+            "column": 42
+          },
+          "end": {
+            "line": 6,
+            "column": 44
+          }
+        }
+      },
+      "range": [
+        68,
+        112
+      ],
+      "loc": {
+        "start": {
+          "line": 6,
+          "column": 0
+        },
+        "end": {
+          "line": 6,
+          "column": 44
+        }
+      },
+      "leadingComments": [],
+      "name": "_",
+      "trailingComments": []
+    },
+    {
+      "type": "Identifier",
+      "declaration": {
+        "type": "Identifier",
+        "name": "UnexpectedStatusError",
+        "range": [
+          129,
+          150
+        ],
+        "loc": {
+          "start": {
+            "line": 8,
+            "column": 15
+          },
+          "end": {
+            "line": 8,
+            "column": 36
+          }
+        }
+      },
+      "range": [
+        114,
+        151
+      ],
+      "loc": {
+        "start": {
+          "line": 8,
+          "column": 0
+        },
+        "end": {
+          "line": 8,
+          "column": 37
+        }
+      },
+      "name": "_",
+      "leadingComments": [],
+      "trailingComments": []
+    },
+    {
+      "type": "ExportDefaultDeclaration",
+      "declaration": {
+        "type": "ClassDeclaration",
+        "id": {
+          "type": "Identifier",
+          "name": "UnexpectedStatusError",
+          "range": [
+            74,
+            95
+          ],
+          "loc": {
+            "start": {
+              "line": 6,
+              "column": 6
+            },
+            "end": {
+              "line": 6,
+              "column": 27
+            }
+          }
+        },
+        "superClass": {
+          "type": "Identifier",
+          "name": "Error",
+          "range": [
+            104,
+            109
+          ],
+          "loc": {
+            "start": {
+              "line": 6,
+              "column": 36
+            },
+            "end": {
+              "line": 6,
+              "column": 41
+            }
+          }
+        },
+        "body": {
+          "type": "ClassBody",
+          "body": [],
+          "range": [
+            110,
+            112
+          ],
+          "loc": {
+            "start": {
+              "line": 6,
+              "column": 42
+            },
+            "end": {
+              "line": 6,
+              "column": 44
+            }
+          }
+        },
+        "range": [
+          68,
+          112
+        ],
+        "loc": {
+          "start": {
+            "line": 6,
+            "column": 0
+          },
+          "end": {
+            "line": 6,
+            "column": 44
+          }
+        },
+        "leadingComments": [
+          {
+            "type": "Block",
+            "value": "*\n* HTTP request resulted in a non 200 response\n",
+            "range": [
+              15,
+              67
+            ],
+            "loc": {
+              "start": {
+                "line": 3,
+                "column": 0
+              },
+              "end": {
+                "line": 5,
+                "column": 2
+              }
+            }
+          }
+        ],
+        "__esdoc__pseudo_export": false,
+        "trailingComments": []
+      },
+      "range": [
+        114,
+        151
+      ],
+      "loc": {
+        "start": {
+          "line": 8,
+          "column": 0
+        },
+        "end": {
+          "line": 8,
+          "column": 37
+        }
+      },
+      "leadingComments": null
+    }
+  ],
+  "sourceType": "module",
+  "range": [
+    0,
+    151
+  ],
+  "loc": {
+    "start": {
+      "line": 1,
+      "column": 0
+    },
+    "end": {
+      "line": 8,
+      "column": 37
+    }
+  },
+  "comments": [
+    {
+      "type": "Block",
+      "value": "*\n* HTTP request resulted in a non 200 response\n",
+      "range": [
+        15,
+        67
+      ],
+      "loc": {
+        "start": {
+          "line": 3,
+          "column": 0
+        },
+        "end": {
+          "line": 5,
+          "column": 2
+        }
+      }
+    }
+  ]
+}
