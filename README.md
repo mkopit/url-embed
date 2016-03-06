@@ -4,7 +4,7 @@ A flexible **ES6** class-based system that supports converting URLs into embed c
 
 The module provides support for many common oembed providers, as well as support for creating your own custom providers.
 
-[API Documentation Lives Here](http://mkopit.github.io/url-embed/docs/esdoc/index.html)
+[API Documentation Lives Here](http://mkopit.github.io/url-embed/)
 
 ## The Basics
 

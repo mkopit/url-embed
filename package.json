@@ -6,7 +6,8 @@
   "scripts": {
     "lint": "semistandard | snazzy",
     "test": "mocha --recursive test",
-    "docs": "esdoc -c esdoc.json"
+    "docs": "esdoc -c esdoc.json",
+    "pushdocs" : "node push_docs.js"
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,7 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
+    "gh-pages": "^0.11.0",
     "mocha": "^2.4.5",
     "semistandard": "^7.0.5",
     "snazzy": "^3.0.0",
