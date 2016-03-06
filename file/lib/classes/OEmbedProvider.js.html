@@ -71,6 +71,8 @@ let UnexpectedStatusError = require(&apos;./errors/UnexpectedStatusError&apos;);
 let EmbedValidationError = require(&apos;./errors/EmbedValidationError&apos;);
 /** @ignore */
 let URLEmbedProvider = require(&apos;./URLEmbedProvider&apos;);
+/** @ignore */
+let xml2js = require(&apos;xml2js&apos;);
 
 /**
 * Converts a pattern of URLs into markup via an oembed provider
@@ -138,44 +140,94 @@ class OEmbedProvider extends URLEmbedProvider {
     requestOptions.url = oembedAPIURL;
 
     self.request(requestOptions, function (error, response, body) {
-      embed.oembedAPIURL = response.request.uri.href;
+      if (response &amp;&amp; response.request &amp;&amp; response.request.uri &amp;&amp; response.request.uri.href) {
+        embed.oembedAPIURL = response.request.uri.href;
+      } else {
+        embed.oembedAPIURL = oembedAPIURL;
+      }
 
       if (!error &amp;&amp; response.statusCode === 200) {
-        try {
-          embed.data = self.parseResponseBody(body);
-          self.filterData(embed.data);
-          callback(embed);
-        } catch (error) {
-          embed.data.html = self.errorMarkup(embed, error);
-          embed.error = error;
-          callback(embed);
-        }
+        self.parseResponseBody(body, function (error, data) {
+          // json or xml parsing error
+          if (error) {
+            self._applyErrorToEmbed(error, embed);
+            callback(embed);
+            return;
+          // successfuly parsed
+          } else {
+            embed.data = data;
+            self.filterData(embed.data);
+            callback(embed);
+            return;
+          }
+        });
       } else {
+        // Error making request
         if (error) {
-          embed.data.html = self.errorMarkup(embed, error);
-          embed.error = error;
+          self._applyErrorToEmbed(error, embed);
           callback(embed);
+          return;
+        // No error, but non-200 HTTP response
         } else {
           let errorMarkupFunctionName = &apos;errorMarkup&apos; + response.statusCode;
           let errorMarkupFunction = self[errorMarkupFunctionName] ? self[errorMarkupFunctionName] : self.errorMarkup;
-          embed.error = new UnexpectedStatusError(&apos;HTTP status &apos; + response.statusCode + &apos; for embed provider URL: &apos; + oembedAPIURL);
-          embed.error.status = response.statusCode;
-          embed.data.html = errorMarkupFunction(embed, embed.error);
+          let error = new UnexpectedStatusError(&apos;HTTP status &apos; + response.statusCode + &apos; for embed provider URL: &apos; + oembedAPIURL);
+          error.status = response.statusCode;
+          self._applyErrorToEmbed(error, embed, errorMarkupFunction);
           callback(embed);
+          return;
         }
       }
     });
   }
 
   /**
+  * Puts the Embed into an error state if an error occurs
+  * @param {Error} error - the Error that occurred
+  * @param {Embed} embed - the Embed object
+  * @param {function(embed: Embed, error: Error)} [errorMarkupFunction] - function that generates error markup
+  */
+  _applyErrorToEmbed (error, embed, errorMarkupFunction) {
+    if (!errorMarkupFunction) {
+      errorMarkupFunction = this.errorMarkup;
+    }
+    embed.data.html = errorMarkupFunction(embed, error);
+    embed.error = error;
+  }
+
+  /**
   * Parses the provider API response into a data object
   * @param {String} body - API response
+  * @param {function(error: Error, data: Object)} callback - callback to invoke with resulting oembed data
   */
-  parseResponseBody (body) {
+  parseResponseBody (body, callback) {
+    body = this.convertHighBitUnicodeToSurrogates(body);
+    let data;
     if (this.format === &apos;json&apos;) {
-      body = this.convertHighBitUnicodeToSurrogates(body);
-      let data = JSON.parse(body);
-      return data;
+      try {
+        data = JSON.parse(body);
+        callback(null, data);
+      } catch (error) {
+        callback(error);
+      }
+      return;
+    } else {
+      let xmlOptions = {
+        explicitArray: false,
+        valueProcessors: [
+          xml2js.processors.parseNumbers,
+          xml2js.processors.parseBooleans
+        ]
+      };
+      data = xml2js.parseString(body, xmlOptions, function (error, result) {
+        if (error) {
+          callback(error);
+        } else {
+          data = result.oembed;
+          callback(null, data);
+        }
+        return;
+      });
     }
   }
 

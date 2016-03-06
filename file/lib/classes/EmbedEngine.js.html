@@ -202,7 +202,7 @@ class EmbedEngine {
     }
 
     if (!providerFound) {
-      embed.error = new Error(&apos;Unknown embed provider for url: &apos; + embedURL);
+      embed.error = new UnknownProviderError(&apos;Unknown embed provider for url: &apos; + embedURL);
       embed.data = {
         html: this.errorMarkupNoMatchingProvider(embed)
       };

@@ -56,9 +56,9 @@
       "expectCount": 13,
       "actualCount": 10,
       "undocumentLines": [
-        42,
-        36,
-        202
+        44,
+        38,
+        254
       ]
     },
     "lib/classes/default_providers/Soundcloud.js": {

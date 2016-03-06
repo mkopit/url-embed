@@ -7,7 +7,7 @@
     "lint": "semistandard | snazzy",
     "test": "mocha --recursive test",
     "docs": "esdoc -c esdoc.json",
-    "pushdocs" : "node push_docs.js"
+    "pushdocs": "node push_docs.js"
   },
   "repository": {
     "type": "git",
@@ -21,7 +21,8 @@
   "dependencies": {
     "async": "^1.5.2",
     "colors": "^1.1.2",
-    "request": "^2.69.0"
+    "request": "^2.69.0",
+    "xml2js": "^0.4.16"
   },
   "devDependencies": {
     "chai": "^3.5.0",

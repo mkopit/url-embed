@@ -126,17 +126,17 @@
                   "type": "Identifier",
                   "name": "message",
                   "range": [
-                    347,
-                    354
+                    348,
+                    355
                   ],
                   "loc": {
                     "start": {
                       "line": 13,
-                      "column": 14
+                      "column": 15
                     },
                     "end": {
                       "line": 13,
-                      "column": 21
+                      "column": 22
                     }
                   }
                 },
@@ -144,17 +144,17 @@
                   "type": "Identifier",
                   "name": "fileName",
                   "range": [
-                    356,
-                    364
+                    357,
+                    365
                   ],
                   "loc": {
                     "start": {
                       "line": 13,
-                      "column": 23
+                      "column": 24
                     },
                     "end": {
                       "line": 13,
-                      "column": 31
+                      "column": 32
                     }
                   }
                 },
@@ -162,17 +162,17 @@
                   "type": "Identifier",
                   "name": "lineNumber",
                   "range": [
-                    366,
-                    376
+                    367,
+                    377
                   ],
                   "loc": {
                     "start": {
                       "line": 13,
-                      "column": 33
+                      "column": 34
                     },
                     "end": {
                       "line": 13,
-                      "column": 43
+                      "column": 44
                     }
                   }
                 }
@@ -187,8 +187,8 @@
                       "callee": {
                         "type": "Super",
                         "range": [
-                          384,
-                          389
+                          385,
+                          390
                         ],
                         "loc": {
                           "start": {
@@ -206,8 +206,8 @@
                           "type": "Identifier",
                           "name": "message",
                           "range": [
-                            390,
-                            397
+                            391,
+                            398
                           ],
                           "loc": {
                             "start": {
@@ -224,8 +224,8 @@
                           "type": "Identifier",
                           "name": "fileName",
                           "range": [
-                            399,
-                            407
+                            400,
+                            408
                           ],
                           "loc": {
                             "start": {
@@ -242,8 +242,8 @@
                           "type": "Identifier",
                           "name": "lineNumber",
                           "range": [
-                            409,
-                            419
+                            410,
+                            420
                           ],
                           "loc": {
                             "start": {
@@ -258,8 +258,8 @@
                         }
                       ],
                       "range": [
-                        384,
-                        420
+                        385,
+                        421
                       ],
                       "loc": {
                         "start": {
@@ -273,8 +273,8 @@
                       }
                     },
                     "range": [
-                      384,
-                      421
+                      385,
+                      422
                     ],
                     "loc": {
                       "start": {
@@ -291,8 +291,8 @@
                         "type": "Block",
                         "value": "*\n    * HTTP status code\n    * @type {number}\n    ",
                         "range": [
-                          427,
-                          481
+                          428,
+                          482
                         ],
                         "loc": {
                           "start": {
@@ -318,8 +318,8 @@
                         "object": {
                           "type": "ThisExpression",
                           "range": [
-                            486,
-                            490
+                            487,
+                            491
                           ],
                           "loc": {
                             "start": {
@@ -336,8 +336,8 @@
                           "type": "Identifier",
                           "name": "status",
                           "range": [
-                            491,
-                            497
+                            492,
+                            498
                           ],
                           "loc": {
                             "start": {
@@ -351,8 +351,8 @@
                           }
                         },
                         "range": [
-                          486,
-                          497
+                          487,
+                          498
                         ],
                         "loc": {
                           "start": {
@@ -370,8 +370,8 @@
                         "value": 0,
                         "raw": "0",
                         "range": [
-                          500,
-                          501
+                          501,
+                          502
                         ],
                         "loc": {
                           "start": {
@@ -385,8 +385,8 @@
                         }
                       },
                       "range": [
-                        486,
-                        501
+                        487,
+                        502
                       ],
                       "loc": {
                         "start": {
@@ -400,8 +400,8 @@
                       }
                     },
                     "range": [
-                      486,
-                      502
+                      487,
+                      503
                     ],
                     "loc": {
                       "start": {
@@ -418,8 +418,8 @@
                         "type": "Block",
                         "value": "*\n    * HTTP status code\n    * @type {number}\n    ",
                         "range": [
-                          427,
-                          481
+                          428,
+                          482
                         ],
                         "loc": {
                           "start": {
@@ -436,13 +436,13 @@
                   }
                 ],
                 "range": [
-                  378,
-                  506
+                  379,
+                  507
                 ],
                 "loc": {
                   "start": {
                     "line": 13,
-                    "column": 45
+                    "column": 46
                   },
                   "end": {
                     "line": 21,
@@ -453,13 +453,13 @@
               "generator": false,
               "expression": false,
               "range": [
-                346,
-                506
+                347,
+                507
               ],
               "loc": {
                 "start": {
                   "line": 13,
-                  "column": 13
+                  "column": 14
                 },
                 "end": {
                   "line": 21,
@@ -471,7 +471,7 @@
             "computed": false,
             "range": [
               335,
-              506
+              507
             ],
             "loc": {
               "start": {
@@ -508,7 +508,7 @@
         ],
         "range": [
           132,
-          508
+          509
         ],
         "loc": {
           "start": {
@@ -523,7 +523,7 @@
       },
       "range": [
         90,
-        508
+        509
       ],
       "loc": {
         "start": {
@@ -545,8 +545,8 @@
         "type": "Identifier",
         "name": "UnexpectedStatusError",
         "range": [
-          525,
-          546
+          526,
+          547
         ],
         "loc": {
           "start": {
@@ -560,8 +560,8 @@
         }
       },
       "range": [
-        510,
-        547
+        511,
+        548
       ],
       "loc": {
         "start": {
@@ -648,17 +648,17 @@
                     "type": "Identifier",
                     "name": "message",
                     "range": [
-                      347,
-                      354
+                      348,
+                      355
                     ],
                     "loc": {
                       "start": {
                         "line": 13,
-                        "column": 14
+                        "column": 15
                       },
                       "end": {
                         "line": 13,
-                        "column": 21
+                        "column": 22
                       }
                     }
                   },
@@ -666,17 +666,17 @@
                     "type": "Identifier",
                     "name": "fileName",
                     "range": [
-                      356,
-                      364
+                      357,
+                      365
                     ],
                     "loc": {
                       "start": {
                         "line": 13,
-                        "column": 23
+                        "column": 24
                       },
                       "end": {
                         "line": 13,
-                        "column": 31
+                        "column": 32
                       }
                     }
                   },
@@ -684,17 +684,17 @@
                     "type": "Identifier",
                     "name": "lineNumber",
                     "range": [
-                      366,
-                      376
+                      367,
+                      377
                     ],
                     "loc": {
                       "start": {
                         "line": 13,
-                        "column": 33
+                        "column": 34
                       },
                       "end": {
                         "line": 13,
-                        "column": 43
+                        "column": 44
                       }
                     }
                   }
@@ -709,8 +709,8 @@
                         "callee": {
                           "type": "Super",
                           "range": [
-                            384,
-                            389
+                            385,
+                            390
                           ],
                           "loc": {
                             "start": {
@@ -728,8 +728,8 @@
                             "type": "Identifier",
                             "name": "message",
                             "range": [
-                              390,
-                              397
+                              391,
+                              398
                             ],
                             "loc": {
                               "start": {
@@ -746,8 +746,8 @@
                             "type": "Identifier",
                             "name": "fileName",
                             "range": [
-                              399,
-                              407
+                              400,
+                              408
                             ],
                             "loc": {
                               "start": {
@@ -764,8 +764,8 @@
                             "type": "Identifier",
                             "name": "lineNumber",
                             "range": [
-                              409,
-                              419
+                              410,
+                              420
                             ],
                             "loc": {
                               "start": {
@@ -780,8 +780,8 @@
                           }
                         ],
                         "range": [
-                          384,
-                          420
+                          385,
+                          421
                         ],
                         "loc": {
                           "start": {
@@ -795,8 +795,8 @@
                         }
                       },
                       "range": [
-                        384,
-                        421
+                        385,
+                        422
                       ],
                       "loc": {
                         "start": {
@@ -813,8 +813,8 @@
                           "type": "Block",
                           "value": "*\n    * HTTP status code\n    * @type {number}\n    ",
                           "range": [
-                            427,
-                            481
+                            428,
+                            482
                           ],
                           "loc": {
                             "start": {
@@ -840,8 +840,8 @@
                           "object": {
                             "type": "ThisExpression",
                             "range": [
-                              486,
-                              490
+                              487,
+                              491
                             ],
                             "loc": {
                               "start": {
@@ -858,8 +858,8 @@
                             "type": "Identifier",
                             "name": "status",
                             "range": [
-                              491,
-                              497
+                              492,
+                              498
                             ],
                             "loc": {
                               "start": {
@@ -873,8 +873,8 @@
                             }
                           },
                           "range": [
-                            486,
-                            497
+                            487,
+                            498
                           ],
                           "loc": {
                             "start": {
@@ -892,8 +892,8 @@
                           "value": 0,
                           "raw": "0",
                           "range": [
-                            500,
-                            501
+                            501,
+                            502
                           ],
                           "loc": {
                             "start": {
@@ -907,8 +907,8 @@
                           }
                         },
                         "range": [
-                          486,
-                          501
+                          487,
+                          502
                         ],
                         "loc": {
                           "start": {
@@ -922,8 +922,8 @@
                         }
                       },
                       "range": [
-                        486,
-                        502
+                        487,
+                        503
                       ],
                       "loc": {
                         "start": {
@@ -940,8 +940,8 @@
                           "type": "Block",
                           "value": "*\n    * HTTP status code\n    * @type {number}\n    ",
                           "range": [
-                            427,
-                            481
+                            428,
+                            482
                           ],
                           "loc": {
                             "start": {
@@ -958,13 +958,13 @@
                     }
                   ],
                   "range": [
-                    378,
-                    506
+                    379,
+                    507
                   ],
                   "loc": {
                     "start": {
                       "line": 13,
-                      "column": 45
+                      "column": 46
                     },
                     "end": {
                       "line": 21,
@@ -975,13 +975,13 @@
                 "generator": false,
                 "expression": false,
                 "range": [
-                  346,
-                  506
+                  347,
+                  507
                 ],
                 "loc": {
                   "start": {
                     "line": 13,
-                    "column": 13
+                    "column": 14
                   },
                   "end": {
                     "line": 21,
@@ -993,7 +993,7 @@
               "computed": false,
               "range": [
                 335,
-                506
+                507
               ],
               "loc": {
                 "start": {
@@ -1030,7 +1030,7 @@
           ],
           "range": [
             132,
-            508
+            509
           ],
           "loc": {
             "start": {
@@ -1045,7 +1045,7 @@
         },
         "range": [
           90,
-          508
+          509
         ],
         "loc": {
           "start": {
@@ -1081,8 +1081,8 @@
         "trailingComments": []
       },
       "range": [
-        510,
-        547
+        511,
+        548
       ],
       "loc": {
         "start": {
@@ -1100,7 +1100,7 @@
   "sourceType": "module",
   "range": [
     0,
-    547
+    548
   ],
   "loc": {
     "start": {
@@ -1153,8 +1153,8 @@
       "type": "Block",
       "value": "*\n    * HTTP status code\n    * @type {number}\n    ",
       "range": [
-        427,
-        481
+        428,
+        482
       ],
       "loc": {
         "start": {
