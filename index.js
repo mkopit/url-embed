@@ -6,6 +6,7 @@ let utils = require('./lib/utils');
 module.exports.EmbedEngine = require('./lib/classes/EmbedEngine');
 module.exports.URLEmbedProvider = require('./lib/classes/URLEmbedProvider');
 module.exports.OEmbedProvider = require('./lib/classes/OEmbedProvider');
+module.exports.Embed = require('./lib/classes/Embed');
 module.exports.defaultProviderClasses = {};
 module.exports.errorClasses = {};
 
