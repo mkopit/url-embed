@@ -2,7 +2,10 @@
 
 let colors = require('colors');
 
-let EmbedEngine = (require('./index.js')).EmbedEngine;
+let urlEmbed = require('./index.js');
+let EmbedEngine = urlEmbed.EmbedEngine;
+let Embed = urlEmbed.Embed;
+
 let engine = new EmbedEngine({
   timeoutMs: 2000,
   referrer: 'www.example.com'
@@ -17,23 +20,18 @@ let logHeader = function(message) {
 
 
 let testSync = function (embedURL) {
-  let options = {
-    embedURL: embedURL
-  };
-  engine.getEmbed(options, function (embed) {
+  let embed = new Embed(embedURL);
+  engine.getEmbed(embed, function (embed) {
     let err = embed.error;
     let data = embed.data;
 
     if (err) {
       console.error(colors.red('Error embedding URL: ' + embedURL));
       console.error(err.stack.red);
-      console.error(colors.red('Time: ' + embed.elapsedMs + ' ms'));
-      console.error('\n');
-      return;
     }
 
     if (data && data.oembedAPIURL) console.log('oembedAPIURL: ' + data.oembedAPIURL.underline.cyan);
-    console.log('embedURL: ' + embedURL.underline.cyan);
+    console.log('embedURL: ' + embed.embedURL.underline.cyan);
     if (data && data.title) console.log('title: ' + data.title.green);
     if (data && data.html) console.log('embed: ' + data.html);
     console.log(colors.red('Time: ' + embed.elapsedMs + ' ms'));
@@ -41,13 +39,16 @@ let testSync = function (embedURL) {
   });
 };
 
-let testAsync = function (optsArray) {
-  engine.getMultipleEmbeds(optsArray, function (error, results) {
-    error = error;
+let testAsync = function (embedsArray) {
+  engine.getMultipleEmbeds(embedsArray, function (error, results) {
+    if (error) {
+      console.log('Something tragic occurred!');
+      console.log(error);
+    }
     for (let i = 0; i < results.length; i++) {
       console.log(i + '.)___________________________');
-      if (results[i].options && results[i].options.embedURL) {
-        console.log('embedURL: ' + results[i].options.embedURL.cyan);
+      if (results[i].options && results[i].embedURL) {
+        console.log('embedURL: ' + results[i].embedURL.cyan);
       }
       if (results[i].data.html) {
         console.log('embed HTML: ' + results[i].data.html);
@@ -66,6 +67,7 @@ let embedURLs = [
   'https://www.youtube.com/watch?v=2LO4QL_i8is',
   'https://vimeo.com/156045670',
   'http://soundcloud.com/forss/flickermood',
+  'https://soundcloud.com/lukasgraham/youre-not-there',
   'https://www.flickr.com/photos/sas999/25092061391/in/explore-2016-02-22/',
   'http://www.dailymotion.com/video/x3lwpy7_the-worst-car-in-the-history-of-the-world-top-gear-bbc_auto',
   'https://www.facebook.com/facebook/videos/10153231379946729/',
@@ -97,7 +99,7 @@ let embedURLs = [
 */
 ];
 
-let optsArray = [];
+let embedsArray = [];
 
 let mode = 'sync';
 
@@ -115,14 +117,12 @@ for (let i = 0; i < embedURLs.length; i++) {
   if (mode == 'sync') {
     testSync(embedURLs[i]);
   } else {
-    optsArray.push({
-      embedURL: embedURLs[i]
-    });
+    embedsArray.push(new Embed(embedURLs[i]));
   }
 }
 
 if (mode != 'sync') {
-  testAsync(optsArray);
+  testAsync(embedsArray);
 }
 
 

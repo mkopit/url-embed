@@ -1,6 +1,7 @@
 'use strict';
 
 let assert = (require('chai')).assert;
+let Embed = require('../../../lib/classes/Embed.js');
 let EmbedEngine = require('../../../lib/classes/EmbedEngine.js');
 let URLEmbedProvider = require('../../../lib/classes/URLEmbedProvider.js');
 let YoutubeProvider = require('../../../lib/classes/default_providers/youtube.js');
@@ -50,7 +51,7 @@ describe('EmbedEngine', function() {
     it('should return markup for an embeddable url', function(done) {
       let engine = new EmbedEngine(engineOptions);
       engine.registerProvider(new CustomProvider());
-      engine.getEmbed({embedURL : matchingEmbedURL}, function(embed) {
+      engine.getEmbed(new Embed(matchingEmbedURL), function(embed) {
         assert.match(embed.data.html, /<iframe.*/);
         done();
       })
@@ -63,7 +64,7 @@ describe('EmbedEngine', function() {
       engine.errorMarkupNoMatchingProvider = function (embed, error, errorMessage) {
         return 'foo';
       }
-      engine.getEmbed({embedURL: nonMatchingEmbedURL}, function(embed) {
+      engine.getEmbed(new Embed(nonMatchingEmbedURL), function(embed) {
         assert.equal(embed.data.html, 'foo');
         done();
       });
@@ -77,12 +78,13 @@ describe('EmbedEngine', function() {
       let engine = new EmbedEngine(engineOptions);
       engine.registerProvider(new CustomProvider());
 
-      let optionArray = [];
+      let embedArray = [];
       for (let i = 0; i < embedURLs.length; i++) {
-        optionArray.push({embedURL : embedURLs[i]});
+        let embed = new Embed(embedURLs[i]);
+        embedArray.push(embed);
       }
 
-      engine.getMultipleEmbeds(optionArray, function(error, results) {
+      engine.getMultipleEmbeds(embedArray, function(error, results) {
         assert.equal(embedURLs.length, results.length);
         done();
       });

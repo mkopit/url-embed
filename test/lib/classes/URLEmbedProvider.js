@@ -15,9 +15,7 @@ let embed;
 describe('URLEmbedProvider', function() {
   beforeEach(function () {
     provider = new URLEmbedProvider(urlPatterns);
-
-    embed = new Embed();
-    embed.options = {embedURL: matchingURL};
+    embed = new Embed(matchingURL);
   });
 
   /** @test {URLEmbedProvider#constructor} */
@@ -89,7 +87,7 @@ describe('URLEmbedProvider', function() {
       }
 
       provider.errorMarkup = function(embed, error, errorMessage) {
-        assert.equal(embed.options.embedURL, matchingURL);
+        assert.equal(embed.embedURL, matchingURL);
         return failMarkup;
       }
       provider.getEmbed(embed, function(embed) {

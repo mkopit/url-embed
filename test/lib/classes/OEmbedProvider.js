@@ -51,8 +51,7 @@ Provider.prototype.format = 'json';
 describe('OEmbedProvider', function() {
   beforeEach(function () {
     provider = new Provider();
-    embed = new Embed();
-    embed.options.embedURL = matchingURL;
+    embed = new Embed(matchingURL);
   });
 
   /** @test {OEmbedProvider#constructor} */
@@ -132,7 +131,7 @@ describe('OEmbedProvider', function() {
       }
 
       provider.errorMarkup = function(embed, error, errorMessage) {
-        assert.equal(embed.options.embedURL, matchingURL);
+        assert.equal(embed.embedURL, matchingURL);
         return failMarkup;
       }
       provider.getEmbed(embed, function(embed) {
@@ -149,7 +148,7 @@ describe('OEmbedProvider', function() {
 
       provider.errorMarkup = function(embed, error, errorMessage) {
         called = true;
-        assert.equal(embed.options.embedURL, matchingURL);
+        assert.equal(embed.embedURL, matchingURL);
         return failMarkup;
       }
 
@@ -166,7 +165,7 @@ describe('OEmbedProvider', function() {
 
       provider.errorMarkup404 = function(embed, error, errorMessage) {
         called = true;
-        assert.equal(embed.options.embedURL, matchingURL);
+        assert.equal(embed.embedURL, matchingURL);
         return failMarkup;
       }
       provider.getEmbed(embed, function(embed) {
@@ -189,7 +188,9 @@ describe('OEmbedProvider', function() {
         foo: 'bar'
       }
 
-      let apiURL = provider.buildAPIURL(options);
+      let embed = new Embed(matchingURL, options);
+
+      let apiURL = provider.buildAPIURL(embed);
       assert.match(apiURL, new RegExp('^' + providerURL));
       assert.match(apiURL, /\?.*maxheight=300/);
       assert.match(apiURL, /\?.*maxwidth=500/);
