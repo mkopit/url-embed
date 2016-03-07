@@ -69,16 +69,10 @@ let URLEmbedProvider = require(&apos;./URLEmbedProvider&apos;);
 let OEmbedProvider = require(&apos;./OEmbedProvider&apos;);
 
 /** @ignore */
-let Embed = require(&apos;./Embed&apos;);
-
-/** @ignore */
 let utils = require(&apos;../utils&apos;);
 
 /** @ignore */
 let UnknownProviderError = require(&apos;./errors/UnknownProviderError&apos;);
-
-/** @ignore */
-let EmbedValidationError = require(&apos;./errors/EmbedValidationError&apos;);
 
 /**
  * Resolves urls to embeds from a registered list of embed providers
@@ -171,7 +165,6 @@ class EmbedEngine {
   * @param {function(embed: Embed)} callback - callback to invoke after resolving Embed
   */
   getEmbed (embed, callback) {
-
     embed.markStarted();
 
     let providerFound = false;

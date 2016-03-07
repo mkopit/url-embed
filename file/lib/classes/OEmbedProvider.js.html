@@ -61,16 +61,19 @@
 
 /** @ignore */
 let querystring = require(&apos;querystring&apos;);
+
 /** @ignore */
 let request = require(&apos;request&apos;);
+
 /** @ignore */
 let fs = require(&apos;fs&apos;);
+
 /** @ignore */
 let UnexpectedStatusError = require(&apos;./errors/UnexpectedStatusError&apos;);
-/** @ignore */
-let EmbedValidationError = require(&apos;./errors/EmbedValidationError&apos;);
+
 /** @ignore */
 let URLEmbedProvider = require(&apos;./URLEmbedProvider&apos;);
+
 /** @ignore */
 let xml2js = require(&apos;xml2js&apos;);
 
@@ -129,7 +132,6 @@ class OEmbedProvider extends URLEmbedProvider {
   */
   makeAPIRequest (embed, callback) {
     let self = this;
-    let options = embed.options;
     let requestOptions = self.buildRequestOptions(embed);
     let oembedAPIURL = self.buildAPIURL(embed, requestOptions);
     requestOptions.url = oembedAPIURL;

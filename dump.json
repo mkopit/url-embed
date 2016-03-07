@@ -10,10 +10,31 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "'use strict';\n\n/**\n * Embed data object that holds embedOptions and resulting data.\n */\nclass Embed {\n  /**\n  * @param {String} embedURL - URL to be embedded\n  * @param {Object} embedOptions - Additional options\n  */\n  constructor (embedURL, embedOptions) {\n    /**\n    * The URL to be embedded\n    * @type {String}\n    */\n    this.embedURL = embedURL;\n\n    /**\n    * Will be populated with an Error object if an error occurs while processing this embed\n    * @type {Error}\n    */\n    this.error = null;\n\n    /**\n    * Options for this Embed\n    * @type {Object}\n    */\n    this.options = embedOptions ? embedOptions : {};\n\n    /**\n    * Default markup for unprocessed embed.data.html\n    * @type {String}\n    */\n    this.stubMarkup = '<!-- default embed markup -->';\n\n    /**\n    * Data object for the resolved embed\n    *\n    * __Note:__ there should always be a populated data.html property, even if the embed encounters an error while resolving.\n    * @type {{html: String}}\n    */\n    this.data = {\n      html: this.stubMarkup\n    };\n\n    /**\n    * Time the embed began resolving\n    * @type {Date}\n    */\n    this.startedDate = null;\n\n    /**\n    * Time the embed finished resolving\n    * @type {Date}\n    */\n    this.finishedDate = null;\n\n    /**\n    * Milliseconds elapsed during resolving embed\n    * @type {number}\n    */\n    this.elapsedMs = null;\n\n    /**\n    * The provider API URL that was used to resolve the embed\n    * @type {String}\n    */\n    this.oembedAPIURL = null;\n  }\n\n  /**\n  * Timestamps the beginning of the embed resolve process.\n  */\n  markStarted () {\n    this.startedDate = new Date();\n  }\n\n  /**\n  * Timestamps the end of the embed resolve process and calculates elapsedMs\n  */\n  markFinished () {\n    this.finishedDate = new Date();\n    this.elapsedMs = this.finishedDate.getTime() - this.startedDate.getTime();\n  }\n}\n\nmodule.exports = Embed;\n"
+    "content": "'use strict';\n\n/** @ignore */\nlet EmbedValidationError = require('./errors/EmbedValidationError');\n\n/**\n * Embed data object that holds embedOptions and resulting data.\n */\nclass Embed {\n  /**\n  * @param {String} embedURL - URL to be embedded\n  * @param {Object} embedOptions - Additional options\n  * @throws {EmbedValidationError} - if embedURL is undefined.\n  */\n  constructor (embedURL, embedOptions) {\n    if (!embedURL) {\n      throw new EmbedValidationError('embedURL is undefined');\n    }\n    /**\n    * The URL to be embedded\n    * @type {String}\n    */\n    this.embedURL = embedURL;\n\n    /**\n    * Will be populated with an Error object if an error occurs while processing this embed\n    * @type {Error}\n    */\n    this.error = null;\n\n    /**\n    * Options for this Embed\n    * @type {Object}\n    */\n    this.options = embedOptions || {};\n\n    /**\n    * Default markup for unprocessed embed.data.html\n    * @type {String}\n    */\n    this.stubMarkup = '<!-- default embed markup -->';\n\n    /**\n    * Data object for the resolved embed\n    *\n    * __Note:__ there should always be a populated data.html property, even if the embed encounters an error while resolving.\n    * @type {{html: String}}\n    */\n    this.data = {\n      html: this.stubMarkup\n    };\n\n    /**\n    * Time the embed began resolving\n    * @type {Date}\n    */\n    this.startedDate = null;\n\n    /**\n    * Time the embed finished resolving\n    * @type {Date}\n    */\n    this.finishedDate = null;\n\n    /**\n    * Milliseconds elapsed during resolving embed\n    * @type {number}\n    */\n    this.elapsedMs = null;\n\n    /**\n    * The provider API URL that was used to resolve the embed\n    * @type {String}\n    */\n    this.oembedAPIURL = null;\n  }\n\n  /**\n  * Timestamps the beginning of the embed resolve process.\n  */\n  markStarted () {\n    this.startedDate = new Date();\n  }\n\n  /**\n  * Timestamps the end of the embed resolve process and calculates elapsedMs\n  */\n  markFinished () {\n    this.finishedDate = new Date();\n    this.elapsedMs = this.finishedDate.getTime() - this.startedDate.getTime();\n  }\n}\n\nmodule.exports = Embed;\n"
   },
   {
     "__docId__": 1,
+    "kind": "variable",
+    "static": true,
+    "variation": null,
+    "name": "EmbedValidationError",
+    "memberof": "lib/classes/Embed.js",
+    "longname": "lib/classes/Embed.js~EmbedValidationError",
+    "access": null,
+    "export": false,
+    "importPath": "url-embed/lib/classes/Embed.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 4,
+    "ignore": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 2,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -25,11 +46,11 @@
     "importPath": "url-embed/lib/classes/Embed.js",
     "importStyle": "Embed",
     "description": "Embed data object that holds embedOptions and resulting data.",
-    "lineNumber": 6,
+    "lineNumber": 9,
     "interface": false
   },
   {
-    "__docId__": 2,
+    "__docId__": 3,
     "kind": "constructor",
     "static": false,
     "variation": null,
@@ -38,7 +59,7 @@
     "longname": "lib/classes/Embed.js~Embed#constructor",
     "access": null,
     "description": "",
-    "lineNumber": 11,
+    "lineNumber": 15,
     "params": [
       {
         "nullable": null,
@@ -61,10 +82,18 @@
         "description": "Additional options"
       }
     ],
+    "throws": [
+      {
+        "types": [
+          "EmbedValidationError"
+        ],
+        "description": "if embedURL is undefined."
+      }
+    ],
     "generator": false
   },
   {
-    "__docId__": 3,
+    "__docId__": 4,
     "kind": "member",
     "static": false,
     "variation": null,
@@ -73,31 +102,11 @@
     "longname": "lib/classes/Embed.js~Embed#embedURL",
     "access": null,
     "description": "The URL to be embedded",
-    "lineNumber": 16,
+    "lineNumber": 23,
     "type": {
       "nullable": null,
       "types": [
         "String"
-      ],
-      "spread": false,
-      "description": null
-    }
-  },
-  {
-    "__docId__": 4,
-    "kind": "member",
-    "static": false,
-    "variation": null,
-    "name": "error",
-    "memberof": "lib/classes/Embed.js~Embed",
-    "longname": "lib/classes/Embed.js~Embed#error",
-    "access": null,
-    "description": "Will be populated with an Error object if an error occurs while processing this embed",
-    "lineNumber": 22,
-    "type": {
-      "nullable": null,
-      "types": [
-        "Error"
       ],
       "spread": false,
       "description": null
@@ -108,16 +117,16 @@
     "kind": "member",
     "static": false,
     "variation": null,
-    "name": "options",
+    "name": "error",
     "memberof": "lib/classes/Embed.js~Embed",
-    "longname": "lib/classes/Embed.js~Embed#options",
+    "longname": "lib/classes/Embed.js~Embed#error",
     "access": null,
-    "description": "Options for this Embed",
-    "lineNumber": 28,
+    "description": "Will be populated with an Error object if an error occurs while processing this embed",
+    "lineNumber": 29,
     "type": {
       "nullable": null,
       "types": [
-        "Object"
+        "Error"
       ],
       "spread": false,
       "description": null
@@ -128,16 +137,16 @@
     "kind": "member",
     "static": false,
     "variation": null,
-    "name": "stubMarkup",
+    "name": "options",
     "memberof": "lib/classes/Embed.js~Embed",
-    "longname": "lib/classes/Embed.js~Embed#stubMarkup",
+    "longname": "lib/classes/Embed.js~Embed#options",
     "access": null,
-    "description": "Default markup for unprocessed embed.data.html",
-    "lineNumber": 34,
+    "description": "Options for this Embed",
+    "lineNumber": 35,
     "type": {
       "nullable": null,
       "types": [
-        "String"
+        "Object"
       ],
       "spread": false,
       "description": null
@@ -148,16 +157,16 @@
     "kind": "member",
     "static": false,
     "variation": null,
-    "name": "data",
+    "name": "stubMarkup",
     "memberof": "lib/classes/Embed.js~Embed",
-    "longname": "lib/classes/Embed.js~Embed#data",
+    "longname": "lib/classes/Embed.js~Embed#stubMarkup",
     "access": null,
-    "description": "Data object for the resolved embed\n\n__Note:__ there should always be a populated data.html property, even if the embed encounters an error while resolving.",
-    "lineNumber": 42,
+    "description": "Default markup for unprocessed embed.data.html",
+    "lineNumber": 41,
     "type": {
       "nullable": null,
       "types": [
-        "{html: String}"
+        "String"
       ],
       "spread": false,
       "description": null
@@ -168,16 +177,16 @@
     "kind": "member",
     "static": false,
     "variation": null,
-    "name": "startedDate",
+    "name": "data",
     "memberof": "lib/classes/Embed.js~Embed",
-    "longname": "lib/classes/Embed.js~Embed#startedDate",
+    "longname": "lib/classes/Embed.js~Embed#data",
     "access": null,
-    "description": "Time the embed began resolving",
-    "lineNumber": 50,
+    "description": "Data object for the resolved embed\n\n__Note:__ there should always be a populated data.html property, even if the embed encounters an error while resolving.",
+    "lineNumber": 49,
     "type": {
       "nullable": null,
       "types": [
-        "Date"
+        "{html: String}"
       ],
       "spread": false,
       "description": null
@@ -188,12 +197,12 @@
     "kind": "member",
     "static": false,
     "variation": null,
-    "name": "finishedDate",
+    "name": "startedDate",
     "memberof": "lib/classes/Embed.js~Embed",
-    "longname": "lib/classes/Embed.js~Embed#finishedDate",
+    "longname": "lib/classes/Embed.js~Embed#startedDate",
     "access": null,
-    "description": "Time the embed finished resolving",
-    "lineNumber": 56,
+    "description": "Time the embed began resolving",
+    "lineNumber": 57,
     "type": {
       "nullable": null,
       "types": [
@@ -208,16 +217,16 @@
     "kind": "member",
     "static": false,
     "variation": null,
-    "name": "elapsedMs",
+    "name": "finishedDate",
     "memberof": "lib/classes/Embed.js~Embed",
-    "longname": "lib/classes/Embed.js~Embed#elapsedMs",
+    "longname": "lib/classes/Embed.js~Embed#finishedDate",
     "access": null,
-    "description": "Milliseconds elapsed during resolving embed",
-    "lineNumber": 62,
+    "description": "Time the embed finished resolving",
+    "lineNumber": 63,
     "type": {
       "nullable": null,
       "types": [
-        "number"
+        "Date"
       ],
       "spread": false,
       "description": null
@@ -228,12 +237,32 @@
     "kind": "member",
     "static": false,
     "variation": null,
+    "name": "elapsedMs",
+    "memberof": "lib/classes/Embed.js~Embed",
+    "longname": "lib/classes/Embed.js~Embed#elapsedMs",
+    "access": null,
+    "description": "Milliseconds elapsed during resolving embed",
+    "lineNumber": 69,
+    "type": {
+      "nullable": null,
+      "types": [
+        "number"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 12,
+    "kind": "member",
+    "static": false,
+    "variation": null,
     "name": "oembedAPIURL",
     "memberof": "lib/classes/Embed.js~Embed",
     "longname": "lib/classes/Embed.js~Embed#oembedAPIURL",
     "access": null,
     "description": "The provider API URL that was used to resolve the embed",
-    "lineNumber": 68,
+    "lineNumber": 75,
     "type": {
       "nullable": null,
       "types": [
@@ -244,7 +273,7 @@
     }
   },
   {
-    "__docId__": 12,
+    "__docId__": 13,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -253,50 +282,18 @@
     "longname": "lib/classes/Embed.js~Embed#markStarted",
     "access": null,
     "description": "Timestamps the beginning of the embed resolve process.",
-    "lineNumber": 74,
+    "lineNumber": 81,
     "params": [],
     "generator": false
   },
   {
-    "__docId__": 13,
+    "__docId__": 14,
     "kind": "member",
     "static": false,
     "variation": null,
     "name": "startedDate",
     "memberof": "lib/classes/Embed.js~Embed",
     "longname": "lib/classes/Embed.js~Embed#startedDate",
-    "access": null,
-    "description": null,
-    "lineNumber": 75,
-    "undocument": true,
-    "type": {
-      "types": [
-        "*"
-      ]
-    }
-  },
-  {
-    "__docId__": 14,
-    "kind": "method",
-    "static": false,
-    "variation": null,
-    "name": "markFinished",
-    "memberof": "lib/classes/Embed.js~Embed",
-    "longname": "lib/classes/Embed.js~Embed#markFinished",
-    "access": null,
-    "description": "Timestamps the end of the embed resolve process and calculates elapsedMs",
-    "lineNumber": 81,
-    "params": [],
-    "generator": false
-  },
-  {
-    "__docId__": 15,
-    "kind": "member",
-    "static": false,
-    "variation": null,
-    "name": "finishedDate",
-    "memberof": "lib/classes/Embed.js~Embed",
-    "longname": "lib/classes/Embed.js~Embed#finishedDate",
     "access": null,
     "description": null,
     "lineNumber": 82,
@@ -308,16 +305,30 @@
     }
   },
   {
+    "__docId__": 15,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "markFinished",
+    "memberof": "lib/classes/Embed.js~Embed",
+    "longname": "lib/classes/Embed.js~Embed#markFinished",
+    "access": null,
+    "description": "Timestamps the end of the embed resolve process and calculates elapsedMs",
+    "lineNumber": 88,
+    "params": [],
+    "generator": false
+  },
+  {
     "__docId__": 16,
     "kind": "member",
     "static": false,
     "variation": null,
-    "name": "elapsedMs",
+    "name": "finishedDate",
     "memberof": "lib/classes/Embed.js~Embed",
-    "longname": "lib/classes/Embed.js~Embed#elapsedMs",
+    "longname": "lib/classes/Embed.js~Embed#finishedDate",
     "access": null,
     "description": null,
-    "lineNumber": 83,
+    "lineNumber": 89,
     "undocument": true,
     "type": {
       "types": [
@@ -327,6 +338,24 @@
   },
   {
     "__docId__": 17,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "elapsedMs",
+    "memberof": "lib/classes/Embed.js~Embed",
+    "longname": "lib/classes/Embed.js~Embed#elapsedMs",
+    "access": null,
+    "description": null,
+    "lineNumber": 90,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 18,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -336,10 +365,10 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "'use strict';\n\n/** @ignore */\nlet async = require('async');\n\n/** @ignore */\nlet URLEmbedProvider = require('./URLEmbedProvider');\n\n/** @ignore */\nlet OEmbedProvider = require('./OEmbedProvider');\n\n/** @ignore */\nlet Embed = require('./Embed');\n\n/** @ignore */\nlet utils = require('../utils');\n\n/** @ignore */\nlet UnknownProviderError = require('./errors/UnknownProviderError');\n\n/** @ignore */\nlet EmbedValidationError = require('./errors/EmbedValidationError');\n\n/**\n * Resolves urls to embeds from a registered list of embed providers\n */\nclass EmbedEngine {\n  /**\n  * @param {Object} [engineOptions] - configuration options\n  * @param {number} [engineOptions.timeoutMs] - request timeout in milliseconds\n  */\n  constructor (engineOptions) {\n    /**\n    * Utility references to provider superclasses\n    * @type {{URLEmbedProvider: URLEmbedProvider, OEmbedProvider: OEmbedProvider}}\n    */\n    this.providerSuperClasses = {\n      URLEmbedProvider: URLEmbedProvider,\n      OEmbedProvider: OEmbedProvider\n    };\n\n    /**\n    * The directory containing the default provider classes\n    * @type {String}\n    */\n    this.defaultProviderDirectory = __dirname + '/default_providers';\n\n    /**\n    * The registry of provider instances\n    * @type {Array<URLEmbedProvider>}\n    */\n    this.providerRegistry = [];\n\n    /**\n     * Array of provider classes included in this library\n     * @type {Array<URLEmbedProvider>} defaultProviderClasses - array of provider classes included in this library\n     */\n    this.defaultProviderClasses = utils.loadClassesFromDirectory(this.defaultProviderDirectory);\n\n    /**\n    * Configuration options. These will also be passed to the configure method of each provider instance\n    * @type {Object} engineOptions - configuration options\n    * @property {number} engineOptions.timeoutMs - request timeout in milliseconds\n    */\n    this.engineOptions = engineOptions;\n  }\n\n  /**\n  * Registers a provider instance.\n  *\n  * __Highlander Rule__: this provider will replace an already registered provider if they have the same name property.\n  *\n  * @param {URLProvider} provider - instance of <code>URLProvider</code> or <code>OEmbedProvider</code>\n  */\n  registerProvider (provider) {\n    let providerExists = false;\n\n    this._configureProvider(provider);\n\n    for (let idx = 0; idx < this.providerRegistry.length; idx++) {\n      if (this.providerRegistry[idx].name === provider.name) {\n        this.providerRegistry[idx] = provider;\n        providerExists = true;\n      }\n    }\n\n    if (!providerExists) {\n      this.providerRegistry.push(provider);\n    }\n  }\n\n  _configureProvider (provider) {\n    provider.configure(this.engineOptions);\n  }\n\n  /**\n  * Registers all the default providers in this library\n  * @param {String} [path] - directory of provider classes (if not specified it will default to the ones in this library)\n  */\n  registerDefaultProviders (path) {\n    for (let i = 0; i < this.defaultProviderClasses.length; i++) {\n      let ProviderClass = this.defaultProviderClasses[i];\n      let provider = new ProviderClass();\n      this._configureProvider(provider);\n      this.registerProvider(provider);\n    }\n  }\n\n  /**\n  * Resolves an Embed object, populating its data property and calling the callback\n  * @param {Embed} embed - Embed object\n  * @param {function(embed: Embed)} callback - callback to invoke after resolving Embed\n  */\n  getEmbed (embed, callback) {\n\n    embed.markStarted();\n\n    let providerFound = false;\n\n    for (let idx = 0; idx < this.providerRegistry.length; idx++) {\n      let provider = this.providerRegistry[idx];\n      let self = this;\n\n      if (provider.isMatch(embed.embedURL)) {\n        providerFound = true;\n\n        provider.getEmbed(embed, function (embed) {\n          self.filterData(embed.data);\n          embed.markFinished();\n          callback(embed);\n          return;\n        });\n\n        idx = this.providerRegistry.length;\n      }\n    }\n\n    if (!providerFound) {\n      embed.error = new UnknownProviderError('Unknown embed provider for url: ' + embed.embedURL);\n      embed.data = {\n        html: this.errorMarkupNoMatchingProvider(embed)\n      };\n      embed.markFinished();\n      callback(embed);\n    }\n  }\n\n  /*\n  * Resolves an array of embedOptions.embedURL's in parallel\n  * @param {Array} optArray - Array of embed options objects\n  * @param {function(error: Error, results: Array)} callback - callback to invoke after batch is complete\n  */\n  getMultipleEmbeds (optArray, callback) {\n    let self = this;\n\n    async.map(optArray, function (options, callbackIterator) {\n      self.getEmbed(options, function (embed) {\n        callbackIterator(null, embed);\n      });\n    },\n    function (error, results) {\n      callback(error, results);\n    });\n  }\n\n  /**\n  * Returns error markup if there was no provider that matched the embedURL\n  * @param {Embed} embed - Embed object\n  */\n  errorMarkupNoMatchingProvider (embed) {\n    return '<a href=\"' + embed.embedURL + '\">' + embed.embedURL + '</a>';\n  }\n\n  /**\n  * Can be overridden/replaced to modify any provider's data before it is passed to the client callback.<br />\n  * *Note:* if you only need to modify a specific provider's data then there's a similar <code>filterData</code> method on each provider object, too.\n  * @param {{html: string}} data - Data object containing embed html\n  */\n  filterData (data) {}\n}\n\nmodule.exports = EmbedEngine;\n"
+    "content": "'use strict';\n\n/** @ignore */\nlet async = require('async');\n\n/** @ignore */\nlet URLEmbedProvider = require('./URLEmbedProvider');\n\n/** @ignore */\nlet OEmbedProvider = require('./OEmbedProvider');\n\n/** @ignore */\nlet utils = require('../utils');\n\n/** @ignore */\nlet UnknownProviderError = require('./errors/UnknownProviderError');\n\n/**\n * Resolves urls to embeds from a registered list of embed providers\n */\nclass EmbedEngine {\n  /**\n  * @param {Object} [engineOptions] - configuration options\n  * @param {number} [engineOptions.timeoutMs] - request timeout in milliseconds\n  */\n  constructor (engineOptions) {\n    /**\n    * Utility references to provider superclasses\n    * @type {{URLEmbedProvider: URLEmbedProvider, OEmbedProvider: OEmbedProvider}}\n    */\n    this.providerSuperClasses = {\n      URLEmbedProvider: URLEmbedProvider,\n      OEmbedProvider: OEmbedProvider\n    };\n\n    /**\n    * The directory containing the default provider classes\n    * @type {String}\n    */\n    this.defaultProviderDirectory = __dirname + '/default_providers';\n\n    /**\n    * The registry of provider instances\n    * @type {Array<URLEmbedProvider>}\n    */\n    this.providerRegistry = [];\n\n    /**\n     * Array of provider classes included in this library\n     * @type {Array<URLEmbedProvider>} defaultProviderClasses - array of provider classes included in this library\n     */\n    this.defaultProviderClasses = utils.loadClassesFromDirectory(this.defaultProviderDirectory);\n\n    /**\n    * Configuration options. These will also be passed to the configure method of each provider instance\n    * @type {Object} engineOptions - configuration options\n    * @property {number} engineOptions.timeoutMs - request timeout in milliseconds\n    */\n    this.engineOptions = engineOptions;\n  }\n\n  /**\n  * Registers a provider instance.\n  *\n  * __Highlander Rule__: this provider will replace an already registered provider if they have the same name property.\n  *\n  * @param {URLProvider} provider - instance of <code>URLProvider</code> or <code>OEmbedProvider</code>\n  */\n  registerProvider (provider) {\n    let providerExists = false;\n\n    this._configureProvider(provider);\n\n    for (let idx = 0; idx < this.providerRegistry.length; idx++) {\n      if (this.providerRegistry[idx].name === provider.name) {\n        this.providerRegistry[idx] = provider;\n        providerExists = true;\n      }\n    }\n\n    if (!providerExists) {\n      this.providerRegistry.push(provider);\n    }\n  }\n\n  _configureProvider (provider) {\n    provider.configure(this.engineOptions);\n  }\n\n  /**\n  * Registers all the default providers in this library\n  * @param {String} [path] - directory of provider classes (if not specified it will default to the ones in this library)\n  */\n  registerDefaultProviders (path) {\n    for (let i = 0; i < this.defaultProviderClasses.length; i++) {\n      let ProviderClass = this.defaultProviderClasses[i];\n      let provider = new ProviderClass();\n      this._configureProvider(provider);\n      this.registerProvider(provider);\n    }\n  }\n\n  /**\n  * Resolves an Embed object, populating its data property and calling the callback\n  * @param {Embed} embed - Embed object\n  * @param {function(embed: Embed)} callback - callback to invoke after resolving Embed\n  */\n  getEmbed (embed, callback) {\n    embed.markStarted();\n\n    let providerFound = false;\n\n    for (let idx = 0; idx < this.providerRegistry.length; idx++) {\n      let provider = this.providerRegistry[idx];\n      let self = this;\n\n      if (provider.isMatch(embed.embedURL)) {\n        providerFound = true;\n\n        provider.getEmbed(embed, function (embed) {\n          self.filterData(embed.data);\n          embed.markFinished();\n          callback(embed);\n          return;\n        });\n\n        idx = this.providerRegistry.length;\n      }\n    }\n\n    if (!providerFound) {\n      embed.error = new UnknownProviderError('Unknown embed provider for url: ' + embed.embedURL);\n      embed.data = {\n        html: this.errorMarkupNoMatchingProvider(embed)\n      };\n      embed.markFinished();\n      callback(embed);\n    }\n  }\n\n  /*\n  * Resolves an array of embedOptions.embedURL's in parallel\n  * @param {Array} optArray - Array of embed options objects\n  * @param {function(error: Error, results: Array)} callback - callback to invoke after batch is complete\n  */\n  getMultipleEmbeds (optArray, callback) {\n    let self = this;\n\n    async.map(optArray, function (options, callbackIterator) {\n      self.getEmbed(options, function (embed) {\n        callbackIterator(null, embed);\n      });\n    },\n    function (error, results) {\n      callback(error, results);\n    });\n  }\n\n  /**\n  * Returns error markup if there was no provider that matched the embedURL\n  * @param {Embed} embed - Embed object\n  */\n  errorMarkupNoMatchingProvider (embed) {\n    return '<a href=\"' + embed.embedURL + '\">' + embed.embedURL + '</a>';\n  }\n\n  /**\n  * Can be overridden/replaced to modify any provider's data before it is passed to the client callback.<br />\n  * *Note:* if you only need to modify a specific provider's data then there's a similar <code>filterData</code> method on each provider object, too.\n  * @param {{html: string}} data - Data object containing embed html\n  */\n  filterData (data) {}\n}\n\nmodule.exports = EmbedEngine;\n"
   },
   {
-    "__docId__": 18,
+    "__docId__": 19,
     "kind": "variable",
     "static": true,
     "variation": null,
@@ -360,7 +389,7 @@
     }
   },
   {
-    "__docId__": 19,
+    "__docId__": 20,
     "kind": "variable",
     "static": true,
     "variation": null,
@@ -381,7 +410,7 @@
     }
   },
   {
-    "__docId__": 20,
+    "__docId__": 21,
     "kind": "variable",
     "static": true,
     "variation": null,
@@ -402,27 +431,6 @@
     }
   },
   {
-    "__docId__": 21,
-    "kind": "variable",
-    "static": true,
-    "variation": null,
-    "name": "Embed",
-    "memberof": "lib/classes/EmbedEngine.js",
-    "longname": "lib/classes/EmbedEngine.js~Embed",
-    "access": null,
-    "export": false,
-    "importPath": "url-embed/lib/classes/EmbedEngine.js",
-    "importStyle": null,
-    "description": null,
-    "lineNumber": 13,
-    "ignore": true,
-    "type": {
-      "types": [
-        "*"
-      ]
-    }
-  },
-  {
     "__docId__": 22,
     "kind": "variable",
     "static": true,
@@ -435,7 +443,7 @@
     "importPath": "url-embed/lib/classes/EmbedEngine.js",
     "importStyle": null,
     "description": null,
-    "lineNumber": 16,
+    "lineNumber": 13,
     "ignore": true,
     "type": {
       "types": [
@@ -456,7 +464,7 @@
     "importPath": "url-embed/lib/classes/EmbedEngine.js",
     "importStyle": null,
     "description": null,
-    "lineNumber": 19,
+    "lineNumber": 16,
     "ignore": true,
     "type": {
       "types": [
@@ -466,27 +474,6 @@
   },
   {
     "__docId__": 24,
-    "kind": "variable",
-    "static": true,
-    "variation": null,
-    "name": "EmbedValidationError",
-    "memberof": "lib/classes/EmbedEngine.js",
-    "longname": "lib/classes/EmbedEngine.js~EmbedValidationError",
-    "access": null,
-    "export": false,
-    "importPath": "url-embed/lib/classes/EmbedEngine.js",
-    "importStyle": null,
-    "description": null,
-    "lineNumber": 22,
-    "ignore": true,
-    "type": {
-      "types": [
-        "*"
-      ]
-    }
-  },
-  {
-    "__docId__": 25,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -498,11 +485,11 @@
     "importPath": "url-embed/lib/classes/EmbedEngine.js",
     "importStyle": "EmbedEngine",
     "description": "Resolves urls to embeds from a registered list of embed providers",
-    "lineNumber": 27,
+    "lineNumber": 21,
     "interface": false
   },
   {
-    "__docId__": 26,
+    "__docId__": 25,
     "kind": "constructor",
     "static": false,
     "variation": null,
@@ -511,7 +498,7 @@
     "longname": "lib/classes/EmbedEngine.js~EmbedEngine#constructor",
     "access": null,
     "description": "",
-    "lineNumber": 32,
+    "lineNumber": 26,
     "params": [
       {
         "nullable": null,
@@ -537,7 +524,7 @@
     "generator": false
   },
   {
-    "__docId__": 27,
+    "__docId__": 26,
     "kind": "member",
     "static": false,
     "variation": null,
@@ -546,7 +533,7 @@
     "longname": "lib/classes/EmbedEngine.js~EmbedEngine#providerSuperClasses",
     "access": null,
     "description": "Utility references to provider superclasses",
-    "lineNumber": 37,
+    "lineNumber": 31,
     "type": {
       "nullable": null,
       "types": [
@@ -557,7 +544,7 @@
     }
   },
   {
-    "__docId__": 28,
+    "__docId__": 27,
     "kind": "member",
     "static": false,
     "variation": null,
@@ -566,7 +553,7 @@
     "longname": "lib/classes/EmbedEngine.js~EmbedEngine#defaultProviderDirectory",
     "access": null,
     "description": "The directory containing the default provider classes",
-    "lineNumber": 46,
+    "lineNumber": 40,
     "type": {
       "nullable": null,
       "types": [
@@ -577,7 +564,7 @@
     }
   },
   {
-    "__docId__": 29,
+    "__docId__": 28,
     "kind": "member",
     "static": false,
     "variation": null,
@@ -586,6 +573,26 @@
     "longname": "lib/classes/EmbedEngine.js~EmbedEngine#providerRegistry",
     "access": null,
     "description": "The registry of provider instances",
+    "lineNumber": 46,
+    "type": {
+      "nullable": null,
+      "types": [
+        "Array<URLEmbedProvider>"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 29,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "defaultProviderClasses",
+    "memberof": "lib/classes/EmbedEngine.js~EmbedEngine",
+    "longname": "lib/classes/EmbedEngine.js~EmbedEngine#defaultProviderClasses",
+    "access": null,
+    "description": "Array of provider classes included in this library",
     "lineNumber": 52,
     "type": {
       "nullable": null,
@@ -601,32 +608,12 @@
     "kind": "member",
     "static": false,
     "variation": null,
-    "name": "defaultProviderClasses",
-    "memberof": "lib/classes/EmbedEngine.js~EmbedEngine",
-    "longname": "lib/classes/EmbedEngine.js~EmbedEngine#defaultProviderClasses",
-    "access": null,
-    "description": "Array of provider classes included in this library",
-    "lineNumber": 58,
-    "type": {
-      "nullable": null,
-      "types": [
-        "Array<URLEmbedProvider>"
-      ],
-      "spread": false,
-      "description": null
-    }
-  },
-  {
-    "__docId__": 31,
-    "kind": "member",
-    "static": false,
-    "variation": null,
     "name": "engineOptions",
     "memberof": "lib/classes/EmbedEngine.js~EmbedEngine",
     "longname": "lib/classes/EmbedEngine.js~EmbedEngine#engineOptions",
     "access": null,
     "description": "Configuration options. These will also be passed to the configure method of each provider instance",
-    "lineNumber": 65,
+    "lineNumber": 59,
     "properties": [
       {
         "nullable": null,
@@ -649,7 +636,7 @@
     }
   },
   {
-    "__docId__": 32,
+    "__docId__": 31,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -658,7 +645,7 @@
     "longname": "lib/classes/EmbedEngine.js~EmbedEngine#registerProvider",
     "access": null,
     "description": "Registers a provider instance.\n\n__Highlander Rule__: this provider will replace an already registered provider if they have the same name property.",
-    "lineNumber": 75,
+    "lineNumber": 69,
     "params": [
       {
         "nullable": null,
@@ -674,7 +661,7 @@
     "generator": false
   },
   {
-    "__docId__": 33,
+    "__docId__": 32,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -683,7 +670,7 @@
     "longname": "lib/classes/EmbedEngine.js~EmbedEngine#_configureProvider",
     "access": null,
     "description": null,
-    "lineNumber": 92,
+    "lineNumber": 86,
     "undocument": true,
     "params": [
       {
@@ -696,7 +683,7 @@
     "generator": false
   },
   {
-    "__docId__": 34,
+    "__docId__": 33,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -705,7 +692,7 @@
     "longname": "lib/classes/EmbedEngine.js~EmbedEngine#registerDefaultProviders",
     "access": null,
     "description": "Registers all the default providers in this library",
-    "lineNumber": 100,
+    "lineNumber": 94,
     "params": [
       {
         "nullable": null,
@@ -721,7 +708,7 @@
     "generator": false
   },
   {
-    "__docId__": 35,
+    "__docId__": 34,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -730,7 +717,7 @@
     "longname": "lib/classes/EmbedEngine.js~EmbedEngine#getEmbed",
     "access": null,
     "description": "Resolves an Embed object, populating its data property and calling the callback",
-    "lineNumber": 114,
+    "lineNumber": 108,
     "params": [
       {
         "nullable": null,
@@ -756,7 +743,7 @@
     "generator": false
   },
   {
-    "__docId__": 36,
+    "__docId__": 35,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -765,7 +752,7 @@
     "longname": "lib/classes/EmbedEngine.js~EmbedEngine#getMultipleEmbeds",
     "access": null,
     "description": null,
-    "lineNumber": 153,
+    "lineNumber": 146,
     "undocument": true,
     "params": [
       {
@@ -784,7 +771,7 @@
     "generator": false
   },
   {
-    "__docId__": 37,
+    "__docId__": 36,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -793,7 +780,7 @@
     "longname": "lib/classes/EmbedEngine.js~EmbedEngine#errorMarkupNoMatchingProvider",
     "access": null,
     "description": "Returns error markup if there was no provider that matched the embedURL",
-    "lineNumber": 170,
+    "lineNumber": 163,
     "params": [
       {
         "nullable": null,
@@ -814,7 +801,7 @@
     "generator": false
   },
   {
-    "__docId__": 38,
+    "__docId__": 37,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -823,7 +810,7 @@
     "longname": "lib/classes/EmbedEngine.js~EmbedEngine#filterData",
     "access": null,
     "description": "Can be overridden/replaced to modify any provider's data before it is passed to the client callback.<br />\n*Note:* if you only need to modify a specific provider's data then there's a similar <code>filterData</code> method on each provider object, too.",
-    "lineNumber": 179,
+    "lineNumber": 172,
     "params": [
       {
         "nullable": null,
@@ -839,7 +826,7 @@
     "generator": false
   },
   {
-    "__docId__": 39,
+    "__docId__": 38,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -849,10 +836,10 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "'use strict';\n\n/** @ignore */\nlet querystring = require('querystring');\n/** @ignore */\nlet request = require('request');\n/** @ignore */\nlet fs = require('fs');\n/** @ignore */\nlet UnexpectedStatusError = require('./errors/UnexpectedStatusError');\n/** @ignore */\nlet EmbedValidationError = require('./errors/EmbedValidationError');\n/** @ignore */\nlet URLEmbedProvider = require('./URLEmbedProvider');\n/** @ignore */\nlet xml2js = require('xml2js');\n\n/**\n* Converts a pattern of URLs into markup via an oembed provider\n* @see http://oembed.com\n* @extends {URLEmbedProvider}\n* @interface\n*/\nclass OEmbedProvider extends URLEmbedProvider {\n\n  /**\n  * @param {String} providerURL - the URL of the provider's oembed service\n  * @param {Array<RegExp>} urlPatterns - array of regular expressions that this provider will match\n  * @param {String} format - the data format of the provider's oembed service. Must be either 'json' or 'xml'.\n  */\n  constructor (providerURL, urlPatterns, format) {\n    super(urlPatterns);\n\n    /**\n    * The URL of the provider's oembed service\n    * @type {String}\n    */\n    if (providerURL) this.providerURL = providerURL;\n\n    /**\n    * @desc The data format of the provider's oembed service.\n    * @type {String}\n    */\n    if (format) this.format = format;\n\n    /**\n    * The version number of the url-embed module\n    * @type {String}\n    */\n    this.version = null;\n  }\n\n  /**\n  * Resolves options.embedURL to an embed and passes it to callback.\n  * @param {Embed} embed - Embed object\n  * @param {function(embed:Embed)} callback - callback to invoke after resolving embed\n  * @throws {UnexpectedStatusError} throws when provider API returns a non-200 response.\n  * @override\n  */\n  getEmbed (embed, callback) {\n    this.makeAPIRequest(embed, function (embed) {\n      callback(embed);\n    });\n  }\n\n  /**\n  * Makes the requests to the oembed provider's API\n  * @param {Embed} embed - embed object\n  * @param {function(embed:Ebmed)} callback - callback to invoke after resolving embed\n  */\n  makeAPIRequest (embed, callback) {\n    let self = this;\n    let options = embed.options;\n    let requestOptions = self.buildRequestOptions(embed);\n    let oembedAPIURL = self.buildAPIURL(embed, requestOptions);\n    requestOptions.url = oembedAPIURL;\n\n    self.request(requestOptions, function (error, response, body) {\n      if (response && response.request && response.request.uri && response.request.uri.href) {\n        embed.oembedAPIURL = response.request.uri.href;\n      } else {\n        embed.oembedAPIURL = oembedAPIURL;\n      }\n\n      if (!error && response.statusCode === 200) {\n        self.parseResponseBody(body, function (error, data) {\n          // json or xml parsing error\n          if (error) {\n            self._applyErrorToEmbed(error, embed);\n            callback(embed);\n            return;\n          // successfuly parsed\n          } else {\n            embed.data = data;\n            self.filterData(embed.data);\n            callback(embed);\n            return;\n          }\n        });\n      } else {\n        // Error making request\n        if (error) {\n          self._applyErrorToEmbed(error, embed);\n          callback(embed);\n          return;\n        // No error, but non-200 HTTP response\n        } else {\n          let errorMarkupFunctionName = 'errorMarkup' + response.statusCode;\n          let errorMarkupFunction = self[errorMarkupFunctionName] ? self[errorMarkupFunctionName] : self.errorMarkup;\n          let error = new UnexpectedStatusError('HTTP status ' + response.statusCode + ' for embed provider URL: ' + oembedAPIURL);\n          error.status = response.statusCode;\n          self._applyErrorToEmbed(error, embed, errorMarkupFunction);\n          callback(embed);\n          return;\n        }\n      }\n    });\n  }\n\n  /**\n  * Puts the Embed into an error state if an error occurs\n  * @param {Error} error - the Error that occurred\n  * @param {Embed} embed - the Embed object\n  * @param {function(embed: Embed, error: Error)} [errorMarkupFunction] - function that generates error markup\n  */\n  _applyErrorToEmbed (error, embed, errorMarkupFunction) {\n    if (!errorMarkupFunction) {\n      errorMarkupFunction = this.errorMarkup;\n    }\n    embed.data.html = errorMarkupFunction(embed, error);\n    embed.error = error;\n  }\n\n  /**\n  * Parses the provider API response into a data object\n  * @param {String} body - API response\n  * @param {function(error: Error, data: Object)} callback - callback to invoke with resulting oembed data\n  */\n  parseResponseBody (body, callback) {\n    body = this.convertHighBitUnicodeToSurrogates(body);\n    let data;\n    if (this.format === 'json') {\n      try {\n        data = JSON.parse(body);\n        callback(null, data);\n      } catch (error) {\n        callback(error);\n      }\n      return;\n    } else {\n      let xmlOptions = {\n        explicitArray: false,\n        valueProcessors: [\n          xml2js.processors.parseNumbers,\n          xml2js.processors.parseBooleans\n        ]\n      };\n      data = xml2js.parseString(body, xmlOptions, function (error, result) {\n        if (error) {\n          callback(error);\n        } else {\n          data = result.oembed;\n          callback(null, data);\n        }\n        return;\n      });\n    }\n  }\n\n  /**\n  * Builds the API URL string\n  * @param {Embed} embed - Embed object\n  * @return {String} - API URL\n  */\n  buildAPIURL (embed) {\n    let qs = {};\n    qs.url = embed.embedURL;\n    qs.format = this.format;\n    if (embed.options.maxWidth) qs.maxwidth = embed.options.maxWidth;\n    if (embed.options.maxHeight) qs.maxheight = embed.options.maxHeight;\n\n    if (this.defaultProviderQueryStringParameters) {\n      for (let name in this.defaultProviderQueryStringParameters) {\n        qs[name] = this.defaultProviderQueryStringParameters[name];\n      }\n    }\n\n    return this.providerURL + '?' + querystring.stringify(qs);\n  }\n\n  /**\n  * Builds the HTTP request options (headers, etc.)\n  * @see https://www.npmjs.com/package/request\n  * @param {Embed} embed - Embed object\n  * @return {Object} - request options\n  */\n  buildRequestOptions (embed) {\n    if (!this.version) {\n      let fileContents = fs.readFileSync(__dirname + '/../../package.json');\n      let packageJSON = JSON.parse(fileContents);\n      this.version = packageJSON.version;\n    }\n\n    let requestOptions = {\n      headers: {\n        'User-Agent': 'URLEmbed Module HTTP Agent ' + this.version\n      },\n      timeout: this.timeoutMs\n    };\n    return requestOptions;\n  }\n\n  /**\n  * Converts high-bit-value escaped unicode code points to unicode surrogate pair code points.\n  *\n  * JSON.parse yields a parse error when it encounters unicode literals > 16-bits.\n  * Notably, many newer emojis fall into this category.\n  *\n  * To solve for this you need to split the > 16-bit unicode escapedcode point into surrogate pairs.\n  *\n  * Great and entertaining explaination here:\n  * {@link https://gist.github.com/mranney/1707371}\n  *\n  * Algorithm for calculating surrogate pairs cribbed from here:\n  * {@link http://www.russellcottrell.com/greek/utilities/surrogatepaircalculator.htm}\n  *\n  * @param {String} body - The raw body of the HTTP response from the oembed provider's API\n  * @return {String} - The transformed body with surrogate pairs\n  */\n  convertHighBitUnicodeToSurrogates (body) {\n    return body.replace(/\\\\U([\\da-f]{8})/gm, function (match, scalarVal) {\n      let S = parseInt('0x' + scalarVal, 16);\n      let H = Math.floor((S - 0x10000) / 0x400) + 0xD800;\n      let L = ((S - 0x10000) % 0x400) + 0xDC00;\n      return '\\\\u' + H.toString(16) + '\\\\u' + L.toString(16);\n    });\n  }\n\n  /**\n  * Configures the provider\n  * @param {Object} configOptions\n  * @param {number} configOptions.timeoutMs - Request timeout in milliseconds.\n  * @override\n  */\n  configure (configOptions) {\n    if (configOptions && configOptions.timeoutMs) {\n      this.timeoutMs = configOptions.timeoutMs;\n    }\n  }\n}\n\n/**\n* The data format of the provider's oembed service. Defaults to 'json'\n* @identifier format\n* @type {String}\n*/\nOEmbedProvider.prototype.format = 'json';\n\n/**\n* Default request timeout in milliseconds. Defaults to 2000.\n* @type {number}\n* @identifier timeoutMs\n*/\nOEmbedProvider.prototype.timeoutMs = 2000;\n\n/**\n* Reference to the request module.\n* @type {Object}\n* @see https://www.npmjs.com/package/request\n*/\nOEmbedProvider.prototype.request = request;\n\n/**\n* Object containing any any odd querystring parameters that the provider's oembed service requires.\n* @type {Object}\n*/\nOEmbedProvider.prototype.defaultProviderQueryStringParameters = null;\n\nmodule.exports = OEmbedProvider;\n"
+    "content": "'use strict';\n\n/** @ignore */\nlet querystring = require('querystring');\n\n/** @ignore */\nlet request = require('request');\n\n/** @ignore */\nlet fs = require('fs');\n\n/** @ignore */\nlet UnexpectedStatusError = require('./errors/UnexpectedStatusError');\n\n/** @ignore */\nlet URLEmbedProvider = require('./URLEmbedProvider');\n\n/** @ignore */\nlet xml2js = require('xml2js');\n\n/**\n* Converts a pattern of URLs into markup via an oembed provider\n* @see http://oembed.com\n* @extends {URLEmbedProvider}\n* @interface\n*/\nclass OEmbedProvider extends URLEmbedProvider {\n\n  /**\n  * @param {String} providerURL - the URL of the provider's oembed service\n  * @param {Array<RegExp>} urlPatterns - array of regular expressions that this provider will match\n  * @param {String} format - the data format of the provider's oembed service. Must be either 'json' or 'xml'.\n  */\n  constructor (providerURL, urlPatterns, format) {\n    super(urlPatterns);\n\n    /**\n    * The URL of the provider's oembed service\n    * @type {String}\n    */\n    if (providerURL) this.providerURL = providerURL;\n\n    /**\n    * @desc The data format of the provider's oembed service.\n    * @type {String}\n    */\n    if (format) this.format = format;\n\n    /**\n    * The version number of the url-embed module\n    * @type {String}\n    */\n    this.version = null;\n  }\n\n  /**\n  * Resolves options.embedURL to an embed and passes it to callback.\n  * @param {Embed} embed - Embed object\n  * @param {function(embed:Embed)} callback - callback to invoke after resolving embed\n  * @throws {UnexpectedStatusError} throws when provider API returns a non-200 response.\n  * @override\n  */\n  getEmbed (embed, callback) {\n    this.makeAPIRequest(embed, function (embed) {\n      callback(embed);\n    });\n  }\n\n  /**\n  * Makes the requests to the oembed provider's API\n  * @param {Embed} embed - embed object\n  * @param {function(embed:Ebmed)} callback - callback to invoke after resolving embed\n  */\n  makeAPIRequest (embed, callback) {\n    let self = this;\n    let requestOptions = self.buildRequestOptions(embed);\n    let oembedAPIURL = self.buildAPIURL(embed, requestOptions);\n    requestOptions.url = oembedAPIURL;\n\n    self.request(requestOptions, function (error, response, body) {\n      if (response && response.request && response.request.uri && response.request.uri.href) {\n        embed.oembedAPIURL = response.request.uri.href;\n      } else {\n        embed.oembedAPIURL = oembedAPIURL;\n      }\n\n      if (!error && response.statusCode === 200) {\n        self.parseResponseBody(body, function (error, data) {\n          // json or xml parsing error\n          if (error) {\n            self._applyErrorToEmbed(error, embed);\n            callback(embed);\n            return;\n          // successfuly parsed\n          } else {\n            embed.data = data;\n            self.filterData(embed.data);\n            callback(embed);\n            return;\n          }\n        });\n      } else {\n        // Error making request\n        if (error) {\n          self._applyErrorToEmbed(error, embed);\n          callback(embed);\n          return;\n        // No error, but non-200 HTTP response\n        } else {\n          let errorMarkupFunctionName = 'errorMarkup' + response.statusCode;\n          let errorMarkupFunction = self[errorMarkupFunctionName] ? self[errorMarkupFunctionName] : self.errorMarkup;\n          let error = new UnexpectedStatusError('HTTP status ' + response.statusCode + ' for embed provider URL: ' + oembedAPIURL);\n          error.status = response.statusCode;\n          self._applyErrorToEmbed(error, embed, errorMarkupFunction);\n          callback(embed);\n          return;\n        }\n      }\n    });\n  }\n\n  /**\n  * Puts the Embed into an error state if an error occurs\n  * @param {Error} error - the Error that occurred\n  * @param {Embed} embed - the Embed object\n  * @param {function(embed: Embed, error: Error)} [errorMarkupFunction] - function that generates error markup\n  */\n  _applyErrorToEmbed (error, embed, errorMarkupFunction) {\n    if (!errorMarkupFunction) {\n      errorMarkupFunction = this.errorMarkup;\n    }\n    embed.data.html = errorMarkupFunction(embed, error);\n    embed.error = error;\n  }\n\n  /**\n  * Parses the provider API response into a data object\n  * @param {String} body - API response\n  * @param {function(error: Error, data: Object)} callback - callback to invoke with resulting oembed data\n  */\n  parseResponseBody (body, callback) {\n    body = this.convertHighBitUnicodeToSurrogates(body);\n    let data;\n    if (this.format === 'json') {\n      try {\n        data = JSON.parse(body);\n        callback(null, data);\n      } catch (error) {\n        callback(error);\n      }\n      return;\n    } else {\n      let xmlOptions = {\n        explicitArray: false,\n        valueProcessors: [\n          xml2js.processors.parseNumbers,\n          xml2js.processors.parseBooleans\n        ]\n      };\n      data = xml2js.parseString(body, xmlOptions, function (error, result) {\n        if (error) {\n          callback(error);\n        } else {\n          data = result.oembed;\n          callback(null, data);\n        }\n        return;\n      });\n    }\n  }\n\n  /**\n  * Builds the API URL string\n  * @param {Embed} embed - Embed object\n  * @return {String} - API URL\n  */\n  buildAPIURL (embed) {\n    let qs = {};\n    qs.url = embed.embedURL;\n    qs.format = this.format;\n    if (embed.options.maxWidth) qs.maxwidth = embed.options.maxWidth;\n    if (embed.options.maxHeight) qs.maxheight = embed.options.maxHeight;\n\n    if (this.defaultProviderQueryStringParameters) {\n      for (let name in this.defaultProviderQueryStringParameters) {\n        qs[name] = this.defaultProviderQueryStringParameters[name];\n      }\n    }\n\n    return this.providerURL + '?' + querystring.stringify(qs);\n  }\n\n  /**\n  * Builds the HTTP request options (headers, etc.)\n  * @see https://www.npmjs.com/package/request\n  * @param {Embed} embed - Embed object\n  * @return {Object} - request options\n  */\n  buildRequestOptions (embed) {\n    if (!this.version) {\n      let fileContents = fs.readFileSync(__dirname + '/../../package.json');\n      let packageJSON = JSON.parse(fileContents);\n      this.version = packageJSON.version;\n    }\n\n    let requestOptions = {\n      headers: {\n        'User-Agent': 'URLEmbed Module HTTP Agent ' + this.version\n      },\n      timeout: this.timeoutMs\n    };\n    return requestOptions;\n  }\n\n  /**\n  * Converts high-bit-value escaped unicode code points to unicode surrogate pair code points.\n  *\n  * JSON.parse yields a parse error when it encounters unicode literals > 16-bits.\n  * Notably, many newer emojis fall into this category.\n  *\n  * To solve for this you need to split the > 16-bit unicode escapedcode point into surrogate pairs.\n  *\n  * Great and entertaining explaination here:\n  * {@link https://gist.github.com/mranney/1707371}\n  *\n  * Algorithm for calculating surrogate pairs cribbed from here:\n  * {@link http://www.russellcottrell.com/greek/utilities/surrogatepaircalculator.htm}\n  *\n  * @param {String} body - The raw body of the HTTP response from the oembed provider's API\n  * @return {String} - The transformed body with surrogate pairs\n  */\n  convertHighBitUnicodeToSurrogates (body) {\n    return body.replace(/\\\\U([\\da-f]{8})/gm, function (match, scalarVal) {\n      let S = parseInt('0x' + scalarVal, 16);\n      let H = Math.floor((S - 0x10000) / 0x400) + 0xD800;\n      let L = ((S - 0x10000) % 0x400) + 0xDC00;\n      return '\\\\u' + H.toString(16) + '\\\\u' + L.toString(16);\n    });\n  }\n\n  /**\n  * Configures the provider\n  * @param {Object} configOptions\n  * @param {number} configOptions.timeoutMs - Request timeout in milliseconds.\n  * @override\n  */\n  configure (configOptions) {\n    if (configOptions && configOptions.timeoutMs) {\n      this.timeoutMs = configOptions.timeoutMs;\n    }\n  }\n}\n\n/**\n* The data format of the provider's oembed service. Defaults to 'json'\n* @identifier format\n* @type {String}\n*/\nOEmbedProvider.prototype.format = 'json';\n\n/**\n* Default request timeout in milliseconds. Defaults to 2000.\n* @type {number}\n* @identifier timeoutMs\n*/\nOEmbedProvider.prototype.timeoutMs = 2000;\n\n/**\n* Reference to the request module.\n* @type {Object}\n* @see https://www.npmjs.com/package/request\n*/\nOEmbedProvider.prototype.request = request;\n\n/**\n* Object containing any any odd querystring parameters that the provider's oembed service requires.\n* @type {Object}\n*/\nOEmbedProvider.prototype.defaultProviderQueryStringParameters = null;\n\nmodule.exports = OEmbedProvider;\n"
   },
   {
-    "__docId__": 40,
+    "__docId__": 39,
     "kind": "variable",
     "static": true,
     "variation": null,
@@ -873,7 +860,7 @@
     }
   },
   {
-    "__docId__": 41,
+    "__docId__": 40,
     "kind": "variable",
     "static": true,
     "variation": null,
@@ -885,7 +872,7 @@
     "importPath": "url-embed/lib/classes/OEmbedProvider.js",
     "importStyle": null,
     "description": null,
-    "lineNumber": 6,
+    "lineNumber": 7,
     "ignore": true,
     "type": {
       "types": [
@@ -894,34 +881,13 @@
     }
   },
   {
-    "__docId__": 42,
+    "__docId__": 41,
     "kind": "variable",
     "static": true,
     "variation": null,
     "name": "fs",
     "memberof": "lib/classes/OEmbedProvider.js",
     "longname": "lib/classes/OEmbedProvider.js~fs",
-    "access": null,
-    "export": false,
-    "importPath": "url-embed/lib/classes/OEmbedProvider.js",
-    "importStyle": null,
-    "description": null,
-    "lineNumber": 8,
-    "ignore": true,
-    "type": {
-      "types": [
-        "*"
-      ]
-    }
-  },
-  {
-    "__docId__": 43,
-    "kind": "variable",
-    "static": true,
-    "variation": null,
-    "name": "UnexpectedStatusError",
-    "memberof": "lib/classes/OEmbedProvider.js",
-    "longname": "lib/classes/OEmbedProvider.js~UnexpectedStatusError",
     "access": null,
     "export": false,
     "importPath": "url-embed/lib/classes/OEmbedProvider.js",
@@ -936,19 +902,19 @@
     }
   },
   {
-    "__docId__": 44,
+    "__docId__": 42,
     "kind": "variable",
     "static": true,
     "variation": null,
-    "name": "EmbedValidationError",
+    "name": "UnexpectedStatusError",
     "memberof": "lib/classes/OEmbedProvider.js",
-    "longname": "lib/classes/OEmbedProvider.js~EmbedValidationError",
+    "longname": "lib/classes/OEmbedProvider.js~UnexpectedStatusError",
     "access": null,
     "export": false,
     "importPath": "url-embed/lib/classes/OEmbedProvider.js",
     "importStyle": null,
     "description": null,
-    "lineNumber": 12,
+    "lineNumber": 13,
     "ignore": true,
     "type": {
       "types": [
@@ -957,34 +923,13 @@
     }
   },
   {
-    "__docId__": 45,
+    "__docId__": 43,
     "kind": "variable",
     "static": true,
     "variation": null,
     "name": "URLEmbedProvider",
     "memberof": "lib/classes/OEmbedProvider.js",
     "longname": "lib/classes/OEmbedProvider.js~URLEmbedProvider",
-    "access": null,
-    "export": false,
-    "importPath": "url-embed/lib/classes/OEmbedProvider.js",
-    "importStyle": null,
-    "description": null,
-    "lineNumber": 14,
-    "ignore": true,
-    "type": {
-      "types": [
-        "*"
-      ]
-    }
-  },
-  {
-    "__docId__": 46,
-    "kind": "variable",
-    "static": true,
-    "variation": null,
-    "name": "xml2js",
-    "memberof": "lib/classes/OEmbedProvider.js",
-    "longname": "lib/classes/OEmbedProvider.js~xml2js",
     "access": null,
     "export": false,
     "importPath": "url-embed/lib/classes/OEmbedProvider.js",
@@ -999,7 +944,28 @@
     }
   },
   {
-    "__docId__": 47,
+    "__docId__": 44,
+    "kind": "variable",
+    "static": true,
+    "variation": null,
+    "name": "xml2js",
+    "memberof": "lib/classes/OEmbedProvider.js",
+    "longname": "lib/classes/OEmbedProvider.js~xml2js",
+    "access": null,
+    "export": false,
+    "importPath": "url-embed/lib/classes/OEmbedProvider.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 19,
+    "ignore": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 45,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -1014,14 +980,14 @@
     "see": [
       "http://oembed.com"
     ],
-    "lineNumber": 24,
+    "lineNumber": 27,
     "interface": true,
     "extends": [
       "URLEmbedProvider"
     ]
   },
   {
-    "__docId__": 48,
+    "__docId__": 46,
     "kind": "constructor",
     "static": false,
     "variation": null,
@@ -1030,7 +996,7 @@
     "longname": "lib/classes/OEmbedProvider.js~OEmbedProvider#constructor",
     "access": null,
     "description": "",
-    "lineNumber": 31,
+    "lineNumber": 34,
     "params": [
       {
         "nullable": null,
@@ -1066,7 +1032,7 @@
     "generator": false
   },
   {
-    "__docId__": 49,
+    "__docId__": 47,
     "kind": "member",
     "static": false,
     "variation": null,
@@ -1075,7 +1041,7 @@
     "longname": "lib/classes/OEmbedProvider.js~OEmbedProvider#providerURL",
     "access": null,
     "description": null,
-    "lineNumber": 38,
+    "lineNumber": 41,
     "undocument": true,
     "type": {
       "types": [
@@ -1084,7 +1050,7 @@
     }
   },
   {
-    "__docId__": 50,
+    "__docId__": 48,
     "kind": "member",
     "static": false,
     "variation": null,
@@ -1093,7 +1059,7 @@
     "longname": "lib/classes/OEmbedProvider.js~OEmbedProvider#format",
     "access": null,
     "description": null,
-    "lineNumber": 44,
+    "lineNumber": 47,
     "undocument": true,
     "type": {
       "types": [
@@ -1102,7 +1068,7 @@
     }
   },
   {
-    "__docId__": 51,
+    "__docId__": 49,
     "kind": "member",
     "static": false,
     "variation": null,
@@ -1111,7 +1077,7 @@
     "longname": "lib/classes/OEmbedProvider.js~OEmbedProvider#version",
     "access": null,
     "description": "The version number of the url-embed module",
-    "lineNumber": 50,
+    "lineNumber": 53,
     "type": {
       "nullable": null,
       "types": [
@@ -1122,7 +1088,7 @@
     }
   },
   {
-    "__docId__": 52,
+    "__docId__": 50,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -1131,7 +1097,7 @@
     "longname": "lib/classes/OEmbedProvider.js~OEmbedProvider#getEmbed",
     "access": null,
     "description": "Resolves options.embedURL to an embed and passes it to callback.",
-    "lineNumber": 60,
+    "lineNumber": 63,
     "params": [
       {
         "nullable": null,
@@ -1166,7 +1132,7 @@
     "generator": false
   },
   {
-    "__docId__": 53,
+    "__docId__": 51,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -1175,7 +1141,7 @@
     "longname": "lib/classes/OEmbedProvider.js~OEmbedProvider#makeAPIRequest",
     "access": null,
     "description": "Makes the requests to the oembed provider's API",
-    "lineNumber": 71,
+    "lineNumber": 74,
     "params": [
       {
         "nullable": null,
@@ -1201,7 +1167,7 @@
     "generator": false
   },
   {
-    "__docId__": 54,
+    "__docId__": 52,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -1210,7 +1176,7 @@
     "longname": "lib/classes/OEmbedProvider.js~OEmbedProvider#_applyErrorToEmbed",
     "access": null,
     "description": "Puts the Embed into an error state if an error occurs",
-    "lineNumber": 126,
+    "lineNumber": 128,
     "params": [
       {
         "nullable": null,
@@ -1246,7 +1212,7 @@
     "generator": false
   },
   {
-    "__docId__": 55,
+    "__docId__": 53,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -1255,7 +1221,7 @@
     "longname": "lib/classes/OEmbedProvider.js~OEmbedProvider#parseResponseBody",
     "access": null,
     "description": "Parses the provider API response into a data object",
-    "lineNumber": 139,
+    "lineNumber": 141,
     "params": [
       {
         "nullable": null,
@@ -1281,7 +1247,7 @@
     "generator": false
   },
   {
-    "__docId__": 56,
+    "__docId__": 54,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -1290,7 +1256,7 @@
     "longname": "lib/classes/OEmbedProvider.js~OEmbedProvider#buildAPIURL",
     "access": null,
     "description": "Builds the API URL string",
-    "lineNumber": 175,
+    "lineNumber": 177,
     "params": [
       {
         "nullable": null,
@@ -1314,7 +1280,7 @@
     "generator": false
   },
   {
-    "__docId__": 57,
+    "__docId__": 55,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -1326,7 +1292,7 @@
     "see": [
       "https://www.npmjs.com/package/request"
     ],
-    "lineNumber": 197,
+    "lineNumber": 199,
     "params": [
       {
         "nullable": null,
@@ -1350,7 +1316,7 @@
     "generator": false
   },
   {
-    "__docId__": 58,
+    "__docId__": 56,
     "kind": "member",
     "static": false,
     "variation": null,
@@ -1359,7 +1325,7 @@
     "longname": "lib/classes/OEmbedProvider.js~OEmbedProvider#version",
     "access": null,
     "description": null,
-    "lineNumber": 201,
+    "lineNumber": 203,
     "undocument": true,
     "type": {
       "types": [
@@ -1368,7 +1334,7 @@
     }
   },
   {
-    "__docId__": 59,
+    "__docId__": 57,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -1377,7 +1343,7 @@
     "longname": "lib/classes/OEmbedProvider.js~OEmbedProvider#convertHighBitUnicodeToSurrogates",
     "access": null,
     "description": "Converts high-bit-value escaped unicode code points to unicode surrogate pair code points.\n\nJSON.parse yields a parse error when it encounters unicode literals > 16-bits.\nNotably, many newer emojis fall into this category.\n\nTo solve for this you need to split the > 16-bit unicode escapedcode point into surrogate pairs.\n\nGreat and entertaining explaination here:\n{@link https://gist.github.com/mranney/1707371}\n\nAlgorithm for calculating surrogate pairs cribbed from here:\n{@link http://www.russellcottrell.com/greek/utilities/surrogatepaircalculator.htm}",
-    "lineNumber": 230,
+    "lineNumber": 232,
     "params": [
       {
         "nullable": null,
@@ -1401,7 +1367,7 @@
     "generator": false
   },
   {
-    "__docId__": 60,
+    "__docId__": 58,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -1410,7 +1376,7 @@
     "longname": "lib/classes/OEmbedProvider.js~OEmbedProvider#configure",
     "access": null,
     "description": "Configures the provider",
-    "lineNumber": 245,
+    "lineNumber": 247,
     "params": [
       {
         "nullable": null,
@@ -1437,7 +1403,7 @@
     "generator": false
   },
   {
-    "__docId__": 61,
+    "__docId__": 59,
     "kind": "member",
     "static": false,
     "variation": null,
@@ -1446,7 +1412,7 @@
     "longname": "lib/classes/OEmbedProvider.js~OEmbedProvider#timeoutMs",
     "access": null,
     "description": null,
-    "lineNumber": 247,
+    "lineNumber": 249,
     "undocument": true,
     "type": {
       "types": [
@@ -1455,7 +1421,7 @@
     }
   },
   {
-    "__docId__": 62,
+    "__docId__": 60,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -1465,31 +1431,10 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "'use strict';\n\n/** @ignore */\nlet EmbedValidationError = require('./errors/EmbedValidationError');\n\n/**\n* Converts a pattern of URLs into markup\n* @interface\n*/\nclass URLEmbedProvider {\n  /**\n  * @param {Array<RegExp>} urlPatterns - array of regular expressions that this provider will match\n  */\n  constructor (urlPatterns) {\n    /**\n    * Array of regular expressions that this provider will match\n    * @type {Array<RegExp>}\n    */\n    if (urlPatterns) this.urlPatterns = urlPatterns;\n  }\n\n  /**\n  * Determines if a given URL matches this provider\n  * @param {String} embedURL - URL to embed\n  * @return {boolean}\n  */\n  isMatch (embedURL) {\n    let matches = false;\n    for (let idx = 0; idx < this.urlPatterns.length; idx++) {\n      if (embedURL.match(this.urlPatterns[idx])) {\n        matches = true;\n        idx = this.urlPatterns.length;\n      }\n    }\n    return matches;\n  }\n\n  /**\n  * Resolves options.embedURL to an embed and passes it to callback.\n  * @param {Embed} embed - Embed object\n  * @param {function(error: Error, data: Object)} callback - callback to invoke after resolving embed\n  */\n  getEmbed (embed, callback) {\n    try {\n      this.filterData(embed.data);\n      callback(embed);\n    } catch (error) {\n      embed.error = error;\n      embed.data = {\n        html: this.errorMarkup(embed)\n      };\n      callback(embed);\n    }\n  }\n\n  /**\n  * Can be overridden/replaced to modify a specific provider's data before it is passed to the client callback.<br />\n  * @param {{html: String}} data - Data object containing embed html\n  */\n  filterData (data) {}\n\n  /**\n  * Returns markup if an error occurs resolving the embed\n  * @param {Embed} embed - Embed object\n  */\n  errorMarkup (embed) {\n    return '<a href=\"' + embed.embedURL + '\">' + embed.embedURL + '</a>';\n  }\n\n  /**\n  * Stub method caled by EmbedEngine. Can be overridden.\n  * @param {Object} engineOptions\n  */\n  configure (engineOptions) {\n\n  }\n}\n\nmodule.exports = URLEmbedProvider;\n"
+    "content": "'use strict';\n\n/**\n* Converts a pattern of URLs into markup\n* @interface\n*/\nclass URLEmbedProvider {\n  /**\n  * @param {Array<RegExp>} urlPatterns - array of regular expressions that this provider will match\n  */\n  constructor (urlPatterns) {\n    /**\n    * Array of regular expressions that this provider will match\n    * @type {Array<RegExp>}\n    */\n    if (urlPatterns) this.urlPatterns = urlPatterns;\n  }\n\n  /**\n  * Determines if a given URL matches this provider\n  * @param {String} embedURL - URL to embed\n  * @return {boolean}\n  */\n  isMatch (embedURL) {\n    let matches = false;\n    for (let idx = 0; idx < this.urlPatterns.length; idx++) {\n      if (embedURL.match(this.urlPatterns[idx])) {\n        matches = true;\n        idx = this.urlPatterns.length;\n      }\n    }\n    return matches;\n  }\n\n  /**\n  * Resolves options.embedURL to an embed and passes it to callback.\n  * @param {Embed} embed - Embed object\n  * @param {function(error: Error, data: Object)} callback - callback to invoke after resolving embed\n  */\n  getEmbed (embed, callback) {\n    try {\n      this.filterData(embed.data);\n      callback(embed);\n    } catch (error) {\n      embed.error = error;\n      embed.data = {\n        html: this.errorMarkup(embed)\n      };\n      callback(embed);\n    }\n  }\n\n  /**\n  * Can be overridden/replaced to modify a specific provider's data before it is passed to the client callback.<br />\n  * @param {{html: String}} data - Data object containing embed html\n  */\n  filterData (data) {}\n\n  /**\n  * Returns markup if an error occurs resolving the embed\n  * @param {Embed} embed - Embed object\n  */\n  errorMarkup (embed) {\n    return '<a href=\"' + embed.embedURL + '\">' + embed.embedURL + '</a>';\n  }\n\n  /**\n  * Stub method caled by EmbedEngine. Can be overridden.\n  * @param {Object} engineOptions\n  */\n  configure (engineOptions) {\n\n  }\n}\n\nmodule.exports = URLEmbedProvider;\n"
   },
   {
-    "__docId__": 63,
-    "kind": "variable",
-    "static": true,
-    "variation": null,
-    "name": "EmbedValidationError",
-    "memberof": "lib/classes/URLEmbedProvider.js",
-    "longname": "lib/classes/URLEmbedProvider.js~EmbedValidationError",
-    "access": null,
-    "export": false,
-    "importPath": "url-embed/lib/classes/URLEmbedProvider.js",
-    "importStyle": null,
-    "description": null,
-    "lineNumber": 4,
-    "ignore": true,
-    "type": {
-      "types": [
-        "*"
-      ]
-    }
-  },
-  {
-    "__docId__": 64,
+    "__docId__": 61,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -1501,11 +1446,11 @@
     "importPath": "url-embed/lib/classes/URLEmbedProvider.js",
     "importStyle": "URLEmbedProvider",
     "description": "Converts a pattern of URLs into markup",
-    "lineNumber": 10,
+    "lineNumber": 7,
     "interface": true
   },
   {
-    "__docId__": 65,
+    "__docId__": 62,
     "kind": "constructor",
     "static": false,
     "variation": null,
@@ -1514,7 +1459,7 @@
     "longname": "lib/classes/URLEmbedProvider.js~URLEmbedProvider#constructor",
     "access": null,
     "description": "",
-    "lineNumber": 14,
+    "lineNumber": 11,
     "params": [
       {
         "nullable": null,
@@ -1530,7 +1475,7 @@
     "generator": false
   },
   {
-    "__docId__": 66,
+    "__docId__": 63,
     "kind": "member",
     "static": false,
     "variation": null,
@@ -1539,7 +1484,7 @@
     "longname": "lib/classes/URLEmbedProvider.js~URLEmbedProvider#urlPatterns",
     "access": null,
     "description": null,
-    "lineNumber": 19,
+    "lineNumber": 16,
     "undocument": true,
     "type": {
       "types": [
@@ -1548,7 +1493,7 @@
     }
   },
   {
-    "__docId__": 67,
+    "__docId__": 64,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -1557,7 +1502,7 @@
     "longname": "lib/classes/URLEmbedProvider.js~URLEmbedProvider#isMatch",
     "access": null,
     "description": "Determines if a given URL matches this provider",
-    "lineNumber": 27,
+    "lineNumber": 24,
     "params": [
       {
         "nullable": null,
@@ -1581,7 +1526,7 @@
     "generator": false
   },
   {
-    "__docId__": 68,
+    "__docId__": 65,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -1590,7 +1535,7 @@
     "longname": "lib/classes/URLEmbedProvider.js~URLEmbedProvider#getEmbed",
     "access": null,
     "description": "Resolves options.embedURL to an embed and passes it to callback.",
-    "lineNumber": 43,
+    "lineNumber": 40,
     "params": [
       {
         "nullable": null,
@@ -1616,7 +1561,7 @@
     "generator": false
   },
   {
-    "__docId__": 69,
+    "__docId__": 66,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -1625,7 +1570,7 @@
     "longname": "lib/classes/URLEmbedProvider.js~URLEmbedProvider#filterData",
     "access": null,
     "description": "Can be overridden/replaced to modify a specific provider's data before it is passed to the client callback.<br />",
-    "lineNumber": 60,
+    "lineNumber": 57,
     "params": [
       {
         "nullable": null,
@@ -1641,7 +1586,7 @@
     "generator": false
   },
   {
-    "__docId__": 70,
+    "__docId__": 67,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -1650,7 +1595,7 @@
     "longname": "lib/classes/URLEmbedProvider.js~URLEmbedProvider#errorMarkup",
     "access": null,
     "description": "Returns markup if an error occurs resolving the embed",
-    "lineNumber": 66,
+    "lineNumber": 63,
     "params": [
       {
         "nullable": null,
@@ -1671,7 +1616,7 @@
     "generator": false
   },
   {
-    "__docId__": 71,
+    "__docId__": 68,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -1680,7 +1625,7 @@
     "longname": "lib/classes/URLEmbedProvider.js~URLEmbedProvider#configure",
     "access": null,
     "description": "Stub method caled by EmbedEngine. Can be overridden.",
-    "lineNumber": 74,
+    "lineNumber": 71,
     "params": [
       {
         "nullable": null,
@@ -1696,7 +1641,7 @@
     "generator": false
   },
   {
-    "__docId__": 72,
+    "__docId__": 69,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -1709,7 +1654,7 @@
     "content": "'use strict';\n\n/** @ignore */\nlet OEmbedProvider = require('../OEmbedProvider');\n\n/**\n  DailyMotion embed provider\n  @see https://core.trac.wordpress.org/browser/tags/4.4.2/src/wp-includes/class-oembed.php\n*/\nclass DailyMotion extends OEmbedProvider {}\n\nDailyMotion.prototype.name = 'dailymotion';\nDailyMotion.prototype.providerURL = 'https://www.dailymotion.com/services/oembed';\nDailyMotion.prototype.urlPatterns = ['^http://dai.ly/.*', '^https?://(www\\.)?dailymotion\\.com/.*'];\nDailyMotion.prototype.format = 'json';\n\nmodule.exports = DailyMotion;\n"
   },
   {
-    "__docId__": 73,
+    "__docId__": 70,
     "kind": "variable",
     "static": true,
     "variation": null,
@@ -1730,7 +1675,7 @@
     }
   },
   {
-    "__docId__": 74,
+    "__docId__": 71,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -1752,7 +1697,7 @@
     ]
   },
   {
-    "__docId__": 75,
+    "__docId__": 72,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -1765,7 +1710,7 @@
     "content": "'use strict';\n\n/** @ignore */\nlet OEmbedProvider = require('../OEmbedProvider');\n\n/**\n  FacebookPosts embed provider\n  @see https://developers.facebook.com/docs/plugins/oembed-endpoints\n*/\nclass FacebookPosts extends OEmbedProvider {}\n\nFacebookPosts.prototype.name = 'facebook_posts';\nFacebookPosts.prototype.providerURL = 'https://www.facebook.com/plugins/post/oembed.json/';\nFacebookPosts.prototype.urlPatterns = [\n  '^https://www.facebook.com/[^/]+/posts/.*',\n  '^https://www.facebook.com/[^/]+/activity/.*',\n  '^https://www.facebook.com/photo.php?fbid=.*',\n  '^https://www.facebook.com/photos/.*',\n  '^https://www.facebook.com/permalink.php?story_fbid=.*',\n  '^https://www.facebook.com/media/set?set=.*',\n  '^https://www.facebook.com/questions/.*',\n  '^https://www.facebook.com/notes/.*'\n];\nFacebookPosts.prototype.format = 'json';\n\nmodule.exports = FacebookPosts;\n"
   },
   {
-    "__docId__": 76,
+    "__docId__": 73,
     "kind": "variable",
     "static": true,
     "variation": null,
@@ -1786,7 +1731,7 @@
     }
   },
   {
-    "__docId__": 77,
+    "__docId__": 74,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -1808,7 +1753,7 @@
     ]
   },
   {
-    "__docId__": 78,
+    "__docId__": 75,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -1821,7 +1766,7 @@
     "content": "'use strict';\n\n/** @ignore */\nlet OEmbedProvider = require('../OEmbedProvider');\n\n/**\n  FacebookVideo embed provider\n  @see https://developers.facebook.com/docs/plugins/oembed-endpoints\n*/\nclass FacebookVideo extends OEmbedProvider {}\n\nFacebookVideo.prototype.name = 'facebook_video';\nFacebookVideo.prototype.providerURL = 'https://www.facebook.com/plugins/video/oembed.json/';\nFacebookVideo.prototype.urlPatterns = [\n  '^https://www.facebook.com/[^/]+/videos/.*',\n  '^https://www.facebook.com/video.php?id=.*',\n  '^https://www.facebook.com/video.php?v=.*'\n];\nFacebookVideo.prototype.format = 'json';\nmodule.exports = FacebookVideo;\n"
   },
   {
-    "__docId__": 79,
+    "__docId__": 76,
     "kind": "variable",
     "static": true,
     "variation": null,
@@ -1842,7 +1787,7 @@
     }
   },
   {
-    "__docId__": 80,
+    "__docId__": 77,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -1864,7 +1809,7 @@
     ]
   },
   {
-    "__docId__": 81,
+    "__docId__": 78,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -1877,7 +1822,7 @@
     "content": "'use strict';\n\n/** @ignore */\nlet OEmbedProvider = require('../OEmbedProvider');\n\n/**\n  Flickr embed provider\n  @see https://core.trac.wordpress.org/browser/tags/4.4.2/src/wp-includes/class-oembed.php\n*/\nclass Flickr extends OEmbedProvider {}\n\nFlickr.prototype.name = 'flickr';\nFlickr.prototype.providerURL = 'https://www.flickr.com/services/oembed/';\nFlickr.prototype.urlPatterns = ['^https?://(www\\.)?flickr\\.com/.*', 'https?://flic\\.kr/.*'];\nFlickr.prototype.format = 'json';\n\nmodule.exports = Flickr;\n"
   },
   {
-    "__docId__": 82,
+    "__docId__": 79,
     "kind": "variable",
     "static": true,
     "variation": null,
@@ -1898,7 +1843,7 @@
     }
   },
   {
-    "__docId__": 83,
+    "__docId__": 80,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -1920,7 +1865,7 @@
     ]
   },
   {
-    "__docId__": 84,
+    "__docId__": 81,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -1933,7 +1878,7 @@
     "content": "'use strict';\n\n/** @ignore */\nlet OEmbedProvider = require('../OEmbedProvider');\n\n/**\n  Imgur embed provider\n  @see https://core.trac.wordpress.org/browser/tags/4.4.2/src/wp-includes/class-oembed.php\n*/\nclass Imgur extends OEmbedProvider {}\n\nImgur.prototype.name = 'imgur';\nImgur.prototype.providerURL = 'http://api.imgur.com/oembed';\nImgur.prototype.urlPatterns = ['^https?://(.+\\.)?imgur\\.com/.*'];\nImgur.prototype.format = 'json';\nmodule.exports = Imgur;\n"
   },
   {
-    "__docId__": 85,
+    "__docId__": 82,
     "kind": "variable",
     "static": true,
     "variation": null,
@@ -1954,7 +1899,7 @@
     }
   },
   {
-    "__docId__": 86,
+    "__docId__": 83,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -1976,7 +1921,7 @@
     ]
   },
   {
-    "__docId__": 87,
+    "__docId__": 84,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -1989,7 +1934,7 @@
     "content": "'use strict';\n\n/** @ignore */\nlet OEmbedProvider = require('../OEmbedProvider');\n\n/**\n  Instagram embed provider\n  @see https://core.trac.wordpress.org/browser/tags/4.4.2/src/wp-includes/class-oembed.php\n*/\nclass Instagram extends OEmbedProvider {}\n\nInstagram.prototype.name = 'instagram';\nInstagram.prototype.providerURL = 'https://api.instagram.com/oembed';\nInstagram.prototype.urlPatterns = ['^https?://(www\\.)?instagr(\\.am|am\\.com)/p/.*'];\nInstagram.prototype.format = 'json';\nmodule.exports = Instagram;\n\n"
   },
   {
-    "__docId__": 88,
+    "__docId__": 85,
     "kind": "variable",
     "static": true,
     "variation": null,
@@ -2010,7 +1955,7 @@
     }
   },
   {
-    "__docId__": 89,
+    "__docId__": 86,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -2032,7 +1977,7 @@
     ]
   },
   {
-    "__docId__": 90,
+    "__docId__": 87,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -2045,7 +1990,7 @@
     "content": "'use strict';\n\n/** @ignore */\nlet OEmbedProvider = require('../OEmbedProvider');\n\n/**\n  SoundCloud embed provider\n  @see https://core.trac.wordpress.org/browser/tags/4.4.2/src/wp-includes/class-oembed.php\n*/\nclass SoundCloud extends OEmbedProvider {}\n\nSoundCloud.prototype.name = 'soundcloud';\nSoundCloud.prototype.providerURL = 'http://soundcloud.com/oembed';\nSoundCloud.prototype.urlPatterns = ['^https?://(www\\.)?soundcloud\\.com/.*'];\nSoundCloud.prototype.format = 'json';\nmodule.exports = SoundCloud;\n"
   },
   {
-    "__docId__": 91,
+    "__docId__": 88,
     "kind": "variable",
     "static": true,
     "variation": null,
@@ -2066,7 +2011,7 @@
     }
   },
   {
-    "__docId__": 92,
+    "__docId__": 89,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -2088,7 +2033,7 @@
     ]
   },
   {
-    "__docId__": 93,
+    "__docId__": 90,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -2101,7 +2046,7 @@
     "content": "'use strict';\n\n/** @ignore */\nlet OEmbedProvider = require('../OEmbedProvider');\n\n/**\n  Spotify embed provider\n  @see https://core.trac.wordpress.org/browser/tags/4.4.2/src/wp-includes/class-oembed.php\n*/\nclass Spotify extends OEmbedProvider {}\n\nSpotify.prototype.name = 'spotify';\nSpotify.prototype.providerURL = 'https://embed.spotify.com/oembed/';\nSpotify.prototype.urlPatterns = ['^https?://(open|play)\\.spotify\\.com/.*'];\nSpotify.prototype.format = 'json';\nmodule.exports = Spotify;\n"
   },
   {
-    "__docId__": 94,
+    "__docId__": 91,
     "kind": "variable",
     "static": true,
     "variation": null,
@@ -2122,7 +2067,7 @@
     }
   },
   {
-    "__docId__": 95,
+    "__docId__": 92,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -2144,7 +2089,7 @@
     ]
   },
   {
-    "__docId__": 96,
+    "__docId__": 93,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -2157,7 +2102,7 @@
     "content": "'use strict';\n\n/** @ignore */\nlet OEmbedProvider = require('../OEmbedProvider');\n\n/**\n  Tumblr embed provider\n  @see https://core.trac.wordpress.org/browser/tags/4.4.2/src/wp-includes/class-oembed.php\n*/\nclass Tumblr extends OEmbedProvider {}\n\nTumblr.prototype.name = 'tumblr';\nTumblr.prototype.providerURL = 'https://www.tumblr.com/oembed/1.0';\nTumblr.prototype.urlPatterns = ['^https?://(.+)\\.tumblr\\.com/post/.*'];\nTumblr.prototype.format = 'json';\nmodule.exports = Tumblr;\n"
   },
   {
-    "__docId__": 97,
+    "__docId__": 94,
     "kind": "variable",
     "static": true,
     "variation": null,
@@ -2178,7 +2123,7 @@
     }
   },
   {
-    "__docId__": 98,
+    "__docId__": 95,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -2200,7 +2145,7 @@
     ]
   },
   {
-    "__docId__": 99,
+    "__docId__": 96,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -2213,7 +2158,7 @@
     "content": "'use strict';\n\n/** @ignore */\nlet OEmbedProvider = require('../OEmbedProvider');\n\n/**\n  Twitter embed provider\n  @see https://core.trac.wordpress.org/browser/tags/4.4.2/src/wp-includes/class-oembed.php\n*/\nclass Twitter extends OEmbedProvider {}\n\nTwitter.prototype.name = 'twitter';\nTwitter.prototype.providerURL = 'https://api.twitter.com/1/statuses/oembed.json';\nTwitter.prototype.urlPatterns = ['^https?://(www\\.)?twitter\\.com/.+?/status(es)?/.*'];\nTwitter.prototype.format = 'json';\nmodule.exports = Twitter;\n"
   },
   {
-    "__docId__": 100,
+    "__docId__": 97,
     "kind": "variable",
     "static": true,
     "variation": null,
@@ -2234,7 +2179,7 @@
     }
   },
   {
-    "__docId__": 101,
+    "__docId__": 98,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -2256,7 +2201,7 @@
     ]
   },
   {
-    "__docId__": 102,
+    "__docId__": 99,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -2269,7 +2214,7 @@
     "content": "'use strict';\n\n/** @ignore */\nlet OEmbedProvider = require('../OEmbedProvider');\n\n/**\n  Videopress embed provider\n  @see https://core.trac.wordpress.org/browser/tags/4.4.2/src/wp-includes/class-oembed.php\n*/\nclass Videopress extends OEmbedProvider {\n  /**\n    Configures the provider.\n\n    Annoyingly Videopress requires a 'for' querystring parameter containing the name of the referring site.\n\n    @param {Object} engineOptions\n    @param {number} engineOptions.timeoutMs - Request timeout in milliseconds.\n    @override\n  */\n  configure (engineOptions) {\n    super.configure(engineOptions);\n\n    /**\n      @type {Object}\n      @override\n    */\n    this.defaultProviderQueryStringParameters = {\n      for: (engineOptions && engineOptions.referrer) ? engineOptions.referrer : 'www.example.com'\n    };\n  }\n}\n\nVideopress.prototype.name = 'videopress';\nVideopress.prototype.providerURL = 'https://public-api.wordpress.com/oembed/1.0/';\nVideopress.prototype.urlPatterns = ['^https?://videopress.com/v/.*'];\nVideopress.prototype.format = 'json';\n\nmodule.exports = Videopress;\n"
   },
   {
-    "__docId__": 103,
+    "__docId__": 100,
     "kind": "variable",
     "static": true,
     "variation": null,
@@ -2290,7 +2235,7 @@
     }
   },
   {
-    "__docId__": 104,
+    "__docId__": 101,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -2312,7 +2257,7 @@
     ]
   },
   {
-    "__docId__": 105,
+    "__docId__": 102,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -2348,7 +2293,7 @@
     "generator": false
   },
   {
-    "__docId__": 106,
+    "__docId__": 103,
     "kind": "member",
     "static": false,
     "variation": null,
@@ -2369,7 +2314,7 @@
     "override": true
   },
   {
-    "__docId__": 107,
+    "__docId__": 104,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -2382,7 +2327,7 @@
     "content": "'use strict';\n\n/** @ignore */\nlet OEmbedProvider = require('../OEmbedProvider');\n\n/**\n  Vimeo embed provider\n  @see https://core.trac.wordpress.org/browser/tags/4.4.2/src/wp-includes/class-oembed.php\n*/\nclass Vimeo extends OEmbedProvider {}\n\nVimeo.prototype.name = 'vimeo';\nVimeo.prototype.providerURL = 'https://vimeo.com/api/oembed.json';\nVimeo.prototype.urlPatterns = ['^https?://(.+\\.)?vimeo\\.com/.*'];\n\nmodule.exports = Vimeo;\n"
   },
   {
-    "__docId__": 108,
+    "__docId__": 105,
     "kind": "variable",
     "static": true,
     "variation": null,
@@ -2403,7 +2348,7 @@
     }
   },
   {
-    "__docId__": 109,
+    "__docId__": 106,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -2425,7 +2370,7 @@
     ]
   },
   {
-    "__docId__": 110,
+    "__docId__": 107,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -2438,7 +2383,7 @@
     "content": "'use strict';\n\n/** @ignore */\nlet OEmbedProvider = require('../OEmbedProvider');\n\n/**\n  Youtube embed provider\n  @see https://core.trac.wordpress.org/browser/tags/4.4.2/src/wp-includes/class-oembed.php\n*/\nclass Youtube extends OEmbedProvider {}\n\nYoutube.prototype.name = 'youtube';\nYoutube.prototype.providerURL = 'http://www.youtube.com/oembed';\nYoutube.prototype.urlPatterns = [\n  '^http(?:s)?://(?:[-\\\\w]+\\\\.)?youtube\\\\.com/watch.+$',\n  '^http(?:s)?://(?:[-\\\\w]+\\\\.)?youtube\\\\.com/v/.+$',\n  '^http(?:s)?://youtu\\\\.be/.+$',\n  '^http(?:s)?://(?:[-\\\\w]+\\\\.)?youtube\\\\.com/user/.+$',\n  '^http(?:s)?://(?:[-\\\\w]+\\\\.)?youtube\\\\.com/[^#?/]+#[^#?/]+/.+$',\n  '^http(?:s)?://m\\\\.youtube\\\\.com/index.+$',\n  '^http(?:s)?://(?:[-\\\\w]+\\\\.)?youtube\\\\.com/profile.+$',\n  '^http(?:s)?://(?:[-\\\\w]+\\\\.)?youtube\\\\.com/view_play_list.+$',\n  '^http(?:s)?://(?:[-\\\\w]+\\\\.)?youtube\\\\.com/playlist.+$'\n];\nYoutube.prototype.format = 'json';\nmodule.exports = Youtube;\n"
   },
   {
-    "__docId__": 111,
+    "__docId__": 108,
     "kind": "variable",
     "static": true,
     "variation": null,
@@ -2459,7 +2404,7 @@
     }
   },
   {
-    "__docId__": 112,
+    "__docId__": 109,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -2481,7 +2426,7 @@
     ]
   },
   {
-    "__docId__": 113,
+    "__docId__": 110,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -2494,7 +2439,7 @@
     "content": "'use strict';\n\n/**\n* Error occurs when an Embed object fails validation.\n*/\nclass EmbedValidationError extends Error {}\n\nmodule.exports = EmbedValidationError;\n"
   },
   {
-    "__docId__": 114,
+    "__docId__": 111,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -2513,7 +2458,7 @@
     ]
   },
   {
-    "__docId__": 115,
+    "__docId__": 112,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -2526,7 +2471,7 @@
     "content": "'use strict';\n\n/**\n* Error occurs when an HTTP request resulted in a non 200 response.\n*/\nclass UnexpectedStatusError extends Error {\n  /**\n  * @param {String} message - Error message\n  * @param {String} fileName - File where error was thrown.\n  * @param {number} lineNumber - Line nunmber where error was thrown.\n  * @override\n  */\n  constructor (message, fileName, lineNumber) {\n    super(message, fileName, lineNumber);\n\n    /**\n    * HTTP status code\n    * @type {number}\n    */\n    this.status = 0;\n  }\n}\n\nmodule.exports = UnexpectedStatusError;\n"
   },
   {
-    "__docId__": 116,
+    "__docId__": 113,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -2545,7 +2490,7 @@
     ]
   },
   {
-    "__docId__": 117,
+    "__docId__": 114,
     "kind": "constructor",
     "static": false,
     "variation": null,
@@ -2591,7 +2536,7 @@
     "generator": false
   },
   {
-    "__docId__": 118,
+    "__docId__": 115,
     "kind": "member",
     "static": false,
     "variation": null,
@@ -2611,7 +2556,7 @@
     }
   },
   {
-    "__docId__": 119,
+    "__docId__": 116,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -2624,7 +2569,7 @@
     "content": "'use strict';\n\n/**\n* Error occurs when a provider cannot not be found for the given URL.\n*/\nclass UnknownProviderError extends Error {}\n\nmodule.exports = UnknownProviderError;\n"
   },
   {
-    "__docId__": 120,
+    "__docId__": 117,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -2643,7 +2588,7 @@
     ]
   },
   {
-    "__docId__": 121,
+    "__docId__": 118,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -2656,7 +2601,7 @@
     "content": "'use strict';\n\n/** @ignore */\nlet fs = require('fs');\n\n/**\n* Utility Library\n*/\nmodule.exports = {\n  /**\n  * Requires in all class files in a directory\n  * @param {String} [path] - path containing classes\n  */\n  loadClassesFromDirectory: function (path) {\n    let classes = [];\n\n    let files = fs.readdirSync(path);\n    for (let i = 0; i < files.length; i++) {\n      let clazz = require(path + '/' + files[i]);\n      classes.push(clazz);\n    }\n\n    return classes;\n  }\n};\n"
   },
   {
-    "__docId__": 122,
+    "__docId__": 119,
     "kind": "variable",
     "static": true,
     "variation": null,
@@ -2677,7 +2622,7 @@
     }
   },
   {
-    "__docId__": 124,
+    "__docId__": 121,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2690,7 +2635,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 125,
+    "__docId__": 122,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2703,7 +2648,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 126,
+    "__docId__": 123,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2716,7 +2661,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 127,
+    "__docId__": 124,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2729,7 +2674,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 128,
+    "__docId__": 125,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2742,7 +2687,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 129,
+    "__docId__": 126,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2755,7 +2700,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 130,
+    "__docId__": 127,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2768,7 +2713,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 131,
+    "__docId__": 128,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2781,7 +2726,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 132,
+    "__docId__": 129,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2794,7 +2739,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 133,
+    "__docId__": 130,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2807,7 +2752,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 134,
+    "__docId__": 131,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2820,7 +2765,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 135,
+    "__docId__": 132,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2833,7 +2778,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 136,
+    "__docId__": 133,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2846,7 +2791,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 137,
+    "__docId__": 134,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2859,7 +2804,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 138,
+    "__docId__": 135,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2872,7 +2817,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 139,
+    "__docId__": 136,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2885,7 +2830,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 140,
+    "__docId__": 137,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2898,7 +2843,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 141,
+    "__docId__": 138,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2911,7 +2856,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 142,
+    "__docId__": 139,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2924,7 +2869,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 143,
+    "__docId__": 140,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2937,7 +2882,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 144,
+    "__docId__": 141,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2950,7 +2895,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 145,
+    "__docId__": 142,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2963,7 +2908,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 146,
+    "__docId__": 143,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2976,7 +2921,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 147,
+    "__docId__": 144,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2989,7 +2934,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 148,
+    "__docId__": 145,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3002,7 +2947,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 149,
+    "__docId__": 146,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3015,7 +2960,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 150,
+    "__docId__": 147,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3028,7 +2973,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 151,
+    "__docId__": 148,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3041,7 +2986,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 152,
+    "__docId__": 149,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3054,7 +2999,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 153,
+    "__docId__": 150,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3067,7 +3012,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 154,
+    "__docId__": 151,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3080,7 +3025,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 155,
+    "__docId__": 152,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3093,7 +3038,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 156,
+    "__docId__": 153,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3106,7 +3051,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 157,
+    "__docId__": 154,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3119,7 +3064,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 158,
+    "__docId__": 155,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3132,7 +3077,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 159,
+    "__docId__": 156,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3145,7 +3090,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 160,
+    "__docId__": 157,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3158,7 +3103,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 161,
+    "__docId__": 158,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3171,7 +3116,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 162,
+    "__docId__": 159,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3184,7 +3129,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 163,
+    "__docId__": 160,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3197,7 +3142,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 164,
+    "__docId__": 161,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3210,7 +3155,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 165,
+    "__docId__": 162,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3223,7 +3168,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 166,
+    "__docId__": 163,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3236,7 +3181,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 167,
+    "__docId__": 164,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3249,7 +3194,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 168,
+    "__docId__": 165,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3262,7 +3207,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 169,
+    "__docId__": 166,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3275,7 +3220,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 170,
+    "__docId__": 167,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3288,7 +3233,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 172,
+    "__docId__": 169,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3301,7 +3246,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 173,
+    "__docId__": 170,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3314,7 +3259,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 174,
+    "__docId__": 171,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3327,7 +3272,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 175,
+    "__docId__": 172,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3340,7 +3285,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 176,
+    "__docId__": 173,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3353,7 +3298,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 177,
+    "__docId__": 174,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3366,7 +3311,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 178,
+    "__docId__": 175,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3379,7 +3324,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 179,
+    "__docId__": 176,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3392,7 +3337,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 180,
+    "__docId__": 177,
     "kind": "testFile",
     "static": true,
     "variation": null,
@@ -3405,7 +3350,7 @@
     "content": "'use strict';\n\nlet assert = (require('chai')).assert;\nlet Embed = require('../../../lib/classes/Embed.js');\nlet embedURL = 'http://www.example.com/foo';\nlet embedOptions = {\n  foo: 'bar'\n};\nlet embed;\n\ndescribe('Embed', function() {\n  beforeEach(function () {\n    embed = new Embed(embedURL, embedOptions);\n  });\n  describe('Embed#constructor', function() {\n    it('embedURL should be set', function() {\n      assert.equal(embedURL, embed.embedURL);\n    });\n    it('options should be set', function() {\n      assert.equal(embedOptions, embed.options);\n    });\n  });\n  describe('Embed#markStarted', function() {\n    it('embed.startedDate should be a Date object ', function() {\n      embed.markStarted();\n      assert.instanceOf(embed.startedDate, Date);\n    });\n  });\n  describe('Embed#markFinished', function() {\n    it('embed.finishedDate should be a Date object', function() {\n      embed.markStarted();\n      embed.markFinished();\n      assert.instanceOf(embed.finishedDate, Date);\n    });\n    it('embed.elapsedMs should be a number', function() {\n      embed.markStarted();\n      embed.markFinished();\n      assert.isNumber(embed.elapsedMs);\n    });\n  });\n});"
   },
   {
-    "__docId__": 181,
+    "__docId__": 178,
     "kind": "testDescribe",
     "static": true,
     "variation": null,
@@ -3419,7 +3364,7 @@
     "lineNumber": 11
   },
   {
-    "__docId__": 182,
+    "__docId__": 179,
     "kind": "testDescribe",
     "static": true,
     "variation": null,
@@ -3433,7 +3378,7 @@
     "lineNumber": 15
   },
   {
-    "__docId__": 183,
+    "__docId__": 180,
     "kind": "testIt",
     "static": true,
     "variation": null,
@@ -3447,7 +3392,7 @@
     "lineNumber": 16
   },
   {
-    "__docId__": 184,
+    "__docId__": 181,
     "kind": "testIt",
     "static": true,
     "variation": null,
@@ -3461,7 +3406,7 @@
     "lineNumber": 19
   },
   {
-    "__docId__": 185,
+    "__docId__": 182,
     "kind": "testDescribe",
     "static": true,
     "variation": null,
@@ -3475,7 +3420,7 @@
     "lineNumber": 23
   },
   {
-    "__docId__": 186,
+    "__docId__": 183,
     "kind": "testIt",
     "static": true,
     "variation": null,
@@ -3489,7 +3434,7 @@
     "lineNumber": 24
   },
   {
-    "__docId__": 187,
+    "__docId__": 184,
     "kind": "testDescribe",
     "static": true,
     "variation": null,
@@ -3503,7 +3448,7 @@
     "lineNumber": 29
   },
   {
-    "__docId__": 188,
+    "__docId__": 185,
     "kind": "testIt",
     "static": true,
     "variation": null,
@@ -3517,7 +3462,7 @@
     "lineNumber": 30
   },
   {
-    "__docId__": 189,
+    "__docId__": 186,
     "kind": "testIt",
     "static": true,
     "variation": null,
@@ -3531,7 +3476,7 @@
     "lineNumber": 35
   },
   {
-    "__docId__": 190,
+    "__docId__": 187,
     "kind": "testFile",
     "static": true,
     "variation": null,
@@ -3544,7 +3489,7 @@
     "content": "'use strict';\n\nlet assert = (require('chai')).assert;\nlet Embed = require('../../../lib/classes/Embed.js');\nlet EmbedEngine = require('../../../lib/classes/EmbedEngine.js');\nlet URLEmbedProvider = require('../../../lib/classes/URLEmbedProvider.js');\nlet YoutubeProvider = require('../../../lib/classes/default_providers/youtube.js');\nlet CustomProvider = require('./support/custom_provider');\nlet engineOptions = {\n  timeoutMs: 3000,\n  referrer: 'www.example.com'\n};\nlet nonMatchingEmbedURL = 'http://www.thiswillfail.com/fail';\nlet matchingEmbedURL = 'https://www.example.com/video/12345';\nlet embedURLs = [\n  matchingEmbedURL,\n  nonMatchingEmbedURL\n];\nlet engine;\n\ndescribe('EmbedEngine', function() {\n  beforeEach(function () {\n    engine = new EmbedEngine(engineOptions);\n  });\n  describe('EmbedEngine#constructor', function() {\n    it('should have a valid engine.engineOptions object', function() {\n      assert.equal(engine.engineOptions, engineOptions);\n    });\n  });\n\n  describe('EmbedEngine#registerDefaultProviders', function() {\n    it('should contain a populated providerRegistry of URLEmbedProvider instances', function() {\n      engine.registerDefaultProviders();\n      assert.isAbove(engine.providerRegistry.length, 0);\n      for (let i = 0; i < engine.providerRegistry.length; i++) {\n        assert.isTrue(engine.providerRegistry[i] instanceof URLEmbedProvider);\n      }\n    });\n  });\n\n  describe('EmbedEngine#registerProvider', function() {\n    it('EmbedEngine.providerRegistry should contain the new provider', function() {\n      let provider = new YoutubeProvider();\n      engine.registerProvider(provider);\n      assert.equal(engine.providerRegistry.length, 1);\n      assert.equal(engine.providerRegistry[0], provider);\n    });\n  });\n\n  describe('EmbedEngine#getEmbed', function() {\n    it('should return markup for an embeddable url', function(done) {\n      let engine = new EmbedEngine(engineOptions);\n      engine.registerProvider(new CustomProvider());\n      engine.getEmbed(new Embed(matchingEmbedURL), function(embed) {\n        assert.match(embed.data.html, /<iframe.*/);\n        done();\n      })\n    });\n  });\n\n  describe('EmbedEngine#getEmbed', function() {\n    it('should call EmbedEngine.errorMarkupNoMatchingProvider for an url without a provider', function(done) {\n      let engine = new EmbedEngine(engineOptions);\n      engine.errorMarkupNoMatchingProvider = function (embed, error, errorMessage) {\n        return 'foo';\n      }\n      engine.getEmbed(new Embed(nonMatchingEmbedURL), function(embed) {\n        assert.equal(embed.data.html, 'foo');\n        done();\n      });\n    });\n  });\n\n  describe('EmbedEngine#getMultipleEmbeds', function() {\n    it('should return the same number of embeds as the original list', function(done) {\n      this.timeout(5000);\n\n      let engine = new EmbedEngine(engineOptions);\n      engine.registerProvider(new CustomProvider());\n\n      let embedArray = [];\n      for (let i = 0; i < embedURLs.length; i++) {\n        let embed = new Embed(embedURLs[i]);\n        embedArray.push(embed);\n      }\n\n      engine.getMultipleEmbeds(embedArray, function(error, results) {\n        assert.equal(embedURLs.length, results.length);\n        done();\n      });\n\n    });\n  });\n});"
   },
   {
-    "__docId__": 191,
+    "__docId__": 188,
     "kind": "testDescribe",
     "static": true,
     "variation": null,
@@ -3558,7 +3503,7 @@
     "lineNumber": 21
   },
   {
-    "__docId__": 192,
+    "__docId__": 189,
     "kind": "testDescribe",
     "static": true,
     "variation": null,
@@ -3572,7 +3517,7 @@
     "lineNumber": 25
   },
   {
-    "__docId__": 193,
+    "__docId__": 190,
     "kind": "testIt",
     "static": true,
     "variation": null,
@@ -3586,7 +3531,7 @@
     "lineNumber": 26
   },
   {
-    "__docId__": 194,
+    "__docId__": 191,
     "kind": "testDescribe",
     "static": true,
     "variation": null,
@@ -3600,7 +3545,7 @@
     "lineNumber": 31
   },
   {
-    "__docId__": 195,
+    "__docId__": 192,
     "kind": "testIt",
     "static": true,
     "variation": null,
@@ -3614,7 +3559,7 @@
     "lineNumber": 32
   },
   {
-    "__docId__": 196,
+    "__docId__": 193,
     "kind": "testDescribe",
     "static": true,
     "variation": null,
@@ -3628,7 +3573,7 @@
     "lineNumber": 41
   },
   {
-    "__docId__": 197,
+    "__docId__": 194,
     "kind": "testIt",
     "static": true,
     "variation": null,
@@ -3642,7 +3587,7 @@
     "lineNumber": 42
   },
   {
-    "__docId__": 198,
+    "__docId__": 195,
     "kind": "testDescribe",
     "static": true,
     "variation": null,
@@ -3656,7 +3601,7 @@
     "lineNumber": 50
   },
   {
-    "__docId__": 199,
+    "__docId__": 196,
     "kind": "testIt",
     "static": true,
     "variation": null,
@@ -3670,7 +3615,7 @@
     "lineNumber": 51
   },
   {
-    "__docId__": 200,
+    "__docId__": 197,
     "kind": "testDescribe",
     "static": true,
     "variation": null,
@@ -3684,7 +3629,7 @@
     "lineNumber": 61
   },
   {
-    "__docId__": 201,
+    "__docId__": 198,
     "kind": "testIt",
     "static": true,
     "variation": null,
@@ -3698,7 +3643,7 @@
     "lineNumber": 62
   },
   {
-    "__docId__": 202,
+    "__docId__": 199,
     "kind": "testDescribe",
     "static": true,
     "variation": null,
@@ -3712,7 +3657,7 @@
     "lineNumber": 74
   },
   {
-    "__docId__": 203,
+    "__docId__": 200,
     "kind": "testIt",
     "static": true,
     "variation": null,
@@ -3726,7 +3671,7 @@
     "lineNumber": 75
   },
   {
-    "__docId__": 204,
+    "__docId__": 201,
     "kind": "testFile",
     "static": true,
     "variation": null,
@@ -3739,7 +3684,7 @@
     "content": "'use strict';\n\nlet assert = (require('chai')).assert;\nlet OEmbedProvider = require('../../../lib/classes/OEmbedProvider.js');\nlet Embed = require('../../../lib/classes/Embed.js');\n\nlet matchingURL = 'http://www.example.com/';\nlet nonMatchingURL = 'http://foo.com/';\nlet urlPatterns = ['^' + matchingURL + '.*'];\nlet providerURL = 'http://api.example.com/oembed';\nlet html = '<iframe src=\"http://www.example.com/iframeedthing\"></iframe>';\nlet failMarkup = '<strong>FAIL</strong>';\nlet body = JSON.stringify({\n  html: html\n});\nlet provider;\nlet embed;\n\nlet mockRequestSuccess = function(requestOptions, callback) {\n  let response = {\n    statusCode : 200,\n    request: {\n      uri : {\n        href : providerURL\n      }\n    }\n  };\n  callback(null, response, body);\n}\n\nlet mockRequestFail = function(requestOptions, callback) {\n  let response = {\n    statusCode : 404,\n    request: {\n      uri : {\n        href : providerURL\n      }\n    }\n  };\n  callback(null, response, 'Thing not found');\n}\n\nclass Provider extends OEmbedProvider {}\n\nProvider.prototype.name = 'testProvider';\nProvider.prototype.providerURL = providerURL;\nProvider.prototype.urlPatterns = urlPatterns;\nProvider.prototype.format = 'json';\n\n/** @test {OEmbedProvider} */\ndescribe('OEmbedProvider', function() {\n  beforeEach(function () {\n    provider = new Provider();\n    embed = new Embed(matchingURL);\n  });\n\n  /** @test {OEmbedProvider#constructor} */\n  describe('URLEmbedProvider#constructor', function() {\n    /** @test {OEmbedProvider#constructor} */\n    it('should contain a urlPatterns property', function() {\n      assert.equal(provider.urlPatterns, urlPatterns);\n    });\n    /** @test {OEmbedProvider#constructor} */\n    it('should contain a providerURL property', function() {\n      assert.equal(provider.providerURL, providerURL);\n    });\n  });\n\n  /** @test {URLEmbedProvider#isMatch} */\n  describe('OEmbedProvider#isMatch', function () {\n    /** @test {URLEmbedProvider#isMatch} */\n    it('should match the provider url', function() {\n      assert.isTrue(provider.isMatch(matchingURL + 'foo/bar'));\n    });\n    \n    /** @test {URLEmbedProvider#isMatch} */\n    it('should fail to match a different url', function() {\n      assert.isFalse(provider.isMatch(nonMatchingURL));\n    });\n  });\n\n  /** @test {OEmbedProvider#getEmbed} */\n  describe('OEmbedProvider#getEmbed', function() {\n\n    /** @test {OEmbedProvider#getEmbed} */\n    it('successful: should return the body markup', function(done) {\n      provider.request = mockRequestSuccess;\n\n      provider.getEmbed(embed, function(embed) {\n        assert.equal(embed.data.html, html);\n        done();\n      });\n    });\n\n    /** @test {URLEmbedProvider#filterData} */\n    it('filterData function should get called', function(done) {\n      let called = false;\n\n      provider.request = mockRequestSuccess;\n\n      provider.filterData = function(data) {\n        called = true;\n        return data;\n      }\n      provider.getEmbed(embed, function(embed) {\n        assert.isNull(embed.error);\n        assert.isTrue(called);\n        done();\n      });\n    });\n\n    /** @test {OEmbedProvider#getEmbed} */\n    it('should return an error object when it fails', function (done) {\n      provider.request = mockRequestSuccess;\n\n      provider.filterData = function(data) {\n        throw new Error('Intentional error');\n      }\n      provider.getEmbed(embed, function(embed) {\n        assert.isTrue((embed.error instanceof Error));\n        done();\n      });\n    });\n\n    /** @test {URLEmbedProvider#errorMarkup} */\n    it('should call errorMarkup when it fails', function(done) {\n      provider.request = mockRequestSuccess;\n\n      provider.filterData = function (data) {\n        throw new Error('Intentional error');\n      }\n\n      provider.errorMarkup = function(embed, error, errorMessage) {\n        assert.equal(embed.embedURL, matchingURL);\n        return failMarkup;\n      }\n      provider.getEmbed(embed, function(embed) {\n        assert.equal(embed.data.html, failMarkup);\n        done();\n      });\n    });\n\n    /** @test {URLEmbedProvider#errorMarkup} */\n    it('should call errorMarkup if the provider yields a non 200 response', function(done) {\n      provider.request = mockRequestFail;\n\n      let called = false;\n\n      provider.errorMarkup = function(embed, error, errorMessage) {\n        called = true;\n        assert.equal(embed.embedURL, matchingURL);\n        return failMarkup;\n      }\n\n      provider.getEmbed(embed, function(embed) {\n        assert.equal(embed.data.html, failMarkup);\n        done();\n      });\n    });\n\n    it('should call errorMarkup404 if the provider yields a 404 response and the provider supports the method', function(done) {\n      provider.request = mockRequestFail;\n\n      let called = false;\n\n      provider.errorMarkup404 = function(embed, error, errorMessage) {\n        called = true;\n        assert.equal(embed.embedURL, matchingURL);\n        return failMarkup;\n      }\n      provider.getEmbed(embed, function(embed) {\n        assert.equal(embed.data.html, failMarkup);\n        done();\n      });\n    });\n  });\n\n  /** @test {OEmbedProvider#buildAPIURL} */\n  describe('OEmbedProvider#buildAPIURL', function() {\n    it('should return a valid API url with all options accounted for', function() {\n      let options = {\n        embedURL: matchingURL,\n        maxWidth: 500,\n        maxHeight: 300\n      };\n\n      provider.defaultProviderQueryStringParameters = {\n        foo: 'bar'\n      }\n\n      let embed = new Embed(matchingURL, options);\n\n      let apiURL = provider.buildAPIURL(embed);\n      assert.match(apiURL, new RegExp('^' + providerURL));\n      assert.match(apiURL, /\\?.*maxheight=300/);\n      assert.match(apiURL, /\\?.*maxwidth=500/);\n      assert.match(apiURL, /\\?.*foo=bar/);\n    })\n  });\n\n  /** @test {OEmbedProvider#convertHighBitUnicodeToSurrogates} */\n  describe('OEmbedProvider#convertHighBitUnicodeToSurrogates', function() {\n    it('should convert the escaped code point for \"🚀\" to the corresponding escaped surrogate pair', function() {\n      assert.equal(provider.convertHighBitUnicodeToSurrogates('\\\\U0001f680'), '\\\\ud83d\\\\ude80');\n    });\n  });\n  \n});"
   },
   {
-    "__docId__": 205,
+    "__docId__": 202,
     "kind": "testDescribe",
     "static": true,
     "variation": null,
@@ -3762,7 +3707,7 @@
     ]
   },
   {
-    "__docId__": 206,
+    "__docId__": 203,
     "kind": "testDescribe",
     "static": true,
     "variation": null,
@@ -3785,7 +3730,7 @@
     ]
   },
   {
-    "__docId__": 207,
+    "__docId__": 204,
     "kind": "testIt",
     "static": true,
     "variation": null,
@@ -3808,7 +3753,7 @@
     ]
   },
   {
-    "__docId__": 208,
+    "__docId__": 205,
     "kind": "testIt",
     "static": true,
     "variation": null,
@@ -3831,7 +3776,7 @@
     ]
   },
   {
-    "__docId__": 209,
+    "__docId__": 206,
     "kind": "testDescribe",
     "static": true,
     "variation": null,
@@ -3854,7 +3799,7 @@
     ]
   },
   {
-    "__docId__": 210,
+    "__docId__": 207,
     "kind": "testIt",
     "static": true,
     "variation": null,
@@ -3877,7 +3822,7 @@
     ]
   },
   {
-    "__docId__": 211,
+    "__docId__": 208,
     "kind": "testIt",
     "static": true,
     "variation": null,
@@ -3900,7 +3845,7 @@
     ]
   },
   {
-    "__docId__": 212,
+    "__docId__": 209,
     "kind": "testDescribe",
     "static": true,
     "variation": null,
@@ -3923,7 +3868,7 @@
     ]
   },
   {
-    "__docId__": 213,
+    "__docId__": 210,
     "kind": "testIt",
     "static": true,
     "variation": null,
@@ -3946,7 +3891,7 @@
     ]
   },
   {
-    "__docId__": 214,
+    "__docId__": 211,
     "kind": "testIt",
     "static": true,
     "variation": null,
@@ -3969,7 +3914,7 @@
     ]
   },
   {
-    "__docId__": 215,
+    "__docId__": 212,
     "kind": "testIt",
     "static": true,
     "variation": null,
@@ -3992,7 +3937,7 @@
     ]
   },
   {
-    "__docId__": 216,
+    "__docId__": 213,
     "kind": "testIt",
     "static": true,
     "variation": null,
@@ -4015,7 +3960,7 @@
     ]
   },
   {
-    "__docId__": 217,
+    "__docId__": 214,
     "kind": "testIt",
     "static": true,
     "variation": null,
@@ -4038,7 +3983,7 @@
     ]
   },
   {
-    "__docId__": 218,
+    "__docId__": 215,
     "kind": "testIt",
     "static": true,
     "variation": null,
@@ -4052,7 +3997,7 @@
     "lineNumber": 161
   },
   {
-    "__docId__": 219,
+    "__docId__": 216,
     "kind": "testDescribe",
     "static": true,
     "variation": null,
@@ -4075,7 +4020,7 @@
     ]
   },
   {
-    "__docId__": 220,
+    "__docId__": 217,
     "kind": "testIt",
     "static": true,
     "variation": null,
@@ -4089,7 +4034,7 @@
     "lineNumber": 180
   },
   {
-    "__docId__": 221,
+    "__docId__": 218,
     "kind": "testDescribe",
     "static": true,
     "variation": null,
@@ -4112,7 +4057,7 @@
     ]
   },
   {
-    "__docId__": 222,
+    "__docId__": 219,
     "kind": "testIt",
     "static": true,
     "variation": null,
@@ -4126,7 +4071,7 @@
     "lineNumber": 203
   },
   {
-    "__docId__": 223,
+    "__docId__": 220,
     "kind": "testFile",
     "static": true,
     "variation": null,
@@ -4139,7 +4084,7 @@
     "content": "'use strict';\n\nlet assert = (require('chai')).assert;\n\nlet URLEmbedProvider = require('../../../lib/classes/URLEmbedProvider.js');\nlet Embed = require('../../../lib/classes/Embed.js');\nlet matchingURL = 'http://www.example.com/';\nlet nonMatchingURL = 'http://foo.com/';\nlet urlPatterns = ['^' + matchingURL + '.*'];\nlet failMarkup = '<strong>FAIL</strong>';\nlet provider;\nlet embed;\n\n/** @test {URLEmbedProvider} */\ndescribe('URLEmbedProvider', function() {\n  beforeEach(function () {\n    provider = new URLEmbedProvider(urlPatterns);\n    embed = new Embed(matchingURL);\n  });\n\n  /** @test {URLEmbedProvider#constructor} */\n  describe('URLEmbedProvider#constructor', function() {\n    /** @test {URLEmbedProvider#constructor} */\n    it('should contain a urlPatterns property', function() {\n      assert(urlPatterns, provider.urlPatterns);\n    });\n  });\n\n  /** @test {URLEmbedProvider#isMatch} */\n  describe('URLEmbedProvider#isMatch', function () {\n    /** @test {URLEmbedProvider#isMatch} */\n    it('should match the provider url', function() {\n      assert.isTrue(provider.isMatch(matchingURL + 'foo/bar'));\n    });\n    \n    /** @test {URLEmbedProvider#isMatch} */\n    it('should fail to match a different url', function() {\n      assert.isFalse(provider.isMatch(nonMatchingURL));\n    });\n  });\n\n  /** @test {URLEmbedProvider#getEmbed} */\n  describe('URLEmbedProvider#getEmbed', function() {\n\n    /** @test {URLEmbedProvider#getEmbed} */\n    it('should return the stub markup', function(done) {\n      provider.getEmbed(embed, function(embed) {\n        assert.isNull(embed.error);\n        assert.equal(embed.data.html, embed.stubMarkup);\n        done();\n      });\n    });\n\n    /** @test {URLEmbedProvider#filterData} */\n    it('filterData function should get called', function(done) {\n      let called = false;\n\n      provider.filterData = function(data) {\n        called = true;\n        return data;\n      }\n\n      provider.getEmbed(embed, function(embed) {\n        assert.isNull(embed.error);\n        assert.isTrue(called);\n        done();\n      });\n    });\n\n    /** @test {URLEmbedProvider#getEmbed} */\n    it('should return an error object when it fails', function (done) {\n      provider.filterData = function(data) {\n        throw new Error('Intentional error');\n      }\n\n      provider.getEmbed(embed, function(embed) {\n        assert.isTrue((embed.error instanceof Error));\n        done();\n      });\n    });\n\n    /** @test {URLEmbedProvider#errorMarkup} */\n    it('should call errorMarkup when it fails', function(done) {\n\n      provider.filterData = function (data) {\n        throw new Error('Intentional error');\n      }\n\n      provider.errorMarkup = function(embed, error, errorMessage) {\n        assert.equal(embed.embedURL, matchingURL);\n        return failMarkup;\n      }\n      provider.getEmbed(embed, function(embed) {\n        assert.equal(embed.data.html, failMarkup);\n        done();\n      });\n    });\n  });\n});"
   },
   {
-    "__docId__": 224,
+    "__docId__": 221,
     "kind": "testDescribe",
     "static": true,
     "variation": null,
@@ -4162,7 +4107,7 @@
     ]
   },
   {
-    "__docId__": 225,
+    "__docId__": 222,
     "kind": "testDescribe",
     "static": true,
     "variation": null,
@@ -4185,7 +4130,7 @@
     ]
   },
   {
-    "__docId__": 226,
+    "__docId__": 223,
     "kind": "testIt",
     "static": true,
     "variation": null,
@@ -4208,7 +4153,7 @@
     ]
   },
   {
-    "__docId__": 227,
+    "__docId__": 224,
     "kind": "testDescribe",
     "static": true,
     "variation": null,
@@ -4231,7 +4176,7 @@
     ]
   },
   {
-    "__docId__": 228,
+    "__docId__": 225,
     "kind": "testIt",
     "static": true,
     "variation": null,
@@ -4254,7 +4199,7 @@
     ]
   },
   {
-    "__docId__": 229,
+    "__docId__": 226,
     "kind": "testIt",
     "static": true,
     "variation": null,
@@ -4277,7 +4222,7 @@
     ]
   },
   {
-    "__docId__": 230,
+    "__docId__": 227,
     "kind": "testDescribe",
     "static": true,
     "variation": null,
@@ -4300,7 +4245,7 @@
     ]
   },
   {
-    "__docId__": 231,
+    "__docId__": 228,
     "kind": "testIt",
     "static": true,
     "variation": null,
@@ -4323,7 +4268,7 @@
     ]
   },
   {
-    "__docId__": 232,
+    "__docId__": 229,
     "kind": "testIt",
     "static": true,
     "variation": null,
@@ -4346,7 +4291,7 @@
     ]
   },
   {
-    "__docId__": 233,
+    "__docId__": 230,
     "kind": "testIt",
     "static": true,
     "variation": null,
@@ -4369,7 +4314,7 @@
     ]
   },
   {
-    "__docId__": 234,
+    "__docId__": 231,
     "kind": "testIt",
     "static": true,
     "variation": null,
@@ -4392,7 +4337,7 @@
     ]
   },
   {
-    "__docId__": 235,
+    "__docId__": 232,
     "kind": "testFile",
     "static": true,
     "variation": null,
@@ -4405,7 +4350,7 @@
     "content": "'use strict';\n\nlet assert = (require('chai')).assert;\nlet EmbedEngine = require('../../../../lib/classes/EmbedEngine.js');\n"
   },
   {
-    "__docId__": 236,
+    "__docId__": 233,
     "kind": "testFile",
     "static": true,
     "variation": null,

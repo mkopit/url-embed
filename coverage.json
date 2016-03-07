@@ -17,7 +17,7 @@
       "expectCount": 13,
       "actualCount": 12,
       "undocumentLines": [
-        153
+        146
       ]
     },
     "lib/classes/errors/EmbedValidationError.js": {
@@ -54,9 +54,9 @@
       "expectCount": 13,
       "actualCount": 10,
       "undocumentLines": [
-        44,
-        38,
-        247
+        47,
+        41,
+        249
       ]
     },
     "lib/classes/default_providers/Soundcloud.js": {
@@ -83,7 +83,7 @@
       "expectCount": 8,
       "actualCount": 7,
       "undocumentLines": [
-        19
+        16
       ]
     },
     "lib/classes/errors/UnexpectedStatusError.js": {

@@ -67,11 +67,9 @@
 <li><a href="http://mkopit.github.io/url-embed/class/lib/classes/URLEmbedProvider.js~URLEmbedProvider.html">URLEmbedProvider</a> interface: defines the basic methods that will get invoked by EmbedEngine</li>
 <li><a href="http://mkopit.github.io/url-embed/class/lib/classes/OEmbedProvider.js~OEmbedProvider.html">OEmbedProvider</a> interface: extends URLEmbedProvider and implements support for interacting with an oembed provider&apos;s API</li>
 <li><a href="http://mkopit.github.io/url-embed/class/lib/classes/Embed.js~Embed.html">Embed</a> class: the primary object passed through callbacks<ul>
+<li><a href="http://mkopit.github.io/url-embed/class/lib/classes/Embed.js~Embed.html#instance-member-embedURL">embedURL</a>: the URL to embed.</li>
 <li><a href="http://mkopit.github.io/url-embed/class/lib/classes/Embed.js~Embed.html#instance-member-error">error</a>: contains a reference to an Error object if an error occurred</li>
-<li><a href="http://mkopit.github.io/url-embed/class/lib/classes/Embed.js~Embed.html#instance-member-options">options</a>: options object the Embed was constructed from<ul>
-<li>embedURL: the URL to embed</li>
-</ul>
-</li>
+<li><a href="http://mkopit.github.io/url-embed/class/lib/classes/Embed.js~Embed.html#instance-member-options">options</a>: options object the Embed was constructed from</li>
 <li><a href="http://mkopit.github.io/url-embed/class/lib/classes/Embed.js~Embed.html#instance-member-data">data</a>: the data object from the resolved embed<ul>
 <li>html: the resulting embed markup.</li>
 </ul>
@@ -105,7 +103,9 @@
 <p>Example: Resolving a single embed</p>
 <pre><code class="lang-javascript"><code class="source-code prettyprint">&apos;use strict&apos;;
 
-let EmbedEngine = require(&apos;url-embed&apos;).EmbedEngine;
+let urlEmbed = require(&apos;url-embed&apos;);
+let EmbedEngine = urlEmbed.EmbedEngine;
+let Embed =  urlEmbed.Embed;
 let engine = new EmbedEngine({
   timeoutMs: 2000,
   referrer: &apos;www.example.com&apos;
@@ -113,12 +113,13 @@ let engine = new EmbedEngine({
 engine.registerDefaultProviders();
 
 let embedOptions = {
-  embedURL: &apos;https://www.youtube.com/watch?v=dQw4w9WgXcQ&apos;,
   maxHeight: 300
 }
 
+let embed = new Embed(&apos;https://www.youtube.com/watch?v=dQw4w9WgXcQ&apos;, embedOptions);
+
 // Get single embed
-engine.getEmbed(embedOptions, function(embed) {
+engine.getEmbed(embed, function(embed) {
   if (embed.error) {
     console.log(&apos;Something went wrong.&apos;);
     console.log(err.stack);
@@ -132,40 +133,43 @@ engine.getEmbed(embedOptions, function(embed) {
 <p>Example: Resolving muliple embeds in parallel</p>
 <pre><code class="lang-javascript"><code class="source-code prettyprint">&apos;use strict&apos;;
 
-let engine = new (require(&apos;url-embed&apos;).EmbedEngine)({
+let urlEmbed = require(&apos;url-embed&apos;);
+let EmbedEngine = urlEmbed.EmbedEngine;
+
+let engine = new EmbedEngine({
   timeoutMs: 2000,
   referrer: &apos;www.example.com&apos;
 });
 
 engine.registerDefaultProviders();
 
-let embedOptionArray = [
-  {embedURL: &apos;https://www.instagram.com/p/BCA0qkon9B1/?taken-by=mtv&apos;},
-  {embedURL: &apos;https://soundcloud.com/newyorker/listen-to-craig-raine-read-bitch&apos;},
-  {embedURL: &apos;https://www.youtube.com/watch?v=2LO4QL_i8is&apos;},
-  {embedURL: &apos;https://vimeo.com/156045670&apos;},
-  {embedURL: &apos;http://soundcloud.com/forss/flickermood&apos;},
-  {embedURL: &apos;https://www.flickr.com/photos/sas999/25092061391/in/explore-2016-02-22/&apos;},
-  {embedURL: &apos;http://www.dailymotion.com/video/x3lwpy7_the-worst-car-in-the-history-of-the-world-top-gear-bbc_auto&apos;},
-  {embedURL: &apos;https://www.facebook.com/facebook/videos/10153231379946729/&apos;},
-  {embedURL: &apos;https://www.facebook.com/MTV/posts/10153553500401701&apos;},
-  {embedURL: &apos;https://twitter.com/simpscreens/status/702025133951680512&apos;},
-  {embedURL: &apos;http://imgur.com/gallery/KSMB2tI&apos;},
-  {embedURL: &apos;https://play.spotify.com/track/0ivpUENLpheuPoa6VuY1ax&apos;},
-  {embedURL: &apos;http://mtv.tumblr.com/post/139813756155/kanye-west-taking-a-kanye-rest-so-he-can-do-his&apos;},
-  {embedURL: &apos;https://videopress.com/v/kUJmAcSf&apos;},
-  {embedURL: &apos;http://www.example.com/foo&apos;}
+let embedArray = [
+  new Embed(&apos;https://www.instagram.com/p/BCA0qkon9B1/?taken-by=mtv&apos;),
+  new Embed(&apos;https://soundcloud.com/newyorker/listen-to-craig-raine-read-bitch&apos;),
+  new Embed(&apos;https://www.youtube.com/watch?v=2LO4QL_i8is&apos;),
+  new Embed(&apos;https://vimeo.com/156045670&apos;),
+  new Embed(&apos;http://soundcloud.com/forss/flickermood&apos;),
+  new Embed(&apos;https://www.flickr.com/photos/sas999/25092061391/in/explore-2016-02-22/&apos;),
+  new Embed(&apos;http://www.dailymotion.com/video/x3lwpy7_the-worst-car-in-the-history-of-the-world-top-gear-bbc_auto&apos;),
+  new Embed(&apos;https://www.facebook.com/facebook/videos/10153231379946729/&apos;),
+  new Embed(&apos;https://www.facebook.com/MTV/posts/10153553500401701&apos;),
+  new Embed(&apos;https://twitter.com/simpscreens/status/702025133951680512&apos;),
+  new Embed(&apos;http://imgur.com/gallery/KSMB2tI&apos;),
+  new Embed(&apos;https://play.spotify.com/track/0ivpUENLpheuPoa6VuY1ax&apos;),
+  new Embed(&apos;http://mtv.tumblr.com/post/139813756155/kanye-west-taking-a-kanye-rest-so-he-can-do-his&apos;),
+  new Embed(&apos;https://videopress.com/v/kUJmAcSf&apos;),
+  new Embed(&apos;http://www.example.com/foo&apos;)
 ];
 
 // Get multiple embeds
-engine.getMultipleEmbeds(embedOptionArray, function (error, results) {
+engine.getMultipleEmbeds(embedArray, function (error, results) {
   if (error) {
     // Something horrible killed the whole process. Spooky.
   } else {
     for (let i = 0; i &lt; results.length; i++) {
       let embed = results[i];
 
-      console.log(&apos;\nEmbed for &apos; + embed.options.embedURL);
+      console.log(&apos;\nEmbed for &apos; + embed.embedURL);
       if (embed.error) {
         console.log(&apos;A tragedy occurred: &apos; + embed.error);
       }
@@ -201,7 +205,9 @@ module.exports = SoundCloud;</code>
 <p>Example: Creating a custom provider</p>
 <pre><code class="lang-javascript"><code class="source-code prettyprint">&apos;use strict&apos;;
 
-let URLEmbedProvider = (require(&apos;url-embed&apos;)).URLEmbedProvider;
+let urlEmbed = require(&apos;url-embed&apos;);
+let URLEmbedProvider = urlEmbed.URLEmbedProvider;
+let UnexpectedStatusError = urlEmbed.errorClasses.UnexpectedStatusError;
 
 class CustomProvider extends URLEmbedProvider {
 
@@ -209,16 +215,12 @@ class CustomProvider extends URLEmbedProvider {
   * @override
   */
   getEmbed (embed, callback) {
-    let embedURL = embed.options.embedURL;
-
     try {
       embed.data.html = &apos;&lt;iframe src=&quot;http://www.example.com/embed/video/12345&quot; width=&quot;512&quot; height=&quot;288&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;&apos;;
       this.filterData(embed.data);
       callback(embed);
     } catch (error) {
-      embed.data = {
-        html: this.errorMarkup(embedURL)
-      };
+      embed.data.html = this.errorMarkup(embed);
       embed.error = error;
       callback(embed);
     }
@@ -226,10 +228,19 @@ class CustomProvider extends URLEmbedProvider {
 
   /*
   * Optional custom override of function that generates error markup.
+  * Will deliver back customized messaging for missing items and API errors
   * @override
   */
-  errorMarkup (embed, error, errorMessage) {
-    return &apos;Oops. Something went wrong for: &lt;a href=&quot;&apos; + embed.options.embedURL + &apos;&quot;&gt;&apos; + embed.options.embedURL + &apos;&lt;/a&gt;&apos;;
+  errorMarkup (embed) {
+    if (embed.error instanceof UnexpectedStatusError) {
+      if (embed.error.status == 404) {
+        return &apos;Embed not found for: &apos; + embed.embedURL;
+      } else {
+        return &apos;Server returned an error for: &apos; + error.status + &apos; when resolving: &apos; + embed.embedURL;
+      }
+    }
+
+    return &apos;Oops. Something went wrong for: &lt;a href=&quot;&apos; + embed.embedURL + &apos;&quot;&gt;&apos; + embed.embedURL + &apos;&lt;/a&gt;&apos;;
   }
 }
 
@@ -256,6 +267,7 @@ engine.registerProvider(new CustomProvider());</code>
 <pre><code class="lang-javascript"><code class="source-code prettyprint">&apos;use strict&apos;;
 
 let urlEmbed = require(&apos;url-embed&apos;);
+let Embed = urlEmbed.Embed;
 let EmbedEngine = urlEmbed.EmbedEngine;
 let engine = new EmbedEngine();
 
@@ -272,7 +284,7 @@ class BetterYoutubeProvider extends Youtube {
 // Test it out
 engine.registerProvider(new BetterYoutubeProvider());
 
-engine.getEmbed({embedURL: &apos;https://www.youtube.com/watch?v=dQw4w9WgXcQ&apos;}, function(embed) {
+engine.getEmbed(new Embed(&apos;https://www.youtube.com/watch?v=dQw4w9WgXcQ&apos;), function(embed) {
   console.log(embed.data.html);
 });
 
@@ -289,6 +301,7 @@ engine.getEmbed({embedURL: &apos;https://www.youtube.com/watch?v=dQw4w9WgXcQ&apo
 <pre><code class="lang-javascript"><code class="source-code prettyprint">&apos;use strict&apos;;
 
 let urlEmbed = require(&apos;url-embed&apos;);
+let Embed = urlEmbed.Embed;
 let EmbedEngine = urlEmbed.EmbedEngine;
 let engine = new EmbedEngine();
 
@@ -310,11 +323,11 @@ engine.filterData = function(data) {
 
 engine.registerProvider(provider);
 
-engine.getEmbed({embedURL: &apos;https://www.youtube.com/watch?v=dQw4w9WgXcQ&apos;}, function(embed) {
+engine.getEmbed(new Embed(&apos;https://www.youtube.com/watch?v=dQw4w9WgXcQ&apos;), function(embed) {
   console.log(embed.data.html);
 });
 
-engine.getEmbed({embedURL: &apos;https://play.spotify.com/track/0ivpUENLpheuPoa6VuY1ax&apos;}, function(embed) {
+engine.getEmbed(new Embed(&apos;https://play.spotify.com/track/0ivpUENLpheuPoa6VuY1ax&apos;), function(embed) {
   console.log(embed.data.html);
 });
 

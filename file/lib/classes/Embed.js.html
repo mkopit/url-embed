@@ -59,6 +59,9 @@
 <div class="content" data-ice="content"><h1 data-ice="title">lib/classes/Embed.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;;
 
+/** @ignore */
+let EmbedValidationError = require(&apos;./errors/EmbedValidationError&apos;);
+
 /**
  * Embed data object that holds embedOptions and resulting data.
  */
@@ -66,8 +69,12 @@ class Embed {
   /**
   * @param {String} embedURL - URL to be embedded
   * @param {Object} embedOptions - Additional options
+  * @throws {EmbedValidationError} - if embedURL is undefined.
   */
   constructor (embedURL, embedOptions) {
+    if (!embedURL) {
+      throw new EmbedValidationError(&apos;embedURL is undefined&apos;);
+    }
     /**
     * The URL to be embedded
     * @type {String}
@@ -84,7 +91,7 @@ class Embed {
     * Options for this Embed
     * @type {Object}
     */
-    this.options = embedOptions ? embedOptions : {};
+    this.options = embedOptions || {};
 
     /**
     * Default markup for unprocessed embed.data.html
