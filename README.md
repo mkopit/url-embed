@@ -82,6 +82,7 @@ Example: Resolving muliple embeds in parallel
 
 let urlEmbed = require('url-embed');
 let EmbedEngine = urlEmbed.EmbedEngine;
+let Embed = urlEmbed.Embed;
 
 let engine = new EmbedEngine({
   timeoutMs: 2000,
@@ -223,6 +224,7 @@ let engine = new require('url-embed').EmbedEngine({
 });
 
 engine.registerProvider(new CustomProvider());
+
 ```
 
 ## Other tips, tricks and feats of strength
