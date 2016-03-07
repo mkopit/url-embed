@@ -1,7 +1,7 @@
 {
   "name": "url-embed",
-  "version": "1.0.0",
-  "description": "Flexible oembed module",
+  "version": "1.0.1",
+  "description": "Flexible oembed module written in ES6. Supports many existing providers. Can be easily extended to support new providers. Can resolve multiple oembeds asynchronously.",
   "main": "index.js",
   "scripts": {
     "lint": "semistandard | snazzy",
@@ -42,11 +42,19 @@
   "keywords": [
     "oembed",
     "embed",
-    "youtube",
-    "instagram",
-    "twitter",
-    "imgur",
-    "tumblr",
-    "soundcloud"
+    "Daily Motion",
+    "Facebook",
+    "Facebook Video",
+    "Facebook Posts",
+    "Flickr",
+    "Imgur",
+    "Instagram",
+    "Soundcloud",
+    "Spotify",
+    "Tumblr",
+    "Twitter",
+    "Videopress",
+    "Vimeo",
+    "Youtube"
   ]
 }
