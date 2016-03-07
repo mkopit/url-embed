@@ -1,6 +1,6 @@
 {
   "name": "url-embed",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Flexible oembed module written in ES6. Supports many existing providers. Can be easily extended to support new providers. Can resolve multiple oembeds asynchronously.",
   "main": "index.js",
   "scripts": {
