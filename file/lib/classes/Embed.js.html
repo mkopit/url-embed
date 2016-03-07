@@ -63,7 +63,17 @@
  * Embed data object that holds embedOptions and resulting data.
  */
 class Embed {
-  constructor () {
+  /**
+  * @param {String} embedURL - URL to be embedded
+  * @param {Object} embedOptions - Additional options
+  */
+  constructor (embedURL, embedOptions) {
+    /**
+    * The URL to be embedded
+    * @type {String}
+    */
+    this.embedURL = embedURL;
+
     /**
     * Will be populated with an Error object if an error occurs while processing this embed
     * @type {Error}
@@ -71,13 +81,10 @@ class Embed {
     this.error = null;
 
     /**
-    * Options for this embed.
-    *
-    * __MUST__ contain an embedURL property: the URL we are embedding
-    *
-    * @type {{embedURL:String}}
+    * Options for this Embed
+    * @type {Object}
     */
-    this.options = {};
+    this.options = embedOptions ? embedOptions : {};
 
     /**
     * Default markup for unprocessed embed.data.html

@@ -1,7 +1,7 @@
 {
-  "coverage": "90.9%",
-  "expectCount": 66,
-  "actualCount": 60,
+  "coverage": "92.53%",
+  "expectCount": 67,
+  "actualCount": 62,
   "files": {
     "lib/classes/default_providers/DailyMotion.js": {
       "expectCount": 1,
@@ -9,17 +9,15 @@
       "undocumentLines": []
     },
     "lib/classes/Embed.js": {
-      "expectCount": 12,
-      "actualCount": 11,
-      "undocumentLines": [
-        7
-      ]
+      "expectCount": 13,
+      "actualCount": 13,
+      "undocumentLines": []
     },
     "lib/classes/EmbedEngine.js": {
       "expectCount": 13,
       "actualCount": 12,
       "undocumentLines": [
-        160
+        153
       ]
     },
     "lib/classes/errors/EmbedValidationError.js": {
@@ -58,7 +56,7 @@
       "undocumentLines": [
         44,
         38,
-        254
+        247
       ]
     },
     "lib/classes/default_providers/Soundcloud.js": {

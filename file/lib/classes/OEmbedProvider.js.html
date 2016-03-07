@@ -114,14 +114,9 @@ class OEmbedProvider extends URLEmbedProvider {
   * @param {Embed} embed - Embed object
   * @param {function(embed:Embed)} callback - callback to invoke after resolving embed
   * @throws {UnexpectedStatusError} throws when provider API returns a non-200 response.
-  * @throws {EmbedValidationError} throws when Embed is missing embed.options.embedURL
   * @override
   */
   getEmbed (embed, callback) {
-    if (!embed || !embed.options || !embed.options.embedURL) {
-      throw new EmbedValidationError(&apos;Embed.options object missing required property: embedURL&apos;);
-    }
-
     this.makeAPIRequest(embed, function (embed) {
       callback(embed);
     });
@@ -135,8 +130,8 @@ class OEmbedProvider extends URLEmbedProvider {
   makeAPIRequest (embed, callback) {
     let self = this;
     let options = embed.options;
-    let requestOptions = self.buildRequestOptions(options);
-    let oembedAPIURL = self.buildAPIURL(options, requestOptions);
+    let requestOptions = self.buildRequestOptions(embed);
+    let oembedAPIURL = self.buildAPIURL(embed, requestOptions);
     requestOptions.url = oembedAPIURL;
 
     self.request(requestOptions, function (error, response, body) {
@@ -233,16 +228,15 @@ class OEmbedProvider extends URLEmbedProvider {
 
   /**
   * Builds the API URL string
-  * @param {Object} embedOptions - options object
-  * @param {String} embedOptions.embedURL - URL to be embedded
+  * @param {Embed} embed - Embed object
   * @return {String} - API URL
   */
-  buildAPIURL (embedOptions) {
+  buildAPIURL (embed) {
     let qs = {};
-    qs.url = embedOptions.embedURL;
+    qs.url = embed.embedURL;
     qs.format = this.format;
-    if (embedOptions.maxWidth) qs.maxwidth = embedOptions.maxWidth;
-    if (embedOptions.maxHeight) qs.maxheight = embedOptions.maxHeight;
+    if (embed.options.maxWidth) qs.maxwidth = embed.options.maxWidth;
+    if (embed.options.maxHeight) qs.maxheight = embed.options.maxHeight;
 
     if (this.defaultProviderQueryStringParameters) {
       for (let name in this.defaultProviderQueryStringParameters) {
@@ -256,11 +250,10 @@ class OEmbedProvider extends URLEmbedProvider {
   /**
   * Builds the HTTP request options (headers, etc.)
   * @see https://www.npmjs.com/package/request
-  * @param {Object} embedOptions - options object
-  * @param {String} embedOptions.embedURL - URL to be embedded
+  * @param {Embed} embed - Embed object
   * @return {Object} - request options
   */
-  buildRequestOptions (embedOptions) {
+  buildRequestOptions (embed) {
     if (!this.version) {
       let fileContents = fs.readFileSync(__dirname + &apos;/../../package.json&apos;);
       let packageJSON = JSON.parse(fileContents);

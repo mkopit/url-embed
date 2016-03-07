@@ -61,11 +61,23 @@
 
 let assert = (require(&apos;chai&apos;)).assert;
 let Embed = require(&apos;../../../lib/classes/Embed.js&apos;);
+let embedURL = &apos;http://www.example.com/foo&apos;;
+let embedOptions = {
+  foo: &apos;bar&apos;
+};
 let embed;
 
 describe(&apos;Embed&apos;, function() {
   beforeEach(function () {
-    embed = new Embed();
+    embed = new Embed(embedURL, embedOptions);
+  });
+  describe(&apos;Embed#constructor&apos;, function() {
+    it(&apos;embedURL should be set&apos;, function() {
+      assert.equal(embedURL, embed.embedURL);
+    });
+    it(&apos;options should be set&apos;, function() {
+      assert.equal(embedOptions, embed.options);
+    });
   });
   describe(&apos;Embed#markStarted&apos;, function() {
     it(&apos;embed.startedDate should be a Date object &apos;, function() {

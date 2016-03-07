@@ -208,7 +208,7 @@
     <td>
       <div>
         <p>
-           <span data-ice="name"><span><a href="class/lib/classes/URLEmbedProvider.js~URLEmbedProvider.html#instance-method-errorMarkup">errorMarkup</a></span></span><span data-ice="signature">(embed: <span><a href="class/lib/classes/Embed.js~Embed.html">Embed</a></span>, error: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error">Error</a></span>, errorMessage: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span></span>
+           <span data-ice="name"><span><a href="class/lib/classes/URLEmbedProvider.js~URLEmbedProvider.html#instance-method-errorMarkup">errorMarkup</a></span></span><span data-ice="signature">(embed: <span><a href="class/lib/classes/Embed.js~Embed.html">Embed</a></span>): <span>*</span></span>
         </p>
       </div>
       <div>
@@ -367,8 +367,8 @@
     <h4>Test:</h4>
     <ul>
       
-    <li data-ice="test"><span><a href="test-file/test/lib/classes/URLEmbedProvider.js.html#lineNumber24">URLEmbedProvider URLEmbedProvider#constructor</a></span></li>
-<li data-ice="test"><span><a href="test-file/test/lib/classes/URLEmbedProvider.js.html#lineNumber26">URLEmbedProvider URLEmbedProvider#constructor should contain a urlPatterns property</a></span></li>
+    <li data-ice="test"><span><a href="test-file/test/lib/classes/URLEmbedProvider.js.html#lineNumber22">URLEmbedProvider URLEmbedProvider#constructor</a></span></li>
+<li data-ice="test"><span><a href="test-file/test/lib/classes/URLEmbedProvider.js.html#lineNumber24">URLEmbedProvider URLEmbedProvider#constructor should contain a urlPatterns property</a></span></li>
 </ul>
   </div>
 
@@ -432,7 +432,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/classes/URLEmbedProvider.js.html#lineNumber87">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/classes/URLEmbedProvider.js.html#lineNumber74">source</a></span></span>
     </span>
   </h3>
 
@@ -485,11 +485,11 @@
     
     
     
-    <span data-ice="name">errorMarkup</span><span data-ice="signature">(embed: <span><a href="class/lib/classes/Embed.js~Embed.html">Embed</a></span>, error: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error">Error</a></span>, errorMessage: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span></span>
+    <span data-ice="name">errorMarkup</span><span data-ice="signature">(embed: <span><a href="class/lib/classes/Embed.js~Embed.html">Embed</a></span>): <span>*</span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/classes/URLEmbedProvider.js.html#lineNumber73">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/classes/URLEmbedProvider.js.html#lineNumber66">source</a></span></span>
     </span>
   </h3>
 
@@ -516,20 +516,6 @@
       <td data-ice="description"><p>Embed object</p>
 </td>
     </tr>
-<tr data-ice="property" data-depth="0">
-      <td data-ice="name" data-depth="0">error</td>
-      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error">Error</a></span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"><p>Error that was thrown</p>
-</td>
-    </tr>
-<tr data-ice="property" data-depth="0">
-      <td data-ice="name" data-depth="0">errorMessage</td>
-      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span></td>
-      <td data-ice="appendix"><ul><li>optional</li></ul></td>
-      <td data-ice="description"><p>Error message to display to the user.</p>
-</td>
-    </tr>
 </tbody>
   </table>
 </div>
@@ -539,9 +525,8 @@
     <h4>Return:</h4>
     <table>
       <tr>
-        <td class="return-type" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span></td>
-        <td class="return-desc" data-ice="returnDescription"><p>Markup</p>
-</td>
+        <td class="return-type" data-ice="returnType"><span>*</span></td>
+        
       </tr>
     </table>
     <div data-ice="returnProperties">
@@ -560,9 +545,9 @@
     <h4>Test:</h4>
     <ul>
       
-    <li data-ice="test"><span><a href="test-file/test/lib/classes/OEmbedProvider.js.html#lineNumber127">OEmbedProvider OEmbedProvider#getEmbed should call errorMarkup when it fails</a></span></li>
-<li data-ice="test"><span><a href="test-file/test/lib/classes/OEmbedProvider.js.html#lineNumber145">OEmbedProvider OEmbedProvider#getEmbed should call errorMarkup if the provider yields a non 200 response</a></span></li>
-<li data-ice="test"><span><a href="test-file/test/lib/classes/URLEmbedProvider.js.html#lineNumber85">URLEmbedProvider URLEmbedProvider#getEmbed should call errorMarkup when it fails</a></span></li>
+    <li data-ice="test"><span><a href="test-file/test/lib/classes/OEmbedProvider.js.html#lineNumber126">OEmbedProvider OEmbedProvider#getEmbed should call errorMarkup when it fails</a></span></li>
+<li data-ice="test"><span><a href="test-file/test/lib/classes/OEmbedProvider.js.html#lineNumber144">OEmbedProvider OEmbedProvider#getEmbed should call errorMarkup if the provider yields a non 200 response</a></span></li>
+<li data-ice="test"><span><a href="test-file/test/lib/classes/URLEmbedProvider.js.html#lineNumber83">URLEmbedProvider URLEmbedProvider#getEmbed should call errorMarkup when it fails</a></span></li>
 </ul>
   </div>
 
@@ -580,7 +565,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/classes/URLEmbedProvider.js.html#lineNumber64">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/classes/URLEmbedProvider.js.html#lineNumber60">source</a></span></span>
     </span>
   </h3>
 
@@ -626,8 +611,8 @@
     <h4>Test:</h4>
     <ul>
       
-    <li data-ice="test"><span><a href="test-file/test/lib/classes/OEmbedProvider.js.html#lineNumber97">OEmbedProvider OEmbedProvider#getEmbed filterData function should get called</a></span></li>
-<li data-ice="test"><span><a href="test-file/test/lib/classes/URLEmbedProvider.js.html#lineNumber57">URLEmbedProvider URLEmbedProvider#getEmbed filterData function should get called</a></span></li>
+    <li data-ice="test"><span><a href="test-file/test/lib/classes/OEmbedProvider.js.html#lineNumber96">OEmbedProvider OEmbedProvider#getEmbed filterData function should get called</a></span></li>
+<li data-ice="test"><span><a href="test-file/test/lib/classes/URLEmbedProvider.js.html#lineNumber55">URLEmbedProvider URLEmbedProvider#getEmbed filterData function should get called</a></span></li>
 </ul>
   </div>
 
@@ -698,9 +683,9 @@
     <h4>Test:</h4>
     <ul>
       
-    <li data-ice="test"><span><a href="test-file/test/lib/classes/URLEmbedProvider.js.html#lineNumber45">URLEmbedProvider URLEmbedProvider#getEmbed</a></span></li>
-<li data-ice="test"><span><a href="test-file/test/lib/classes/URLEmbedProvider.js.html#lineNumber48">URLEmbedProvider URLEmbedProvider#getEmbed should return the stub markup</a></span></li>
-<li data-ice="test"><span><a href="test-file/test/lib/classes/URLEmbedProvider.js.html#lineNumber73">URLEmbedProvider URLEmbedProvider#getEmbed should return an error object when it fails</a></span></li>
+    <li data-ice="test"><span><a href="test-file/test/lib/classes/URLEmbedProvider.js.html#lineNumber43">URLEmbedProvider URLEmbedProvider#getEmbed</a></span></li>
+<li data-ice="test"><span><a href="test-file/test/lib/classes/URLEmbedProvider.js.html#lineNumber46">URLEmbedProvider URLEmbedProvider#getEmbed should return the stub markup</a></span></li>
+<li data-ice="test"><span><a href="test-file/test/lib/classes/URLEmbedProvider.js.html#lineNumber71">URLEmbedProvider URLEmbedProvider#getEmbed should return an error object when it fails</a></span></li>
 </ul>
   </div>
 
@@ -774,12 +759,12 @@
     <h4>Test:</h4>
     <ul>
       
-    <li data-ice="test"><span><a href="test-file/test/lib/classes/OEmbedProvider.js.html#lineNumber71">OEmbedProvider OEmbedProvider#isMatch</a></span></li>
-<li data-ice="test"><span><a href="test-file/test/lib/classes/URLEmbedProvider.js.html#lineNumber32">URLEmbedProvider URLEmbedProvider#isMatch</a></span></li>
-<li data-ice="test"><span><a href="test-file/test/lib/classes/OEmbedProvider.js.html#lineNumber73">OEmbedProvider OEmbedProvider#isMatch should match the provider url</a></span></li>
-<li data-ice="test"><span><a href="test-file/test/lib/classes/OEmbedProvider.js.html#lineNumber78">OEmbedProvider OEmbedProvider#isMatch should fail to match a different url</a></span></li>
-<li data-ice="test"><span><a href="test-file/test/lib/classes/URLEmbedProvider.js.html#lineNumber34">URLEmbedProvider URLEmbedProvider#isMatch should match the provider url</a></span></li>
-<li data-ice="test"><span><a href="test-file/test/lib/classes/URLEmbedProvider.js.html#lineNumber39">URLEmbedProvider URLEmbedProvider#isMatch should fail to match a different url</a></span></li>
+    <li data-ice="test"><span><a href="test-file/test/lib/classes/OEmbedProvider.js.html#lineNumber70">OEmbedProvider OEmbedProvider#isMatch</a></span></li>
+<li data-ice="test"><span><a href="test-file/test/lib/classes/URLEmbedProvider.js.html#lineNumber30">URLEmbedProvider URLEmbedProvider#isMatch</a></span></li>
+<li data-ice="test"><span><a href="test-file/test/lib/classes/OEmbedProvider.js.html#lineNumber72">OEmbedProvider OEmbedProvider#isMatch should match the provider url</a></span></li>
+<li data-ice="test"><span><a href="test-file/test/lib/classes/OEmbedProvider.js.html#lineNumber77">OEmbedProvider OEmbedProvider#isMatch should fail to match a different url</a></span></li>
+<li data-ice="test"><span><a href="test-file/test/lib/classes/URLEmbedProvider.js.html#lineNumber32">URLEmbedProvider URLEmbedProvider#isMatch should match the provider url</a></span></li>
+<li data-ice="test"><span><a href="test-file/test/lib/classes/URLEmbedProvider.js.html#lineNumber37">URLEmbedProvider URLEmbedProvider#isMatch should fail to match a different url</a></span></li>
 </ul>
   </div>
 

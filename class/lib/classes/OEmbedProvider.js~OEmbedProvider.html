@@ -258,7 +258,7 @@
     <td>
       <div>
         <p>
-           <span data-ice="name"><span><a href="class/lib/classes/OEmbedProvider.js~OEmbedProvider.html#instance-method-buildAPIURL">buildAPIURL</a></span></span><span data-ice="signature">(embedOptions: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span></span>
+           <span data-ice="name"><span><a href="class/lib/classes/OEmbedProvider.js~OEmbedProvider.html#instance-method-buildAPIURL">buildAPIURL</a></span></span><span data-ice="signature">(embed: <span><a href="class/lib/classes/Embed.js~Embed.html">Embed</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span></span>
         </p>
       </div>
       <div>
@@ -284,7 +284,7 @@
     <td>
       <div>
         <p>
-           <span data-ice="name"><span><a href="class/lib/classes/OEmbedProvider.js~OEmbedProvider.html#instance-method-buildRequestOptions">buildRequestOptions</a></span></span><span data-ice="signature">(embedOptions: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></span>
+           <span data-ice="name"><span><a href="class/lib/classes/OEmbedProvider.js~OEmbedProvider.html#instance-method-buildRequestOptions">buildRequestOptions</a></span></span><span data-ice="signature">(embed: <span><a href="class/lib/classes/Embed.js~Embed.html">Embed</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></span>
         </p>
       </div>
       <div>
@@ -509,9 +509,9 @@
     <h4>Test:</h4>
     <ul>
       
-    <li data-ice="test"><span><a href="test-file/test/lib/classes/OEmbedProvider.js.html#lineNumber59">OEmbedProvider URLEmbedProvider#constructor</a></span></li>
-<li data-ice="test"><span><a href="test-file/test/lib/classes/OEmbedProvider.js.html#lineNumber61">OEmbedProvider URLEmbedProvider#constructor should contain a urlPatterns property</a></span></li>
-<li data-ice="test"><span><a href="test-file/test/lib/classes/OEmbedProvider.js.html#lineNumber65">OEmbedProvider URLEmbedProvider#constructor should contain a providerURL property</a></span></li>
+    <li data-ice="test"><span><a href="test-file/test/lib/classes/OEmbedProvider.js.html#lineNumber58">OEmbedProvider URLEmbedProvider#constructor</a></span></li>
+<li data-ice="test"><span><a href="test-file/test/lib/classes/OEmbedProvider.js.html#lineNumber60">OEmbedProvider URLEmbedProvider#constructor should contain a urlPatterns property</a></span></li>
+<li data-ice="test"><span><a href="test-file/test/lib/classes/OEmbedProvider.js.html#lineNumber64">OEmbedProvider URLEmbedProvider#constructor should contain a providerURL property</a></span></li>
 </ul>
   </div>
 
@@ -612,7 +612,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/classes/OEmbedProvider.js.html#lineNumber254">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/classes/OEmbedProvider.js.html#lineNumber247">source</a></span></span>
     </span>
   </h3>
 
@@ -692,11 +692,11 @@
     
     
     
-    <span data-ice="name">buildAPIURL</span><span data-ice="signature">(embedOptions: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span></span>
+    <span data-ice="name">buildAPIURL</span><span data-ice="signature">(embed: <span><a href="class/lib/classes/Embed.js~Embed.html">Embed</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/classes/OEmbedProvider.js.html#lineNumber181">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/classes/OEmbedProvider.js.html#lineNumber175">source</a></span></span>
     </span>
   </h3>
 
@@ -717,17 +717,10 @@
     <tbody>
     
     <tr data-ice="property" data-depth="0">
-      <td data-ice="name" data-depth="0">embedOptions</td>
-      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></td>
+      <td data-ice="name" data-depth="0">embed</td>
+      <td data-ice="type"><span><a href="class/lib/classes/Embed.js~Embed.html">Embed</a></span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"><p>options object</p>
-</td>
-    </tr>
-<tr data-ice="property" data-depth="1">
-      <td data-ice="name" data-depth="1">embedOptions.embedURL</td>
-      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"><p>URL to be embedded</p>
+      <td data-ice="description"><p>Embed object</p>
 </td>
     </tr>
 </tbody>
@@ -760,7 +753,7 @@
     <h4>Test:</h4>
     <ul>
       
-    <li data-ice="test"><span><a href="test-file/test/lib/classes/OEmbedProvider.js.html#lineNumber180">OEmbedProvider OEmbedProvider#buildAPIURL</a></span></li>
+    <li data-ice="test"><span><a href="test-file/test/lib/classes/OEmbedProvider.js.html#lineNumber179">OEmbedProvider OEmbedProvider#buildAPIURL</a></span></li>
 </ul>
   </div>
 
@@ -774,11 +767,11 @@
     
     
     
-    <span data-ice="name">buildRequestOptions</span><span data-ice="signature">(embedOptions: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></span>
+    <span data-ice="name">buildRequestOptions</span><span data-ice="signature">(embed: <span><a href="class/lib/classes/Embed.js~Embed.html">Embed</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/classes/OEmbedProvider.js.html#lineNumber204">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/classes/OEmbedProvider.js.html#lineNumber197">source</a></span></span>
     </span>
   </h3>
 
@@ -799,17 +792,10 @@
     <tbody>
     
     <tr data-ice="property" data-depth="0">
-      <td data-ice="name" data-depth="0">embedOptions</td>
-      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></td>
+      <td data-ice="name" data-depth="0">embed</td>
+      <td data-ice="type"><span><a href="class/lib/classes/Embed.js~Embed.html">Embed</a></span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"><p>options object</p>
-</td>
-    </tr>
-<tr data-ice="property" data-depth="1">
-      <td data-ice="name" data-depth="1">embedOptions.embedURL</td>
-      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"><p>URL to be embedded</p>
+      <td data-ice="description"><p>Embed object</p>
 </td>
     </tr>
 </tbody>
@@ -854,7 +840,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/classes/OEmbedProvider.js.html#lineNumber252">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/classes/OEmbedProvider.js.html#lineNumber245">source</a></span></span>
     </span>
   </h3>
 
@@ -918,7 +904,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/classes/OEmbedProvider.js.html#lineNumber237">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/classes/OEmbedProvider.js.html#lineNumber230">source</a></span></span>
     </span>
   </h3>
 
@@ -982,7 +968,7 @@ Notably, many newer emojis fall into this category.</p>
     <h4>Test:</h4>
     <ul>
       
-    <li data-ice="test"><span><a href="test-file/test/lib/classes/OEmbedProvider.js.html#lineNumber201">OEmbedProvider OEmbedProvider#convertHighBitUnicodeToSurrogates</a></span></li>
+    <li data-ice="test"><span><a href="test-file/test/lib/classes/OEmbedProvider.js.html#lineNumber202">OEmbedProvider OEmbedProvider#convertHighBitUnicodeToSurrogates</a></span></li>
 </ul>
   </div>
 
@@ -1000,7 +986,7 @@ Notably, many newer emojis fall into this category.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/classes/OEmbedProvider.js.html#lineNumber61">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/classes/OEmbedProvider.js.html#lineNumber60">source</a></span></span>
     </span>
   </h3>
 
@@ -1055,11 +1041,6 @@ Notably, many newer emojis fall into this category.</p>
         <td data-ice="throwDesc"><p>throws when provider API returns a non-200 response.</p>
 </td>
       </tr>
-<tr class="throw" data-ice="throw">
-        <td><p data-ice="throwName"><span><a href="class/lib/classes/errors/EmbedValidationError.js~EmbedValidationError.html">EmbedValidationError</a></span></p></td>
-        <td data-ice="throwDesc"><p>throws when Embed is missing embed.options.embedURL</p>
-</td>
-      </tr>
 </tbody>
     </table>
   </div>
@@ -1070,9 +1051,9 @@ Notably, many newer emojis fall into this category.</p>
     <h4>Test:</h4>
     <ul>
       
-    <li data-ice="test"><span><a href="test-file/test/lib/classes/OEmbedProvider.js.html#lineNumber84">OEmbedProvider OEmbedProvider#getEmbed</a></span></li>
-<li data-ice="test"><span><a href="test-file/test/lib/classes/OEmbedProvider.js.html#lineNumber87">OEmbedProvider OEmbedProvider#getEmbed successful: should return the body markup</a></span></li>
-<li data-ice="test"><span><a href="test-file/test/lib/classes/OEmbedProvider.js.html#lineNumber114">OEmbedProvider OEmbedProvider#getEmbed should return an error object when it fails</a></span></li>
+    <li data-ice="test"><span><a href="test-file/test/lib/classes/OEmbedProvider.js.html#lineNumber83">OEmbedProvider OEmbedProvider#getEmbed</a></span></li>
+<li data-ice="test"><span><a href="test-file/test/lib/classes/OEmbedProvider.js.html#lineNumber86">OEmbedProvider OEmbedProvider#getEmbed successful: should return the body markup</a></span></li>
+<li data-ice="test"><span><a href="test-file/test/lib/classes/OEmbedProvider.js.html#lineNumber113">OEmbedProvider OEmbedProvider#getEmbed should return an error object when it fails</a></span></li>
 </ul>
   </div>
 
@@ -1090,7 +1071,7 @@ Notably, many newer emojis fall into this category.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/classes/OEmbedProvider.js.html#lineNumber76">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/classes/OEmbedProvider.js.html#lineNumber71">source</a></span></span>
     </span>
   </h3>
 
@@ -1155,7 +1136,7 @@ Notably, many newer emojis fall into this category.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/classes/OEmbedProvider.js.html#lineNumber144">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/classes/OEmbedProvider.js.html#lineNumber139">source</a></span></span>
     </span>
   </h3>
 

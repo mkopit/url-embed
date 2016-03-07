@@ -451,115 +451,133 @@ window.esdocSearchIndex = [
   ],
   [
     "",
-    "test-file/test/lib/classes/Embed.js.html#lineNumber7",
+    "test-file/test/lib/classes/Embed.js.html#lineNumber11",
     "Embed",
     "test"
   ],
   [
     "",
-    "test-file/test/lib/classes/Embed.js.html#lineNumber17",
+    "test-file/test/lib/classes/Embed.js.html#lineNumber15",
+    "Embed Embed#constructor",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/lib/classes/Embed.js.html#lineNumber16",
+    "Embed Embed#constructor embedURL should be set",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/lib/classes/Embed.js.html#lineNumber19",
+    "Embed Embed#constructor options should be set",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/lib/classes/Embed.js.html#lineNumber29",
     "Embed Embed#markFinished",
     "test"
   ],
   [
     "",
-    "test-file/test/lib/classes/Embed.js.html#lineNumber23",
+    "test-file/test/lib/classes/Embed.js.html#lineNumber35",
     "Embed Embed#markFinished embed.elapsedMs should be a number",
     "test"
   ],
   [
     "",
-    "test-file/test/lib/classes/Embed.js.html#lineNumber18",
+    "test-file/test/lib/classes/Embed.js.html#lineNumber30",
     "Embed Embed#markFinished embed.finishedDate should be a Date object",
     "test"
   ],
   [
     "",
-    "test-file/test/lib/classes/Embed.js.html#lineNumber11",
+    "test-file/test/lib/classes/Embed.js.html#lineNumber23",
     "Embed Embed#markStarted",
     "test"
   ],
   [
     "",
-    "test-file/test/lib/classes/Embed.js.html#lineNumber12",
+    "test-file/test/lib/classes/Embed.js.html#lineNumber24",
     "Embed Embed#markStarted embed.startedDate should be a Date object ",
     "test"
   ],
   [
     "",
-    "test-file/test/lib/classes/EmbedEngine.js.html#lineNumber20",
+    "test-file/test/lib/classes/EmbedEngine.js.html#lineNumber21",
     "EmbedEngine",
     "test"
   ],
   [
     "",
-    "test-file/test/lib/classes/EmbedEngine.js.html#lineNumber24",
+    "test-file/test/lib/classes/EmbedEngine.js.html#lineNumber25",
     "EmbedEngine EmbedEngine#constructor",
     "test"
   ],
   [
     "",
-    "test-file/test/lib/classes/EmbedEngine.js.html#lineNumber25",
+    "test-file/test/lib/classes/EmbedEngine.js.html#lineNumber26",
     "EmbedEngine EmbedEngine#constructor should have a valid engine.engineOptions object",
     "test"
   ],
   [
     "",
-    "test-file/test/lib/classes/EmbedEngine.js.html#lineNumber49",
-    "EmbedEngine EmbedEngine#getEmbed",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/lib/classes/EmbedEngine.js.html#lineNumber60",
-    "EmbedEngine EmbedEngine#getEmbed",
-    "test"
-  ],
-  [
-    "",
     "test-file/test/lib/classes/EmbedEngine.js.html#lineNumber61",
-    "EmbedEngine EmbedEngine#getEmbed should call EmbedEngine.errorMarkupNoMatchingProvider for an url without a provider",
+    "EmbedEngine EmbedEngine#getEmbed",
     "test"
   ],
   [
     "",
     "test-file/test/lib/classes/EmbedEngine.js.html#lineNumber50",
+    "EmbedEngine EmbedEngine#getEmbed",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/lib/classes/EmbedEngine.js.html#lineNumber62",
+    "EmbedEngine EmbedEngine#getEmbed should call EmbedEngine.errorMarkupNoMatchingProvider for an url without a provider",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/lib/classes/EmbedEngine.js.html#lineNumber51",
     "EmbedEngine EmbedEngine#getEmbed should return markup for an embeddable url",
     "test"
   ],
   [
     "",
-    "test-file/test/lib/classes/EmbedEngine.js.html#lineNumber73",
+    "test-file/test/lib/classes/EmbedEngine.js.html#lineNumber74",
     "EmbedEngine EmbedEngine#getMultipleEmbeds",
     "test"
   ],
   [
     "",
-    "test-file/test/lib/classes/EmbedEngine.js.html#lineNumber74",
+    "test-file/test/lib/classes/EmbedEngine.js.html#lineNumber75",
     "EmbedEngine EmbedEngine#getMultipleEmbeds should return the same number of embeds as the original list",
     "test"
   ],
   [
     "",
-    "test-file/test/lib/classes/EmbedEngine.js.html#lineNumber30",
+    "test-file/test/lib/classes/EmbedEngine.js.html#lineNumber31",
     "EmbedEngine EmbedEngine#registerDefaultProviders",
     "test"
   ],
   [
     "",
-    "test-file/test/lib/classes/EmbedEngine.js.html#lineNumber31",
+    "test-file/test/lib/classes/EmbedEngine.js.html#lineNumber32",
     "EmbedEngine EmbedEngine#registerDefaultProviders should contain a populated providerRegistry of URLEmbedProvider instances",
     "test"
   ],
   [
     "",
-    "test-file/test/lib/classes/EmbedEngine.js.html#lineNumber40",
+    "test-file/test/lib/classes/EmbedEngine.js.html#lineNumber41",
     "EmbedEngine EmbedEngine#registerProvider",
     "test"
   ],
   [
     "",
-    "test-file/test/lib/classes/EmbedEngine.js.html#lineNumber41",
+    "test-file/test/lib/classes/EmbedEngine.js.html#lineNumber42",
     "EmbedEngine EmbedEngine#registerProvider EmbedEngine.providerRegistry should contain the new provider",
     "test"
   ],
@@ -571,103 +589,103 @@ window.esdocSearchIndex = [
   ],
   [
     "oembedprovider#buildapiurl lib/classes/oembedprovider.js~oembedprovider#buildapiurl,oembedprovider#buildapiurl",
-    "test-file/test/lib/classes/OEmbedProvider.js.html#lineNumber180",
+    "test-file/test/lib/classes/OEmbedProvider.js.html#lineNumber179",
     "OEmbedProvider OEmbedProvider#buildAPIURL",
     "test"
   ],
   [
     "",
-    "test-file/test/lib/classes/OEmbedProvider.js.html#lineNumber181",
+    "test-file/test/lib/classes/OEmbedProvider.js.html#lineNumber180",
     "OEmbedProvider OEmbedProvider#buildAPIURL should return a valid API url with all options accounted for",
     "test"
   ],
   [
     "oembedprovider#converthighbitunicodetosurrogates lib/classes/oembedprovider.js~oembedprovider#converthighbitunicodetosurrogates,oembedprovider#converthighbitunicodetosurrogates",
-    "test-file/test/lib/classes/OEmbedProvider.js.html#lineNumber201",
+    "test-file/test/lib/classes/OEmbedProvider.js.html#lineNumber202",
     "OEmbedProvider OEmbedProvider#convertHighBitUnicodeToSurrogates",
     "test"
   ],
   [
     "",
-    "test-file/test/lib/classes/OEmbedProvider.js.html#lineNumber202",
+    "test-file/test/lib/classes/OEmbedProvider.js.html#lineNumber203",
     "OEmbedProvider OEmbedProvider#convertHighBitUnicodeToSurrogates should convert the escaped code point for \"🚀\" to the corresponding escaped surrogate pair",
     "test"
   ],
   [
     "oembedprovider#getembed lib/classes/oembedprovider.js~oembedprovider#getembed,oembedprovider#getembed",
-    "test-file/test/lib/classes/OEmbedProvider.js.html#lineNumber84",
+    "test-file/test/lib/classes/OEmbedProvider.js.html#lineNumber83",
     "OEmbedProvider OEmbedProvider#getEmbed",
     "test"
   ],
   [
     "urlembedprovider#filterdata lib/classes/urlembedprovider.js~urlembedprovider#filterdata,urlembedprovider#filterdata",
-    "test-file/test/lib/classes/OEmbedProvider.js.html#lineNumber97",
+    "test-file/test/lib/classes/OEmbedProvider.js.html#lineNumber96",
     "OEmbedProvider OEmbedProvider#getEmbed filterData function should get called",
     "test"
   ],
   [
     "urlembedprovider#errormarkup lib/classes/urlembedprovider.js~urlembedprovider#errormarkup,urlembedprovider#errormarkup",
-    "test-file/test/lib/classes/OEmbedProvider.js.html#lineNumber145",
+    "test-file/test/lib/classes/OEmbedProvider.js.html#lineNumber144",
     "OEmbedProvider OEmbedProvider#getEmbed should call errorMarkup if the provider yields a non 200 response",
     "test"
   ],
   [
     "urlembedprovider#errormarkup lib/classes/urlembedprovider.js~urlembedprovider#errormarkup,urlembedprovider#errormarkup",
-    "test-file/test/lib/classes/OEmbedProvider.js.html#lineNumber127",
+    "test-file/test/lib/classes/OEmbedProvider.js.html#lineNumber126",
     "OEmbedProvider OEmbedProvider#getEmbed should call errorMarkup when it fails",
     "test"
   ],
   [
     "",
-    "test-file/test/lib/classes/OEmbedProvider.js.html#lineNumber162",
+    "test-file/test/lib/classes/OEmbedProvider.js.html#lineNumber161",
     "OEmbedProvider OEmbedProvider#getEmbed should call errorMarkup404 if the provider yields a 404 response and the provider supports the method",
     "test"
   ],
   [
     "oembedprovider#getembed lib/classes/oembedprovider.js~oembedprovider#getembed,oembedprovider#getembed",
-    "test-file/test/lib/classes/OEmbedProvider.js.html#lineNumber114",
+    "test-file/test/lib/classes/OEmbedProvider.js.html#lineNumber113",
     "OEmbedProvider OEmbedProvider#getEmbed should return an error object when it fails",
     "test"
   ],
   [
     "oembedprovider#getembed lib/classes/oembedprovider.js~oembedprovider#getembed,oembedprovider#getembed",
-    "test-file/test/lib/classes/OEmbedProvider.js.html#lineNumber87",
+    "test-file/test/lib/classes/OEmbedProvider.js.html#lineNumber86",
     "OEmbedProvider OEmbedProvider#getEmbed successful: should return the body markup",
     "test"
   ],
   [
     "urlembedprovider#ismatch lib/classes/urlembedprovider.js~urlembedprovider#ismatch,urlembedprovider#ismatch",
-    "test-file/test/lib/classes/OEmbedProvider.js.html#lineNumber71",
+    "test-file/test/lib/classes/OEmbedProvider.js.html#lineNumber70",
     "OEmbedProvider OEmbedProvider#isMatch",
     "test"
   ],
   [
     "urlembedprovider#ismatch lib/classes/urlembedprovider.js~urlembedprovider#ismatch,urlembedprovider#ismatch",
-    "test-file/test/lib/classes/OEmbedProvider.js.html#lineNumber78",
+    "test-file/test/lib/classes/OEmbedProvider.js.html#lineNumber77",
     "OEmbedProvider OEmbedProvider#isMatch should fail to match a different url",
     "test"
   ],
   [
     "urlembedprovider#ismatch lib/classes/urlembedprovider.js~urlembedprovider#ismatch,urlembedprovider#ismatch",
-    "test-file/test/lib/classes/OEmbedProvider.js.html#lineNumber73",
+    "test-file/test/lib/classes/OEmbedProvider.js.html#lineNumber72",
     "OEmbedProvider OEmbedProvider#isMatch should match the provider url",
     "test"
   ],
   [
     "oembedprovider#constructor lib/classes/oembedprovider.js~oembedprovider#constructor,oembedprovider#constructor",
-    "test-file/test/lib/classes/OEmbedProvider.js.html#lineNumber59",
+    "test-file/test/lib/classes/OEmbedProvider.js.html#lineNumber58",
     "OEmbedProvider URLEmbedProvider#constructor",
     "test"
   ],
   [
     "oembedprovider#constructor lib/classes/oembedprovider.js~oembedprovider#constructor,oembedprovider#constructor",
-    "test-file/test/lib/classes/OEmbedProvider.js.html#lineNumber65",
+    "test-file/test/lib/classes/OEmbedProvider.js.html#lineNumber64",
     "OEmbedProvider URLEmbedProvider#constructor should contain a providerURL property",
     "test"
   ],
   [
     "oembedprovider#constructor lib/classes/oembedprovider.js~oembedprovider#constructor,oembedprovider#constructor",
-    "test-file/test/lib/classes/OEmbedProvider.js.html#lineNumber61",
+    "test-file/test/lib/classes/OEmbedProvider.js.html#lineNumber60",
     "OEmbedProvider URLEmbedProvider#constructor should contain a urlPatterns property",
     "test"
   ],
@@ -679,61 +697,61 @@ window.esdocSearchIndex = [
   ],
   [
     "urlembedprovider#constructor lib/classes/urlembedprovider.js~urlembedprovider#constructor,urlembedprovider#constructor",
-    "test-file/test/lib/classes/URLEmbedProvider.js.html#lineNumber24",
+    "test-file/test/lib/classes/URLEmbedProvider.js.html#lineNumber22",
     "URLEmbedProvider URLEmbedProvider#constructor",
     "test"
   ],
   [
     "urlembedprovider#constructor lib/classes/urlembedprovider.js~urlembedprovider#constructor,urlembedprovider#constructor",
-    "test-file/test/lib/classes/URLEmbedProvider.js.html#lineNumber26",
+    "test-file/test/lib/classes/URLEmbedProvider.js.html#lineNumber24",
     "URLEmbedProvider URLEmbedProvider#constructor should contain a urlPatterns property",
     "test"
   ],
   [
     "urlembedprovider#getembed lib/classes/urlembedprovider.js~urlembedprovider#getembed,urlembedprovider#getembed",
-    "test-file/test/lib/classes/URLEmbedProvider.js.html#lineNumber45",
+    "test-file/test/lib/classes/URLEmbedProvider.js.html#lineNumber43",
     "URLEmbedProvider URLEmbedProvider#getEmbed",
     "test"
   ],
   [
     "urlembedprovider#filterdata lib/classes/urlembedprovider.js~urlembedprovider#filterdata,urlembedprovider#filterdata",
-    "test-file/test/lib/classes/URLEmbedProvider.js.html#lineNumber57",
+    "test-file/test/lib/classes/URLEmbedProvider.js.html#lineNumber55",
     "URLEmbedProvider URLEmbedProvider#getEmbed filterData function should get called",
     "test"
   ],
   [
     "urlembedprovider#errormarkup lib/classes/urlembedprovider.js~urlembedprovider#errormarkup,urlembedprovider#errormarkup",
-    "test-file/test/lib/classes/URLEmbedProvider.js.html#lineNumber85",
+    "test-file/test/lib/classes/URLEmbedProvider.js.html#lineNumber83",
     "URLEmbedProvider URLEmbedProvider#getEmbed should call errorMarkup when it fails",
     "test"
   ],
   [
     "urlembedprovider#getembed lib/classes/urlembedprovider.js~urlembedprovider#getembed,urlembedprovider#getembed",
-    "test-file/test/lib/classes/URLEmbedProvider.js.html#lineNumber73",
+    "test-file/test/lib/classes/URLEmbedProvider.js.html#lineNumber71",
     "URLEmbedProvider URLEmbedProvider#getEmbed should return an error object when it fails",
     "test"
   ],
   [
     "urlembedprovider#getembed lib/classes/urlembedprovider.js~urlembedprovider#getembed,urlembedprovider#getembed",
-    "test-file/test/lib/classes/URLEmbedProvider.js.html#lineNumber48",
+    "test-file/test/lib/classes/URLEmbedProvider.js.html#lineNumber46",
     "URLEmbedProvider URLEmbedProvider#getEmbed should return the stub markup",
     "test"
   ],
   [
     "urlembedprovider#ismatch lib/classes/urlembedprovider.js~urlembedprovider#ismatch,urlembedprovider#ismatch",
-    "test-file/test/lib/classes/URLEmbedProvider.js.html#lineNumber32",
+    "test-file/test/lib/classes/URLEmbedProvider.js.html#lineNumber30",
     "URLEmbedProvider URLEmbedProvider#isMatch",
     "test"
   ],
   [
     "urlembedprovider#ismatch lib/classes/urlembedprovider.js~urlembedprovider#ismatch,urlembedprovider#ismatch",
-    "test-file/test/lib/classes/URLEmbedProvider.js.html#lineNumber39",
+    "test-file/test/lib/classes/URLEmbedProvider.js.html#lineNumber37",
     "URLEmbedProvider URLEmbedProvider#isMatch should fail to match a different url",
     "test"
   ],
   [
     "urlembedprovider#ismatch lib/classes/urlembedprovider.js~urlembedprovider#ismatch,urlembedprovider#ismatch",
-    "test-file/test/lib/classes/URLEmbedProvider.js.html#lineNumber34",
+    "test-file/test/lib/classes/URLEmbedProvider.js.html#lineNumber32",
     "URLEmbedProvider URLEmbedProvider#isMatch should match the provider url",
     "test"
   ],
@@ -759,6 +777,12 @@ window.esdocSearchIndex = [
     "lib/classes/embed.js~embed#elapsedms",
     "class/lib/classes/Embed.js~Embed.html#instance-member-elapsedMs",
     "lib/classes/Embed.js~Embed#elapsedMs",
+    "member"
+  ],
+  [
+    "lib/classes/embed.js~embed#embedurl",
+    "class/lib/classes/Embed.js~Embed.html#instance-member-embedURL",
+    "lib/classes/Embed.js~Embed#embedURL",
     "member"
   ],
   [

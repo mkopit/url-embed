@@ -281,7 +281,7 @@
     <td>
       <div>
         <p>
-           <span data-ice="name"><span><a href="class/lib/classes/EmbedEngine.js~EmbedEngine.html#instance-method-errorMarkupNoMatchingProvider">errorMarkupNoMatchingProvider</a></span></span><span data-ice="signature">(embed: <span><a href="class/lib/classes/Embed.js~Embed.html">Embed</a></span>, error: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error">Error</a></span>, errorMessage: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span></span>
+           <span data-ice="name"><span><a href="class/lib/classes/EmbedEngine.js~EmbedEngine.html#instance-method-errorMarkupNoMatchingProvider">errorMarkupNoMatchingProvider</a></span></span><span data-ice="signature">(embed: <span><a href="class/lib/classes/Embed.js~Embed.html">Embed</a></span>): <span>*</span></span>
         </p>
       </div>
       <div>
@@ -334,13 +334,13 @@
     <td>
       <div>
         <p>
-           <span data-ice="name"><span><a href="class/lib/classes/EmbedEngine.js~EmbedEngine.html#instance-method-getEmbed">getEmbed</a></span></span><span data-ice="signature">(embedOptions: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>, callback: <span><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">function</a></span><span>(embed: <span><a href="class/lib/classes/Embed.js~Embed.html">Embed</a></span>)</span></span>)</span>
+           <span data-ice="name"><span><a href="class/lib/classes/EmbedEngine.js~EmbedEngine.html#instance-method-getEmbed">getEmbed</a></span></span><span data-ice="signature">(embed: <span><a href="class/lib/classes/Embed.js~Embed.html">Embed</a></span>, callback: <span><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">function</a></span><span>(embed: <span><a href="class/lib/classes/Embed.js~Embed.html">Embed</a></span>)</span></span>)</span>
         </p>
       </div>
       <div>
         
         
-        <div data-ice="description"><p>Resolves embedOptions.embedURL to an embed and passes it to callback.</p>
+        <div data-ice="description"><p>Resolves an Embed object, populating its data property and calling the callback</p>
 </div>
       </div>
     </td>
@@ -735,11 +735,11 @@
     
     
     
-    <span data-ice="name">errorMarkupNoMatchingProvider</span><span data-ice="signature">(embed: <span><a href="class/lib/classes/Embed.js~Embed.html">Embed</a></span>, error: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error">Error</a></span>, errorMessage: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span></span>
+    <span data-ice="name">errorMarkupNoMatchingProvider</span><span data-ice="signature">(embed: <span><a href="class/lib/classes/Embed.js~Embed.html">Embed</a></span>): <span>*</span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/classes/EmbedEngine.js.html#lineNumber180">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/classes/EmbedEngine.js.html#lineNumber170">source</a></span></span>
     </span>
   </h3>
 
@@ -766,20 +766,6 @@
       <td data-ice="description"><p>Embed object</p>
 </td>
     </tr>
-<tr data-ice="property" data-depth="0">
-      <td data-ice="name" data-depth="0">error</td>
-      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error">Error</a></span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"><p><code>Error</code> that was thrown</p>
-</td>
-    </tr>
-<tr data-ice="property" data-depth="0">
-      <td data-ice="name" data-depth="0">errorMessage</td>
-      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span></td>
-      <td data-ice="appendix"><ul><li>optional</li></ul></td>
-      <td data-ice="description"><p>Error message to display to the user.</p>
-</td>
-    </tr>
 </tbody>
   </table>
 </div>
@@ -789,9 +775,8 @@
     <h4>Return:</h4>
     <table>
       <tr>
-        <td class="return-type" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span></td>
-        <td class="return-desc" data-ice="returnDescription"><p>Markup</p>
-</td>
+        <td class="return-type" data-ice="returnType"><span>*</span></td>
+        
       </tr>
     </table>
     <div data-ice="returnProperties">
@@ -822,7 +807,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/classes/EmbedEngine.js.html#lineNumber195">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/classes/EmbedEngine.js.html#lineNumber179">source</a></span></span>
     </span>
   </h3>
 
@@ -877,18 +862,18 @@
     
     
     
-    <span data-ice="name">getEmbed</span><span data-ice="signature">(embedOptions: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>, callback: <span><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">function</a></span><span>(embed: <span><a href="class/lib/classes/Embed.js~Embed.html">Embed</a></span>)</span></span>)</span>
+    <span data-ice="name">getEmbed</span><span data-ice="signature">(embed: <span><a href="class/lib/classes/Embed.js~Embed.html">Embed</a></span>, callback: <span><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">function</a></span><span>(embed: <span><a href="class/lib/classes/Embed.js~Embed.html">Embed</a></span>)</span></span>)</span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/classes/EmbedEngine.js.html#lineNumber115">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/classes/EmbedEngine.js.html#lineNumber114">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  <div data-ice="description"><p>Resolves embedOptions.embedURL to an embed and passes it to callback.</p>
+  <div data-ice="description"><p>Resolves an Embed object, populating its data property and calling the callback</p>
 </div>
 
   
@@ -902,24 +887,17 @@
     <tbody>
     
     <tr data-ice="property" data-depth="0">
-      <td data-ice="name" data-depth="0">embedOptions</td>
-      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></td>
+      <td data-ice="name" data-depth="0">embed</td>
+      <td data-ice="type"><span><a href="class/lib/classes/Embed.js~Embed.html">Embed</a></span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"><p>options object</p>
-</td>
-    </tr>
-<tr data-ice="property" data-depth="1">
-      <td data-ice="name" data-depth="1">embedOptions.embedURL</td>
-      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"><p>URL to be embedded</p>
+      <td data-ice="description"><p>Embed object</p>
 </td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" data-depth="0">callback</td>
       <td data-ice="type"><span><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">function</a></span><span>(embed: <span><a href="class/lib/classes/Embed.js~Embed.html">Embed</a></span>)</span></span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"><p>callback to invoke after resolving embed</p>
+      <td data-ice="description"><p>callback to invoke after resolving Embed</p>
 </td>
     </tr>
 </tbody>
@@ -953,7 +931,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/classes/EmbedEngine.js.html#lineNumber160">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/classes/EmbedEngine.js.html#lineNumber153">source</a></span></span>
     </span>
   </h3>
 

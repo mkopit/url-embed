@@ -100,18 +100,14 @@ class URLEmbedProvider {
   * @param {function(error: Error, data: Object)} callback - callback to invoke after resolving embed
   */
   getEmbed (embed, callback) {
-    if (!embed || !embed.options || !embed.options.embedURL) {
-      throw new EmbedValidationError(&apos;embed.options object missing required property: embedURL&apos;);
-    }
-
     try {
       this.filterData(embed.data);
       callback(embed);
     } catch (error) {
-      embed.data = {
-        html: this.errorMarkup(embed, error)
-      };
       embed.error = error;
+      embed.data = {
+        html: this.errorMarkup(embed)
+      };
       callback(embed);
     }
   }
@@ -125,18 +121,9 @@ class URLEmbedProvider {
   /**
   * Returns markup if an error occurs resolving the embed
   * @param {Embed} embed - Embed object
-  * @param {Error} error - Error that was thrown
-  * @param {String} [errorMessage] - Error message to display to the user.
-  * @return {String} Markup
   */
-  errorMarkup (embed, error, errorMessage) {
-    let embedOptions = embed.options;
-    let embedURL = embedOptions.embedURL;
-
-    if (!errorMessage) {
-      errorMessage = embedOptions.embedURL;
-    }
-    return &apos;&lt;a href=&quot;&apos; + embedURL + &apos;&quot;&gt;&apos; + embedURL + &apos;&lt;/a&gt;&apos;;
+  errorMarkup (embed) {
+    return &apos;&lt;a href=&quot;&apos; + embed.embedURL + &apos;&quot;&gt;&apos; + embed.embedURL + &apos;&lt;/a&gt;&apos;;
   }
 
   /**

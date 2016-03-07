@@ -166,19 +166,12 @@ class EmbedEngine {
   }
 
   /**
-  * Resolves embedOptions.embedURL to an embed and passes it to callback.
-  * @param {Object} embedOptions - options object
-  * @param {String} embedOptions.embedURL - URL to be embedded
-  * @param {function(embed: Embed)} callback - callback to invoke after resolving embed
+  * Resolves an Embed object, populating its data property and calling the callback
+  * @param {Embed} embed - Embed object
+  * @param {function(embed: Embed)} callback - callback to invoke after resolving Embed
   */
-  getEmbed (embedOptions, callback) {
-    if (!embedOptions || !embedOptions.embedURL) {
-      throw new EmbedValidationError(&apos;embedOptions object missing required property: embedURL&apos;);
-    }
+  getEmbed (embed, callback) {
 
-    let embed = new Embed();
-    embed.options = embedOptions;
-    let embedURL = embedOptions.embedURL;
     embed.markStarted();
 
     let providerFound = false;
@@ -187,7 +180,7 @@ class EmbedEngine {
       let provider = this.providerRegistry[idx];
       let self = this;
 
-      if (provider.isMatch(embedURL)) {
+      if (provider.isMatch(embed.embedURL)) {
         providerFound = true;
 
         provider.getEmbed(embed, function (embed) {
@@ -202,7 +195,7 @@ class EmbedEngine {
     }
 
     if (!providerFound) {
-      embed.error = new UnknownProviderError(&apos;Unknown embed provider for url: &apos; + embedURL);
+      embed.error = new UnknownProviderError(&apos;Unknown embed provider for url: &apos; + embed.embedURL);
       embed.data = {
         html: this.errorMarkupNoMatchingProvider(embed)
       };
@@ -232,18 +225,9 @@ class EmbedEngine {
   /**
   * Returns error markup if there was no provider that matched the embedURL
   * @param {Embed} embed - Embed object
-  * @param {Error} error - &lt;code&gt;Error&lt;/code&gt; that was thrown
-  * @param {String} [errorMessage] - Error message to display to the user.
-  * @return {String} Markup
   */
-  errorMarkupNoMatchingProvider (embed, error, errorMessage) {
-    let embedOptions = embed.options;
-    let embedURL = embedOptions.embedURL;
-
-    if (!errorMessage) {
-      errorMessage = embedOptions.embedURL;
-    }
-    return &apos;&lt;a href=&quot;&apos; + embedURL + &apos;&quot;&gt;&apos; + embedURL + &apos;&lt;/a&gt;&apos;;
+  errorMarkupNoMatchingProvider (embed) {
+    return &apos;&lt;a href=&quot;&apos; + embed.embedURL + &apos;&quot;&gt;&apos; + embed.embedURL + &apos;&lt;/a&gt;&apos;;
   }
 
   /**

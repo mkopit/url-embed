@@ -60,6 +60,7 @@
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;;
 
 let assert = (require(&apos;chai&apos;)).assert;
+let Embed = require(&apos;../../../lib/classes/Embed.js&apos;);
 let EmbedEngine = require(&apos;../../../lib/classes/EmbedEngine.js&apos;);
 let URLEmbedProvider = require(&apos;../../../lib/classes/URLEmbedProvider.js&apos;);
 let YoutubeProvider = require(&apos;../../../lib/classes/default_providers/youtube.js&apos;);
@@ -109,7 +110,7 @@ describe(&apos;EmbedEngine&apos;, function() {
     it(&apos;should return markup for an embeddable url&apos;, function(done) {
       let engine = new EmbedEngine(engineOptions);
       engine.registerProvider(new CustomProvider());
-      engine.getEmbed({embedURL : matchingEmbedURL}, function(embed) {
+      engine.getEmbed(new Embed(matchingEmbedURL), function(embed) {
         assert.match(embed.data.html, /&lt;iframe.*/);
         done();
       })
@@ -122,7 +123,7 @@ describe(&apos;EmbedEngine&apos;, function() {
       engine.errorMarkupNoMatchingProvider = function (embed, error, errorMessage) {
         return &apos;foo&apos;;
       }
-      engine.getEmbed({embedURL: nonMatchingEmbedURL}, function(embed) {
+      engine.getEmbed(new Embed(nonMatchingEmbedURL), function(embed) {
         assert.equal(embed.data.html, &apos;foo&apos;);
         done();
       });
@@ -136,12 +137,13 @@ describe(&apos;EmbedEngine&apos;, function() {
       let engine = new EmbedEngine(engineOptions);
       engine.registerProvider(new CustomProvider());
 
-      let optionArray = [];
+      let embedArray = [];
       for (let i = 0; i &lt; embedURLs.length; i++) {
-        optionArray.push({embedURL : embedURLs[i]});
+        let embed = new Embed(embedURLs[i]);
+        embedArray.push(embed);
       }
 
-      engine.getMultipleEmbeds(optionArray, function(error, results) {
+      engine.getMultipleEmbeds(embedArray, function(error, results) {
         assert.equal(embedURLs.length, results.length);
         done();
       });

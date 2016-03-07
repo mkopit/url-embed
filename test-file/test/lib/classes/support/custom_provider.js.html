@@ -68,7 +68,7 @@ class CustomProvider extends URLEmbedProvider {
     @override
   */
   getEmbed (embed, callback) {
-    let embedURL = embed.options.embedURL;
+    let embedURL = embed.embedURL;
 
     try {
       embed.data.html = &apos;&lt;iframe src=&quot;http://www.example.com/embed/video/12345&quot; width=&quot;512&quot; height=&quot;288&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;&apos;;
